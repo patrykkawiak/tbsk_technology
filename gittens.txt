@@ -1,30 +1,20 @@
-cd rebax
-git add .
-git commit -m "tekst"
-git push -u tbsk kacper
-git checkout main
-git merge kacper
-git push -u rebax main
+git clone https://github.com/patrykkawiak/tbsk_technolgy.git
 
-
-
-
-git clone https://github.com/patrykkawiak/Rebax.git
-
-git remote add rebax https://github.com/patrykkawiak/Rebax.git
+git remote add tbsk https://github.com/patrykkawiak/tbsk_technolgy.git
 
 git checkout --track rebax/nazwa_brancha ( tylko za pierwszym razem) | git checkout nazwa_brancha
 
 git pull https://github.com/patrykkawiak/Rebax.git - pobieranie plikow z maina do brancha
 
+cd tbsk
+git add .
+git commit -m "tekst"
+git push -u tbsk <nazwa_brancha>
+git checkout main
+git merge <nazwa_brancha>
+git push -u tbsk main
+
 git pull - po wejsciu 
 git log - kto co robil
 
 ===================================
-echo "# tbsk_technolgy" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/patrykkawiak/tbsk_technolgy.git
-git push -u origin main
