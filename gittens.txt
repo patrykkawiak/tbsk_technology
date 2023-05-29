@@ -9,9 +9,9 @@ git push -u rebax main
 
 
 
-git clone https://github.com/patrykkawiak/Rebax.git
+git clone https://github.com/patrykkawiak/tbsk_technolgy.git
 
-git remote add rebax https://github.com/patrykkawiak/Rebax.git
+git remote add rebax https://github.com/patrykkawiak/tbsk_technolgy.git
 
 git checkout --track rebax/nazwa_brancha ( tylko za pierwszym razem) | git checkout nazwa_brancha
 
