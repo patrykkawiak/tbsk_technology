@@ -1,0 +1,19 @@
+@use '../utilities/colors' as *;
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  padding: .5em;
+  height: 100vh;
+  background-image: $header-section-gradient;
+  h1 {
+    margin-top: 2em;
+    font-size: 1em;
+    .highlight {
+      font-size: 1.1em;
+      text-transform: uppercase;
+    }
+  }
+}

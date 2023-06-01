@@ -1,5 +1,10 @@
 @use 'utilities/colors' as *;
 @use 'base/reset' as *;
 @use 'utilities/classes';
+@use 'components/buttons' as *;
+@use 'layouts/navigation'as *;
+@use 'layouts/header' as *;
 
-
+body {
+  font-size: 3.2rem;
+}
