@@ -27,7 +27,6 @@ const paths = {
     jsDest: './dist/js',
     imgDest: './dist/img',
     dist: './dist'
-
 }
 
 

@@ -1,0 +1,12 @@
+.section {
+  padding: 1em;
+  &__title {
+    font-size: 1em;
+  }
+  &__text {
+    font-size: .65em;
+    &--big {
+      font-size: .8em;
+    }
+  }
+}
