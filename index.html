@@ -1,15 +1,73 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>TBSK Technology</title>
-	<link rel="stylesheet" href="./dist/css/main.min.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TBSK Technology</title>
+  <!-- BOX-ICONS FONT USAGE -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <link rel="stylesheet" href="./dist/css/main.min.css">
 </head>
+
 <body>
-	<h1>Dawid</h1>
-	
-	<script src="./dist/js/main.min.js"></script>
+  <nav class="nav">
+    <div class="nav__navbar nav__navbar--mobile">
+      <a href="#" class="nav__navbar-logo">
+        <span class="nav__navbar-logo-text">TBSK</span>
+      </a>
+      <div class="nav__navbar--mobile-toggler" data-active="false">
+        <div class="nav__navbar--mobile-toggler-bar"></div>
+      </div>
+    </div>
+    <div class="nav__navbar nav__navbar--desktop">
+      <div class="nav__navbar--desktop-bg absolute-center"></div>
+      <ul class="nav__navbar--desktop-links">
+        <li class="nav__navbar--desktop-link"><a href="#">Home</a></li>
+        <li class="nav__navbar--desktop-link"><a href="#">O nas</a></li>
+        <li class="nav__navbar--desktop-link"><a href="#">Realizacje</a></li>
+        <li class="nav__navbar--desktop-link"><a href="#services">Usługi</a></li>
+      </ul>
+      <a href="#" class="nav__navbar-logo absolute-center">
+        <span class="nav__navbar-logo-text">TBSK</span>
+      </a>
+      <div class="nav__navbar-logo-eclipse absolute-center"></div>
+      <ul class="nav__navbar--desktop-links">
+        <li class="nav__navbar--desktop-link"><a href="#faq">FAQ</a></li>
+        <li class="nav__navbar--desktop-link"><a href="#contact">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="nav-mobile__menu" data-expanded="false">
+      <ul class="nav-mobile__menu-content">
+        <li class="nav-mobile__menu-content-item"><a href="#about-us">O nas</a></li>
+        <li class="nav-mobile__menu-content-item"><a href="#team">Zespół</a></li>
+        <li class="nav-mobile__menu-content-item"><a href="#projcets">Projekty</a></li>
+        <li class="nav-mobile__menu-content-item"><a href="#cons">Nasze cechy</a></li>
+        <li class="nav-mobile__menu-content-item"><a href="#process">Proces</a></li>
+        <li class="nav-mobile__menu-content-item"><a href="#services">Usługi</a></li>
+        <li class="nav-mobile__menu-content-item"><a href="#pricing">Cena</a></li>
+        <li class="nav-mobile__menu-content-item"><a href="#faq">FAQ</a></li>
+        <li class="nav-mobile__menu-content-item"><a href="#contact">Kontakt</a></li>
+      </ul>
+      <div class="nav-mobile__menu-shadow"></div>
+    </div>
+    </div>
+  </nav>
+  <header>
+    <h1>
+      TBSK Technology to zespół czterech freelancerów projektujących i tworzących <span
+        class="highlight">wymarzone</span> strony internetowe.
+    </h1>
+    <a href="#about-us" class="button button-primary">Poznaj nas</a>
+  </header>
+  <main>
+    <section class="services" id="services"></section>
+    <section class="panning__breaker"></section>
+    <section class="projects__showcase"></section>
+  </main>
+  <script src="./dist/js/main.min.js" defer></script>
 </body>
+
 </html>

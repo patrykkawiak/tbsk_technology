@@ -1,0 +1,23 @@
+.section {
+  padding: 1em;
+  &__title {
+    font-size: 1em;
+  }
+  &__text {
+    font-size: .6em;
+    &--big {
+      font-size: .8em;
+    }
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
