@@ -1,10 +1,8 @@
 .button {
-  display: block;
   width: max-content;
   padding: 0.75em 1.5em;
-  font-size: 0.67em;
+  font-size: 0.7em;
   border-radius: 0;
-  text-decoration: none;
   cursor: pointer;
   &-primary {
     background-color: black;
