@@ -2,21 +2,22 @@
 @use 'base/reset' as *;
 @use 'utilities/classes';
 @use 'components/buttons' as *;
-@use 'layouts/navigation'as *;
+@use 'layouts/navigation' as *;
 @use 'layouts/header' as *;
+@use 'layouts/services' as *;
 
 body {
-  font-size: 3.2rem;
+	font-size: 3.2rem;
 }
 
 @media (min-width: 576px) {
-  body {
-    font-size: 3.6rem;
-  }
+	body {
+		font-size: 3.6rem;
+	}
 }
 
 @media (min-width: 768px) {
-  body {
-    font-size: 4rem;
-  }
+	body {
+		font-size: 4rem;
+	}
 }
