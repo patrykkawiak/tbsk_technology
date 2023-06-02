@@ -1,23 +1,40 @@
 .section {
-  padding: 1em;
-  &__title {
-    font-size: 1em;
-  }
-  &__text {
-    font-size: .6em;
-    &--big {
-      font-size: .8em;
-    }
-  }
+	padding: 1em;
+	&__title {
+		font-size: 1em;
+	}
+	&__text {
+		font-size: 0.6em;
+		&--big {
+			font-size: 0.8em;
+		}
+	}
 }
 
 .hidden {
-  display: none !important;
+	display: none !important;
 }
 
 .absolute-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.section__padding {
+	padding: 4rem 2rem;
+}
+.section__heading {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	.section__text {
+		font-size: 1.5rem;
+		color: #ababab;
+	}
+	.section__title {
+		color: white;
+		font-size: 3.3rem;
+	}
 }

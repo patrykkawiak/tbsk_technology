@@ -1,21 +1,21 @@
 @use '../utilities/colors' as *;
 
 header {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4rem;
-  padding: .5em;
-  background-image: $header-section-gradient;
-  z-index: 10;
-  h1 {
-    display: flex;
-    flex-direction: column;
-    font-size: 1em;
-    .highlight {
-      font-size: 1.1em;
-      text-transform: uppercase;
-    }
-  }
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 4rem;
+	padding: 0.5em;
+	background-image: $header-section-gradient;
+	z-index: 10;
+	h1 {
+		display: flex;
+		flex-direction: column;
+		font-size: 1em;
+		.highlight {
+			font-size: 1.1em;
+			text-transform: uppercase;
+		}
+	}
 }

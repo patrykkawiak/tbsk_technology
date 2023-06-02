@@ -28,6 +28,7 @@
 		$menu-bar-width: 33px;
 		$menu-bar-height: 3px;
 		&--mobile {
+			background-color: rgb(255, 255, 255);
 			&-toggler {
 				display: flex;
 				flex-direction: column;
