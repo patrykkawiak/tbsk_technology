@@ -37,3 +37,36 @@ mnavItem.forEach(item => {
 		navbar.classList.remove('active')
 	})
 })
+
+/* draggable projects section test */
+
+const slider = document.querySelector('.projects')
+
+let isDragging = false,
+	prevPageX,
+	prevScrollLeft
+
+const dragStart = e => {
+	isDragging = true
+	prevPageX = e.pageX || e.touches[0].pageX
+	prevScrollLeft = slider.scrollLeft
+}
+
+const dragging = e => {
+	if (!isDragging) return
+	e.preventDefault()
+	let posDelta = (e.pageX || e.touches[0].pageX) - prevPageX
+	slider.scrollLeft = prevScrollLeft - posDelta
+}
+
+const dragStop = () => {
+	isDragging = false
+}
+
+slider.addEventListener('mousedown', dragStart)
+slider.addEventListener('mousemove', dragging)
+slider.addEventListener('mouseup', dragStop)
+
+slider.addEventListener('touchstart', dragStart)
+slider.addEventListener('touchmove', dragging)
+slider.addEventListener('touchend', dragStop)

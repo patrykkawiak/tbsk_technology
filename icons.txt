@@ -16,6 +16,6 @@ Arrows:
 <i class='bx bx-down-arrow-circle'></i>
 <i class='bx bx-up-arrow-circle' ></i>
 
+<i class='bx bx-globe'></i>
+<i class='bx bx-code-alt' ></i>
 
-
-Oryginalność / styl  / Przystosowanie / Schludność / Uniwersalność  / Indywidualność Cierpliwość Uszanowanko Zmotywowanie Szczerość  BlaBlablabla  

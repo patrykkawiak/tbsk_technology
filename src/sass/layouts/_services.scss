@@ -85,13 +85,20 @@
 		overflow: hidden;
 		width: 100%;
 		display: flex;
-		justify-content: center;
+		gap: 1rem;
 		align-items: center;
-		gap: 2rem;
 		font-size: 3rem;
 		height: 7rem;
 		color: white;
-		animation: marque 15s linear infinite;
+		.pan-cnt {
+			display: flex;
+			justify-content: space-around;
+			gap: 2rem;
+			animation: marque 15s linear infinite;
+		}
+	}
+	.panning__breaker:hover .pan-cnt {
+		animation-play-state: paused;
 	}
 }
 
