@@ -6,18 +6,28 @@
 @use 'layouts/header' as *;
 @use 'layouts/services' as *;
 
-body {
-	font-size: 3.2rem;
-}
-
 @media (min-width: 576px) {
-	body {
-		font-size: 3.6rem;
+	html {
+		font-size: 68.75%;
 	}
 }
-
 @media (min-width: 768px) {
-	body {
-		font-size: 4rem;
+	html {
+		font-size: 75%;
+	}
+}
+@media (min-width: 992px) {
+	html {
+		font-size: 81.25%;
+	}
+}
+@media (min-width: 1200px) {
+	html {
+		font-size: 87.5%;
+	}
+}
+@media (min-width: 1400px) {
+	html {
+		font-size: 93.75%;
 	}
 }
