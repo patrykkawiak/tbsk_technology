@@ -1,44 +1,39 @@
-const mobileMenuToggler = document.querySelector('.nav__navbar--mobile-toggler')
-const mobileNavbar = document.querySelector('.nav__navbar--mobile')
-const mobileMenu = document.querySelector('.nav-mobile__menu')
-const mobileMenuItems = document.querySelectorAll('.nav-mobile__menu-content-item')
-const mobileMenuShadow = document.querySelector('.nav-mobile__menu-shadow')
-const desktopNavbar = document.querySelector('.nav__navbar--desktop')
-const header = document.querySelector('header')
+const burgerIcon = document.querySelector('.burger-icon')
+const navbar = document.querySelector('.mobile-nav')
 
-const positionElementsBasedOnNavbar = () => {
-	const navbarBorder = 1
-	const navbarHeight = mobileNavbar.clientHeight + navbarBorder
-	mobileMenu.style.height = `Calc(100vh - ${navbarHeight}px)`
-	header.style.marginTop = `${navbarHeight}px`
-	header.style.minHeight = `Calc(100vh - ${navbarHeight}px)`
-}
+burgerIcon.addEventListener('click', () => {
+	burgerIcon.classList.toggle('active')
+	navbar.classList.toggle('active')
+})
 
-const toggleNavbar = () => {
-	const isMobile = document.body.clientWidth < 992 ? true : false
-	if (isMobile) {
-		desktopNavbar.classList.add('hidden')
-		mobileNavbar.classList.remove('hidden')
-	} else {
-		mobileNavbar.classList.add('hidden')
-		desktopNavbar.classList.remove('hidden')
+const introText = document.querySelectorAll('.intro-text')
+const introBtn = document.querySelector('.intro-btn')
+
+window.onscroll = () => {
+	/* HEADER PARRALAX */
+
+	const offsetY = window.pageYOffset
+	const rate = window.pageYOffset * 0.5
+	const opacityValue = offsetY / 100
+
+	introText[0].style.transform = `translate(${rate * 8}px)`
+	introText[1].style.transform = `translate(${rate * -3}px)`
+	introText[2].style.transform = `translate(${rate * 6}px)`
+	introText[3].style.transform = `translate(${rate * 7}px)`
+	introText[4].style.transform = `translate(${rate * -9}px)`
+	introText[5].style.transform = `translate(${rate * 11}px)`
+
+	introBtn.style.opacity = `${0.5 / opacityValue}`
+	if (offsetY >= 200) {
+		introBtn.style.opacity = 0
 	}
 }
 
-const handleMobileToggle = () => {
-	const getActive = mobileMenuToggler.getAttribute('data-active')
-	const isActive = getActive === 'true' ? true : false
-	mobileMenuToggler.setAttribute('data-active', !isActive)
-	mobileMenu.setAttribute('data-expanded', !isActive)
-}
+const mnavItem = document.querySelectorAll('.mobile-nav a')
 
-mobileMenuToggler.addEventListener('click', handleMobileToggle)
-mobileMenuItems.forEach(item => item.addEventListener('click', handleMobileToggle))
-mobileMenuShadow.addEventListener('click', handleMobileToggle)
-
-window.addEventListener('resize', () => {
-	positionElementsBasedOnNavbar()
-	toggleNavbar()
+mnavItem.forEach(item => {
+	item.addEventListener('click', () => {
+		burgerIcon.classList.remove('active')
+		navbar.classList.remove('active')
+	})
 })
-positionElementsBasedOnNavbar()
-toggleNavbar()
