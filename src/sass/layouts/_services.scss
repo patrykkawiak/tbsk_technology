@@ -4,57 +4,119 @@
 	background: $second-section-gradient;
 	&__cards {
 		.card {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
 			position: relative;
-			min-height: 20rem;
+			height: 20rem;
 			background-size: cover;
 			background-position: center;
-			overflow: hidden;
+			isolation: isolate;
+			padding: 5rem 2rem 1rem;
 			&__text {
+				font-size: 1.5rem;
+				text-align: center;
+				color: white;
+				z-index: 100;
+				opacity: 0;
+			}
+			&__intro {
+				margin-top: auto;
 				display: flex;
 				flex-direction: column;
-				align-items: center;
 				justify-content: center;
-				gap: 2rem;
-				position: absolute;
-				height: 100%;
-				width: 100%;
-				z-index: 100;
+				align-items: center;
+				font-size: 1rem;
 				color: white;
-				padding: 1rem;
-				.title {
-					text-align: center;
-					&-text {
-						.bx {
-							font-size: 3rem;
-						}
-						&-heading {
-							font-size: 2rem;
-						}
-					}
+				z-index: 100;
+				&-icon {
+					font-size: 2.5rem;
 				}
-				.content {
-					text-align: center;
-					font-size: 1.5rem;
+				&-title {
+					font-size: 2rem;
 				}
 			}
 		}
-		.card::before {
-			position: absolute;
+		.card::after {
 			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
 			width: 100%;
-			height: 100%;
-			background-color: rgba(0, 0, 0, 0.7);
-			z-index: 50;
+			height: 5px;
+			background-color: #fff;
+			z-index: 1000;
+			display: none;
+			opacity: 0;
+			transition: 0.3s;
 		}
+		.card:hover::after {
+			display: block;
+			opacity: 1;
+		}
+		.card:hover .card__text {
+			opacity: 1;
+			animation: cardSlidein 0.3s forwards;
+		}
+	}
+	.card::before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: '';
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.6);
+		z-index: 10;
+	}
 
-		$services-cards: projektowanie budowa uiux optymalizacja;
+	$services-cards: projektowanie budowa uiux optymalizacja;
 
-		$i: 1;
-		@each $item in $services-cards {
-			.#{$item} {
-				background-image: url('../../dist/img/cards-img\ \(#{$i}\).jpg');
+	$i: 1;
+	@each $item in $services-cards {
+		.#{$item} {
+			background-image: url('../../dist/img/cards-img\ \(#{$i}\).jpg');
+		}
+		$i: $i + 1;
+	}
+}
+
+@media (min-width: 768px) {
+	.services {
+		&__cards {
+			display: flex;
+			.card {
+				width: 25%;
+				min-height: 50rem;
 			}
-			$i: $i + 1;
 		}
+	}
+}
+@media (min-width: 1200px) {
+	.services {
+		&__cards {
+			.card {
+				min-height: 70rem;
+			}
+		}
+	}
+}
+@media (min-width: 1400px) {
+	.services {
+		&__cards {
+			.card {
+				min-height: 80rem;
+			}
+		}
+	}
+}
+
+@keyframes cardSlidein {
+	from {
+		transform: translateY(-20px);
+	}
+	to {
+		transform: translateY(0);
 	}
 }
