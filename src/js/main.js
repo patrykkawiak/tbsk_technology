@@ -61,10 +61,10 @@ const navCloseHandler = () => {
 };
 
 const headerParralaxHandler = () => {
-	if (viewportWidth < 992) {
-		const intro = document.querySelector('.intro');
-		intro.classList.remove('fixed');
-		return;
+	if (viewportWidth < 768) {
+		const intro = document.querySelector('.intro')
+		intro.classList.remove('fixed')
+		return
 	}
 
 	const offsetY = window.pageYOffset;
