@@ -1,0 +1,61 @@
+@use '../utilities/colors' as *;
+
+.processes {
+	background: $fourth-section-gradient;
+	width: 100%;
+
+	.processes-mobile {
+		.accordions {
+			display: flex;
+			flex-direction: column;
+			.accordion {
+				width: 100%;
+
+				.accordion-heading {
+					text-align: left;
+					width: 100%;
+					border: none;
+					border-top: 2px solid gray;
+					font-size: 3rem;
+					padding: 2rem 1.2rem;
+					background-color: transparent;
+					color: white;
+					display: flex;
+					gap: 2rem;
+					align-items: center;
+					font-weight: 400;
+					cursor: pointer;
+					i {
+						pointer-events: none;
+					}
+				}
+				.accordion-content {
+					display: flex;
+					flex-direction: column;
+					gap: 2rem;
+					height: 0;
+					overflow: hidden;
+					padding: 0rem 2rem;
+					transition: .5s;
+					.accordion-label {
+						color: white;
+						font-size: 3rem;
+					}
+					.accordion-text {
+						color: rgb(184, 184, 184);
+						font-size: 1.8rem;
+					}
+				}
+				.active {
+					height: max-content;
+					padding: 3rem 2rem;
+				}
+			}
+			.accordion:last-child {
+				.accordion-heading {
+					border-bottom: 2px solid gray;
+				}
+			}
+		}
+	}
+}

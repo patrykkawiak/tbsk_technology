@@ -1,16 +1,35 @@
 @use 'utilities/colors' as *;
+@use 'base/reset' as *;
 @use 'utilities/classes';
+@use 'components/buttons' as *;
+@use 'layouts/navigation' as *;
+@use 'layouts/header' as *;
+@use 'layouts/services' as *;
+@use 'layouts/processes' as *;
+@use './layouts/projects' as *;
 
-
-*,
-*::after,
-*::before {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+@media (min-width: 576px) {
+	html {
+		font-size: 68.75%;
+	}
 }
-
-html {
-	font-size: 62.5%;
-	scroll-behavior: smooth;
+@media (min-width: 768px) {
+	html {
+		font-size: 75%;
+	}
+}
+@media (min-width: 992px) {
+	html {
+		font-size: 81.25%;
+	}
+}
+@media (min-width: 1200px) {
+	html {
+		font-size: 87.5%;
+	}
+}
+@media (min-width: 1400px) {
+	html {
+		font-size: 93.75%;
+	}
 }

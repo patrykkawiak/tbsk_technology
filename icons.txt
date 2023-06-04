@@ -1,0 +1,21 @@
+Cards:
+<i class='bx bxs-pen'></i>
+<i class='bx bxs-hand-up' ></i>
+<i class='bx bxs-zap' ></i>
+<i class='bx bxs-layer' ></i>
+
+Socials:
+<i class='bx bxl-gmail'></i>
+<i class='bx bxl-facebook-square' ></i>
+facebook alt: <i class='bx bxl-meta' ></i>
+<i class='bx bxl-instagram' ></i>
+<i class='bx bxl-linkedin-square' ></i>
+
+
+Arrows:
+<i class='bx bx-down-arrow-circle'></i>
+<i class='bx bx-up-arrow-circle' ></i>
+
+<i class='bx bx-globe'></i>
+<i class='bx bx-code-alt' ></i>
+

@@ -4,7 +4,31 @@ git remote add tbsk https://github.com/patrykkawiak/tbsk_technolgy.git
 
 git checkout --track rebax/nazwa_brancha ( tylko za pierwszym razem) | git checkout nazwa_brancha
 
-git pull https://github.com/patrykkawiak/Rebax.git - pobieranie plikow z maina do brancha
+git pull https://github.com/patrykkawiak/tbsk_technolgy.git - pobieranie plikow z maina do brancha
+
+cd tbsk
+git add .
+git commit -m "tekst"
+git push -u tbsk <nazwa_brancha>
+git checkout main
+git merge <nazwa_brancha>
+git push -u tbsk main
+
+cd tbsk
+git add .
+git commit -m "tekst"
+git push -u tbsk <nazwa_brancha>
+git checkout main
+git merge <nazwa_brancha>
+git push -u tbsk main
+
+cd tbsk
+git add .
+git commit -m "tekst"
+git push -u tbsk <nazwa_brancha>
+git checkout main
+git merge <nazwa_brancha>
+git push -u tbsk main
 
 cd tbsk
 git add .
