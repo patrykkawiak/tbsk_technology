@@ -10,8 +10,6 @@ const viewportWidth = window.innerWidth;
 
 const cards = document.querySelectorAll('.services__cards .card');
 
-
-
 const cardsActivatorHandler = () => {
 	if (viewportWidth > 992) return;
 
@@ -121,10 +119,6 @@ const accordionOutsideHandler = (e) => {
 		return;
 	closeAllAccordions();
 };
-
-
-
-
 
 // functions actions
 
