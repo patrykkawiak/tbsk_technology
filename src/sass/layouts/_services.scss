@@ -96,16 +96,16 @@
 		gap: 1rem;
 		align-items: center;
 		font-size: 3rem;
-		height: 7rem;
+		height: 14rem;
 		color: white;
 		.pan-cnt {
 			display: flex;
 			justify-content: space-around;
 			gap: 2rem;
-			animation: marque 15s linear infinite;
+			animation: marque 30s linear infinite;
 		}
 	}
-	.panning__breaker:hover .pan-cnt {
+	.pan-cnt:hover {
 		animation-play-state: paused;
 	}
 }

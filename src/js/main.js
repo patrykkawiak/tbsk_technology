@@ -61,7 +61,7 @@ const navCloseHandler = () => {
 }
 
 const headerParralaxHandler = () => {
-	if (viewportWidth < 992) {
+	if (viewportWidth < 768) {
 		const intro = document.querySelector('.intro')
 		intro.classList.remove('fixed')
 		return

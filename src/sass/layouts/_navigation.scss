@@ -4,11 +4,11 @@
 	align-items: center;
 	justify-content: space-evenly;
 	margin-left: auto;
-	width: 4rem;
+	width: 3rem;
 	height: 4rem;
 	padding: 0.5rem 0;
 	.bar {
-		width: 70%;
+    width: 100%;
 		height: 2px;
 		background-color: black;
 		transition: transform 0.3s, opacity 0.3s;
@@ -32,12 +32,14 @@ nav {
 	background-color: #fff;
 	z-index: 1000;
 	.navbar {
-		padding: 0rem 1rem;
+		padding: 0rem 2rem;
 		.mobile-nav {
 			display: flex;
 			align-items: center;
 			.logo-img {
 				height: 5rem;
+        width: 60%;
+        object-fit: cover;
 			}
 			.nav-list {
 				display: none;
@@ -84,7 +86,6 @@ nav {
 				position: relative;
 				width: 100%;
 				height: 100%;
-				padding: 0 0.3rem;
 				display: flex;
 				align-items: center;
 				.flex-left,
@@ -96,6 +97,11 @@ nav {
 						padding: 1rem;
 					}
 				}
+        .flex-left {
+          .nav-list-item:first-child {
+            padding-left: 0;
+          }
+        }
 				.flex-right {
 					margin-left: auto;
 					gap: 2rem;
