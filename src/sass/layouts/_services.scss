@@ -51,14 +51,14 @@
 			opacity: 0;
 			transition: 0.3s;
 		}
-		.card:hover::after {
+		/* .card:hover::after {
 			display: block;
 			opacity: 1;
 		}
 		.card:hover .card__text {
 			opacity: 1;
 			animation: cardSlidein 0.3s forwards;
-		}
+		} */
 		.card.active::after {
 			display: block;
 			opacity: 1;

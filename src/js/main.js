@@ -23,9 +23,14 @@ window.onscroll = () => {
 const cardsActivatorHandler = () => {
 	if (viewportWidth > 992) return
 
-	cards.forEach(item => {
-		item.addEventListener('click', () => {
-			item.classList.toggle('active')
+	cards.forEach(card => {
+		card.addEventListener('click', () => {
+			cards.forEach(el => {
+				if (el.classList.contains('active')) {
+					el.classList.remove('active')
+				}
+			})
+			card.classList.add('active')
 		})
 	})
 }
