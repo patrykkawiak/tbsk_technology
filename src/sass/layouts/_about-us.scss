@@ -1,0 +1,75 @@
+@use '../utilities/colors' as *;
+
+.about-us {
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-inline: 0;
+  padding-top: 0;
+  align-items: center;
+  background-image: $first-section-gradient;
+}
+
+.rotating-block {
+  position: relative;
+  width: 100%;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  &-item {
+    position: relative;
+    font-size: 2rem;
+    padding: 2rem;
+    background-color: #fff;
+    text-align: center;
+    z-index: 30;
+  }
+  &-dashed-bg {
+    height: Calc(100% + 4rem);
+    min-width: 300px;
+    max-width: 900px;
+    width: 60%;
+    border: 3px dashed $dark-gray;
+    z-index: 20;
+  }
+  &-indicators {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 4rem;
+    .dot {
+      position: relative;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: #fff;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: $main-green;
+        transition: opacity .3s;
+        opacity: 0;
+      }
+      &.active::after{
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.fading-info {
+  width: 100%;
+  max-width: 800px;
+  &-item {
+    font-size: 1.5rem;
+    padding: 2rem;
+    background-color: #fff;
+    text-align: center;
+  }
+}

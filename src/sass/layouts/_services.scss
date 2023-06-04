@@ -1,4 +1,4 @@
-@use '../utilities/colors' as *; /* IDK jakis blad byl w compilerze*/
+@use '../utilities/colors' as *; 
 
 .services {
 	background: $second-section-gradient;
@@ -102,12 +102,13 @@
 			display: flex;
 			justify-content: space-around;
 			gap: 2rem;
-			animation: marque 30s linear infinite;
+			animation: marque .5s linear infinite;
 		}
 	}
-	.pan-cnt:hover {
-		animation-play-state: paused;
-	}
+  .pan-cnt:hover,
+  .pan-cnt:hover ~ .pan-cnt {
+    animation-play-state: paused;
+  }
 }
 
 @media (min-width: 768px) {

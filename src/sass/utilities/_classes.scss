@@ -1,5 +1,4 @@
 .section {
-	padding: 1em;
 	&__title {
 		font-size: 1em;
 	}
@@ -34,7 +33,7 @@
     display: flex;
     flex-direction: column;
   }
-	.section__text {
+	.section__subtitle {
 		margin: 0 auto;
 		position: relative;
 		font-size: 1.3rem;
@@ -43,8 +42,8 @@
 		width: max-content;
 		z-index: 1000;
 	}
-	.section__text::before,
-	.section__text::after {
+	.section__subtitle::before,
+	.section__subtitle::after {
 		content: '';
 		position: absolute;
 		top: 50%;
@@ -54,10 +53,10 @@
 		background-color: #ababab;
 		z-index: 100;
 	}
-	.section__text::after {
+	.section__subtitle::after {
 		left: -2.5rem;
 	}
-	.section__text::before {
+	.section__subtitle::before {
 		right: -2.5rem;
 	}
 	.section__title {
