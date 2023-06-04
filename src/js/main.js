@@ -21,7 +21,7 @@ const cardsActivatorHandler = () => {
 			card.classList.add('active')
 		})
 
-		card.addEventListener('touchstart', () => {
+		card.addEventListener('touchend', () => {
 			cards.forEach(el => {
 				if (el.classList.contains('active')) {
 					el.classList.remove('active')
@@ -32,7 +32,7 @@ const cardsActivatorHandler = () => {
 	})
 }
 
-const cardOutsieHandler = e => {
+const cardOutsideHandler = e => {
 	if (!e.target.classList.contains('card')) {
 		cards.forEach(card => {
 			card.classList.remove('active')
