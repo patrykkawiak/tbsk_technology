@@ -17,11 +17,15 @@ body {
 }
 
 a {
-  display: block;
-  text-decoration: none;
-  color: inherit;
+	display: block;
+	text-decoration: none;
+	color: inherit;
 }
 
 button {
 	font-family: inherit;
+}
+
+h2,h3,h4,h5,h6 {
+  font-weight: normal;
 }

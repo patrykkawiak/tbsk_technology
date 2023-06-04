@@ -8,6 +8,8 @@ header {
 	background-color: #f6f0e7;
 	.intro {
 		.intro-text-cnt {
+      display: flex;
+      flex-direction: column;
 			.intro-text {
 				font-size: 4.3rem;
 				font-weight: 600;
