@@ -108,7 +108,7 @@
 			animation: marque 30s linear infinite;
 		}
 	}
-	.pan-cnt:hover {
+	.panning__breaker:hover .pan-cnt {
 		animation-play-state: paused;
 	}
 }
