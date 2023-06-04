@@ -6,6 +6,7 @@
 @use 'layouts/header' as *;
 @use 'layouts/services' as *;
 @use './layouts/projects' as *;
+@use 'layouts/processes' as *;
 
 @media (min-width: 576px) {
 	html {
