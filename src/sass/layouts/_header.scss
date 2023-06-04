@@ -7,8 +7,6 @@ header {
 	height: 100vh;
 	background-color: #f6f0e7;
 	.intro {
-		position: fixed;
-		top: 7rem;
 		.intro-text-cnt {
       display: flex;
       flex-direction: column;
@@ -26,5 +24,9 @@ header {
 			font-size: 2rem;
 			font-weight: 500;
 		}
+	}
+	.fixed {
+		position: fixed;
+		top: 7rem;
 	}
 }

@@ -84,16 +84,16 @@ nav {
 				position: relative;
 				width: 100%;
 				height: 100%;
-				padding: 0 1rem;
+				padding: 0 0.3rem;
 				display: flex;
 				align-items: center;
 				.flex-left,
 				.flex-right {
 					display: flex;
 					align-items: center;
-					gap: 1rem;
 					.nav-list-item {
 						font-size: 1.4rem;
+						padding: 1rem;
 					}
 				}
 				.flex-right {
