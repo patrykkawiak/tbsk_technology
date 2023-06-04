@@ -32,6 +32,15 @@ const cardsActivatorHandler = () => {
 			})
 			card.classList.add('active')
 		})
+
+		card.addEventListener('touchstart', () => {
+			cards.forEach(el => {
+				if (el.classList.contains('active')) {
+					el.classList.remove('active')
+				}
+			})
+			card.classList.add('active')
+		})
 	})
 }
 
