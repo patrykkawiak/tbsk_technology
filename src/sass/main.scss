@@ -7,7 +7,7 @@
 @use 'layouts/services' as *;
 @use 'layouts/processes' as *;
 @use './layouts/projects' as *;
-
+@use './layouts/contact' as *;
 @media (min-width: 576px) {
 	html {
 		font-size: 68.75%;
