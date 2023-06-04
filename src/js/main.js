@@ -1,16 +1,57 @@
 const burgerIcon = document.querySelector('.burger-icon')
 const navbar = document.querySelector('.mobile-nav')
 
-burgerIcon.addEventListener('click', () => {
-	burgerIcon.classList.toggle('active')
-	navbar.classList.toggle('active')
-})
-
 const introText = document.querySelectorAll('.intro-text')
 const introBtn = document.querySelector('.intro-btn')
 
+const mnavItem = document.querySelectorAll('.mobile-nav a')
+
+const viewportWidth = window.innerWidth
+
+const cards = document.querySelectorAll('.services__cards .card')
+
+/* window functions */
+
+window.onload = () => {
+	cardsActivatorHandler()
+}
+
 window.onscroll = () => {
-	/* HEADER PARRALAX */
+	headerParralaxHandler()
+}
+
+const cardsActivatorHandler = () => {
+	if (viewportWidth > 992) return
+
+	cards.forEach(item => {
+		item.addEventListener('click', () => {
+			item.classList.toggle('active')
+		})
+	})
+}
+
+const navRevealHandler = () => {
+	burgerIcon.addEventListener('click', () => {
+		burgerIcon.classList.toggle('active')
+		navbar.classList.toggle('active')
+	})
+}
+
+const navCloseHandler = () => {
+	mnavItem.forEach(item => {
+		item.addEventListener('click', () => {
+			burgerIcon.classList.remove('active')
+			navbar.classList.remove('active')
+		})
+	})
+}
+
+const headerParralaxHandler = () => {
+	if (viewportWidth < 992) {
+		const intro = document.querySelector('.intro')
+		intro.classList.remove('fixed')
+		return
+	}
 
 	const offsetY = window.pageYOffset
 	const rate = window.pageYOffset * 0.5
@@ -29,44 +70,5 @@ window.onscroll = () => {
 	}
 }
 
-const mnavItem = document.querySelectorAll('.mobile-nav a')
-
-mnavItem.forEach(item => {
-	item.addEventListener('click', () => {
-		burgerIcon.classList.remove('active')
-		navbar.classList.remove('active')
-	})
-})
-
-/* draggable projects section test */
-
-const slider = document.querySelector('.projects')
-
-let isDragging = false,
-	prevPageX,
-	prevScrollLeft
-
-const dragStart = e => {
-	isDragging = true
-	prevPageX = e.pageX || e.touches[0].pageX
-	prevScrollLeft = slider.scrollLeft
-}
-
-const dragging = e => {
-	if (!isDragging) return
-	e.preventDefault()
-	let posDelta = (e.pageX || e.touches[0].pageX) - prevPageX
-	slider.scrollLeft = prevScrollLeft - posDelta
-}
-
-const dragStop = () => {
-	isDragging = false
-}
-
-slider.addEventListener('mousedown', dragStart)
-slider.addEventListener('mousemove', dragging)
-slider.addEventListener('mouseup', dragStop)
-
-slider.addEventListener('touchstart', dragStart)
-slider.addEventListener('touchmove', dragging)
-slider.addEventListener('touchend', dragStop)
+navCloseHandler()
+navRevealHandler()
