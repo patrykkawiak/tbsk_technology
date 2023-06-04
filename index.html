@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="pl">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>TBSK Technology</title>
-		<!-- BOX-ICONS FONT USAGE -->
-		<link
-			href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-			rel="stylesheet"
-		/>
 
-		<link rel="stylesheet" href="./dist/css/main.min.css" />
-	</head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TBSK Technology</title>
+  <!-- BOX-ICONS FONT USAGE -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./dist/css/main.min.css" />
+</head>
 
 <body>
   <nav>
@@ -28,11 +26,11 @@
         </div>
         <div class="nav-list">
           <a href="#" class="nav-list-item">Home</a>
-          <a href="#" class="nav-list-item">O nas</a>
+          <a href="#about-us" class="nav-list-item">O nas</a>
           <a href="#services" class="nav-list-item">Usługi</a>
           <a href="#projects" class="nav-list-item">Realizacje</a>
-          <a href="#" class="nav-list-item">FAQ</a>
-          <a href="#" class="nav-list-item">Kontakt</a>
+          <a href="#faq" class="nav-list-item">FAQ</a>
+          <a href="#contact" class="nav-list-item">Kontakt</a>
           <div class="socials nav-list-item">
             <a href="#"><i class='bx bxl-gmail'></i></a>
             <a href="#"><i class='bx bxl-facebook-square'></i></a>
@@ -45,7 +43,7 @@
         <div class="nav-list">
           <div class="flex-left">
             <a href="#" class="nav-list-item">Home</a>
-            <a href="#" class="nav-list-item">O nas</a>
+            <a href="#about-us" class="nav-list-item">O nas</a>
             <a href="#services" class="nav-list-item">Usługi</a>
             <a href="#projects" class="nav-list-item">Realizacje</a>
           </div>
@@ -54,8 +52,8 @@
           </div>
           <div class="flex-right">
             <div class="right-links">
-              <a href="" class="nav-list-item">FAQ</a>
-              <a href="" class="nav-list-item">Kontakt</a>
+              <a href="#faq" class="nav-list-item">FAQ</a>
+              <a href="#contact" class="nav-list-item">Kontakt</a>
             </div>
             <div class="socials">
               <a href="" class="nav-socials-item"><i class='bx bxl-gmail'></i></a>
@@ -70,153 +68,166 @@
     </div>
   </nav>
   <header>
-    <div class="intro fixed">
-      <div class="intro-text-cnt">
-        <p class="intro-text">Wprowadź</p>
-        <p class="intro-text">swój biznes</p>
-        <p class="intro-text">do sieci</p>
-        <p class="intro-text">dzięki naszym</p>
-        <p class="intro-text">profesjonalnym</p>
-        <p class="intro-text">stronom</p>
-      </div>
-      <a href="#" class="intro-btn">Poznaj nas bliżej</a>
+    <div id="#" class="intro">
+      <h1 class="intro-text-cnt">
+        <span class="intro-text">Wprowadź</span>
+        <span class="intro-text">swój biznes</span>
+        <span class="intro-text">do sieci</span>
+        <span class="intro-text">dzięki naszym</span>
+        <span class="intro-text">profesjonalnym</span>
+        <span class="intro-text">stronom</span>
+      </h1>
+      <a href="#about-us" class="intro-btn">Poznaj nas bliżej</a>
     </div>
   </header>
   <main>
+
     <section class="services" id="services">
       <div class="section__heading section__padding">
-        <p class="section__text">strony internetowe i nie tylko</p>
-        <h2 class="section__title">Nasze Usługi</h2>
+        <h2>
+          <span class="section__text">strony internetowe i nie tylko</span>
+          <strong class="section__title">Nasze Usługi</strong>
+        </h2>
+
       </div>
       <div class="services__cards">
         <div class="card projektowanie">
-          <div class="card__text">Oferujemy bezpłatny projekt Twojej strony internetowej.
-            Po prezentacji będziemy gotowi na wszelkie uwagi po czym uwzględnimy je projekcie.</div>
+          <p class="card__text">
+            Oferujemy bezpłatny projekt Twojej strony internetowej.
+            Po prezentacji będziemy gotowi na wszelkie uwagi po czym uwzględnimy je w projekcie.
+          </p>
           <div class="card__intro">
             <i class='bx bxs-pen card__intro-icon'></i>
-            <p class="card__intro-title">Projektowanie</p>
+            <h3 class="card__intro-title">Projektowanie</h3>
           </div>
         </div>
         <div class="card budowa">
-          <div class="card__text">Stworzymy, bądź przyjmiemy aktualny projekt według, którego zbudujemy Twoją wymarzoną
-            stronę w internecie. </div>
+          <p class="card__text">
+            Stworzymy, bądź przyjmiemy aktualny projekt, według którego zbudujemy Twoją wymarzoną
+            stronę w internecie.
+          </p>
           <div class="card__intro">
             <i class='bx bxs-layer card__intro-icon'></i>
-            <p class="card__intro-title">Budowa</p>
+            <h3 class="card__intro-title">Budowa</h3>
           </div>
         </div>
         <div class="card uiux">
-          <div class="card__text">Stworzymy, lub przeprojektujemy dla Ciebie idealną strukture i interfejs Twojej strony
-            bazując na najświeższych praktykach aby zapewnić użytkownikom najlepsze możliwe doświadczenia </div>
+          <p class="card__text">
+            Stworzymy lub przeprojektujemy dla Ciebie idealną strukture i interfejs Twojej strony
+            bazując na najświeższych praktykach, aby zapewnić użytkownikom najlepsze możliwe doświadczenia.
+          </p>
           <div class="card__intro">
             <i class='bx bxs-hand-up card__intro-icon'></i>
-            <p class="card__intro-title">UI/UX</p>
+            <h3 class="card__intro-title">UI/UX</h3>
           </div>
         </div>
         <div class="card optymalizacja">
-          <div class="card__text">Zajmiemy się optymalizacją wydajności i usprawnimy SEO twojej strony aby działała ona
-            jak najlepiej i pozycjonowała się wysoko w przeglądarce</div>
+          <p class="card__text">
+            Zajmiemy się optymalizacją wydajności i usprawnimy SEO twojej strony, aby działała ona
+            jak najlepiej i pozycjonowała się wysoko w przeglądarce.
+          </p>
           <div class="card__intro">
             <i class='bx bxs-zap card__intro-icon'></i>
-            <p class="card__intro-title">Optymalizacja</p>
+            <h3 class="card__intro-title">Optymalizacja</h3>
           </div>
         </div>
       </div>
       <div class="panning__breaker">
         <div class="pan-cnt">
-          <p class="breaker-content">Pasja</p>
-          <p class="breaker-content">Kreatywność</p>
-          <p class="breaker-content">Umiejętności</p>
-          <p class="breaker-content">Dokładność</p>
-          <p class="breaker-content">Elastyczność</p>
-          <p class="breaker-content">Komunikatywność</p>
-          <p class="breaker-content">Zrozumienie</p>
+          <span class="breaker-content">Pasja</span>
+          <span class="breaker-content">Kreatywność</span>
+          <span class="breaker-content">Umiejętności</span>
+          <span class="breaker-content">Dokładność</span>
+          <span class="breaker-content">Elastyczność</span>
+          <span class="breaker-content">Komunikatywność</span>
+          <span class="breaker-content">Zrozumienie</span>
         </div>
         <div class="pan-cnt">
-          <p class="breaker-content">Pasja</p>
-          <p class="breaker-content">Kreatywność</p>
-          <p class="breaker-content">Umiejętności</p>
-          <p class="breaker-content">Dokładność</p>
-          <p class="breaker-content">Elastyczność</p>
-          <p class="breaker-content">Komunikatywność</p>
-          <p class="breaker-content">Zrozumienie</p>
+          <span class="breaker-content">Pasja</span>
+          <span class="breaker-content">Kreatywność</span>
+          <span class="breaker-content">Umiejętności</span>
+          <span class="breaker-content">Dokładność</span>
+          <span class="breaker-content">Elastyczność</span>
+          <span class="breaker-content">Komunikatywność</span>
+          <span class="breaker-content">Zrozumienie</span>
         </div>
       </div>
     </section>
     <section class="projects" id="projects">
       <h3>CALA SEKCJA DO ZMIANY :CCCC</h3>
-    </section> -->
-			<section class="processes">
-				<div class="section__heading section__padding">
-					<p class="section__text">poznaj, w jaki sposób działamy</p>
-					<h2 class="section__title">Proces tworzenia</h2>
-				</div>
-				<div class="processes-mobile">
-					<div class="accordions">
-						<div class="accordion">
-							<button class="accordion-heading">
-								<i class="bx bx-down-arrow-circle"></i> Konsultacja
-							</button>
-							<div class="accordion-content">
-								<p class="accordion-label">Jak przebiegają rozmowy</p>
-								<p class="accordion-text">
-									Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-									Deserunt vel eligendi consequuntur voluptas nesciunt
-									perferendis qui id obcaecati repellendus quaerat accusantium
-									exercitationem non, alias assumenda, sed illo totam eos
-									dolorum.
-								</p>
-							</div>
-						</div>
-						<div class="accordion">
-							<button class="accordion-heading">
-								<i class="bx bx-down-arrow-circle"></i> Prezentacja
-							</button>
-							<div class="accordion-content">
-								<p class="accordion-label">Jak przebiegają rozmowy</p>
-								<p class="accordion-text">
-									Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-									Deserunt vel eligendi consequuntur voluptas nesciunt
-									perferendis qui id obcaecati repellendus quaerat accusantium
-									exercitationem non, alias assumenda, sed illo totam eos
-									dolorum.
-								</p>
-							</div>
-						</div>
-						<div class="accordion">
-							<button class="accordion-heading">
-								<i class="bx bx-down-arrow-circle"></i> Zatwierdzenie
-							</button>
-							<div class="accordion-content">
-								<p class="accordion-label">Jak przebiegają rozmowy</p>
-								<p class="accordion-text">
-									Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-									Deserunt vel eligendi consequuntur voluptas nesciunt
-									perferendis qui id obcaecati repellendus quaerat accusantium
-									exercitationem non, alias assumenda, sed illo totam eos
-									dolorum.
-								</p>
-							</div>
-						</div>
-						<div class="accordion">
-							<button class="accordion-heading">
-								<i class="bx bx-down-arrow-circle"></i> Wykonanie
-							</button>
-							<div class="accordion-content">
-								<p class="accordion-label">Jak przebiegają rozmowy</p>
-								<p class="accordion-text">
-									Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-									Deserunt vel eligendi consequuntur voluptas nesciunt
-									perferendis qui id obcaecati repellendus quaerat accusantium
-									exercitationem non, alias assumenda, sed illo totam eos
-									dolorum.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-		</main>
-		<script src="./dist/js/main.min.js" defer></script>
-	</body>
+    </section>
+    <section class="processes">
+      <div class="section__heading section__padding">
+        <p class="section__text">poznaj, w jaki sposób działamy</p>
+        <h2 class="section__title">Proces tworzenia</h2>
+      </div>
+      <div class="processes-mobile">
+        <div class="accordions">
+          <div class="accordion">
+            <button class="accordion-heading">
+              <i class="bx bx-down-arrow-circle"></i> Konsultacja
+            </button>
+            <div class="accordion-content">
+              <p class="accordion-label">Jak przebiegają rozmowy</p>
+              <p class="accordion-text">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Deserunt vel eligendi consequuntur voluptas nesciunt
+                perferendis qui id obcaecati repellendus quaerat accusantium
+                exercitationem non, alias assumenda, sed illo totam eos
+                dolorum.
+              </p>
+            </div>
+          </div>
+          <div class="accordion">
+            <button class="accordion-heading">
+              <i class="bx bx-down-arrow-circle"></i> Prezentacja
+            </button>
+            <div class="accordion-content">
+              <p class="accordion-label">Jak przebiegają rozmowy</p>
+              <p class="accordion-text">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Deserunt vel eligendi consequuntur voluptas nesciunt
+                perferendis qui id obcaecati repellendus quaerat accusantium
+                exercitationem non, alias assumenda, sed illo totam eos
+                dolorum.
+              </p>
+            </div>
+          </div>
+          <div class="accordion">
+            <button class="accordion-heading">
+              <i class="bx bx-down-arrow-circle"></i> Zatwierdzenie
+            </button>
+            <div class="accordion-content">
+              <p class="accordion-label">Jak przebiegają rozmowy</p>
+              <p class="accordion-text">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Deserunt vel eligendi consequuntur voluptas nesciunt
+                perferendis qui id obcaecati repellendus quaerat accusantium
+                exercitationem non, alias assumenda, sed illo totam eos
+                dolorum.
+              </p>
+            </div>
+          </div>
+          <div class="accordion">
+            <button class="accordion-heading">
+              <i class="bx bx-down-arrow-circle"></i> Wykonanie
+            </button>
+            <div class="accordion-content">
+              <p class="accordion-label">Jak przebiegają rozmowy</p>
+              <p class="accordion-text">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Deserunt vel eligendi consequuntur voluptas nesciunt
+                perferendis qui id obcaecati repellendus quaerat accusantium
+                exercitationem non, alias assumenda, sed illo totam eos
+                dolorum.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="./dist/js/main.min.js" defer></script>
+</body>
+
 </html>
