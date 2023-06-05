@@ -158,29 +158,39 @@ const setContent = () => {
 
 // parallax section
 const processesSection = document.querySelector('.processes');
-const zmienna = processesSection.offsetTop;
+const sectionOffSet = processesSection.offsetTop;
 
 const handleParallaxSection = () => {
-	const scrollValue = window.pageYOffset;
-	const rate = (scrollValue - zmienna) * 2.5;
-
+	const scrollValue = window.scrollY;
+	const rate = parseInt((scrollValue - sectionOffSet) / 10);
 	const characteristicsSection = document.querySelector('.characteristics');
+	const nav = document.querySelector('.navbar');
+	const navHeight = nav.offsetHeight;
 
 	console.log(`scroll value ${scrollValue} `);
 
-
-	if (zmienna - 100 <= scrollValue) {
-		processesSection.classList.add('fixed');
+	if (sectionOffSet - navHeight <= scrollValue) {
+		processesSection.classList.add('parallax-sticky');
 	} else {
-		processesSection.classList.remove('fixed');
+		processesSection.classList.remove('parallax-sticky');
 	}
 
-	if (processesSection.classList.contains('fixed')) {
+	if (processesSection.classList.contains('parallax-sticky')) {
 		const sectionRect = characteristicsSection.getBoundingClientRect();
-		if(sectionRect.left >= -10) {
-			characteristicsSection.style.transform = `translateX(-${rate}px)`;
-		processesSection.style.transform = `translateX(-${rate}px)`;
-		} 
+		const characteristicsOffSet = characteristicsSection.offsetTop;
+		if (sectionRect.left > 0 && characteristicsOffSet < scrollValue) {
+			characteristicsSection.style.transform = `translateX(-${rate}%)`;
+			processesSection.style.transform = `translateX(-${rate}%)`;
+		} else {
+			characteristicsSection.style.transform = `translateX(0)`;
+			processesSection.style.transform = `translateX(0)`;
+			characteristicsSection.style.left = '0';
+			characteristicsSection.style.top = `13.5rem`;
+			characteristicsSection.classList.add('static');
+			processesSection.classList.remove('parallax-sticky');
+
+			// characteristicsSection.style.transform = `translateY(100%)`;
+		}
 	} else {
 		characteristicsSection.style.transform = `translateX(0)`;
 		processesSection.style.transform = `translateX(0)`;

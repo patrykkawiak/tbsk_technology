@@ -15,6 +15,11 @@
 	right: -100%;
 }
 
+.static {
+	position: relative;
+
+}
+
 @media (min-width: 992px) {
 	.characteristics {
 		height: calc(100vh - 5rem);
