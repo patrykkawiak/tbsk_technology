@@ -159,28 +159,29 @@ const setContent = () => {
 // parallax section
 const processesSection = document.querySelector('.processes');
 const zmienna = processesSection.offsetTop;
-
 const handleParallaxSection = () => {
-	const scrollValue = window.pageYOffset;
-	const rate = (scrollValue - zmienna) * 2.5;
+	const scrollValue = window.scrollY;
+	const rate = (scrollValue - zmienna) * 3;
+	console.log(zmienna);
+	console.log(rate);
 
 	const characteristicsSection = document.querySelector('.characteristics');
-
+	const nav = document.querySelector('.navbar');
+	const navHeight = nav.offsetHeight;
 	console.log(`scroll value ${scrollValue} `);
 
-
-	if (zmienna - 100 <= scrollValue) {
-		processesSection.classList.add('fixed');
+	if (zmienna - navHeight < scrollValue) {
+		processesSection.classList.add('active-parallax');
 	} else {
-		processesSection.classList.remove('fixed');
+		processesSection.classList.remove('active-parallax');
 	}
 
-	if (processesSection.classList.contains('fixed')) {
+	if (processesSection.classList.contains('active-parallax')) {
 		const sectionRect = characteristicsSection.getBoundingClientRect();
-		if(sectionRect.left >= -10) {
+		if (sectionRect.left >= 0) {
 			characteristicsSection.style.transform = `translateX(-${rate}px)`;
-		processesSection.style.transform = `translateX(-${rate}px)`;
-		} 
+			processesSection.style.transform = `translateX(-${rate}px)`;
+		}
 	} else {
 		characteristicsSection.style.transform = `translateX(0)`;
 		processesSection.style.transform = `translateX(0)`;
