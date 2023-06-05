@@ -1,18 +1,16 @@
+/* START */
 @use '../utilities/colors' as *;
 
 .projects {
 	overflow: hidden;
 	background: $third-section-gradient;
 	color: white;
-	.section__heading {
-		padding: 2.5rem 0 1rem;
-	}
 	.projects-mobile-cnt {
 		display: flex;
 		flex-direction: column;
 		gap: 4rem;
 		.project {
-			height: calc(100vh - 5rem);
+			height: 100vh;
 			.project-desc {
 				height: 60%;
 				padding: 2rem;
@@ -75,16 +73,20 @@
 			}
 		}
 	}
+
+	/* TUTAJ ZMIENIAC BO INACZEJ SIE POMIESZA MOBILE JEST GIT */
+
 	.projects-desktop-cnt {
 		display: none;
-		height: calc(500vh - 15rem);
+		height: 600vh;
 		.projects-desc {
 			width: 50%;
-			height: calc(500vh - 15rem);
+			height: 100%;
 			.project {
-				height: calc(100vh - 5rem);
+				transform: translateY(0);
+				height: 100vh;
 				width: 100%;
-				padding: 2rem;
+				padding: 0 2rem;
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
@@ -133,30 +135,33 @@
 					}
 				}
 			}
+			.project:last-child {
+				margin-top: 10rem;
+			}
 		}
 		.projects-showcase {
 			display: flex;
-			flex-direction: column;
+			flex-direction: column-reverse;
 			align-items: center;
 			width: 50%;
-			height: calc(500vh - 15rem);
+			height: 600vh;
 			.desktop-showcase {
 				position: relative;
 				display: flex;
 				justify-content: center;
-				align-items: center;
-				height: calc(100vh - 5rem);
+				height: 100vh;
 				width: 100%;
+				transform: translateY(-500%);
 				.desktop-showcase-img {
 					width: 90%;
-					aspect-ratio: 16 / 9;
+					object-fit: contain;
 				}
 			}
 			.desktop-showcase::before {
 				content: '';
 				position: absolute;
 				width: 1px;
-				height: 90%;
+				height: 50%;
 				left: 0;
 				top: 50%;
 				transform: translate(-50%, -50%);
@@ -167,11 +172,21 @@
 	}
 }
 
-.fixed-pr {
-	position: fixed;
-	top: 5rem;
+/* .projects .projects-desktop-cnt.fixed-pr .projects-showcase .desktop-showcase {
+	transform: translateY(-500%);
+} */
+.projects .projects-desktop-cnt .projects-showcase.imgs-bottom .desktop-showcase {
+	transform: translateY(0);
 }
 
+.projects .projects-desktop-cnt .projects-desc.bottom .project {
+	transform: translateY(500%);
+}
+
+.fixed-pr {
+	position: fixed;
+	top: 0;
+}
 @media (min-width: 576px) {
 	.projects {
 		.projects-mobile-cnt {
@@ -201,7 +216,7 @@
 
 @media (min-width: 992px) {
 	.projects {
-		height: 500vh;
+		height: 600vh;
 		.projects-mobile-cnt {
 			display: none;
 		}

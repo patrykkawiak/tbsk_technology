@@ -1,4 +1,4 @@
-@use '../utilities/colors' as *; 
+@use '../utilities/colors' as *;
 
 .services {
 	background: $second-section-gradient;
@@ -105,14 +105,15 @@
 			display: flex;
 			justify-content: space-around;
 			gap: 2rem;
-			animation: marque .5s linear infinite;
+			animation: marque 10s linear infinite;
 		}
 	}
-  //maly whitespace byl, a tak to sie zatrzymywalo na paddingu, teraz tylko na tekscie
-  .pan-cnt:hover,
-  .pan-cnt:hover ~ .pan-cnt {
-    animation-play-state: paused;
-  }
+
+	//maly whitespace byl, a tak to sie zatrzymywalo na paddingu, teraz tylko na tekscie
+	.pan-cnt:hover,
+	.pan-cnt:hover ~ .pan-cnt {
+		animation-play-state: paused;
+	}
 }
 
 @media (min-width: 768px) {
