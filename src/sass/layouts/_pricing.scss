@@ -1,73 +1,19 @@
 @use '../utilities/colors' as *;
 
-// THINGS TO USE
+.pricing {
+	background-image: url('../../dist/img/spiralka.png');
+	background-size: 50%;
+	height: 100vh;
+}
 
-// .section {
-// 	padding: 1em;
-// 	&__title {
-// 		font-size: 1em;
-// 	}
-// 	&__text {
-// 		font-size: 0.6em;
-// 		&--big {
-// 			font-size: 0.8em;
-// 		}
-// 	}
-// }
-
-// .hidden {
-// 	display: none !important;
-// }
-
-// .absolute-center {
-// 	position: absolute;
-// 	top: 50%;
-// 	left: 50%;
-// 	transform: translate(-50%, -50%);
-// }
-
-// .section__padding {
-// 	padding: 4rem 2rem;
-// }
-// .section__heading {
-// 	display: flex;
-// 	flex-direction: column;
-// 	text-align: center;
-// 	isolation: isolate;
-//   h2 {
-//     display: flex;
-//     flex-direction: column;
-//   }
-// 	.section__text {
-// 		margin: 0 auto;
-// 		position: relative;
-// 		font-size: 1.3rem;
-// 		color: #ababab;
-// 		padding: 0 1rem;
-// 		width: max-content;
-// 		z-index: 1000;
-// 	}
-// 	.section__text::before,
-// 	.section__text::after {
-// 		content: '';
-// 		position: absolute;
-// 		top: 50%;
-// 		transform: translateY(-50%);
-// 		width: 2.5rem;
-// 		height: 2px;
-// 		background-color: #ababab;
-// 		z-index: 100;
-// 	}
-// 	.section__text::after {
-// 		left: -2.5rem;
-// 	}
-// 	.section__text::before {
-// 		right: -2.5rem;
-// 	}
-// 	.section__title {
-// 		color: white;
-// 		font-size: 3.3rem;
-// 	}
-// }
-
-
+.section__text_two {
+	margin: 0 auto;
+	position: relative;
+	font-size: 1.9rem;
+	font-family: 'Darker Grotesque', sans-serif;
+	color: #ababab;
+	padding: 0 1rem;
+	width: max-content;
+	z-index: 1000;
+	font-weight: bold;
+}

@@ -30,14 +30,15 @@
 	flex-direction: column;
 	text-align: center;
 	isolation: isolate;
-  h2 {
-    display: flex;
-    flex-direction: column;
-  }
+	h2 {
+		display: flex;
+		flex-direction: column;
+	}
 	.section__text {
 		margin: 0 auto;
 		position: relative;
-		font-size: 1.3rem;
+		font-size: 1.5rem;
+		font-family: 'Darker Grotesque', sans-serif;
 		color: #ababab;
 		padding: 0 1rem;
 		width: max-content;
@@ -47,12 +48,13 @@
 	.section__text::after {
 		content: '';
 		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
+		top: 60%;
+		transform: translateY(-40%);
 		width: 2.5rem;
-		height: 2px;
+		height: 1px;
 		background-color: #ababab;
 		z-index: 100;
+		font-family: 'Darker Grotesque', sans-serif;
 	}
 	.section__text::after {
 		left: -2.5rem;
