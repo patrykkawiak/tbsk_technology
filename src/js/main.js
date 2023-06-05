@@ -114,6 +114,48 @@ const accordionOutsideHandler = e => {
 	closeAllAccordions()
 }
 
+const nextSectionCnt = document.querySelector('.processes')
+const nextSectionOffset = document.querySelector('.processes').offsetTop
+const nextSectionHeight = document.querySelector('.processes').offsetHeight
+const prevSectionOffset = document.querySelector('.services').offsetTop
+const prevSectionHeight = document.querySelector('.services').offsetHeight
+const projectsHeight = document.querySelector('.projects').offsetHeight
+const navHeight = document.querySelector('nav').offsetHeight
+
+const sectionAnchor = document.querySelector('.projects-desktop-cnt')
+
+const parallaxedElements = document.querySelectorAll('.projects-parallax')
+
+let scrollRate = 0
+
+const projectsParallaxHandler = () => {
+	if (!viewportWidth >= 992) return
+
+	let nextSection = nextSectionOffset - nextSectionHeight - navHeight * 4
+	let prevSection = prevSectionOffset + prevSectionHeight + navHeight
+
+	let sectionOffset = sectionAnchor.offsetTop
+	let pageOffset = window.pageYOffset + navHeight
+	/* 
+	console.log(`pageOffset ${window.pageYOffset + navHeight}`)
+	console.log(`sectionOffset ${sectionOffset}`)
+	console.log(`nextSectionOffset ${nextSection}`)
+	console.log(`prevSectionOffset ${prevSection}`) */
+
+	/* CREATING ANCHORS ON TOP AND BOTTOM OF THE SECTION */
+
+	if (pageOffset >= sectionOffset) {
+		sectionAnchor.classList.add('fixed-pr')
+	}
+
+	if (pageOffset >= nextSection || pageOffset < prevSection) {
+		sectionAnchor.classList.remove('fixed-pr')
+	}
+
+	scrollRate = pageOffset * 0.3
+	parallaxedElements[1].style.transform = `translateY(0px,${projectsHeight}px)`
+}
+
 // functions actions
 
 accordions.forEach(accordion => accordion.addEventListener('click', openAccordion))
@@ -129,6 +171,7 @@ window.onload = () => {
 
 window.onscroll = () => {
 	headerParallaxHandler()
+	projectsParallaxHandler()
 }
 navCloseHandler()
 navRevealHandler()
