@@ -43,8 +43,8 @@
 		width: max-content;
 		z-index: 1000;
 	}
-	.section__subtitle::before,
-	.section__subtitle::after {
+	.section__text::before,
+	.section__text::after {
 		content: '';
 		position: absolute;
 		top: 50%;
@@ -54,10 +54,10 @@
 		background-color: #ababab;
 		z-index: 100;
 	}
-	.section__subtitle::after {
+	.section__text::after {
 		left: -2.5rem;
 	}
-	.section__subtitle::before {
+	.section__text::before {
 		right: -2.5rem;
 	}
 	.section__title {
