@@ -6,23 +6,11 @@ const introBtn = document.querySelector('.intro-btn')
 
 const mnavItem = document.querySelectorAll('.mobile-nav a')
 
-const viewportWidth = window.innerWidth
+let viewportWidth = window.innerWidth
 
 const cards = document.querySelectorAll('.services__cards .card')
 
-/* window functions */
-
-window.onload = () => {
-	cardsActivatorHandler()
-}
-
-window.onscroll = () => {
-	headerParralaxHandler()
-}
-
 const cardsActivatorHandler = () => {
-	if (viewportWidth > 992) return
-
 	cards.forEach(card => {
 		card.addEventListener('click', () => {
 			cards.forEach(el => {
@@ -33,7 +21,7 @@ const cardsActivatorHandler = () => {
 			card.classList.add('active')
 		})
 
-		card.addEventListener('touchstart', () => {
+		card.addEventListener('touchend', () => {
 			cards.forEach(el => {
 				if (el.classList.contains('active')) {
 					el.classList.remove('active')
@@ -42,6 +30,14 @@ const cardsActivatorHandler = () => {
 			card.classList.add('active')
 		})
 	})
+}
+
+const cardOutsideHandler = e => {
+	if (!e.target.classList.contains('card')) {
+		cards.forEach(card => {
+			card.classList.remove('active')
+		})
+	}
 }
 
 const navRevealHandler = () => {
@@ -60,7 +56,7 @@ const navCloseHandler = () => {
 	})
 }
 
-const headerParralaxHandler = () => {
+const headerParallaxHandler = () => {
 	if (viewportWidth < 768) {
 		const intro = document.querySelector('.intro')
 		intro.classList.remove('fixed')
@@ -81,8 +77,65 @@ const headerParralaxHandler = () => {
 	introBtn.style.opacity = `${0.5 / opacityValue}`
 	if (offsetY >= 200) {
 		introBtn.style.opacity = 0
+		introBtn.style.display = 'none'
+	} else {
+		introBtn.style.display = 'block'
+	}
+
+	if (offsetY >= 800) {
+		introText.forEach(text => (text.style.display = 'none'))
+	} else {
+		introText.forEach(text => (text.style.display = 'block'))
 	}
 }
 
+// Processes - accordions
+
+const accordions = document.querySelectorAll('.accordion-heading')
+
+const openAccordion = e => {
+	if (e.target.nextElementSibling.classList.contains('active')) {
+		e.target.nextElementSibling.classList.remove('active')
+	} else {
+		closeAllAccordions()
+		e.target.nextElementSibling.classList.toggle('active')
+	}
+}
+
+const closeAllAccordions = () => {
+	const accordionContent = document.querySelectorAll('.accordion-content')
+	accordionContent.forEach(el => {
+		el.classList.remove('active')
+	})
+}
+
+const accordionOutsideHandler = e => {
+	if (e.target.classList.contains('accordion-heading') || e.target.classList.contains('accordion-content')) return
+	closeAllAccordions()
+}
+
+// functions actions
+
+accordions.forEach(accordion => accordion.addEventListener('click', openAccordion))
+
+window.onclick = e => {
+	accordionOutsideHandler(e)
+	cardOutsideHandler(e)
+}
+
+window.onload = () => {
+	headerParallaxHandler()
+}
+
+window.onscroll = () => {
+	headerParallaxHandler()
+}
 navCloseHandler()
 navRevealHandler()
+
+window.onresize = () => {
+	let viewportWidth = window.innerWidth
+
+	if (viewportWidth >= 992) return
+	cardsActivatorHandler()
+}

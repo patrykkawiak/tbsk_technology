@@ -20,6 +20,7 @@
 				color: white;
 				z-index: 100;
 				opacity: 0;
+				display: none;
 			}
 			&__intro {
 				margin-top: auto;
@@ -56,6 +57,7 @@
 			opacity: 1;
 		}
 		.card:hover .card__text {
+			display: block;
 			opacity: 1;
 			animation: cardSlidein 0.3s forwards;
 		}
@@ -64,6 +66,7 @@
 			opacity: 1;
 		}
 		.card.active .card__text {
+			display: block;
 			opacity: 1;
 			animation: cardSlidein 0.3s forwards;
 		}
@@ -105,6 +108,7 @@
 			animation: marque .5s linear infinite;
 		}
 	}
+  //maly whitespace byl, a tak to sie zatrzymywalo na paddingu, teraz tylko na tekscie
   .pan-cnt:hover,
   .pan-cnt:hover ~ .pan-cnt {
     animation-play-state: paused;

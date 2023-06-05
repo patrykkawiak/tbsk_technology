@@ -1,6 +1,7 @@
 @use '../utilities/colors' as *;
 
 .about-us {
+  position: relative;
   color: #000;
   display: flex;
   flex-direction: column;
@@ -9,20 +10,24 @@
   padding-top: 0;
   align-items: center;
   background-image: $first-section-gradient;
+  z-index: 10;
 }
 
 .rotating-block {
   position: relative;
   width: 100%;
+  height: 6rem;
   margin-bottom: 2rem;
   max-width: 800px;
   &-item {
-    position: relative;
+    position: absolute;
+    width: 100%;
+    height: 100%;
     font-size: 2rem;
     padding: 2rem;
+    box-shadow: 0 0 3px black;
     background-color: #fff;
     text-align: center;
-    z-index: 30;
   }
   &-dashed-bg {
     height: Calc(100% + 4rem);
@@ -66,10 +71,42 @@
 .fading-info {
   width: 100%;
   max-width: 800px;
+  border: 1px solid black;
   &-item {
     font-size: 1.5rem;
     padding: 2rem;
     background-color: #fff;
     text-align: center;
+  }
+}
+
+.standby {
+  transform: rotate3d(1, 0, 0, -90deg) translate3d(0, -3rem, -3rem);
+}
+
+.rotateHide {
+  animation: rotate3DHide 1s ease-in-out infinite forwards;
+  z-index: 30;
+}
+@keyframes rotate3DHide {
+  from {
+    transform: rotate3d(0) transalate3d(0);
+  }
+  to {
+    transform: rotate3d(1, 0, 0, 90deg) translate3d(0, 3rem, -3rem);
+  }
+}
+
+
+.rotateShow {
+  animation: rotate3DShow 1s ease-in-out infinite forwards;
+  z-index: 40;
+}
+@keyframes rotate3DShow {
+  from {
+    transform: rotate3d(1, 0, 0, -90deg) translate3d(0, -3rem, -3rem);
+  }
+  to {
+    transform: rotate3d(0) translateY(0);
   }
 }
