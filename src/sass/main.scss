@@ -4,9 +4,12 @@
 @use 'components/buttons' as *;
 @use 'layouts/navigation' as *;
 @use 'layouts/header' as *;
+@use 'layouts/about-us' as abt;
 @use 'layouts/services' as *;
+@use 'layouts/projects' as *;
 @use 'layouts/processes' as *;
-@use './layouts/projects' as *;
+@use 'layouts/characteristics' as *;
+
 
 @media (min-width: 576px) {
 	html {
