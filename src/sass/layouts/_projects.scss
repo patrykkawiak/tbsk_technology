@@ -1,7 +1,227 @@
+/* START */
 @use '../utilities/colors' as *;
 
 .projects {
+	overflow: hidden;
 	background: $third-section-gradient;
-	height: calc(100vh - 5rem);
 	color: white;
+	.projects-mobile-cnt {
+		display: flex;
+		flex-direction: column;
+		gap: 4rem;
+		.project {
+			height: 100vh;
+			.project-desc {
+				height: 60%;
+				padding: 2rem;
+				display: flex;
+				flex-direction: column;
+				gap: 2rem;
+				.desc-heading {
+					.heading-tag {
+						font-size: 1.3rem;
+						font-weight: 600;
+					}
+					.heading-title {
+						font-size: 2.5rem;
+					}
+				}
+				.desc-content {
+					display: flex;
+					flex-direction: column;
+					gap: 1rem;
+					.content-main {
+						font-size: 1.7rem;
+					}
+					.content-date {
+						font-size: 1.4rem;
+					}
+				}
+				.desc-btns {
+					display: flex;
+					gap: 2rem;
+					margin-top: 1rem;
+					.desc-btn {
+						display: flex;
+						align-items: center;
+						gap: 1.5rem;
+						padding: 0.8rem 1rem 0.8rem 2rem;
+						font-size: 1.3rem;
+						i {
+							font-size: 1.6rem;
+						}
+					}
+					.primary {
+						background-color: transparent;
+						border: 1px solid rgba(255, 255, 255, 0.4);
+					}
+					.secondary {
+						background-color: rgba(255, 255, 255);
+						color: black;
+					}
+				}
+			}
+			.project-showcase {
+				height: 40%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				.showcase-img {
+					width: 80%;
+					aspect-ratio: 16 / 9;
+				}
+			}
+		}
+	}
+
+	/* TUTAJ ZMIENIAC BO INACZEJ SIE POMIESZA MOBILE JEST GIT */
+
+	.projects-desktop-cnt {
+		display: none;
+		height: 600vh;
+		.projects-desc {
+			width: 50%;
+			height: 100%;
+			.project {
+				transform: translateY(0);
+				height: 100vh;
+				width: 100%;
+				padding: 0 2rem;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				gap: 2rem;
+				.desc-heading {
+					.heading-tag {
+						font-size: 1.3rem;
+						font-weight: 600;
+					}
+					.heading-title {
+						font-size: 2.5rem;
+					}
+				}
+				.desc-content {
+					display: flex;
+					flex-direction: column;
+					gap: 1rem;
+					.content-main {
+						font-size: 1.7rem;
+					}
+					.content-date {
+						font-size: 1.4rem;
+					}
+				}
+				.desc-btns {
+					display: flex;
+					gap: 2rem;
+					margin-top: 1rem;
+					.desc-btn {
+						display: flex;
+						align-items: center;
+						gap: 1.5rem;
+						padding: 0.8rem 1rem 0.8rem 2rem;
+						font-size: 1.3rem;
+						i {
+							font-size: 1.6rem;
+						}
+					}
+					.primary {
+						background-color: transparent;
+						border: 1px solid rgba(255, 255, 255, 0.4);
+					}
+					.secondary {
+						background-color: rgba(255, 255, 255);
+						color: black;
+					}
+				}
+			}
+			.project:last-child {
+				margin-top: 10rem;
+			}
+		}
+		.projects-showcase {
+			display: flex;
+			flex-direction: column-reverse;
+			align-items: center;
+			width: 50%;
+			height: 600vh;
+			.desktop-showcase {
+				position: relative;
+				display: flex;
+				justify-content: center;
+				height: 100vh;
+				width: 100%;
+				transform: translateY(-500%);
+				.desktop-showcase-img {
+					width: 90%;
+					object-fit: contain;
+				}
+			}
+			.desktop-showcase::before {
+				content: '';
+				position: absolute;
+				width: 1px;
+				height: 50%;
+				left: 0;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				z-index: 1000;
+				background-color: #fff;
+			}
+		}
+	}
+}
+
+/* .projects .projects-desktop-cnt.fixed-pr .projects-showcase .desktop-showcase {
+	transform: translateY(-500%);
+} */
+.projects .projects-desktop-cnt .projects-showcase.imgs-bottom .desktop-showcase {
+	transform: translateY(0);
+}
+
+.projects .projects-desktop-cnt .projects-desc.bottom .project {
+	transform: translateY(500%);
+}
+
+.fixed-pr {
+	position: fixed;
+	top: 0;
+}
+@media (min-width: 576px) {
+	.projects {
+		.projects-mobile-cnt {
+			.project {
+				.project-showcase {
+					.showcase-img {
+						width: 75%;
+					}
+				}
+			}
+		}
+	}
+}
+@media (min-width: 768px) {
+	.projects {
+		.projects-mobile-cnt {
+			.project {
+				.project-showcase {
+					.showcase-img {
+						width: 65%;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.projects {
+		height: 600vh;
+		.projects-mobile-cnt {
+			display: none;
+		}
+		.projects-desktop-cnt {
+			display: flex;
+		}
+	}
 }

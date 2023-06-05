@@ -113,8 +113,149 @@ const accordionOutsideHandler = e => {
 	if (e.target.classList.contains('accordion-heading') || e.target.classList.contains('accordion-content')) return
 	closeAllAccordions()
 }
+// Processes - list
+
+const processTitle = document.querySelector('.processes-content-title')
+
+const processText = document.querySelector('.processes-content-text')
+
+const processBtns = document.querySelectorAll('.processes-list-box')
+
+const chengeProcess = e => {
+	const btn = e.target
+
+	if (btn.classList.contains('active')) {
+	} else {
+		closeAllProcesses()
+		btn.classList.toggle('active')
+	}
+	setContent()
+}
+
+const closeAllProcesses = () => {
+	processBtns.forEach(btn => btn.classList.remove('active'))
+}
+
+const setContent = () => {
+	if (processBtns[0].classList.contains('active')) {
+		processTitle.textContent = 'Jak przebiegają rozmowy?'
+		processText.textContent = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque nam dolore voluptate quisquam est impedit molestiae laboriosam, unde reprehenderit ullam, nesciunt nobis repellat repellendus? Ea minima voluptatum temporibus quam delectus Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur officiis saepe, cumque placeat, possimus consectetur, tenetur voluptas est illo nobis harum praesentium asperiores! Cumque autem odit veniam, tenetur illo tempora?`
+	} else if (processBtns[1].classList.contains('active')) {
+		processTitle.textContent = 'Jak wygląda prezentacja projektu?'
+		processText.textContent = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque nam dolore voluptate quisquam est impedit molestiae laboriosam, ptas est illo nobis harum praesentium asperiores! Cumque autem odit veniam, tenetur illo tempora?`
+	} else if (processBtns[2].classList.contains('active')) {
+		processTitle.textContent = 'Co to jest zatwierdzenie?'
+		processText.textContent = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque nam dolore voluptate quisquam est impedit molestiae laboriosam, unde reprehenderit ullam, nesciunt nobis repellat repellendus? Ea minima voluptatum temporibus quam delectus Lorem ipsum dolor sit amet, conseumque autem odit veniam, tenetur illo tempora?`
+	} else if (processBtns[3].classList.contains('active')) {
+		processTitle.textContent = 'Wykonanie projektu!'
+		processText.textContent = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque nam dolore voluptate quisquam est impedit molestiae laboriosam, unde reprehenderit ullam, nesciunt nobis repellat repellendus? Ea minima voluptatum temporibus quam delectus Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur officiis saepe, cumque placeat, possimus consectetur, tenetur voluptas est illo nobis harum praesentium asperiores! Cumque autem odit veniam, tenetur illo tempora?ellendus? Ea minima voluptatum temporibus quam delectus Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur officiis saepe, cumque plac`
+	}
+}
+
+// PROCESSES PARALLAX
+
+/* const processesSection = document.querySelector('.processes')
+const zmienna = processesSection.offsetTop
+
+const handleParallaxSection = () => {
+	const scrollValue = window.pageYOffset
+	const rate = (scrollValue - zmienna) * 2.5
+
+	const characteristicsSection = document.querySelector('.characteristics')
+
+	console.log(`scroll value ${scrollValue} `)
+
+	if (zmienna - 100 <= scrollValue) {
+		processesSection.classList.add('fixed')
+	} else {
+		processesSection.classList.remove('fixed')
+	}
+
+	if (processesSection.classList.contains('fixed')) {
+		const sectionRect = characteristicsSection.getBoundingClientRect()
+		if (sectionRect.left >= -10) {
+			characteristicsSection.style.transform = `translateX(-${rate}px)`
+			processesSection.style.transform = `translateX(-${rate}px)`
+		}
+	} else {
+		characteristicsSection.style.transform = `translateX(0)`
+		processesSection.style.transform = `translateX(0)`
+	}
+}
+ */
+
+/* PROJECTS PARALLAX */
+
+const parallaxSection = document.querySelector('.projects-desktop-cnt')
+const parallaxItems = document.querySelectorAll('.projects-parallax')
+const section = document.querySelector('.projects')
+
+const prevSection = document.querySelector('.services')
+const nextSection = document.querySelector('.processes')
+
+let viewport = window.innerWidth
+
+let prevSectionOffset = prevSection.offsetTop
+let firstAnchorPoint = prevSectionOffset + prevSection.offsetHeight
+let secondAnchorPoint = nextSection.offsetTop - nextSection.offsetHeight
+
+const projectsParallaxHandler = () => {
+	if (viewport < 992) return
+
+	let scrollTop = window.pageYOffset
+	let scrollToAnchor = nextSection.offsetHeight + nextSection.offsetTop
+
+	/* 	console.log(`Scroll top: ${scrollTop}`)
+	console.log(`firstAnchor: ${firstAnchorPoint}`)
+	console.log(`secondAnchor: ${secondAnchorPoint}`)
+	console.log(`scrollToAnchor: ${scrollToAnchor}`) */
+
+	if (scrollTop >= firstAnchorPoint) {
+		parallaxSection.classList.add('fixed-pr')
+
+		/* 		parallaxItems[0].style.transform = `translate(0px, -${scrollTop - firstAnchorPoint}px)`
+		parallaxItems[1].style.transform = `translate(0px, ${scrollTop - firstAnchorPoint}px)` */
+	}
+	if (scrollTop >= secondAnchorPoint || scrollTop < firstAnchorPoint) {
+		parallaxSection.classList.remove('fixed-pr')
+	}
+	if (scrollTop >= secondAnchorPoint) {
+		parallaxItems[0].classList.add('bottom')
+	} else {
+		parallaxItems[0].classList.remove('bottom')
+	}
+
+	if (parallaxSection.classList.contains('fixed-pr')) {
+		parallaxItems[0].style.transform = `translate(0px, -${scrollTop - firstAnchorPoint}px)`
+		parallaxItems[1].style.transform = `translate(0px, ${scrollTop - firstAnchorPoint}px)`
+	}
+
+	if (!parallaxSection.classList.contains('.fixed-pr') && scrollTop >= secondAnchorPoint) {
+		parallaxItems[1].classList.add('imgs-bottom')
+	} else {
+		parallaxItems[1].classList.remove('imgs-bottom')
+	}
+}
+/* wywoluje parralax funkcje na scrollu */
+window.onscroll = () => {
+	projectsParallaxHandler()
+}
 
 // functions actions
+
+const handleRemoveDOMElements = () => {
+	const mobileProcesses = document.querySelector('.processes-mobile')
+	// mobileProcesses.remove();
+	// dodac dynamiczna werjse na PC...
+}
+
+window.onload = () => {
+	headerParallaxHandler()
+	setContent()
+	if (viewportWidth >= 992) handleRemoveDOMElements()
+}
+
+processBtns.forEach(btn => btn.addEventListener('click', chengeProcess))
 
 accordions.forEach(accordion => accordion.addEventListener('click', openAccordion))
 
@@ -123,13 +264,12 @@ window.onclick = e => {
 	cardOutsideHandler(e)
 }
 
-window.onload = () => {
-	headerParallaxHandler()
-}
-
 window.onscroll = () => {
 	headerParallaxHandler()
+	projectsParallaxHandler()
+	//handleParallaxSection()
 }
+
 navCloseHandler()
 navRevealHandler()
 

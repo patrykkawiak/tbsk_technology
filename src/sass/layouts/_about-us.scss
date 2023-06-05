@@ -1,0 +1,127 @@
+@use '../utilities/colors' as *;
+
+.about-us {
+  position: relative;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-inline: 0;
+  padding-top: 0;
+  align-items: center;
+  background-image: $first-section-gradient;
+  z-index: 10;
+}
+
+.rotating-block {
+  position: relative;
+  width: 100%;
+  height: 6rem;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  &-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 2rem;
+    padding: 2rem;
+    box-shadow: 0 0 3px black;
+    background-color: #fff;
+    text-align: center;
+    z-index: 30;
+  }
+  &-dashed-bg {
+    height: Calc(100% + 4rem);
+    min-width: 300px;
+    max-width: 900px;
+    width: 60%;
+    border: 3px dashed $dark-gray;
+    z-index: 20;
+  }
+  &-indicators {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 4rem;
+    .dot {
+      position: relative;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: #fff;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: $main-green;
+        transition: opacity .5s;
+        opacity: 0;
+      }
+      &.active::after{
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.fading-info {
+  position: relative;
+  width: 100%;
+  height: 8.5rem;
+  background-color: #fff;
+  max-width: 800px;
+  border: 1px solid black;
+  &-item {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    font-size: 1.5rem;
+    text-align: center;
+    opacity: 1;
+    transition: opacity .5s;
+  }
+}
+
+.not-visible {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.standby {
+  transform: rotate3d(1, 0, 0, -90deg) translate3d(0, -3rem, -3rem);
+}
+
+.rotateHide {
+  animation: rotate3DHide 1s ease-in-out forwards;
+}
+@keyframes rotate3DHide {
+  from {
+    transform: rotate3d(0) transalate3d(0);
+  }
+  to {
+    transform: rotate3d(1, 0, 0, 90deg) translate3d(0, 3rem, -3rem);
+  }
+}
+
+
+.rotateShow {
+  animation: rotate3DShow 1s ease-in-out forwards;
+  z-index: 40;
+}
+@keyframes rotate3DShow {
+  from {
+    transform: rotate3d(1, 0, 0, -90deg) translate3d(0, -3rem, -3rem);
+  }
+  to {
+    transform: rotate3d(0) translateY(0);
+  }
+}

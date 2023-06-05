@@ -1,0 +1,22 @@
+@use '../utilities/colors' as *;
+
+.characteristics {
+	position: fixed;
+	overflow: hidden;
+	width: 100%;
+	background: $fourth-section-gradient;
+	height: calc(100vh - 5rem);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 4rem;
+	color: white;
+	top: 5rem;
+	right: -100%;
+}
+
+@media (min-width: 992px) {
+	.characteristics {
+		height: calc(100vh - 5rem);
+	}
+}
