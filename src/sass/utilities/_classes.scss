@@ -1,3 +1,4 @@
+@use '../utilities/colors' as *;
 .section {
 	padding: 1em;
 	&__title {
@@ -30,10 +31,10 @@
 	flex-direction: column;
 	text-align: center;
 	isolation: isolate;
-  h2 {
-    display: flex;
-    flex-direction: column;
-  }
+	h2 {
+		display: flex;
+		flex-direction: column;
+	}
 	.section__text {
 		margin: 0 auto;
 		position: relative;
@@ -63,5 +64,42 @@
 	.section__title {
 		color: white;
 		font-size: 3.3rem;
+	}
+}
+
+.section-line {
+	position: absolute;
+	display: none;
+	.line {
+		height: 2px;
+		width: 100%;
+		background-color: #fff;
+		position: relative;
+		.text {
+			position: absolute;
+			padding: 0 1.5rem;
+			transform: translate(-50%, -50%);
+			background: $fourth-section-gradient;
+			color: gray;
+			font-size: 2rem;
+		}
+	}
+}
+.line-top {
+	top: 3rem;
+	.line {
+		.text {
+			left: 80%;
+			top: 50%;
+		}
+	}
+}
+.line-bottom {
+	bottom: 3rem;
+	.line {
+		.text {
+			left: 20%;
+			top: 50%;
+		}
 	}
 }
