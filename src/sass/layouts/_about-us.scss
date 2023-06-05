@@ -28,6 +28,7 @@
     box-shadow: 0 0 3px black;
     background-color: #fff;
     text-align: center;
+    z-index: 30;
   }
   &-dashed-bg {
     height: Calc(100% + 4rem);
@@ -58,7 +59,7 @@
         height: 100%;
         border-radius: 50%;
         background-color: $main-green;
-        transition: opacity .3s;
+        transition: opacity .5s;
         opacity: 0;
       }
       &.active::after{
@@ -69,15 +70,30 @@
 }
 
 .fading-info {
+  position: relative;
   width: 100%;
+  height: 8.5rem;
+  background-color: #fff;
   max-width: 800px;
   border: 1px solid black;
   &-item {
-    font-size: 1.5rem;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
     padding: 2rem;
-    background-color: #fff;
+    font-size: 1.5rem;
     text-align: center;
+    opacity: 1;
+    transition: opacity .5s;
   }
+}
+
+.not-visible {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .standby {
@@ -85,8 +101,7 @@
 }
 
 .rotateHide {
-  animation: rotate3DHide 1s ease-in-out infinite forwards;
-  z-index: 30;
+  animation: rotate3DHide 1s ease-in-out forwards;
 }
 @keyframes rotate3DHide {
   from {
@@ -99,7 +114,7 @@
 
 
 .rotateShow {
-  animation: rotate3DShow 1s ease-in-out infinite forwards;
+  animation: rotate3DShow 1s ease-in-out forwards;
   z-index: 40;
 }
 @keyframes rotate3DShow {
