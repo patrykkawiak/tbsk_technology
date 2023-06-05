@@ -1,8 +1,8 @@
 @use '../utilities/colors' as *;
 
 .processes {
+	overflow: hidden;
 	background: $fourth-section-gradient;
-	width: 100%;
 
 	.processes-mobile {
 		.accordions {
@@ -36,7 +36,7 @@
 					height: 0;
 					overflow: hidden;
 					padding: 0rem 2rem;
-					transition: .5s;
+					transition: 0.5s;
 					.accordion-label {
 						color: white;
 						font-size: 3rem;
@@ -57,5 +57,102 @@
 				}
 			}
 		}
+	}
+	.processes-desktop {
+		display: none;
+		.processes-ctn {
+			display: flex;
+			padding: 0 2rem;
+			align-items: flex-start;
+			.processes-list {
+				width: 45%;
+				display: flex;
+				justify-content: center;
+
+				list-style: none;
+				.processes-list-container {
+					display: flex;
+					flex-direction: column;
+					gap: 2rem;
+					width: 20rem;
+					.processes-list-box {
+						display: flex;
+						align-items: center;
+						gap: 0.8rem;
+						cursor: pointer;
+						background: transparent;
+						border: none;
+						.processes-list-item {
+							font-size: 2rem;
+							color: white;
+							padding: 0 0.5rem;
+							pointer-events: none;
+							transition: font-size 0.3s;
+						}
+						.dot {
+							height: 0.7rem;
+							width: 0.7rem;
+							background-color: #fff;
+							border-radius: 50%;
+							pointer-events: none;
+							transition: all 0.3s;
+						}
+					}
+					.active {
+						.processes-list-item {
+							font-size: 2.5rem;
+						}
+						.dot {
+							height: 1rem;
+							width: 1rem;
+							background-color: lime;
+						}
+					}
+				}
+			}
+			.processes-content {
+				width: 45%;
+				color: white;
+				display: flex;
+				flex-direction: column;
+				gap: 2rem;
+				.processes-content-title {
+					font-size: 2.5rem;
+				}
+				.processes-content-text {
+					font-size: 1.3rem;
+					color: grey;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.processes {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		gap: 10vh;
+		flex-direction: column;
+		height: calc(100vh - 5rem);
+		.section__heading {
+			padding: 0;
+		}
+		.section-line {
+			display: block;
+			width: 100%;
+		}
+		.processes-mobile {
+			display: none;
+		}
+		.processes-desktop {
+			display: block;
+		}
+	}
+}
+@media (min-width: 1200px) {
+	.processes {
+		gap: 13vh;
 	}
 }
