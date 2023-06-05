@@ -203,6 +203,7 @@ let secondAnchorPoint = nextSection.offsetTop - nextSection.offsetHeight
 const projectsParallaxHandler = () => {
 	if (viewport < 992) return
 
+
 	let scrollTop = window.pageYOffset
 	let scrollToAnchor = nextSection.offsetHeight + nextSection.offsetTop
 
