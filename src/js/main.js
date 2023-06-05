@@ -22,7 +22,7 @@ const cardsActivatorHandler = () => {
 		});
 
 		card.addEventListener('touchend', () => {
-			cards.forEach(el => {
+			cards.forEach((el) => {
 				if (el.classList.contains('active')) {
 					el.classList.remove('active');
 				}
@@ -32,7 +32,7 @@ const cardsActivatorHandler = () => {
 	});
 };
 
-const cardOutsideHandler = e => {
+const cardOutsideHandler = (e) => {
 	if (!e.target.classList.contains('card')) {
 		cards.forEach((card) => {
 			card.classList.remove('active');
@@ -160,9 +160,8 @@ const setContent = () => {
 
 const handleRemoveDOMElements = () => {
 	const mobileProcesses = document.querySelector('.processes-mobile');
-	mobileProcesses.remove();
+	// mobileProcesses.remove();
 	// dodac dynamiczna werjse na PC...
-	
 };
 window.onload = () => {
 	headerParallaxHandler();
@@ -178,7 +177,7 @@ accordions.forEach((accordion) =>
 
 window.onclick = (e) => {
 	accordionOutsideHandler(e);
-	cardOutsieHandler(e);
+	cardOutsideHandler(e);
 };
 
 window.onscroll = () => {
