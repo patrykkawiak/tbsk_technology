@@ -2,6 +2,7 @@
 
 .processes {
 	overflow: hidden;
+	width: 100%;
 	background: $fourth-section-gradient;
 
 	.processes-mobile {
@@ -130,7 +131,7 @@
 
 @media (min-width: 992px) {
 	.processes {
-		position: absolute;
+		position: relative;
 		display: flex;
 		justify-content: center;
 		gap: 10vh;
@@ -149,6 +150,10 @@
 		.processes-desktop {
 			display: block;
 		}
+	}
+	.fixed {
+		position: sticky;
+		top: 5rem;
 	}
 }
 @media (min-width: 1200px) {
