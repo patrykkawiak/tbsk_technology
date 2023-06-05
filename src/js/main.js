@@ -157,34 +157,34 @@ const setContent = () => {
 };
 
 // parallax section
-const processesSection = document.querySelector('.processes');
-const zmienna = processesSection.offsetTop;
+// const processesSection = document.querySelector('.processes');
+// const zmienna = processesSection.offsetTop;
 
-const handleParallaxSection = () => {
-	const scrollValue = window.pageYOffset;
-	const rate = (scrollValue - zmienna) * 2.5;
+// const handleParallaxSection = () => {
+// 	const scrollValue = window.pageYOffset;
+// 	const rate = (scrollValue - zmienna) * 2.5;
 
-	const characteristicsSection = document.querySelector('.characteristics');
+// 	const characteristicsSection = document.querySelector('.characteristics');
 
-	console.log(`scroll value ${scrollValue} `);
+// 	console.log(`scroll value ${scrollValue} `);
 
-	console.log(processesSection.offsetHeight);
-	console.log(processesSection.offsetTop - 65);
+// 	console.log(processesSection.offsetHeight);
+// 	console.log(processesSection.offsetTop - 65);
 
-	if (zmienna - 70 <= scrollValue) {
-		processesSection.classList.add('fixed');
-	} else {
-		processesSection.classList.remove('fixed');
-	}
+// 	if (zmienna - 70 <= scrollValue) {
+// 		processesSection.classList.add('fixed');
+// 	} else {
+// 		processesSection.classList.remove('fixed');
+// 	}
 
-	if (processesSection.classList.contains('fixed')) {
-		characteristicsSection.style.transform = `translateX(-${rate}px)`;
-		processesSection.style.transform = `translateX(-${rate}px)`;
-	} else {
-		characteristicsSection.style.transform = `translateX(0)`;
-		processesSection.style.transform = `translateX(0)`;
-	}
-};
+// 	if (processesSection.classList.contains('fixed')) {
+// 		characteristicsSection.style.transform = `translateX(-${rate}px)`;
+// 		processesSection.style.transform = `translateX(-${rate}px)`;
+// 	} else {
+// 		characteristicsSection.style.transform = `translateX(0)`;
+// 		processesSection.style.transform = `translateX(0)`;
+// 	}
+// };
 
 // functions actions
 
@@ -212,7 +212,7 @@ window.onclick = (e) => {
 
 window.onscroll = () => {
 	headerParallaxHandler();
-	handleParallaxSection();
+	// handleParallaxSection();
 };
 navCloseHandler();
 navRevealHandler();
