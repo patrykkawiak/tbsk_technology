@@ -1,6 +1,7 @@
 @use '../utilities/colors' as *;
 
 .characteristics {
+	z-index: 50;
 	position: fixed;
 	overflow: hidden;
 	width: 100%;

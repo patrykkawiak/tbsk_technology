@@ -131,6 +131,7 @@
 
 @media (min-width: 992px) {
 	.processes {
+		z-index: 50;
 		position: relative;
 		display: flex;
 		justify-content: center;
