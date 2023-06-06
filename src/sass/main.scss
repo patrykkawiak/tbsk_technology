@@ -8,15 +8,10 @@
 @use 'layouts/services' as *;
 @use 'layouts/projects' as *;
 @use 'layouts/processes' as *;
-<<<<<<< HEAD
-@use './layouts/projects' as *;
-@use './layouts/contact' as *;
-@use './layouts/pricing' as *;
-=======
+@use 'layouts/contact' as *;
+@use 'layouts/pricing' as *;
 @use 'layouts/characteristics' as *;
 
-
->>>>>>> main
 @media (min-width: 576px) {
 	html {
 		font-size: 68.75%;

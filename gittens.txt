@@ -30,14 +30,6 @@ git checkout main
 git merge <nazwa_brancha>
 git push -u tbsk main
 
-cd tbsk
-git add .
-git commit -m "tekst"
-git push -u tbsk <nazwa_brancha>
-git checkout main
-git merge <nazwa_brancha>
-git push -u tbsk main
-
 git pull - po wejsciu 
 git log - kto co robil
 

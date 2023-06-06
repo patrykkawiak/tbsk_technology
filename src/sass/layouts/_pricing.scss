@@ -1,19 +1,137 @@
 @use '../utilities/colors' as *;
 
+ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+a {
+	transition: all 0.2s ease;
+	&:hover {
+		text-decoration: none;
+	}
+}
 .pricing {
-	background-image: url('../../dist/img/spiralka.png');
-	background-size: 50%;
+	background-image: url(/dist/img/Pricing.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
 	height: 100vh;
 }
+.pricing-img {
+	text-align: center;
+}
+small {
+	font-weight: 400;
+	font-size: 2rem;
+	text-align: center;
+	color: $color_3;
+}
 
-.section__text_two {
-	margin: 0 auto;
+.pricing-content {
 	position: relative;
-	font-size: 1.9rem;
-	font-family: 'Darker Grotesque', sans-serif;
-	color: #ababab;
-	padding: 0 1rem;
-	width: max-content;
-	z-index: 1000;
-	font-weight: bold;
+	ul {
+		li {
+			font-size: 3rem;
+			text-align: center;
+			color: $color_4;
+		}
+	}
+}
+.price-text {
+	position: absolute;
+}
+.pricing-text-one {
+	bottom: 40px;
+	left: 160px;
+}
+
+.pricing-text-two {
+	top: 20px;
+	right: 80px;
+}
+.pricing-text-three {
+	bottom: 40px;
+	right: 160px;
+}
+.pricing-text-four {
+	top: 20px;
+	left: 80px;
+}
+.pricing-text-five {
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: -120px;
+}
+@media screen and (max-width: 767px) {
+	html {
+		font-size: 68.75%;
+	}
+	.pricing-content {
+		ul {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 2em 1em;
+			li {
+				font-size: 2rem;
+			}
+		}
+	}
+	.price-text {
+		position: inherit;
+	}
+	.pricing-text-five {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: -60px;
+	}
+	.pricing-img {
+		text-align: center;
+		margin-bottom: 38px;
+		img {
+			max-height: 300px;
+			max-width: 300px;
+		}
+	}
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+	html {
+		font-size: 75%;
+	}
+	.pricing-content {
+		ul {
+			li {
+				font-size: 25px;
+			}
+		}
+	}
+	.pricing-text-five {
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: -120px;
+	}
+}
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+	html {
+		font-size: 81.25%;
+	}
+	.pricing-text-five {
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: -120px;
+	}
+}
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+	html {
+		font-size: 87.5%;
+	}
+	.price-text {
+		position: absolute;
+	}
+	.pricing-text-five {
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: -120px;
+	}
 }
