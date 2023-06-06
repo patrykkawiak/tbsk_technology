@@ -11,6 +11,7 @@
 	align-items: center;
 	font-size: 4rem;
 	color: white;
+	z-index: 50;
 	.characteristics-ctn {
 		display: flex;
 		flex-direction: column;
@@ -139,7 +140,6 @@
 	}
 	.static {
 		position: relative;
-		margin-top: 14.5rem;
 		top: 0;
 		left: 0;
 		transform: translate(0) !important;
