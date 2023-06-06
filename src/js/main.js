@@ -157,44 +157,72 @@ const setContent = () => {
 };
 
 // parallax section
-const processesSection = document.querySelector('.processes');
-const sectionOffSet = processesSection.offsetTop;
+const firstSection = document.querySelector('.processes');
+const secondSection = document.querySelector('.characteristics');
+const sectionOffSet = firstSection.offsetTop;
+const nav = document.querySelector('.navbar');
+const navHeight = nav.offsetHeight;
 
 const handleParallaxSection = () => {
+	if (viewportWidth < 992) return;
+	let scrollPermision;
 	const scrollValue = window.scrollY;
 	const rate = parseInt((scrollValue - sectionOffSet) / 10);
-	const characteristicsSection = document.querySelector('.characteristics');
-	const nav = document.querySelector('.navbar');
-	const navHeight = nav.offsetHeight;
+	const firstAnchor = sectionOffSet - navHeight <= scrollValue;
 
-	console.log(`scroll value ${scrollValue} `);
-
-	if (sectionOffSet - navHeight <= scrollValue) {
-		processesSection.classList.add('parallax-sticky');
-	} else {
-		processesSection.classList.remove('parallax-sticky');
+	if (firstAnchor && !secondSection.classList.contains('static')) {
+		firstSection.classList.add('parallax-sticky');
+		scrollPermision = true;
 	}
 
-	if (processesSection.classList.contains('parallax-sticky')) {
-		const sectionRect = characteristicsSection.getBoundingClientRect();
-		const characteristicsOffSet = characteristicsSection.offsetTop;
-		if (sectionRect.left > 0 && characteristicsOffSet < scrollValue) {
-			characteristicsSection.style.transform = `translateX(-${rate}%)`;
-			processesSection.style.transform = `translateX(-${rate}%)`;
+	const secondSectionRect = secondSection.getBoundingClientRect();
+	const firstSectionRect = firstSection.getBoundingClientRect();
+	const secondSectionTop = secondSectionRect.top;
+	const firstSectionTop = firstSectionRect.top;
+	const secondSectionOffSet = secondSection.offsetTop;
+	console.log(secondSectionTop);
+	console.log(firstSectionTop);
+	if (rate > 100 && secondSectionTop === firstSectionTop) {
+		secondSection.classList.add('static');
+		secondSection.style.transform = `translateX(0)`;
+		firstSection.style.transform = `translateX(0)`;
+		firstSection.classList.remove('parallax-sticky');
+		secondSection.style.left = 0;
+		secondSection.style.top = 0;
+		location.href = '#characteristics';
+		scrollPermision = false;
+	} else {
+		if (secondSection.classList.contains('static')) {
+			scrollPermision = false;
 		} else {
-			characteristicsSection.style.transform = `translateX(0)`;
-			processesSection.style.transform = `translateX(0)`;
-			characteristicsSection.style.left = '0';
-			characteristicsSection.style.top = `13.5rem`;
-			characteristicsSection.classList.add('static');
-			processesSection.classList.remove('parallax-sticky');
-
-			// characteristicsSection.style.transform = `translateY(100%)`;
+			scrollPermision = true;
 		}
-	} else {
-		characteristicsSection.style.transform = `translateX(0)`;
-		processesSection.style.transform = `translateX(0)`;
 	}
+
+	if (scrollPermision) {
+		secondSection.style.transform = `translateX(-${rate}%)`;
+		firstSection.style.transform = `translateX(-${rate}%)`;
+	}
+	console.log(scrollPermision);
+
+	// if (firstSection.classList.contains('parallax-sticky')) {
+	// 	if (sectionRect.left > 0 && characteristicsOffSet < scrollValue) {
+	// 		secondSection.style.transform = `translateX(-${rate}%)`;
+	// 		firstSection.style.transform = `translateX(-${rate}%)`;
+	// 	} else {
+	// 		secondSection.style.transform = `translateX(0)`;
+	// 		firstSection.style.transform = `translateX(0)`;
+	// 		secondSection.style.left = '0';
+	// 		secondSection.style.top = `13.5rem`;
+	// 		secondSection.classList.add('static');
+	// 		firstSection.classList.remove('parallax-sticky');
+
+	// 		// secondSection.style.transform = `translateY(100%)`;
+	// 	}
+	// } else {
+	// 	secondSection.style.transform = `translateX(0)`;
+	// 	firstSection.style.transform = `translateX(0)`;
+	// }
 };
 
 // functions actions
