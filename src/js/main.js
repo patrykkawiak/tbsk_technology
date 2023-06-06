@@ -205,10 +205,10 @@ const projectsParallaxHandler = () => {
 		parallaxItems[1].classList.remove('imgs-bottom')
 	}
 }
-/* wywoluje parralax funkcje na scrollu */
-window.onscroll = () => {
-	projectsParallaxHandler()
-}
+
+
+
+
 const firstSection = document.querySelector('.processes');
 const secondSection = document.querySelector('.characteristics');
 const sectionOffSet = firstSection.offsetTop;
@@ -284,7 +284,7 @@ window.onclick = e => {
 window.onscroll = () => {
 	headerParallaxHandler()
 	projectsParallaxHandler()
-	//handleParallaxSection()
+	handleParallaxSection()
 }
 
 navCloseHandler()
