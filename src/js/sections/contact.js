@@ -10,7 +10,7 @@ cross.addEventListener('click', function () {
 
 const form = document.querySelector('form')
 const inputs = form.querySelectorAll('input')
-const KEYBOARDS = {
+const keys = {
 	backspace: 8,
 	arrowLeft: 37,
 	arrowRight: 39,
@@ -68,17 +68,15 @@ inputs.forEach(input => {
 	})
 
 	input.addEventListener('keydown', e => {
-		switch (e.keyCode) {
-			case KEYBOARDS.backspace:
-				handleBackspace(e)
-				break
-			case KEYBOARDS.arrowLeft:
-				handleArrowLeft(e)
-				break
-			case KEYBOARDS.arrowRight:
-				handleArrowRight(e)
-				break
-			default:
-		}
+    if(e.key === keys.backspace) {
+      handleBackspace(e)
+    }
+    else if (e.key === keys.arrowLeft) {
+      handleArrowLeft(e)
+    }
+    else if (e.key === keys.arrowRight) {
+      handleArrowRight(e)
+    }
+		
 	})
 })

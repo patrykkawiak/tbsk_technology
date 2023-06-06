@@ -2,6 +2,7 @@
 
 .whoweare {
 	background-color: $background-color_2;
+  padding-top: 0;
 }
 .whoweare-item-wrapper {
 	display: grid;
@@ -12,22 +13,20 @@
 }
 .whoweare-item {
 	text-align: center;
-	padding: 29px 60px 40px 60px;
-	background: #1c1c1c;
-	box-shadow: 10px 10px 7px rgba(179, 179, 179, 0.25);
-	h2 {
+	background-color: transparent;
+	.whoweare-item-name {
 		font-style: normal;
 		font-weight: 400;
-		font-size: 2.2rem;
+		font-size: 2rem;
 		color: $color_4;
-		padding: 35px 0 50px 0;
+		padding: 3rem 0;
 	}
 	p {
-		font-size: 1.1rem;
+		font-size: 1.5rem;
 		line-height: 30px;
 		color: $color_3;
 		text-align: left;
-		padding-bottom: 50px;
+		padding-bottom: 3rem;
 		border-bottom: 2px solid #ffffff;
 	}
 }
@@ -45,10 +44,10 @@
 	ul {
 		display: flex;
 		align-items: center;
+    gap: 1rem;
 		li {
 			a {
 				display: inline-block;
-				margin-left: 20px;
 				&:hover {
 					transform: scale(1.2);
 				}
@@ -58,10 +57,10 @@
 }
 .protfolio-click {
 	font-weight: 400;
-	font-size: 1rem;
+	font-size: 1.5rem;
 	color: $color_6;
 	display: inline-block;
-	padding: 13px 30px;
+	padding: 1rem 2rem;
 	background-color: $background-color_3;
 	transition: 0.2s;
 	&:hover {
@@ -83,9 +82,7 @@
 	}
 	.whoweare-item {
 		text-align: center;
-		padding: 29px 25px 38px 26px;
-		background: #1c1c1c;
-		box-shadow: 6px 10px 7px rgba(179, 179, 179, 0.25);
+		background: transparent;
 		h2 {
 			font-size: 2rem;
 			padding: 23px 0 29px 0;
