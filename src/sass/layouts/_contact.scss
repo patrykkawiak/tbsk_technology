@@ -1,0 +1,202 @@
+@use '../utilities/colors' as *;
+
+button {
+	transition: all 0.2s ease;
+}
+a {
+	transition: all 0.2s ease;
+	&:hover {
+		text-decoration: none;
+	}
+}
+.contact {
+	background-color: $background-color_2;
+}
+
+.click-form-btn {
+	text-align: center;
+	button {
+		font-style: normal;
+		font-weight: 600;
+		font-size: 2.7rem;
+		text-align: center;
+		color: $color_6;
+		text-align: center;
+		padding: 10px 30px;
+		border: none;
+		margin-bottom: 66px;
+		cursor: pointer;
+	}
+}
+
+.open-form-inner {
+	max-width: 870px;
+	margin: auto;
+	background-color: $background-color_3;
+	padding: 45px 60px 65px 60px;
+	form {
+		label {
+			font-size: 3.2rem;
+			color: $color_7;
+			display: block;
+			margin-bottom: 20px;
+		}
+		input {
+			font-size: 2.2rem;
+			color: $color_2;
+			width: 100%;
+			display: block;
+			padding: 20px 30px;
+			outline: none;
+			border: 1px solid #a3a3a3;
+			margin-bottom: 15px;
+		}
+		textarea {
+			font-size: 2.2rem;
+			color: $color_2;
+			width: 100%;
+			display: block;
+			padding: 20px 30px;
+			outline: none;
+			border: 1px solid #a3a3a3;
+			resize: none;
+			margin-bottom: 90px;
+		}
+	}
+	small {
+		min-width: 13px;
+		height: 3px;
+		background-color: $background-color_4;
+		margin-right: 10px;
+		margin-bottom: 10px;
+		color: $color_2;
+	}
+}
+.form-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 90px;
+	h2 {
+		font-style: normal;
+		font-weight: bold;
+		font-size: 4.2rem;
+		text-align: center;
+		color: $color_6;
+	}
+	span {
+		cursor: pointer;
+	}
+}
+
+.form-submit-btn {
+	text-align: center;
+	button {
+		height: 80px;
+		background-color: $background-color_4;
+		border: none;
+		color: $color_1;
+		width: 100%;
+		font-size: 1.8rem;
+		&:hover {
+			background-color: $background-color_2;
+			cursor: pointer;
+		}
+	}
+}
+.tel-phone-numbers {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 80px;
+}
+.form-controls {
+	max-width: 60px;
+	height: 60px;
+	margin-right: 10px;
+	color: $color_2;
+	padding: 0px !important;
+	text-align: center;
+}
+.fa-show {
+	display: none;
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+	html {
+		font-size: 81.25%;
+	}
+	.click-form-btn {
+		button {
+			font-size: 30px;
+		}
+	}
+}
+@media screen and (max-width: 767px) {
+	html {
+		font-size: 75%;
+	}
+	.click-form-btn {
+		button {
+			font-size: 2.8rem;
+		}
+	}
+	.open-form-inner {
+		padding: 18px 21px 31px 21px;
+		form {
+			label {
+				font-size: 1.7rem;
+				margin-bottom: 13px;
+			}
+			input {
+				font-size: 1.7rem;
+				padding: 12px 13px;
+				border: 1px solid #a3a3a3;
+				margin-bottom: 15px;
+			}
+			textarea {
+				font-size: 1.7rem;
+				padding: 12px 13px;
+				border: 1px solid #a3a3a3;
+				margin-bottom: 15px;
+			}
+		}
+		small {
+			width: 10px;
+			height: 3px;
+			background-color: $background-color_4;
+			margin-right: 5px;
+			margin-bottom: 10px;
+			color: $color_2;
+		}
+	}
+	.form-header {
+		margin-bottom: 32px;
+		h2 {
+			font-size: 2rem;
+		}
+		span {
+			img {
+				width: 25px;
+			}
+		}
+	}
+	.form-controls {
+		max-width: 26px;
+		height: 26px;
+		margin: 0px;
+		margin-right: 4px;
+		color: $color_2;
+		padding: 0px !important;
+		text-align: center;
+		border: 1px solid #000;
+	}
+	.tel-phone-numbers {
+		margin-bottom: 29px;
+	}
+	.form-submit-btn {
+		button {
+			height: 61px;
+		}
+	}
+}
