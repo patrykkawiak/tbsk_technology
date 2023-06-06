@@ -1,6 +1,7 @@
 @use '../utilities/colors' as *;
 
 .characteristics {
+	z-index: 50;
 	position: fixed;
 	overflow: hidden;
 	width: 100%;
@@ -12,7 +13,14 @@
 	font-size: 4rem;
 	color: white;
 	top: 5rem;
-	right: -100%;
+	left: 100%;
+}
+
+.static {
+	position: relative;
+	top: 13.5rem;
+	left: 0;
+	transform: translate(0) !important;
 }
 
 @media (min-width: 992px) {

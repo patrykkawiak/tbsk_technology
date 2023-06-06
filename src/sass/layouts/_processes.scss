@@ -131,6 +131,7 @@
 
 @media (min-width: 992px) {
 	.processes {
+		z-index: 50;
 		position: relative;
 		display: flex;
 		justify-content: center;
@@ -151,9 +152,12 @@
 			display: block;
 		}
 	}
-	.fixed {
+	.parallax-sticky {
 		position: sticky;
 		top: 5rem;
+	}
+	.parallax-static {
+		transform: translate(0) !important;
 	}
 }
 @media (min-width: 1200px) {

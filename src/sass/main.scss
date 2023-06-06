@@ -8,8 +8,10 @@
 @use 'layouts/services' as *;
 @use 'layouts/projects' as *;
 @use 'layouts/processes' as *;
+@use 'layouts/contact' as *;
+@use 'layouts/pricing' as *;
 @use 'layouts/characteristics' as *;
-
+@use 'layouts/whoweare' as *;
 
 @media (min-width: 576px) {
 	html {

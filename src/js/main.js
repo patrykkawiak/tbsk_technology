@@ -3,7 +3,6 @@ const navbar = document.querySelector('.mobile-nav')
 
 const introText = document.querySelectorAll('.intro-text')
 const introBtn = document.querySelector('.intro-btn')
-
 const mnavItem = document.querySelectorAll('.mobile-nav a')
 
 let viewportWidth = window.innerWidth
@@ -152,37 +151,6 @@ const setContent = () => {
 	}
 }
 
-// PROCESSES PARALLAX
-
-/* const processesSection = document.querySelector('.processes')
-const zmienna = processesSection.offsetTop
-
-const handleParallaxSection = () => {
-	const scrollValue = window.pageYOffset
-	const rate = (scrollValue - zmienna) * 2.5
-
-	const characteristicsSection = document.querySelector('.characteristics')
-
-	console.log(`scroll value ${scrollValue} `)
-
-	if (zmienna - 100 <= scrollValue) {
-		processesSection.classList.add('fixed')
-	} else {
-		processesSection.classList.remove('fixed')
-	}
-
-	if (processesSection.classList.contains('fixed')) {
-		const sectionRect = characteristicsSection.getBoundingClientRect()
-		if (sectionRect.left >= -10) {
-			characteristicsSection.style.transform = `translateX(-${rate}px)`
-			processesSection.style.transform = `translateX(-${rate}px)`
-		}
-	} else {
-		characteristicsSection.style.transform = `translateX(0)`
-		processesSection.style.transform = `translateX(0)`
-	}
-}
- */
 
 /* PROJECTS PARALLAX */
 
@@ -201,6 +169,7 @@ let secondAnchorPoint = nextSection.offsetTop - nextSection.offsetHeight
 
 const projectsParallaxHandler = () => {
 	if (viewport < 992) return
+
 
 	let scrollTop = window.pageYOffset
 	let scrollToAnchor = nextSection.offsetHeight + nextSection.offsetTop
@@ -236,10 +205,58 @@ const projectsParallaxHandler = () => {
 		parallaxItems[1].classList.remove('imgs-bottom')
 	}
 }
-/* wywoluje parralax funkcje na scrollu */
-window.onscroll = () => {
-	projectsParallaxHandler()
-}
+
+
+
+
+const firstSection = document.querySelector('.processes');
+const secondSection = document.querySelector('.characteristics');
+const sectionOffSet = firstSection.offsetTop;
+const nav = document.querySelector('.navbar');
+const navHeight = nav.offsetHeight;
+
+const handleParallaxSection = () => {
+	if (viewportWidth < 992) return;
+	let scrollPermision;
+	const scrollValue = window.scrollY;
+	const rate = parseInt((scrollValue - sectionOffSet) / 10);
+	const firstAnchor = sectionOffSet - navHeight <= scrollValue;
+
+	if (firstAnchor && !secondSection.classList.contains('static')) {
+		firstSection.classList.add('parallax-sticky');
+		scrollPermision = true;
+	}
+
+	const secondSectionRect = secondSection.getBoundingClientRect();
+	const firstSectionRect = firstSection.getBoundingClientRect();
+	const secondSectionTop = secondSectionRect.top;
+	const firstSectionTop = firstSectionRect.top;
+	if (rate > 100 && secondSectionTop === firstSectionTop) {
+		secondSection.classList.add('static');
+		firstSection.classList.remove('parallax-sticky');
+		firstSection.classList.add('parallax-static');
+		scrollPermision = false;
+	} else {
+		if (secondSection.classList.contains('static')) {
+			const secondOffSet = secondSection.offsetTop;
+			if (secondOffSet - navHeight >= scrollValue) {
+				firstSection.classList.add('parallax-sticky');
+				firstSection.classList.remove('parallax-static');
+				secondSection.classList.remove('static');
+				scrollPermision = true;
+			}
+			scrollPermision = false;
+		} else {
+			scrollPermision = true;
+		}
+	}
+
+	if (scrollPermision) {
+		secondSection.style.transform = `translateX(-${rate}%)`;
+		firstSection.style.transform = `translateX(-${rate}%)`;
+	}
+
+};
 
 // functions actions
 
@@ -267,7 +284,7 @@ window.onclick = e => {
 window.onscroll = () => {
 	headerParallaxHandler()
 	projectsParallaxHandler()
-	//handleParallaxSection()
+	handleParallaxSection()
 }
 
 navCloseHandler()
