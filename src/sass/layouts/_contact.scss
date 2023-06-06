@@ -16,19 +16,17 @@ a {
 .click-form-btn {
 	text-align: center;
 	button {
-		font-size: 40px;
+		font-style: normal;
+		font-weight: 600;
+		font-size: 2.7rem;
 		text-align: center;
 		color: $color_6;
+		text-align: center;
 		padding: 10px 30px;
-		background-color: $background-color_3;
 		border: none;
 		margin-bottom: 66px;
+		cursor: pointer;
 	}
-}
-
-.opern-form-wrapper {
-	margin-bottom: 100px;
-	display: none;
 }
 
 .open-form-inner {
@@ -38,14 +36,13 @@ a {
 	padding: 45px 60px 65px 60px;
 	form {
 		label {
+			font-size: 3.2rem;
 			color: $color_7;
-			font-size: 35px;
-			font-weight: 400;
 			display: block;
 			margin-bottom: 20px;
 		}
 		input {
-			font-size: 25px;
+			font-size: 2.2rem;
 			color: $color_2;
 			width: 100%;
 			display: block;
@@ -55,7 +52,7 @@ a {
 			margin-bottom: 15px;
 		}
 		textarea {
-			font-size: 25px;
+			font-size: 2.2rem;
 			color: $color_2;
 			width: 100%;
 			display: block;
@@ -67,10 +64,11 @@ a {
 		}
 	}
 	small {
-		width: 15px;
+		min-width: 13px;
 		height: 3px;
 		background-color: $background-color_4;
 		margin-right: 10px;
+		margin-bottom: 10px;
 		color: $color_2;
 	}
 }
@@ -80,8 +78,9 @@ a {
 	justify-content: space-between;
 	margin-bottom: 90px;
 	h2 {
-		font-size: 45px;
-		font-weight: 400;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 4.2rem;
 		text-align: center;
 		color: $color_6;
 	}
@@ -98,49 +97,106 @@ a {
 		border: none;
 		color: $color_1;
 		width: 100%;
-		font-size: 20px;
+		font-size: 1.8rem;
 		&:hover {
 			background-color: $background-color_2;
+			cursor: pointer;
 		}
 	}
 }
 .tel-phone-numbers {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 	margin-bottom: 80px;
 }
 .form-controls {
 	max-width: 60px;
 	height: 60px;
-	margin: 0px;
 	margin-right: 10px;
 	color: $color_2;
-	padding: 0px;
+	padding: 0px !important;
 	text-align: center;
 }
+.fa-show {
+	display: none;
+}
 
-// .zapoznanie-area {
-// 	padding: 20px 0 160px;
-// 	.top-title {
-// 		small {
-// 			margin-bottom: 20px;
-// 		}
-// 		h2 {
-// 			margin-bottom: 90px;
-// 		}
-// 	}
-// }
-// .zapoznanie-item-wrapper {
-// 	display: grid;
-// 	grid-template-columns: repeat(2, 1fr);
-// 	gap: 90px 96px;
-// 	max-width: 990px;
-// 	margin: auto;
-// }
-
-// .zapoznanie-item {
-// 	text-align: center;
-// 	padding: 29px 60px 40px 60px;
-// 	background: #1c1c1c;
-// }
+@media screen and (min-width: 768px) and (max-width: 991px) {
+	html {
+		font-size: 81.25%;
+	}
+	.click-form-btn {
+		button {
+			font-size: 30px;
+		}
+	}
+}
+@media screen and (max-width: 767px) {
+	html {
+		font-size: 75%;
+	}
+	.click-form-btn {
+		button {
+			font-size: 2.8rem;
+		}
+	}
+	.open-form-inner {
+		padding: 18px 21px 31px 21px;
+		form {
+			label {
+				font-size: 1.7rem;
+				margin-bottom: 13px;
+			}
+			input {
+				font-size: 1.7rem;
+				padding: 12px 13px;
+				border: 1px solid #a3a3a3;
+				margin-bottom: 15px;
+			}
+			textarea {
+				font-size: 1.7rem;
+				padding: 12px 13px;
+				border: 1px solid #a3a3a3;
+				margin-bottom: 15px;
+			}
+		}
+		small {
+			width: 10px;
+			height: 3px;
+			background-color: $background-color_4;
+			margin-right: 5px;
+			margin-bottom: 10px;
+			color: $color_2;
+		}
+	}
+	.form-header {
+		margin-bottom: 32px;
+		h2 {
+			font-size: 2rem;
+		}
+		span {
+			img {
+				width: 25px;
+			}
+		}
+	}
+	.form-controls {
+		max-width: 26px;
+		height: 26px;
+		margin: 0px;
+		margin-right: 4px;
+		color: $color_2;
+		padding: 0px !important;
+		text-align: center;
+		border: 1px solid #000;
+	}
+	.tel-phone-numbers {
+		margin-bottom: 29px;
+	}
+	.form-submit-btn {
+		button {
+			height: 61px;
+		}
+	}
+}
