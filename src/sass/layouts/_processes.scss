@@ -155,6 +155,9 @@
 		position: sticky;
 		top: 5rem;
 	}
+	.parallax-static {
+		transform: translate(0) !important;
+	}
 }
 @media (min-width: 1200px) {
 	.processes {

@@ -3,7 +3,6 @@ const navbar = document.querySelector('.mobile-nav');
 
 const introText = document.querySelectorAll('.intro-text');
 const introBtn = document.querySelector('.intro-btn');
-
 const mnavItem = document.querySelectorAll('.mobile-nav a');
 
 let viewportWidth = window.innerWidth;
@@ -179,20 +178,20 @@ const handleParallaxSection = () => {
 	const firstSectionRect = firstSection.getBoundingClientRect();
 	const secondSectionTop = secondSectionRect.top;
 	const firstSectionTop = firstSectionRect.top;
-	const secondSectionOffSet = secondSection.offsetTop;
-	console.log(secondSectionTop);
-	console.log(firstSectionTop);
 	if (rate > 100 && secondSectionTop === firstSectionTop) {
 		secondSection.classList.add('static');
-		secondSection.style.transform = `translateX(0)`;
-		firstSection.style.transform = `translateX(0)`;
 		firstSection.classList.remove('parallax-sticky');
-		secondSection.style.left = 0;
-		secondSection.style.top = 0;
-		location.href = '#characteristics';
+		firstSection.classList.add('parallax-static');
 		scrollPermision = false;
 	} else {
 		if (secondSection.classList.contains('static')) {
+			const secondOffSet = secondSection.offsetTop;
+			if (secondOffSet - navHeight >= scrollValue) {
+				firstSection.classList.add('parallax-sticky');
+				firstSection.classList.remove('parallax-static');
+				secondSection.classList.remove('static');
+				scrollPermision = true;
+			}
 			scrollPermision = false;
 		} else {
 			scrollPermision = true;
@@ -203,26 +202,7 @@ const handleParallaxSection = () => {
 		secondSection.style.transform = `translateX(-${rate}%)`;
 		firstSection.style.transform = `translateX(-${rate}%)`;
 	}
-	console.log(scrollPermision);
 
-	// if (firstSection.classList.contains('parallax-sticky')) {
-	// 	if (sectionRect.left > 0 && characteristicsOffSet < scrollValue) {
-	// 		secondSection.style.transform = `translateX(-${rate}%)`;
-	// 		firstSection.style.transform = `translateX(-${rate}%)`;
-	// 	} else {
-	// 		secondSection.style.transform = `translateX(0)`;
-	// 		firstSection.style.transform = `translateX(0)`;
-	// 		secondSection.style.left = '0';
-	// 		secondSection.style.top = `13.5rem`;
-	// 		secondSection.classList.add('static');
-	// 		firstSection.classList.remove('parallax-sticky');
-
-	// 		// secondSection.style.transform = `translateY(100%)`;
-	// 	}
-	// } else {
-	// 	secondSection.style.transform = `translateX(0)`;
-	// 	firstSection.style.transform = `translateX(0)`;
-	// }
 };
 
 // functions actions
