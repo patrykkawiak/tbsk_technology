@@ -3,7 +3,6 @@ const navbar = document.querySelector('.mobile-nav')
 
 const introText = document.querySelectorAll('.intro-text')
 const introBtn = document.querySelector('.intro-btn')
-
 const mnavItem = document.querySelectorAll('.mobile-nav a')
 
 let viewportWidth = window.innerWidth
@@ -152,38 +151,6 @@ const setContent = () => {
 	}
 }
 
-// parallax section
-const processesSection = document.querySelector('.processes');
-const zmienna = processesSection.offsetTop;
-const handleParallaxSection = () => {
-	const scrollValue = window.scrollY;
-	const rate = (scrollValue - zmienna) * 3;
-	console.log(zmienna);
-	console.log(rate);
-
-	const characteristicsSection = document.querySelector('.characteristics');
-	const nav = document.querySelector('.navbar');
-	const navHeight = nav.offsetHeight;
-	console.log(`scroll value ${scrollValue} `);
-
-	if (zmienna - navHeight < scrollValue) {
-		processesSection.classList.add('active-parallax');
-	} else {
-		processesSection.classList.remove('active-parallax');
-	}
-
-	if (processesSection.classList.contains('active-parallax')) {
-		const sectionRect = characteristicsSection.getBoundingClientRect();
-		if (sectionRect.left >= 0) {
-			characteristicsSection.style.transform = `translateX(-${rate}px)`;
-			processesSection.style.transform = `translateX(-${rate}px)`;
-		}
-	} else {
-		characteristicsSection.style.transform = `translateX(0)`
-		processesSection.style.transform = `translateX(0)`
-	}
-}
-
 
 /* PROJECTS PARALLAX */
 
@@ -242,6 +209,54 @@ const projectsParallaxHandler = () => {
 window.onscroll = () => {
 	projectsParallaxHandler()
 }
+const firstSection = document.querySelector('.processes');
+const secondSection = document.querySelector('.characteristics');
+const sectionOffSet = firstSection.offsetTop;
+const nav = document.querySelector('.navbar');
+const navHeight = nav.offsetHeight;
+
+const handleParallaxSection = () => {
+	if (viewportWidth < 992) return;
+	let scrollPermision;
+	const scrollValue = window.scrollY;
+	const rate = parseInt((scrollValue - sectionOffSet) / 10);
+	const firstAnchor = sectionOffSet - navHeight <= scrollValue;
+
+	if (firstAnchor && !secondSection.classList.contains('static')) {
+		firstSection.classList.add('parallax-sticky');
+		scrollPermision = true;
+	}
+
+	const secondSectionRect = secondSection.getBoundingClientRect();
+	const firstSectionRect = firstSection.getBoundingClientRect();
+	const secondSectionTop = secondSectionRect.top;
+	const firstSectionTop = firstSectionRect.top;
+	if (rate > 100 && secondSectionTop === firstSectionTop) {
+		secondSection.classList.add('static');
+		firstSection.classList.remove('parallax-sticky');
+		firstSection.classList.add('parallax-static');
+		scrollPermision = false;
+	} else {
+		if (secondSection.classList.contains('static')) {
+			const secondOffSet = secondSection.offsetTop;
+			if (secondOffSet - navHeight >= scrollValue) {
+				firstSection.classList.add('parallax-sticky');
+				firstSection.classList.remove('parallax-static');
+				secondSection.classList.remove('static');
+				scrollPermision = true;
+			}
+			scrollPermision = false;
+		} else {
+			scrollPermision = true;
+		}
+	}
+
+	if (scrollPermision) {
+		secondSection.style.transform = `translateX(-${rate}%)`;
+		firstSection.style.transform = `translateX(-${rate}%)`;
+	}
+
+};
 
 // functions actions
 

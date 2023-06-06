@@ -15,6 +15,13 @@
 	left: 100%;
 }
 
+.static {
+	position: relative;
+	top: 13.5rem;
+	left: 0;
+	transform: translate(0) !important;
+}
+
 @media (min-width: 992px) {
 	.characteristics {
 		height: calc(100vh - 5rem);
