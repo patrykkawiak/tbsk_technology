@@ -18,6 +18,8 @@
 				flex-direction: column;
 				gap: 2rem;
 				.desc-heading {
+          display: flex;
+          flex-direction: column-reverse;
 					.heading-tag {
 						font-size: 1.8rem;
 						font-weight: 600;
@@ -93,6 +95,8 @@
 				justify-content: center;
 				gap: 2rem;
 				.desc-heading {
+          display: flex;
+          flex-direction: column-reverse;
 					.heading-tag {
 						font-size: 1.3rem;
 						font-weight: 600;

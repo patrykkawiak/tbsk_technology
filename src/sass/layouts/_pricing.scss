@@ -18,6 +18,16 @@ a {
 	background-size: cover;
 	background-position: center center;
   padding-top: 0;
+
+  .section__heading {
+    flex-direction: column;
+    strong {
+      order: 1;
+    }
+    small { 
+      order: 2;
+    }
+  }
 }
 .pricing-img {
 	text-align: center;
