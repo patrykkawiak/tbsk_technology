@@ -230,17 +230,29 @@ const handleParallaxSection = () => {
 	if (firstAnchor && !secondSection.classList.contains('static')) {
 		firstSection.classList.add('parallax-sticky');
 		scrollPermision = true;
+	} else {
+		firstSection.classList.remove('parallax-sticky');
+	}
+
+	if (
+		!firstSection.classList.contains('parallax-sticky') &&
+		!firstSection.classList.contains('parallax-static')
+	) {
+		secondSection.style.transform = `translateX(0)`;
+		firstSection.style.transform = `translateX(0)`;
 	}
 
 	const secondSectionRect = secondSection.getBoundingClientRect();
 	const firstSectionRect = firstSection.getBoundingClientRect();
 	const secondSectionTop = secondSectionRect.top;
 	const firstSectionTop = firstSectionRect.top;
-	if (rate >= 100 && secondSectionTop === firstSectionTop) {
+	
+	if (rate > 100 && secondSectionTop === firstSectionTop) {
 		firstSection.classList.remove('parallax-sticky');
 		firstSection.classList.add('parallax-static');
-		scrollPermision = false;
+		secondSection.style.marginTop = `${firstSectionTop + (navHeight * 2)}px`;
 		secondSection.classList.add('static');
+		scrollPermision = false;
 	} else {
 		if (secondSection.classList.contains('static')) {
 			const secondOffSet = secondSection.offsetTop;
@@ -248,6 +260,7 @@ const handleParallaxSection = () => {
 				firstSection.classList.add('parallax-sticky');
 				firstSection.classList.remove('parallax-static');
 				secondSection.classList.remove('static');
+				secondSection.style.marginTop = '0';
 				scrollPermision = true;
 			}
 			scrollPermision = false;
@@ -259,6 +272,12 @@ const handleParallaxSection = () => {
 	if (scrollPermision) {
 		secondSection.style.transform = `translateX(-${rate}%)`;
 		firstSection.style.transform = `translateX(-${rate}%)`;
+	}
+
+	if (rate >= 100) {
+		secondSection.classList.remove('quick-fix');
+	} else if (rate <= 100) {
+		secondSection.classList.add('quick-fix');
 	}
 };
 

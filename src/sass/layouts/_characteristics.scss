@@ -1,23 +1,22 @@
 @use '../utilities/colors' as *;
 
 .characteristics {
-	padding: 0 2rem 4rem 2rem;
-	z-index: 50;
-	position: static;
+	position: fixed;
 	overflow: hidden;
 	width: 100%;
 	background: $fourth-section-gradient;
+	height: calc(100vh - 5rem);
 	display: flex;
-	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 4rem;
 	color: white;
-	top: 5rem;
-
+	z-index: 50;
 	.characteristics-ctn {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: 6rem;
-
 		img {
 			max-height: 30rem;
 		}
@@ -49,6 +48,7 @@
 	.characteristics {
 		position: fixed;
 		left: 100%;
+		top: calc(5rem);
 		height: calc(100vh - 5rem);
 		width: 100%;
 		padding: 0;
@@ -71,8 +71,7 @@
 				.characteristics-item {
 					position: absolute;
 					max-width: 35rem;
-					transform: translateX(var(--transform-x))
-						translateY(var(--transform-y));
+					transform: translateX(var(--transform-x)) translateY(var(--transform-y));
 					.item-heading {
 						font-size: 1.8rem;
 					}
@@ -107,8 +106,7 @@
 
 				@keyframes resetPos {
 					from {
-						transform: translateX(var(--transform-x))
-							translateY(var(--transform-y));
+						transform: translateX(var(--transform-x)) translateY(var(--transform-y));
 					}
 
 					to {
@@ -125,8 +123,7 @@
 						transform: translateX(0) translateY(0);
 					}
 					to {
-						transform: translateX(var(--transform-x))
-							translateY(var(--transform-y));
+						transform: translateX(var(--transform-x)) translateY(var(--transform-y));
 					}
 				}
 			}
@@ -143,7 +140,6 @@
 	}
 	.static {
 		position: relative;
-		margin-top: 14.5rem;
 		top: 0;
 		left: 0;
 		transform: translate(0) !important;
@@ -165,4 +161,17 @@
 			}
 		}
 	}
+}
+
+.quick-fix {
+	margin-top: 1px;
+}
+
+.characteristics.quick-fix::before {
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 2px;
+	background-color: white;
+	left: 2px;
 }
