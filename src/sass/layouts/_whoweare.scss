@@ -5,10 +5,11 @@
   padding-top: 0;
 }
 .whoweare-item-wrapper {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	display: flex;
+flex-direction: column;
+  align-items: center;
 	gap: 90px 96px;
-	max-width: 990px;
+	max-width: 550px;
 	margin: auto;
 }
 .whoweare-item {
@@ -72,14 +73,6 @@
 	height: auto;
 }
 @media screen and (max-width: 768px) {
-	html {
-		font-size: 68.75%;
-	}
-	.whoweare-item-wrapper {
-		display: grid;
-		grid-template-columns: repeat(1, 1fr);
-		gap: 50px 100px;
-	}
 	.whoweare-item {
 		text-align: center;
 		background: transparent;
@@ -93,28 +86,16 @@
 		height: 160px;
 	}
 }
-@media screen and (min-width: 768px) and (max-width: 991px) {
-	html {
-		font-size: 75%;
-	}
-	.whoweare-item-wrapper {
-		display: grid;
-		grid-template-columns: repeat(1, 1fr);
-		gap: 50px 30px;
-	}
-}
-@media screen and (min-width: 992px) and (max-width: 1200px) {
-	html {
-		font-size: 81.25%;
-	}
-}
-@media screen and (min-width: 1201px) and (max-width: 1400px) {
-	html {
-		font-size: 87.5%;
-	}
-}
-@media screen and (min-width: 1401px) and (max-width: 1450px) {
-	html {
-		font-size: 93.75%;
-	}
+
+@media (min-width: 992px) {
+  .whoweare-item-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8rem;
+    max-width: 900px;
+  }
+  .whoweare-item {
+    padding: 2rem;
+    background-color: $color_7;
+  }
 }

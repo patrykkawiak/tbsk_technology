@@ -5,11 +5,17 @@
 	overflow: hidden;
 	background: $third-section-gradient;
 	color: white;
+  .section__heading {
+    padding-bottom: 0;
+  }
 	.projects-mobile-cnt {
 		display: flex;
 		flex-direction: column;
 		gap: 7rem;
 		.project {
+      &:first-child {
+        margin-top: 2rem;
+      }
 			.project-desc {
 				height: max-content;
 				padding: 2rem;

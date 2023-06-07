@@ -9,74 +9,52 @@ cross.addEventListener('click', function () {
 })
 
 const form = document.querySelector('form')
-const inputs = form.querySelectorAll('input')
-const keys = {
-	backspace: 8,
-	arrowLeft: 37,
-	arrowRight: 39,
-}
-
-function handleInput(e) {
+const formControls = form.querySelectorAll('.form-controls')
+function handleBackspaceOnFormControls(e, index) {
 	const input = e.target
-	const nextInput = input.nextElementSibling
-	if (nextInput && input.value) {
-		nextInput.focus()
-		if (nextInput.value) {
-			nextInput.select()
-		}
-	}
+	input.value = ''
+  console.log(index);
+  if(index === 0){
+    return
+  }
+  const prevControl = formControls[index-1]
+  prevControl.focus()
 }
 
-function handlePaste(e) {
-	e.preventDefault()
-	const paste = e.clipboardData.getData('text')
-	inputs.forEach((input, i) => {
-		input.value = paste[i] || ''
-	})
+
+function handleArrowLeftOnFormControls(index) {
+	if(index === 0) {
+    return
+  }
+  const prevControl = formControls[index-1]
+  prevControl.focus()
 }
 
-function handleBackspace(e) {
-	const input = e.target
-	if (input.value) {
-		input.value = ''
-		return
-	}
-
-	input.previousElementSibling.focus()
+function handleArrowRightOnFormControls(index) {
+	if(index === formControls.length-1) {
+    return
+  }
+  const nextControl = formControls[index+1]
+  nextControl.focus()
 }
 
-function handleArrowLeft(e) {
-	const previousInput = e.target.previousElementSibling
-	if (!previousInput) return
-	previousInput.focus()
-}
-
-function handleArrowRight(e) {
-	const nextInput = e.target.nextElementSibling
-	if (!nextInput) return
-	nextInput.focus()
-}
-
-form.addEventListener('input', handleInput)
-inputs[0].addEventListener('paste', handlePaste)
-
-inputs.forEach(input => {
-	input.addEventListener('focus', e => {
-		setTimeout(() => {
-			e.target.select()
-		}, 0)
-	})
-
-	input.addEventListener('keydown', e => {
-    if(e.key === keys.backspace) {
-      handleBackspace(e)
+formControls.forEach((control, index) => {
+  control.addEventListener('keyup', e => {
+    if (e.key === 'Backspace') {
+      handleBackspaceOnFormControls(e, index)
     }
-    else if (e.key === keys.arrowLeft) {
-      handleArrowLeft(e)
+    else if (e.key === 'ArrowRight') {
+      handleArrowRightOnFormControls(index)
     }
-    else if (e.key === keys.arrowRight) {
-      handleArrowRight(e)
+    else if (e.key === 'ArrowLeft') {
+      handleArrowLeftOnFormControls(index)
     }
-		
-	})
+  })
+  control.addEventListener('input', () => {
+    if (control.hasFocus()) {
+      if (control.value != '') {
+        handleArrowRightOnFormControls(index)
+      }
+    }
+  })
 })
