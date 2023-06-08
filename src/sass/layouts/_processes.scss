@@ -17,7 +17,7 @@
 					width: 100%;
 					border: none;
 					border-top: 2px solid gray;
-					font-size: 3rem;
+					font-size: 2rem;
 					padding: 2rem 1.2rem;
 					background-color: transparent;
 					color: white;
@@ -40,11 +40,11 @@
 					transition: 0.5s;
 					.accordion-label {
 						color: white;
-						font-size: 3rem;
+						font-size: 1.8rem;
 					}
 					.accordion-text {
 						color: rgb(184, 184, 184);
-						font-size: 1.8rem;
+						font-size: 1.5rem;
 					}
 				}
 				.active {
@@ -131,6 +131,7 @@
 
 @media (min-width: 992px) {
 	.processes {
+		z-index: 49;
 		position: relative;
 		display: flex;
 		justify-content: center;
