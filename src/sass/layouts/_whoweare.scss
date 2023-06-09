@@ -72,6 +72,9 @@ flex-direction: column;
 	max-width: 100%;
 	height: auto;
 }
+.whoweare-item-name:hover {
+	text-shadow: 0 0 4px #d3d3a3;
+}
 @media screen and (max-width: 768px) {
 	.whoweare-item {
 		text-align: center;
