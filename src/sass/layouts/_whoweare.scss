@@ -7,7 +7,7 @@
 .whoweare-item-wrapper {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	gap: 90px 96px;
+	gap: 95px 96px;
 	max-width: 990px;
 	margin: auto;
 }
@@ -20,6 +20,7 @@
 		font-size: 2rem;
 		color: $color_4;
 		padding: 3rem 0;
+		transition: 0.4s;
 	}
 	p {
 		font-size: 1.5rem;
@@ -72,7 +73,7 @@
 	height: auto;
 }
 .whoweare-item-name:hover {
-	text-shadow: 0 0 4px #d3d3a3;
+	text-shadow: 0 0 4px #868664e3;
 }
 @media screen and (max-width: 768px) {
 	html {
