@@ -9,7 +9,7 @@ const makeCustomElement = (type, classes, text) => {
   return element
 }
 
-const renderProcessMobile = (section, headings, texts) => {
+const renderProcessMobile = (section, info) => {
   const isMade = document.querySelector('.processes-mobile')
   const desktopVersion = document.querySelector('.processes-desktop')
   if(desktopVersion){
@@ -22,10 +22,10 @@ const renderProcessMobile = (section, headings, texts) => {
       const accordion = makeCustomElement('div', ['accordion'])
         const heading = makeCustomElement('button', ['accordion-heading'])
           const arrow = makeCustomElement('i', ['bx', 'bx-down-arrow-circle'])
-          heading.append(arrow, headings[i])
+          heading.append(arrow, info.headings[i])
         const content = makeCustomElement('div', ['accordion-content'])
-          const label = makeCustomElement('h3', ['accordion-label'], headings[i])
-          const text = makeCustomElement('p', ['accordion-text'], texts[i])
+          const label = makeCustomElement('h3', ['accordion-label'], info.headings[i])
+          const text = makeCustomElement('p', ['accordion-text'], info.texts[i])
           content.append(label, text)
         accordion.append(heading, content)
       accordions.append(accordion)
@@ -35,7 +35,7 @@ const renderProcessMobile = (section, headings, texts) => {
   } 
 }
 
-const renderProcessDestkop = (section, headings, texts, buttons) => {
+const renderProcessDestkop = (section, info) => {
   const isMade = document.querySelector('.processes-desktop')
   const mobileVersion = document.querySelector('.processes-mobile')
   if(mobileVersion){
@@ -48,13 +48,13 @@ const renderProcessDestkop = (section, headings, texts, buttons) => {
           for(let i = 0; i < buttons.length; i++) {
             const processesListItem = makeCustomElement('li', ['processes-list-item'])
               const dot = makeCustomElement('div', ['dot'])
-              const text = makeCustomElement('span', ['processes-list-item-text'], buttons[i])
+              const text = makeCustomElement('span', ['processes-list-item-text'], info.buttons[i])
               processesListItem.append(dot, text)
             processesList.append(processesListItem)
           }
         const processesContent = makeCustomElement('div', ['processes-content'])
-          const processesContentTitle = makeCustomElement('h3', ['processes-content-title'], headings[0])
-          const processesContentText = makeCustomElement('p', ['processes-content-text'], texts[0])
+          const processesContentTitle = makeCustomElement('h3', ['processes-content-title'], info.headings[0])
+          const processesContentText = makeCustomElement('p', ['processes-content-text'], info.texts[0])
           processesContent.append(processesContentTitle, processesContentText)
         processesCnt.append(processesList, processesContent)
       processesDesktop.append(processesCnt)
@@ -66,25 +66,26 @@ const renderDesktopOrMobile = () => {
   const navbar = document.querySelector('.navbar')
   const processes = document.querySelector('.processes')
   const projects = document.querySelector('.projects')
-
-  const processesHeadings = [
-    'Jak przebiegają rozmowy',
-    'Jak przebiegają rozmowy',
-    'Jak przebiegają rozmowy',
-    'Jak przebiegają rozmowy'
-  ]
-  const processesTexts = [
-    'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt vel eligendi consequuntur voluptas nesciunt perferendis qui id obcaecati repellendus quaerat accusantium exercitationem non, alias assumenda, sed illo totam eos dolorum.',
-    'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt vel eligendi consequuntur voluptas nesciunt perferendis qui id obcaecati repellendus quaerat accusantium exercitationem non, alias assumenda, sed illo totam eos dolorum.',
-    'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt vel eligendi consequuntur voluptas nesciunt perferendis qui id obcaecati repellendus quaerat accusantium exercitationem non, alias assumenda, sed illo totam eos dolorum.',
-    'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt vel eligendi consequuntur voluptas nesciunt perferendis qui id obcaecati repellendus quaerat accusantium exercitationem non, alias assumenda, sed illo totam eos dolorum.'
-  ]
-  const processButtons = [
-    'Konsultacja',
-    'Prezentacja',
-    'Zatwierdzenie',
-    'Wykonanie'
-  ]
+  const processesInfo = {
+    headings: [
+      'Jak przebiegają rozmowy',
+      'Jak przebiegają rozmowy',
+      'Jak przebiegają rozmowy',
+      'Jak przebiegają rozmowy'
+    ],
+    texts: [
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt vel eligendi consequuntur voluptas nesciunt perferendis qui id obcaecati repellendus quaerat accusantium exercitationem non, alias assumenda, sed illo totam eos dolorum.',
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt vel eligendi consequuntur voluptas nesciunt perferendis qui id obcaecati repellendus quaerat accusantium exercitationem non, alias assumenda, sed illo totam eos dolorum.',
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt vel eligendi consequuntur voluptas nesciunt perferendis qui id obcaecati repellendus quaerat accusantium exercitationem non, alias assumenda, sed illo totam eos dolorum.',
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt vel eligendi consequuntur voluptas nesciunt perferendis qui id obcaecati repellendus quaerat accusantium exercitationem non, alias assumenda, sed illo totam eos dolorum.'
+    ],
+    buttons: [
+      'Konsultacja',
+      'Prezentacja',
+      'Zatwierdzenie',
+      'Wykonanie'
+    ]
+  }
 
   if (document.body.clientWidth >= 992){
     //nav desktop, projects desktop
