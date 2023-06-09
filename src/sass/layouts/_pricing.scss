@@ -26,6 +26,15 @@ a {
 	position: relative;
 	background: $fifth-section-gradient;
 	overflow: hidden;
+	.section__heading {
+		flex-direction: column;
+		strong {
+			order: 1;
+		}
+		small {
+			order: 2;
+		}
+	}
 }
 ul li {
 	transition: 0.2s;
