@@ -12,10 +12,10 @@ a {
 	}
 }
 .pricing {
-  position: relative;
-	background-image: url(/dist/img/Pricing.png);
-	background-repeat: no-repeat;
+	position: relative;
+	background-image: url('/dist/img/ssspirall.svg');
 	background-size: cover;
+	// background-size: 10%;
 	background-position: center center;
   padding-top: 0;
 
@@ -31,9 +31,9 @@ a {
 }
 .pricing-img {
 	text-align: center;
-  img {
-    max-height: 300px;
-  }
+	img {
+		max-height: 300px;
+	}
 }
 small {
 	font-weight: 400;
@@ -44,7 +44,7 @@ small {
 
 .pricing-content {
 	ul {
-    display: grid;
+		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: 2em 1em;
 		li {
@@ -61,24 +61,24 @@ small {
 
 .pricing-text-one {
 	grid-row: 1/2;
-  grid-column: 1/2
+	grid-column: 1/2;
 }
 
 .pricing-text-two {
 	grid-row: 1/2;
-  grid-column: 2/3;
+	grid-column: 2/3;
 }
 .pricing-text-three {
 	grid-row: 2/3;
-  grid-column: 1/2;
+	grid-column: 1/2;
 }
 .pricing-text-four {
 	grid-row: 2/3;
-  grid-column: 2/3;
+	grid-column: 2/3;
 }
 .pricing-text-five {
 	grid-row: 3/4;
-  grid-column: 1/3
+	grid-column: 1/3;
 }
 @media screen and (max-width: 767px) {
 	.pricing-img {
@@ -87,6 +87,7 @@ small {
 	}
 }
 @media (min-width: 768px) {
+<<<<<<< HEAD
   .pricing-content {
     padding-bottom: 10rem;
     ul {
@@ -118,3 +119,35 @@ small {
     }
   }
 }
+=======
+	.pricing-content {
+		padding-bottom: 5rem;
+		ul {
+			display: block;
+		}
+		.price-text {
+			position: absolute;
+		}
+		.pricing-text-one {
+			top: 25%;
+			left: 10%;
+		}
+		.pricing-text-two {
+			top: 30%;
+			right: 8%;
+		}
+		.pricing-text-three {
+			top: 60%;
+			left: 7%;
+		}
+		.pricing-text-four {
+			top: 65%;
+			right: 10%;
+		}
+		.pricing-text-five {
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+}
+>>>>>>> main

@@ -122,7 +122,7 @@ const processTitle = document.querySelector('.processes-content-title');
 
 const processText = document.querySelector('.processes-content-text');
 
-const processBtns = document.querySelectorAll('.processes-list-box');
+const processBtns = document.querySelectorAll('.processes-list-item');
 
 const chengeProcess = (e) => {
 	const btn = e.target;
@@ -160,6 +160,7 @@ const setContent = () => {
 const parallaxSection = document.querySelector('.projects-desktop-cnt');
 const parallaxItems = document.querySelectorAll('.projects-parallax');
 const section = document.querySelector('.projects');
+const sectionHeading = document.querySelector('.projects .section__heading')
 
 const prevSection = document.querySelector('.services');
 const nextSection = document.querySelector('.processes');
@@ -167,7 +168,8 @@ const nextSection = document.querySelector('.processes');
 let viewport = window.innerWidth;
 
 let prevSectionOffset = prevSection.offsetTop;
-let firstAnchorPoint = prevSectionOffset + prevSection.offsetHeight;
+//dodalem + sectionHeading.offsetHeight - tryc
+let firstAnchorPoint = prevSectionOffset + prevSection.offsetHeight + sectionHeading.offsetHeight;
 let secondAnchorPoint = nextSection.offsetTop - nextSection.offsetHeight;
 
 const projectsParallaxHandler = () => {
@@ -326,7 +328,6 @@ const handleRemoveDOMElements = () => {
 
 window.onload = () => {
 	headerParallaxHandler();
-	setContent();
 	if (viewportWidth >= 992) handleRemoveDOMElements();
 };
 
@@ -336,23 +337,23 @@ accordions.forEach((accordion) =>
 	accordion.addEventListener('click', openAccordion)
 );
 
-window.onclick = (e) => {
+window.addEventListener('click', (e) => {
 	accordionOutsideHandler(e);
 	cardOutsideHandler(e);
-};
+})
 
-window.onscroll = () => {
+window.addEventListener('scroll', () => {
 	headerParallaxHandler();
 	projectsParallaxHandler();
 	handleParallaxSection();
-};
+})
 
 navCloseHandler();
 navRevealHandler();
 
-window.onresize = () => {
-	let viewportWidth = window.innerWidth;
+window.addEventListener('resize', () => {
+  let viewportWidth = window.innerWidth;
 
 	if (viewportWidth >= 992) return;
 	cardsActivatorHandler();
-};
+})

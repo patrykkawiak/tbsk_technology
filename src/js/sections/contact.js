@@ -1,60 +1,40 @@
 const btn = document.querySelector('.buttoners')
 const cross = document.querySelector('.cross')
-const forme = document.querySelector('.open-form-inner')
+const formBox = document.querySelector('.form-box')
+const opennedForm = document.querySelector('.open-form-inner')
+
+const disableScroll = () => {
+  const scrollTop = window.scrollY
+
+  window.onscroll = function () {
+    window.scrollTo({
+      top: scrollTop,
+      behavior: 'instant',
+    })
+  }
+}
+
+const enableScroll = () => {
+  window.onscroll = function () {}
+}
+
+const closeFormIfOutside = (e) => {
+  if(!opennedForm.contains(e.target) && e.target != btn){
+    formBox.classList.add('hidden')
+    enableScroll()
+  }
+}
+
 btn.addEventListener('click', function () {
-	forme.classList.remove('fa-show')
+  disableScroll()
+	formBox.classList.remove('hidden')
 })
 cross.addEventListener('click', function () {
-	forme.classList.add('fa-show')
+  enableScroll()
+	formBox.classList.add('hidden')
 })
 
-const form = document.querySelector('form')
-const formControls = form.querySelectorAll('.form-controls')
-function handleBackspaceOnFormControls(e, index) {
-	const input = e.target
-	input.value = ''
-  console.log(index);
-  if(index === 0){
-    return
-  }
-  const prevControl = formControls[index-1]
-  prevControl.focus()
-}
+window.addEventListener('click', (e) => closeFormIfOutside(e))
 
 
-function handleArrowLeftOnFormControls(index) {
-	if(index === 0) {
-    return
-  }
-  const prevControl = formControls[index-1]
-  prevControl.focus()
-}
 
-function handleArrowRightOnFormControls(index) {
-	if(index === formControls.length-1) {
-    return
-  }
-  const nextControl = formControls[index+1]
-  nextControl.focus()
-}
-
-formControls.forEach((control, index) => {
-  control.addEventListener('keyup', e => {
-    if (e.key === 'Backspace') {
-      handleBackspaceOnFormControls(e, index)
-    }
-    else if (e.key === 'ArrowRight') {
-      handleArrowRightOnFormControls(index)
-    }
-    else if (e.key === 'ArrowLeft') {
-      handleArrowLeftOnFormControls(index)
-    }
-  })
-  control.addEventListener('input', () => {
-    if (control.hasFocus()) {
-      if (control.value != '') {
-        handleArrowRightOnFormControls(index)
-      }
-    }
-  })
-})
