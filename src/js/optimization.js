@@ -19,7 +19,7 @@ const renderProcessMobile = (section, accordions) => {
     const processesMobile = makeCustomElement('div', ['processes-mobile'])
     const accordionsBlock = makeCustomElement('div', ['accordions'])
       accordions.forEach(accordion => {
-        const accordion = makeCustomElement('div', ['accordion'])
+        const accordionBlock = makeCustomElement('div', ['accordion'])
           const heading = makeCustomElement('button', ['accordion-heading'])
             const arrow = makeCustomElement('i', ['bx', 'bx-down-arrow-circle'])
             heading.append(arrow, accordion.heading)
@@ -27,7 +27,7 @@ const renderProcessMobile = (section, accordions) => {
             const label = makeCustomElement('h3', ['accordion-label'], accordion.heading)
             const text = makeCustomElement('p', ['accordion-text'], accordion.text)
             content.append(label, text)
-          accordion.append(heading, content)
+          accordionBlock.append(heading, content)
         accordionsBlock.append(accordion)
       })
     processesMobile.append(accordions)
@@ -62,45 +62,82 @@ const renderProcessDestkop = (section, info) => {
   }
 }
 
+const renderProject = (project, renderShowcase) => {
+  const projectBlock = makeCustomElement('div', ['project', project.name])
+  const projectDesc = makeCustomElement('div', ['project-desc'])
+    const descHeading = makeCustomElement('div', ['desc-heading'])
+      const headingTag = makeCustomElement('small', ['heading-tag'], project.tag)
+      const headingTitle = makeCustomElement('h3', ['heading-title'], project.title)
+      descHeading.append(headingTag, headingTitle)
+    const descContent = makeCustomElement('div', ['desc-content'])
+      const contentMain = makeCustomElement('p', ['content-main'], project.content)
+      const contentDate = makeCustomElement('small', ['content-date'], project.date)
+      descContent.append(contentMain, contentDate)
+    const descBtns = makeCustomElement('div', ['desc-btns'])
+      const visitBtn = makeCustomElement('a', ['desc-btn', 'primary'])
+        visitBtn.setAttribute('href', project.visit)
+        const visitIcon = makeCustomElement('i', ['bx', 'bx-globe'])
+        visitBtn.append('Visit', visitIcon)
+      const codeBtn = makeCustomElement('a', ['desc-btn', 'secondary'])
+        codeBtn.setAttribute('href', project.code)
+        const codeIcon = makeCustomElement('i', ['bx', 'bx-code-alt'])
+        codeBtn.append('Code', codeIcon)
+      descBtns.append(visitBtn, codeBtn)
+    projectDesc.append(descHeading, descContent, descBtns)
+  if(renderShowcase){
+    const projectShowcase = makeCustomElement('div', ['project-showcase'])
+    const showcaseImg = makeCustomElement('img', ['showcase-img'])
+      showcaseImg.setAttribute('alt', `Zdjęcie sekcji tytułowej na stronie ${project.name}`)
+      showcaseImg.setAttribute('src', `./dist/img/${project.name}.png`)
+    projectShowcase.append(showcaseImg)
+    project.append(projectDesc, projectShowcase)
+  }
+  else {
+    project.append(projectDesc)
+  }
+  return project
+}
+
 const renderProjectsMobile = (section, info) => {
-  const isMade = document.querySelector('.processes-desktop')
-  const mobileVersion = document.querySelector('.processes-mobile')
-  if(mobileVersion){
-    mobileVersion.remove()
+  const isMade = document.querySelector('.projects-mobile-cnt')
+  const desktopVersion = document.querySelector('.projects-desktop-cnt')
+  if(desktopVersion){
+    desktopVersion.remove()
   }
   if(!isMade){
     const projectsMobile = makeCustomElement('div', ['projects-mobile-cnt'])
     projectsInfo.forEach(project => {
-      const projectBlock = makeCustomElement('div', ['project', project.name])
-        const projectDesc = makeCustomElement('div', ['project-desc'])
-          const descHeading = makeCustomElement('div', ['desc-heading'])
-            const headingTag = makeCustomElement('small', ['heading-tag'], project.tag)
-            const headingTitle = makeCustomElement('h3', ['heading-title'], project.title)
-            descHeading.append(headingTag, headingTitle)
-          const descContent = makeCustomElement('div', ['desc-content'])
-            const contentMain = makeCustomElement('p', ['content-main'], project.content)
-            const contentDate = makeCustomElement('small', ['content-date'], project.date)
-            descContent.append(contentMain, contentDate)
-          const descBtns = makeCustomElement('div', ['desc-btns'])
-            const visitBtn = makeCustomElement('a', ['desc-btn', 'primary'])
-              visitBtn.setAttribute('href', project.visit)
-              const visitIcon = makeCustomElement('i', ['bx', 'bx-globe'])
-              visitBtn.append('Visit', visitIcon)
-            const codeBtn = makeCustomElement('a', ['desc-btn', 'secondary'])
-              codeBtn.setAttribute('href', project.code)
-              const codeIcon = makeCustomElement('i', ['bx', 'bx-code-alt'])
-              codeBtn.append('Code', codeIcon)
-            descBtns.append(visitBtn, codeBtn)
-          projectDesc.append(descHeading, descContent, descBtns)
-        const projectShowcase = makeCustomElement('div', ['project-showcase'])
-          const showcaseImg = makeCustomElement('img', ['showcase-img'])
-            showcaseImg.setAttribute('alt', `Image of ${project.title}'s header`)
-            showcaseImg.setAttribute('src', `./dist/img/${project.name}.png`)
-          projectShowcase.append(showcaseImg)
-        project.append(projectDesc, projectShowcase)
+      const projectBlock = renderProject(project, true)
       projectsMobile.append(projectBlock)
     })
     section.append(projectsMobile)
+  }
+}
+
+const renderProjectsDesktop = (section, projects) => {
+  const isMade = document.querySelector('.projects-desktop-cnt')
+  const mobileVersion = document.querySelector('.projects-mobile-cnt')
+  if(mobileVersion){
+    mobileVersion.remove()
+  }
+  if(!isMade){
+    const projectsDesktop = makeCustomElement('div', ['projects-desktop-cnt'])
+      const projectsDesc = makeCustomElement('div', ['projects-desc', 'projects-parallax'])
+        projects.forEach(project => {
+          const projectBlock = renderProject(project)
+          projectsDesc.append(projectBlock)
+        })
+      const projectsShowcase = makeCustomElement('div', ['projects-showcase', 'projects-parallax'])
+        projects.forEach(project => {
+          const desktopShowcase = makeCustomElement('div', ['desktop-showcase'])
+            const desktopShowcaseImg = makeCustomElement('img', ['desktop-showcase-img'])
+            desktopShowcaseImg.setAttribute('src', `./dist/img/${project.name}.png`)
+            desktopShowcaseImg.setAttribute('alt', `Zdjęcie sekcji tytułowej na stronie ${project.name}`)
+            desktopShowcase.append(desktopShowcaseImg)
+          projectsShowcase.append(desktopShowcase)
+        })
+      projectsDesktop.append(projectsDesc, projectsShowcase)
+    section.append(projectsDesktop)
   }
 }
 
@@ -108,7 +145,6 @@ const renderDesktopOrMobile = () => {
   const navbar = document.querySelector('.navbar')
   const processes = document.querySelector('.processes')
   const projects = document.querySelector('.projects')
-  //TRZEBA ZMIENIC TUTJA !!!!
   const processesInfo = [
       {
         heading: 'Jak przebiegają rozmowy',
