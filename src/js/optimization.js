@@ -19,7 +19,7 @@ const renderProcessMobile = (section, accordions) => {
     const processesMobile = makeCustomElement('div', ['processes-mobile'])
     const accordionsBlock = makeCustomElement('div', ['accordions'])
       accordions.forEach(accordion => {
-        const accordion = makeCustomElement('div', ['accordion'])
+        const accordionBlock = makeCustomElement('div', ['accordion'])
           const heading = makeCustomElement('button', ['accordion-heading'])
             const arrow = makeCustomElement('i', ['bx', 'bx-down-arrow-circle'])
             heading.append(arrow, accordion.heading)
@@ -27,7 +27,7 @@ const renderProcessMobile = (section, accordions) => {
             const label = makeCustomElement('h3', ['accordion-label'], accordion.heading)
             const text = makeCustomElement('p', ['accordion-text'], accordion.text)
             content.append(label, text)
-          accordion.append(heading, content)
+          accordionBlock.append(heading, content)
         accordionsBlock.append(accordion)
       })
     processesMobile.append(accordions)
