@@ -20,7 +20,7 @@ a {
 	top: 50%;
 	left: 50%;
 	transform: translateY(-50%) translateX(-50%);
-	animation: spin 40s infinite;
+	animation: spin 50s infinite;
 }
 .pricing {
 	position: relative;
@@ -112,6 +112,7 @@ small {
 	}
 }
 @media (min-width: 768px) {
+<<<<<<< HEAD
   .pricing-content {
     padding-bottom: 10rem;
     ul {
@@ -144,6 +145,10 @@ small {
   }
 	.pricing-content {
 		padding-bottom: 5rem;
+=======
+	.pricing-content {
+		padding-bottom: 10rem;
+>>>>>>> main
 		ul {
 			display: block;
 		}
@@ -167,6 +172,10 @@ small {
 			right: 10%;
 		}
 		.pricing-text-five {
+<<<<<<< HEAD
+=======
+			bottom: 4rem;
+>>>>>>> main
 			left: 50%;
 			transform: translateX(-50%);
 		}

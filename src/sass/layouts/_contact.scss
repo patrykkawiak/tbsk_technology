@@ -35,29 +35,31 @@ a {
 	border: none;
 	cursor: pointer;
 }
-
+.buttoners:hover {
+	background-color: #ffffffe5;
+}
 .form-box {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(#000, .8);;
-  transform: translate(-50%);
-  z-index: 1000
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(#000, 0.8);
+	transform: translate(-50%);
+	z-index: 1000;
 }
 
 .open-form-inner {
-  min-width: 280px;
-  width: 60%;
+	min-width: 280px;
+	width: 60%;
 	max-width: 750px;
-  max-height: 95%;
+	max-height: 95%;
 	background-color: $background-color_3;
 	padding: 2rem;
-  overflow-y: auto;
+	overflow-y: auto;
 	form {
 		label {
 			font-size: 1.8rem;
@@ -81,7 +83,7 @@ a {
 			color: $color_2;
 			width: 100%;
 			display: block;
-      min-height: 100px;
+			min-height: 100px;
 			padding: 1rem;
 			outline: none;
 			border: 1px solid #a3a3a3;
