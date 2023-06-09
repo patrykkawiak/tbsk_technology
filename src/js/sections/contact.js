@@ -33,8 +33,11 @@ cross.addEventListener('click', function () {
   enableScroll()
 	formBox.classList.add('hidden')
 })
+<<<<<<< HEAD
 
 window.addEventListener('click', (e) => closeFormIfOutside(e))
 
 
 
+=======
+>>>>>>> 2fbcbf730b59cc13f36e0b9a7b4b53ad95b9de33

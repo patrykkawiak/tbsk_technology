@@ -11,6 +11,17 @@ a {
 		text-decoration: none;
 	}
 }
+.background-image-box {
+	position: absolute;
+	background-image: url('/dist/img/spiralka.svg');
+	// background-position: center;
+	// background-repeat: repeat;
+	background-size: 35%;
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	animation: spin 40s infinite;
+}
 .pricing {
 	position: relative;
 	background-image: url('/dist/img/ssspirall.svg');
@@ -116,4 +127,13 @@ small {
       transform: translateX(-50%);
     }
   }
+}
+
+@keyframes spin {
+	0% {
+		transform: translateY(-50%) translateX(-50%) rotate(0deg);
+	}
+	100% {
+		transform: translateY(-50%) translateX(-50%) rotate(360deg);
+	}
 }
