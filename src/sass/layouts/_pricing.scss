@@ -20,7 +20,7 @@ a {
 	top: 50%;
 	left: 50%;
 	transform: translateY(-50%) translateX(-50%);
-	animation: spin 40s infinite;
+	animation: spin 50s infinite;
 }
 .pricing {
 	position: relative;
@@ -112,36 +112,36 @@ small {
 	}
 }
 @media (min-width: 768px) {
-  .pricing-content {
-    padding-bottom: 10rem;
-    ul {
-      display: block;
-    }
-    .price-text {
-      position: absolute;
-    }
-    .pricing-text-one {
-      top: 25%;
-      left: 10%;
-    }
-    .pricing-text-two {
-      top: 30%;
-      right: 8%;
-    }
-    .pricing-text-three {
-      top: 60%;
-      left: 7%;
-    }
-    .pricing-text-four {
-      top: 65%;
-      right: 10%;
-    }
-    .pricing-text-five {
-      bottom: 4rem;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
+	.pricing-content {
+		padding-bottom: 10rem;
+		ul {
+			display: block;
+		}
+		.price-text {
+			position: absolute;
+		}
+		.pricing-text-one {
+			top: 25%;
+			left: 10%;
+		}
+		.pricing-text-two {
+			top: 30%;
+			right: 8%;
+		}
+		.pricing-text-three {
+			top: 60%;
+			left: 7%;
+		}
+		.pricing-text-four {
+			top: 65%;
+			right: 10%;
+		}
+		.pricing-text-five {
+			bottom: 4rem;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
 }
 
 @keyframes spin {
