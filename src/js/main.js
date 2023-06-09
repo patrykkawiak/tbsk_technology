@@ -160,6 +160,7 @@ const setContent = () => {
 const parallaxSection = document.querySelector('.projects-desktop-cnt');
 const parallaxItems = document.querySelectorAll('.projects-parallax');
 const section = document.querySelector('.projects');
+const sectionHeading = document.querySelector('.projects .section__heading')
 
 const prevSection = document.querySelector('.services');
 const nextSection = document.querySelector('.processes');
@@ -167,7 +168,8 @@ const nextSection = document.querySelector('.processes');
 let viewport = window.innerWidth;
 
 let prevSectionOffset = prevSection.offsetTop;
-let firstAnchorPoint = prevSectionOffset + prevSection.offsetHeight;
+//dodalem + sectionHeading.offsetHeight - tryc
+let firstAnchorPoint = prevSectionOffset + prevSection.offsetHeight + sectionHeading.offsetHeight;
 let secondAnchorPoint = nextSection.offsetTop - nextSection.offsetHeight;
 
 const projectsParallaxHandler = () => {

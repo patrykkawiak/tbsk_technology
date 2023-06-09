@@ -28,7 +28,6 @@ a {
 
 .buttoners {
 	font-style: normal;
-	font-weight: 600;
 	font-size: 1.8rem;
 	text-align: center;
 	color: $color_6;
@@ -36,6 +35,10 @@ a {
 	padding: 1rem 2rem;
 	border: none;
 	cursor: pointer;
+}
+
+.tel {
+  width: 10rem !important;
 }
 
 .open-form-inner {
@@ -92,7 +95,6 @@ a {
 	margin-bottom: 3rem;
 	h3 {
 		font-style: normal;
-		font-weight: bold;
 		font-size: 2rem;
 		text-align: center;
 		color: $color_6;

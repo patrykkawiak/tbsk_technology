@@ -5,12 +5,18 @@
 	overflow: hidden;
 	background: $third-section-gradient;
 	color: white;
+  .section__heading {
+    padding-bottom: 0;
+  }
 	.projects-mobile-cnt {
 		display: flex;
 		flex-direction: column;
 		gap: 7rem;
 		.project {
 			.project-desc {
+        &:first-child {
+          margin-top: 2rem;
+        }
 				height: max-content;
 				padding: 2rem;
         padding-top: 0;
@@ -135,9 +141,6 @@
 						color: black;
 					}
 				}
-			}
-			.project:last-child {
-				margin-top: 10rem;
 			}
 		}
 		.projects-showcase {
