@@ -122,7 +122,7 @@ const processTitle = document.querySelector('.processes-content-title');
 
 const processText = document.querySelector('.processes-content-text');
 
-const processBtns = document.querySelectorAll('.processes-list-box');
+const processBtns = document.querySelectorAll('.processes-list-item');
 
 const chengeProcess = (e) => {
 	const btn = e.target;
@@ -328,7 +328,6 @@ const handleRemoveDOMElements = () => {
 
 window.onload = () => {
 	headerParallaxHandler();
-	setContent();
 	if (viewportWidth >= 992) handleRemoveDOMElements();
 };
 
@@ -338,23 +337,23 @@ accordions.forEach((accordion) =>
 	accordion.addEventListener('click', openAccordion)
 );
 
-window.onclick = (e) => {
+window.addEventListener('click', (e) => {
 	accordionOutsideHandler(e);
 	cardOutsideHandler(e);
-};
+})
 
-window.onscroll = () => {
+window.addEventListener('scroll', () => {
 	headerParallaxHandler();
 	projectsParallaxHandler();
 	handleParallaxSection();
-};
+})
 
 navCloseHandler();
 navRevealHandler();
 
-window.onresize = () => {
-	let viewportWidth = window.innerWidth;
+window.addEventListener('resize', () => {
+  let viewportWidth = window.innerWidth;
 
 	if (viewportWidth >= 992) return;
 	cardsActivatorHandler();
-};
+})

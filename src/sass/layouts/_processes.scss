@@ -64,49 +64,55 @@
 		.processes-ctn {
 			display: flex;
 			padding: 0 2rem;
-			align-items: flex-start;
+			align-items: center;
+      justify-content: center;
 			.processes-list {
-				width: 45%;
 				display: flex;
+        flex-direction: column;
+        gap: 1rem;
 				justify-content: center;
-
 				list-style: none;
-				.processes-list-container {
-					display: flex;
-					flex-direction: column;
-					gap: 2rem;
-					width: 20rem;
-					.processes-list-box {
+        width: 45%;
+					.processes-list-item {
 						display: flex;
 						align-items: center;
 						gap: 0.8rem;
-						cursor: pointer;
 						background: transparent;
 						border: none;
-						.processes-list-item {
+            transform-origin: left;
+            transform: scale(1);
+            cursor: pointer;
+            &.active {
+              transform: scale(1.2);
+              .dot::after {
+                opacity: 1;
+              }
+            }
+						.processes-list-item-text {
 							font-size: 2rem;
 							color: white;
-							padding: 0 0.5rem;
+							padding: .5rem;
 							pointer-events: none;
-							transition: font-size 0.3s;
+							transition: transform 0.3s;
 						}
 						.dot {
+              position: relative;
 							height: 0.7rem;
 							width: 0.7rem;
 							background-color: #fff;
 							border-radius: 50%;
 							pointer-events: none;
 							transition: all 0.3s;
-						}
-					}
-					.active {
-						.processes-list-item {
-							font-size: 2.5rem;
-						}
-						.dot {
-							height: 1rem;
-							width: 1rem;
-							background-color: lime;
+              &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background-color: $main-green;
+                opacity: 0;
+              }
 						}
 					}
 				}
@@ -127,7 +133,6 @@
 			}
 		}
 	}
-}
 
 @media (min-width: 992px) {
 	.processes {

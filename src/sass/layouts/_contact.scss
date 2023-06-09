@@ -55,10 +55,10 @@ a {
   min-width: 280px;
   width: 60%;
 	max-width: 750px;
-  max-height: 100%;
+  max-height: 95%;
 	background-color: $background-color_3;
 	padding: 2rem;
-  overflow-y: scroll;
+  overflow-y: auto;
 	form {
 		label {
 			font-size: 1.8rem;
