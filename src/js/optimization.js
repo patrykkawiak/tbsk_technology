@@ -35,7 +35,7 @@ const renderProcessMobile = (section, accordions) => {
   } 
 }
 
-const renderProcessDestkop = (section, info) => {
+const renderProcessDestkop = (section, processes) => {
   const isMade = document.querySelector('.processes-desktop')
   const mobileVersion = document.querySelector('.processes-mobile')
   if(mobileVersion){
@@ -45,13 +45,13 @@ const renderProcessDestkop = (section, info) => {
     const processesDesktop = makeCustomElement('div', ['processes-desktop'])
       const processesCnt = makeCustomElement('div', ['processes-ctn'])
         const processesList = makeCustomElement('div',['processes-list'])
-          for(let i = 0; i < buttons.length; i++) {
+          processes.forEach(process => {
             const processesListItem = makeCustomElement('li', ['processes-list-item'])
               const dot = makeCustomElement('div', ['dot'])
-              const text = makeCustomElement('span', ['processes-list-item-text'], info.buttons[i])
+              const text = makeCustomElement('span', ['processes-list-text'], process.button)
               processesListItem.append(dot, text)
             processesList.append(processesListItem)
-          }
+          })
         const processesContent = makeCustomElement('div', ['processes-content'])
           const processesContentTitle = makeCustomElement('h3', ['processes-content-title'], info.headings[0])
           const processesContentText = makeCustomElement('p', ['processes-content-text'], info.texts[0])
