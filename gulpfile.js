@@ -23,9 +23,11 @@ const paths = {
     sass: './src/sass/**/*.scss',
     js: './src/js/**/*.js',
     img: './src/img/*',
+    assests: './src/assets/*',
     sassDest: './dist/css',
     jsDest: './dist/js',
     imgDest: './dist/img',
+    assetsDest: './dist/assets',
     dist: './dist'
 }
 
@@ -80,6 +82,12 @@ function cleanStuff(done) {
         })
         .pipe(clean())
     done()
+}
+
+function passAssets(done) {
+  src(paths.assets)
+    .pipe(dest(paths.assetsDest))
+  done()
 }
 
 function startBrowserSync(done) {

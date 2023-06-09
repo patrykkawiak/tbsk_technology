@@ -1,13 +1,19 @@
 const btn = document.querySelector('.buttoners')
 const cross = document.querySelector('.cross')
-const forme = document.querySelector('.open-form-inner')
+const formBox = document.querySelector('.form-box')
+
 btn.addEventListener('click', function () {
-	forme.classList.remove('fa-show')
+	formBox.classList.remove('hidden')
 })
 cross.addEventListener('click', function () {
-	forme.classList.add('fa-show')
+	formBox.classList.add('hidden')
 })
 
+window.addEventListener('click', (e) => {
+  if(e.target != formBox || e.target != btn){
+    formBox.classList.add('hidden')
+  }
+})
 
 
 

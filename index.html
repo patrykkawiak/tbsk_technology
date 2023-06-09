@@ -707,28 +707,29 @@
         potrafimy.
       </p>
       <button class="buttoners">Skontaktuj się z nami</button>
-      </div>
-        <div class="open-form-inner fa-show">
+      <div class="form-box hidden">
+        <div class="open-form-inner">
           <form action="#">
             <div class="form-header">
               <h3>Napisz do nas maila</h3>
               <span class="cross"><img src="/dist/img/x-mark.png" alt=""></span>
             </div>
-            <label for="">Imię i nazwisko</label>
-            <input type="text">
-            <label for="">Email</label>
-            <input type="email" required>
-
-            <label for="">Numer telefonu</label>
-            <input type="tel" maxlength="9" pattern="[0-9]" class="tel">
-            <label for="">Dodatkowe informacje</label>
-            <textarea name="" id="" cols="30" rows="1"></textarea>
-
+            <div class="form-content">
+              <label for="">Email</label>
+              <input type="email" required>
+    
+              <label for="">Numer telefonu</label>
+              <input type="tel" maxlength="9" pattern="[0-9]" class="tel">
+              <label for="">Dodatkowe informacje</label>
+              <textarea name="" id="" cols="30" rows="1"></textarea>
+    
+            </div>
             <div class="form-submit-btn">
               <button type="submit">WYŚLIJ</button>
             </div>
           </form>
         </div>
+      </div>
     </section>
     <section class="whoweare section__padding">
       <h2 class="section__heading section__padding">
@@ -814,8 +815,8 @@
     </section>
   </main>
   <script src="./dist/js/sections/about-us.min.js"></script>
-  <script src="./dist/js/main.min.js" defer></script>
   <script src="./dist/js/sections/contact.min.js" defer></script>
+  <script src="./dist/js/main.min.js" defer></script>
 </body>
 
 </html>
