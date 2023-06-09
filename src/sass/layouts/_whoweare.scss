@@ -1,8 +1,8 @@
 @use '../utilities/colors' as *;
 
 .whoweare {
-	background-color: $background-color_2;
-  padding-top: 0;
+	background-color: #0e0c10;
+	padding-top: 0;
 }
 .whoweare-item-wrapper {
 	display: grid;
@@ -44,7 +44,7 @@
 	ul {
 		display: flex;
 		align-items: center;
-    gap: 1rem;
+		gap: 1rem;
 		li {
 			a {
 				display: inline-block;

@@ -10,12 +10,12 @@ a {
 	}
 }
 .contact {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-	background-color: $background-color_2;
-  padding-top: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #0e0c10;
+	padding-top: 0;
 }
 
 .knownusmore {
@@ -35,10 +35,6 @@ a {
 	padding: 1rem 2rem;
 	border: none;
 	cursor: pointer;
-}
-
-.tel {
-  width: 10rem !important;
 }
 
 .form-box {
@@ -68,7 +64,7 @@ a {
 			font-size: 1.8rem;
 			color: $color_7;
 			display: block;
-			margin-bottom: .5rem;
+			margin-bottom: 0.5rem;
 		}
 		input {
 			font-size: 1.5rem;
@@ -78,7 +74,7 @@ a {
 			padding: 1rem;
 			outline: none;
 			border: 1px solid #a3a3a3;
-			margin-bottom: 2rem
+			margin-bottom: 2rem;
 		}
 		textarea {
 			font-size: 1.5rem;
@@ -90,11 +86,11 @@ a {
 			outline: none;
 			border: 1px solid #a3a3a3;
 			resize: none;
-			margin-bottom: 4rem
+			margin-bottom: 4rem;
 		}
-    .form-controls {
-      margin-bottom: 0;
-    }
+		.form-controls {
+			margin-bottom: 0;
+		}
 	}
 	small {
 		min-width: 13px;
@@ -116,13 +112,13 @@ a {
 		color: $color_6;
 	}
 	span {
-    display: block;
-    height: 100%;
-    padding: 1rem 0 1rem 1.5rem;
+		display: block;
+		height: 100%;
+		padding: 1rem 0 1rem 1.5rem;
 		cursor: pointer;
-    img {
-      height: 20px;
-    }
+		img {
+			height: 20px;
+		}
 	}
 }
 
@@ -145,7 +141,7 @@ a {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-  margin-bottom: 2rem;
+	margin-bottom: 2rem;
 }
 .form-controls {
 	max-width: 40px;
@@ -154,9 +150,9 @@ a {
 	color: $color_2;
 	padding: 0px !important;
 	text-align: center;
-  &:last-child {
-    margin-right: 0;
-  }
+	&:last-child {
+		margin-right: 0;
+	}
 }
 .hidden {
 	display: none;
@@ -165,28 +161,28 @@ a {
 @media screen and (max-width: 767px) {
 	.open-form-inner {
 		form {
-		small {
-			width: 10px;
-			height: 2px;
-			background-color: $background-color_4;
-			margin-right: 5px;
+			small {
+				width: 10px;
+				height: 2px;
+				background-color: $background-color_4;
+				margin-right: 5px;
+				color: $color_2;
+			}
+		}
+		.form-controls {
+			max-width: 26px;
+			height: 26px;
+			margin: 0px;
+			margin-right: 4px;
 			color: $color_2;
+			padding: 0px !important;
+			text-align: center;
+			border: 1px solid #000;
+		}
+		.form-submit-btn {
+			button {
+				height: 61px;
+			}
 		}
 	}
-	.form-controls {
-		max-width: 26px;
-		height: 26px;
-		margin: 0px;
-		margin-right: 4px;
-		color: $color_2;
-		padding: 0px !important;
-		text-align: center;
-		border: 1px solid #000;
-	}
-	.form-submit-btn {
-		button {
-			height: 61px;
-		}
-	}
-}
 }
