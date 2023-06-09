@@ -10,29 +10,29 @@ const makeCustomElement = (type, classes, text) => {
 }
 
 const renderProcessMobile = (section, accordions) => {
-	const isMade = document.querySelector('.processes-mobile')
-	const desktopVersion = document.querySelector('.processes-desktop')
-	if (desktopVersion) {
-		desktopVersion.remove()
-	}
-	if (!isMade) {
-		const processesMobile = makeCustomElement('div', ['processes-mobile'])
-		const accordionsBlock = makeCustomElement('div', ['accordions'])
-		accordions.forEach(accordion => {
-			const accordion = makeCustomElement('div', ['accordion'])
-			const heading = makeCustomElement('button', ['accordion-heading'])
-			const arrow = makeCustomElement('i', ['bx', 'bx-down-arrow-circle'])
-			heading.append(arrow, accordion.heading)
-			const content = makeCustomElement('div', ['accordion-content'])
-			const label = makeCustomElement('h3', ['accordion-label'], accordion.heading)
-			const text = makeCustomElement('p', ['accordion-text'], accordion.text)
-			content.append(label, text)
-			accordion.append(heading, content)
-			accordionsBlock.append(accordion)
-		})
-		processesMobile.append(accordions)
-		section.append(processesMobile)
-	}
+  const isMade = document.querySelector('.processes-mobile')
+  const desktopVersion = document.querySelector('.processes-desktop')
+  if(desktopVersion){
+    desktopVersion.remove()
+  }
+  if(!isMade){
+    const processesMobile = makeCustomElement('div', ['processes-mobile'])
+    const accordionsBlock = makeCustomElement('div', ['accordions'])
+      accordions.forEach(accordion => {
+        const accordionBlock = makeCustomElement('div', ['accordion'])
+          const heading = makeCustomElement('button', ['accordion-heading'])
+            const arrow = makeCustomElement('i', ['bx', 'bx-down-arrow-circle'])
+            heading.append(arrow, accordion.heading)
+          const content = makeCustomElement('div', ['accordion-content'])
+            const label = makeCustomElement('h3', ['accordion-label'], accordion.heading)
+            const text = makeCustomElement('p', ['accordion-text'], accordion.text)
+            content.append(label, text)
+          accordionBlock.append(heading, content)
+        accordionsBlock.append(accordion)
+      })
+    processesMobile.append(accordions)
+  section.append(processesMobile)
+  } 
 }
 
 const renderProcessDestkop = (section, info) => {
