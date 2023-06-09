@@ -7,7 +7,3 @@ btn.addEventListener('click', function () {
 cross.addEventListener('click', function () {
 	forme.classList.add('fa-show')
 })
-
-
-
-

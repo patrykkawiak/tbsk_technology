@@ -11,13 +11,39 @@ a {
 		text-decoration: none;
 	}
 }
+.background-image-box {
+	position: absolute;
+	background-image: url('/dist/img/spiralka.svg');
+	// background-position: center;
+	// background-repeat: repeat;
+	background-size: 35%;
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	animation: spin 50s infinite;
+}
 .pricing {
 	position: relative;
-	background-image: url('/dist/img/ssspirall.svg');
-	background-size: cover;
-	// background-size: 10%;
-	background-position: center center;
-	padding-top: 0;
+	background: $fifth-section-gradient;
+	overflow: hidden;
+}
+ul li {
+	transition: 0.2s;
+}
+img.img-fluid {
+	transition: 0.2s;
+	z-index: 1;
+	position: relative;
+}
+ul li:hover::before {
+	transform: scale(1.1);
+}
+.img-fluid:hover {
+	transform: scale(0.8);
+}
+ul li:hover {
+	color: #ffee10;
+	text-shadow: 0 0 5px #d3d3a3;
 }
 .pricing-img {
 	text-align: center;
@@ -105,5 +131,14 @@ small {
 			left: 50%;
 			transform: translateX(-50%);
 		}
+	}
+}
+
+@keyframes spin {
+	0% {
+		transform: translateY(-50%) translateX(-50%) rotate(0deg);
+	}
+	100% {
+		transform: translateY(-50%) translateX(-50%) rotate(360deg);
 	}
 }
