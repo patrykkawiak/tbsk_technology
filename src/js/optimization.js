@@ -35,7 +35,6 @@ const renderProcessMobile = (section, accordions) => {
   } 
 }
 
-<<<<<<< HEAD
 const renderProcessDestkop = (section, processes) => {
   const isMade = document.querySelector('.processes-desktop')
   const mobileVersion = document.querySelector('.processes-mobile')
@@ -61,33 +60,6 @@ const renderProcessDestkop = (section, processes) => {
       processesDesktop.append(processesCnt)
     section.append(processesDesktop)
   }
-=======
-const renderProcessDestkop = (section, info) => {
-	const isMade = document.querySelector('.processes-desktop')
-	const mobileVersion = document.querySelector('.processes-mobile')
-	if (mobileVersion) {
-		mobileVersion.remove()
-	}
-	if (!isMade) {
-		const processesDesktop = makeCustomElement('div', ['processes-desktop'])
-		const processesCnt = makeCustomElement('div', ['processes-ctn'])
-		const processesList = makeCustomElement('div', ['processes-list'])
-		for (let i = 0; i < buttons.length; i++) {
-			const processesListItem = makeCustomElement('li', ['processes-list-item'])
-			const dot = makeCustomElement('div', ['dot'])
-			const text = makeCustomElement('span', ['processes-list-item-text'], info.buttons[i])
-			processesListItem.append(dot, text)
-			processesList.append(processesListItem)
-		}
-		const processesContent = makeCustomElement('div', ['processes-content'])
-		const processesContentTitle = makeCustomElement('h3', ['processes-content-title'], info.headings[0])
-		const processesContentText = makeCustomElement('p', ['processes-content-text'], info.texts[0])
-		processesContent.append(processesContentTitle, processesContentText)
-		processesCnt.append(processesList, processesContent)
-		processesDesktop.append(processesCnt)
-		section.append(processesDesktop)
-	}
->>>>>>> main
 }
 
 const renderProject = (project, renderShowcase) => {
@@ -126,8 +98,7 @@ const renderProject = (project, renderShowcase) => {
   return project
 }
 
-const renderProjectsMobile = (section, info) => {
-<<<<<<< HEAD
+const renderProjectsMobile = (section, projects) => {
   const isMade = document.querySelector('.projects-mobile-cnt')
   const desktopVersion = document.querySelector('.projects-desktop-cnt')
   if(desktopVersion){
@@ -135,53 +106,12 @@ const renderProjectsMobile = (section, info) => {
   }
   if(!isMade){
     const projectsMobile = makeCustomElement('div', ['projects-mobile-cnt'])
-    projectsInfo.forEach(project => {
+    projects.forEach(project => {
       const projectBlock = renderProject(project, true)
       projectsMobile.append(projectBlock)
     })
     section.append(projectsMobile)
   }
-=======
-	const isMade = document.querySelector('.processes-desktop')
-	const mobileVersion = document.querySelector('.processes-mobile')
-	if (mobileVersion) {
-		mobileVersion.remove()
-	}
-	if (!isMade) {
-		const projectsMobile = makeCustomElement('div', ['projects-mobile-cnt'])
-		projectsInfo.forEach(project => {
-			const projectBlock = makeCustomElement('div', ['project', project.name])
-			const projectDesc = makeCustomElement('div', ['project-desc'])
-			const descHeading = makeCustomElement('div', ['desc-heading'])
-			const headingTag = makeCustomElement('small', ['heading-tag'], project.tag)
-			const headingTitle = makeCustomElement('h3', ['heading-title'], project.title)
-			descHeading.append(headingTag, headingTitle)
-			const descContent = makeCustomElement('div', ['desc-content'])
-			const contentMain = makeCustomElement('p', ['content-main'], project.content)
-			const contentDate = makeCustomElement('small', ['content-date'], project.date)
-			descContent.append(contentMain, contentDate)
-			const descBtns = makeCustomElement('div', ['desc-btns'])
-			const visitBtn = makeCustomElement('a', ['desc-btn', 'primary'])
-			visitBtn.setAttribute('href', project.visit)
-			const visitIcon = makeCustomElement('i', ['bx', 'bx-globe'])
-			visitBtn.append('Visit', visitIcon)
-			const codeBtn = makeCustomElement('a', ['desc-btn', 'secondary'])
-			codeBtn.setAttribute('href', project.code)
-			const codeIcon = makeCustomElement('i', ['bx', 'bx-code-alt'])
-			codeBtn.append('Code', codeIcon)
-			descBtns.append(visitBtn, codeBtn)
-			projectDesc.append(descHeading, descContent, descBtns)
-			const projectShowcase = makeCustomElement('div', ['project-showcase'])
-			const showcaseImg = makeCustomElement('img', ['showcase-img'])
-			showcaseImg.setAttribute('alt', `Image of ${project.title}'s header`)
-			showcaseImg.setAttribute('src', `./dist/img/${project.name}.png`)
-			projectShowcase.append(showcaseImg)
-			project.append(projectDesc, projectShowcase)
-			projectsMobile.append(projectBlock)
-		})
-		section.append(projectsMobile)
-	}
->>>>>>> main
 }
 
 const renderProjectsDesktop = (section, projects) => {
@@ -212,11 +142,10 @@ const renderProjectsDesktop = (section, projects) => {
 }
 
 const renderDesktopOrMobile = () => {
-<<<<<<< HEAD
   const navbar = document.querySelector('.navbar')
-  const processes = document.querySelector('.processes')
-  const projects = document.querySelector('.projects')
-  const processesInfo = [
+  const processesSection = document.querySelector('.processes')
+  const projectsSection = document.querySelector('.projects')
+  const processes = [
       {
         heading: 'Jak przebiegają rozmowy',
         text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt vel eligendi consequuntur voluptas nesciunt perferendis qui id obcaecati repellendus quaerat accusantium exercitationem non, alias assumenda, sed illo totam eos dolorum.',
@@ -238,7 +167,7 @@ const renderDesktopOrMobile = () => {
         button: 'Wykonanie',
       }
   ]
-  const projectsInfo = [
+  const projects = [
     {
       name: 'power',
       title: 'Power Kwidzyn',
@@ -294,106 +223,20 @@ const renderDesktopOrMobile = () => {
       content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum nisi voluptatibus natus delectus numquam rem dolore beatae excepturi voluptas eveniet?'
     }
   ]
-=======
-	const navbar = document.querySelector('.navbar')
-	const processes = document.querySelector('.processes')
-	const projects = document.querySelector('.projects')
-	//TRZEBA ZMIENIC TUTJA !!!!
-	const processesInfo = [
-		{
-			heading: 'Jak przebiegają rozmowy',
-			text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt vel eligendi consequuntur voluptas nesciunt perferendis qui id obcaecati repellendus quaerat accusantium exercitationem non, alias assumenda, sed illo totam eos dolorum.',
-			button: 'Konsultacja',
-		},
-		{
-			heading: 'Jak przebiegają rozmowy',
-			text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt vel eligendi consequuntur voluptas nesciunt perferendis qui id obcaecati repellendus quaerat accusantium exercitationem non, alias assumenda, sed illo totam eos dolorum.',
-			button: 'Prezentacja',
-		},
-		{
-			heading: 'Jak przebiegają rozmowy',
-			text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt vel eligendi consequuntur voluptas nesciunt perferendis qui id obcaecati repellendus quaerat accusantium exercitationem non, alias assumenda, sed illo totam eos dolorum.',
-			button: 'Zatwierdzenie',
-		},
-		{
-			heading: 'Jak przebiegają rozmowy',
-			text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt vel eligendi consequuntur voluptas nesciunt perferendis qui id obcaecati repellendus quaerat accusantium exercitationem non, alias assumenda, sed illo totam eos dolorum.',
-			button: 'Wykonanie',
-		},
-	]
-	const projectsInfo = [
-		{
-			name: 'power',
-			title: 'Power Kwidzyn',
-			tag: 'Built',
-			date: '20.07.2022',
-			visit: '#',
-			code: '#',
-			content:
-				'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum nisi voluptatibus natus delectus numquam rem dolore beatae excepturi voluptas eveniet?',
-		},
-		{
-			name: 'rebax',
-			title: 'Rebax',
-			tag: 'Built',
-			date: '20.07.2022',
-			visit: '#',
-			code: '#',
-			content:
-				'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum nisi voluptatibus natus delectus numquam rem dolore beatae excepturi voluptas eveniet?',
-		},
-		{
-			name: 'autoclinic',
-			title: 'Autoclinic',
-			tag: 'Built',
-			date: '20.07.2022',
-			visit: '#',
-			code: '#',
-			content:
-				'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum nisi voluptatibus natus delectus numquam rem dolore beatae excepturi voluptas eveniet?',
-		},
-		{
-			name: 'journeyquest',
-			title: 'Journeyquest',
-			tag: 'Built',
-			date: '20.07.2022',
-			visit: '#',
-			code: '#',
-			content:
-				'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum nisi voluptatibus natus delectus numquam rem dolore beatae excepturi voluptas eveniet?',
-		},
-		{
-			name: 'jumpsole',
-			title: 'JumpSole',
-			tag: 'Built',
-			date: '20.07.2022',
-			visit: '#',
-			code: '#',
-			content:
-				'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum nisi voluptatibus natus delectus numquam rem dolore beatae excepturi voluptas eveniet?',
-		},
-		{
-			name: 'greenscape',
-			title: 'GreenScape',
-			tag: 'Built',
-			date: '20.07.2022',
-			visit: '#',
-			code: '#',
-			content:
-				'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum nisi voluptatibus natus delectus numquam rem dolore beatae excepturi voluptas eveniet?',
-		},
-	]
->>>>>>> main
 
 	if (document.body.clientWidth >= 992) {
 		//nav desktop, projects desktop
-		renderProcessDestkop(processes, processesInfo)
+		renderProcessDestkop(processesSection, processes)
+    renderProjectsDesktop(projectsSection, projects)
 	} else if (document.body.clientWidth >= 768) {
 		//process mobile, projects mobile
 		renderProcessMobile(processes, processesInfo)
+    renderProjectsMobile(projectsSection, projects)
 	} else {
 		//process mobile, projects mobile
+    console.log('123');
 		renderProcessMobile(processes, processesInfo)
+    renderProjectsMobile(projectsSection, projects)
 	}
 }
 
