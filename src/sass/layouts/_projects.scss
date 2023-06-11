@@ -90,7 +90,6 @@
 
 	.projects-desktop-cnt {
 		display: none;
-		height: 600vh;
 		.projects-desc {
 			width: 50%;
 			height: 100%;
@@ -190,9 +189,9 @@
 	transform: translateY(0);
 }
 
-.projects .projects-desktop-cnt .projects-desc.bottom .project {
-	transform: translateY(500%);
-}
+// .projects .projects-desktop-cnt .projects-desc.bottom .project {
+// 	transform: translateY(550%);
+// }
 
 .fixed-pr {
 	position: fixed;

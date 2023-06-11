@@ -1,6 +1,5 @@
 const introText = document.querySelectorAll('.intro-text')
 const introBtn = document.querySelector('.intro-btn')
-
 let viewportWidth = window.innerWidth
 
 const cards = document.querySelectorAll('.services__cards .card')
@@ -163,54 +162,42 @@ const setContent = () => {
 
 const parallaxSection = document.querySelector('.projects-desktop-cnt')
 const parallaxItems = document.querySelectorAll('.projects-parallax')
-// const section = document.querySelector('.projects')
-const sectionHeading = document.querySelector('.projects .section__heading')
-
 const prevSection = document.querySelector('.services')
 const nextSection = document.querySelector('.processes')
-
 let viewport = window.innerWidth
-
 let prevSectionOffset = prevSection.offsetTop
-//dodalem + sectionHeading.offsetHeight - tryc
-let firstAnchorPoint = prevSectionOffset + prevSection.offsetHeight + sectionHeading.offsetHeight
-let secondAnchorPoint = nextSection.offsetTop - nextSection.offsetHeight
 
 const projectsParallaxHandler = () => {
 	if (viewport < 992) return
+  const sectionHeading = document.querySelector('.projects .section__heading')
+  let firstAnchorPoint = prevSectionOffset + prevSection.offsetHeight + sectionHeading.offsetHeight
+  let secondAnchorPoint = nextSection.offsetTop - nextSection.offsetHeight + sectionHeading.offsetHeight / 2
+  const projectsDesktopCnt = document.querySelector('.projects-desktop-cnt')
+  projectsDesktopCnt.style.height = `Calc(600vh + ${sectionHeading.offsetHeight}px)`
 
-	let scrollTop = window.pageYOffset
+	let scrollTop = window.scrollY
 	// let scrollToAnchor = nextSection.offsetHeight + nextSection.offsetTop
-
-	/* 	console.log(`Scroll top: ${scrollTop}`)
-	console.log(`firstAnchor: ${firstAnchorPoint}`)
-	console.log(`secondAnchor: ${secondAnchorPoint}`)
-	console.log(`scrollToAnchor: ${scrollToAnchor}`) */
-
 	if (scrollTop >= firstAnchorPoint) {
 		parallaxSection.classList.add('fixed-pr')
-
-		/* 		parallaxItems[0].style.transform = `translate(0px, -${scrollTop - firstAnchorPoint}px)`
-		parallaxItems[1].style.transform = `translate(0px, ${scrollTop - firstAnchorPoint}px)` */
 	}
 	if (scrollTop >= secondAnchorPoint || scrollTop < firstAnchorPoint) {
 		parallaxSection.classList.remove('fixed-pr')
 	}
 	if (scrollTop >= secondAnchorPoint) {
-		parallaxItems[0].classList.add('bottom')
-	} else {
-		parallaxItems[0].classList.remove('bottom')
+		parallaxItems[0].style.transform = `translateY(0)`
 	}
 
 	if (parallaxSection.classList.contains('fixed-pr')) {
 		parallaxItems[0].style.transform = `translate(0px, -${scrollTop - firstAnchorPoint}px)`
 		parallaxItems[1].style.transform = `translate(0px, ${scrollTop - firstAnchorPoint}px)`
 	}
+  if (window.scrollY < firstAnchorPoint){
+    parallaxItems[0].style.transform = 'translate(0, 0)'
+    parallaxItems[1].style.transform = 'translate(0, 0)'
+  }
 
 	if (!parallaxSection.classList.contains('.fixed-pr') && scrollTop >= secondAnchorPoint) {
-		parallaxItems[1].classList.add('imgs-bottom')
-	} else {
-		parallaxItems[1].classList.remove('imgs-bottom')
+		parallaxItems[1].style.transform = `translateY(1000vh)`
 	}
 }
 
