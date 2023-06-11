@@ -6,7 +6,7 @@
 }
 .whoweare-item-wrapper {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(1, 1fr);
 	gap: 95px 96px;
 	max-width: 990px;
 	margin: auto;
@@ -90,15 +90,11 @@
 	}
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .whoweare-item-wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 8rem;
     max-width: 900px;
-  }
-  .whoweare-item {
-    padding: 2rem;
-    background-color: $color_7;
   }
 }

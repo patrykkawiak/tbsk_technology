@@ -1,9 +1,5 @@
-const burgerIcon = document.querySelector('.burger-icon')
-const navbar = document.querySelector('.mobile-nav')
-
 const introText = document.querySelectorAll('.intro-text')
 const introBtn = document.querySelector('.intro-btn')
-const mnavItem = document.querySelectorAll('.mobile-nav a')
 
 let viewportWidth = window.innerWidth
 
@@ -39,20 +35,31 @@ const cardOutsideHandler = e => {
 	}
 }
 
-const navRevealHandler = () => {
-	burgerIcon.addEventListener('click', () => {
-		burgerIcon.classList.toggle('active')
-		navbar.classList.toggle('active')
-	})
-}
-
-const navCloseHandler = () => {
-	mnavItem.forEach(item => {
-		item.addEventListener('click', () => {
-			burgerIcon.classList.remove('active')
-			navbar.classList.remove('active')
-		})
-	})
+const navHandler = () => {
+  const navbar = document.querySelector('.mobile-nav')
+  const oldBurgerIcon = document.querySelector('.burger-icon')
+  const mnavItems = document.querySelectorAll('.mobile-nav a')
+  const oldNavListBackground = document.querySelector('.nav-list-background')
+  const reveal = () => {
+    console.log('reveal');
+    burgerIcon.classList.toggle('active')
+    navbar.classList.toggle('active')
+  }
+  const close = () => {
+    burgerIcon.classList.remove('active')
+    navbar.classList.remove('active')
+  }
+  const burgerIcon = oldBurgerIcon.cloneNode(true)
+  burgerIcon.addEventListener('click', reveal)
+  oldBurgerIcon.replaceWith(burgerIcon)
+  mnavItems.forEach(oldItem => {
+    const item = oldItem.cloneNode(true)
+    item.addEventListener('click', close)
+    oldItem.replaceWith(item)
+  })
+  const navListBackground = oldNavListBackground.cloneNode()
+  navListBackground.addEventListener('click', close)
+  oldNavListBackground.replaceWith(navListBackground)
 }
 
 const headerParallaxHandler = () => {
@@ -124,6 +131,7 @@ const chengeProcess = e => {
 	const btn = e.target
 
 	if (btn.classList.contains('active')) {
+    return
 	} else {
 		closeAllProcesses()
 		btn.classList.toggle('active')
@@ -155,7 +163,7 @@ const setContent = () => {
 
 const parallaxSection = document.querySelector('.projects-desktop-cnt')
 const parallaxItems = document.querySelectorAll('.projects-parallax')
-const section = document.querySelector('.projects')
+// const section = document.querySelector('.projects')
 const sectionHeading = document.querySelector('.projects .section__heading')
 
 const prevSection = document.querySelector('.services')
@@ -172,7 +180,7 @@ const projectsParallaxHandler = () => {
 	if (viewport < 992) return
 
 	let scrollTop = window.pageYOffset
-	let scrollToAnchor = nextSection.offsetHeight + nextSection.offsetTop
+	// let scrollToAnchor = nextSection.offsetHeight + nextSection.offsetTop
 
 	/* 	console.log(`Scroll top: ${scrollTop}`)
 	console.log(`firstAnchor: ${firstAnchorPoint}`)
@@ -306,15 +314,11 @@ secondSection.addEventListener('mouseout', () => {
 
 // functions actions
 
-const handleRemoveDOMElements = () => {
-	const mobileProcesses = document.querySelector('.processes-mobile')
-	// mobileProcesses.remove();
-	// dodac dynamiczna werjse na PC...
-}
-
 window.onload = () => {
 	headerParallaxHandler()
-	if (viewportWidth >= 992) handleRemoveDOMElements()
+  if(viewportWidth <= 768){
+    navHandler()
+  }
 }
 
 processBtns.forEach(btn => btn.addEventListener('click', chengeProcess))
@@ -332,12 +336,11 @@ window.addEventListener('scroll', () => {
 	handleParallaxSection()
 })
 
-navCloseHandler()
-navRevealHandler()
-
 window.addEventListener('resize', () => {
-	let viewportWidth = window.innerWidth
-
+  let viewportWidth = window.innerWidth
+  if(viewportWidth <= 768){
+    navHandler()
+  }
 	if (viewportWidth >= 992) return
 	cardsActivatorHandler()
 })

@@ -1,6 +1,6 @@
 const makeCustomElement = (type, classes, text) => {
 	const element = document.createElement(type)
-	if (classes.length) {
+	if (classes) {
 		classes.forEach(cssClass => element.classList.add(cssClass))
 	}
 	if (text) {
@@ -28,9 +28,9 @@ const renderProcessMobile = (section, accordions) => {
             const text = makeCustomElement('p', ['accordion-text'], accordion.text)
             content.append(label, text)
           accordionBlock.append(heading, content)
-        accordionsBlock.append(accordion)
+        accordionsBlock.append(accordionBlock)
       })
-    processesMobile.append(accordions)
+    processesMobile.append(accordionsBlock)
   section.append(processesMobile)
   } 
 }
@@ -48,13 +48,14 @@ const renderProcessDestkop = (section, processes) => {
           processes.forEach(process => {
             const processesListItem = makeCustomElement('li', ['processes-list-item'])
               const dot = makeCustomElement('div', ['dot'])
-              const text = makeCustomElement('span', ['processes-list-text'], process.button)
+              const text = makeCustomElement('span', ['processes-list-item-text'], process.button)
               processesListItem.append(dot, text)
             processesList.append(processesListItem)
           })
+          processesList.childNodes[0].classList.add('active')
         const processesContent = makeCustomElement('div', ['processes-content'])
-          const processesContentTitle = makeCustomElement('h3', ['processes-content-title'], info.headings[0])
-          const processesContentText = makeCustomElement('p', ['processes-content-text'], info.texts[0])
+          const processesContentTitle = makeCustomElement('h3', ['processes-content-title'], processes[0].heading)
+          const processesContentText = makeCustomElement('p', ['processes-content-text'], processes[0].text)
           processesContent.append(processesContentTitle, processesContentText)
         processesCnt.append(processesList, processesContent)
       processesDesktop.append(processesCnt)
@@ -90,12 +91,12 @@ const renderProject = (project, renderShowcase) => {
       showcaseImg.setAttribute('alt', `Zdjęcie sekcji tytułowej na stronie ${project.name}`)
       showcaseImg.setAttribute('src', `./dist/img/${project.name}.png`)
     projectShowcase.append(showcaseImg)
-    project.append(projectDesc, projectShowcase)
+    projectBlock.append(projectDesc, projectShowcase)
   }
   else {
-    project.append(projectDesc)
+    projectBlock.append(projectDesc)
   }
-  return project
+  return projectBlock
 }
 
 const renderProjectsMobile = (section, projects) => {
@@ -138,6 +139,102 @@ const renderProjectsDesktop = (section, projects) => {
         })
       projectsDesktop.append(projectsDesc, projectsShowcase)
     section.append(projectsDesktop)
+  }
+}
+
+const renderLink = (link) => {
+  const listItem = makeCustomElement('li')
+    const linkAnchor = makeCustomElement('a', ['nav-list-item'], link.text)
+    linkAnchor.setAttribute('href', link.href)
+    listItem.append(linkAnchor)
+  return listItem
+}
+
+const renderSocial = (social) => {
+  const listItem = makeCustomElement('li', ['nav-socials-item'])
+    const socialAnchor = makeCustomElement('a')
+    socialAnchor.setAttribute('href', social.href)
+      const socialIcon = makeCustomElement('i', ['bx', `bxl-${social.icon}`])
+      socialAnchor.append(socialIcon)
+      listItem.append(socialAnchor)
+  return listItem
+}
+
+const renderMobileNavbar = (navbar, links, socials) => {
+  const isMade = document.querySelector('.mobile-nav')
+  const desktopVersion = document.querySelector('.desktop-nav')
+  if(desktopVersion){
+    desktopVersion.remove()
+  }
+  if(!isMade){
+    const mobileNav = makeCustomElement('div', ['mobile-nav'])
+      const logo = makeCustomElement('a', ['logo'])
+      logo.setAttribute('href', '#')
+        const logoImg = makeCustomElement('img', ['logo-img'])
+        logoImg.setAttribute('src', './dist/img/logo.png')
+        logoImg.setAttribute('alt', 'Logo przedstawiające szopa stworzonego z prostych kształtów geometrycznych.')
+        logo.append(logoImg)
+      const burger = makeCustomElement('div', ['burger-icon'])
+        for(let i = 0; i < 3; i++) {
+          const burgerBar = makeCustomElement('div', ['bar'])
+          burger.append(burgerBar)
+        }
+      const navList = makeCustomElement('ul', ['nav-list'])
+        const navListBackground = makeCustomElement('div', ['nav-list-background'])
+        navList.append(navListBackground)
+        links.forEach(link => {
+          const linkLi = renderLink(link)
+          navList.append(linkLi)
+        })
+        const navListSocials = makeCustomElement('div', ['socials', 'nav-list-item'])
+          socials.forEach(social => {
+            const socialLi = renderSocial(social)
+            navListSocials.append(socialLi)
+          })
+        navList.append(navListSocials)
+      mobileNav.append(logo, burger, navList)
+    navbar.append(mobileNav)
+  }
+}
+
+const renderDesktopNavbar = (navbar, links, socials) => {
+  const isMade = document.querySelector('.desktop-nav')
+  const mobileVersion = document.querySelector('.mobile-nav')
+  if(mobileVersion){
+    mobileVersion.remove()
+  }
+  if(!isMade){
+    const desktopNav = makeCustomElement('div', ['desktop-nav'])
+      const navList = makeCustomElement('ul', ['nav-list'])
+        const linksLeft = makeCustomElement('div', ['flex-left'])
+          links.forEach(link => {
+            if(link.onLeft) {
+              const linkLi = renderLink(link)
+              linksLeft.append(linkLi)
+            }
+          })
+        const logo = makeCustomElement('div', ['logo'])
+          const logoImg = makeCustomElement('img', ['logo-img'])
+          logoImg.setAttribute('src', './dist/img/logo.png')
+          logoImg.setAttribute('alt', 'Logo przedstawiające szopa stworzonego z prostych kształtów geometrycznych.')
+          logo.append(logoImg)
+        const rightContainer = makeCustomElement('div', ['flex-right'])
+          const linksRight = makeCustomElement('div', ['right-links'])
+            links.forEach(link => {
+              if(!link.onLeft){
+                const linkLi = renderLink(link)
+                linksRight.append(linkLi)
+              }
+            })
+            const socialsBlock = makeCustomElement('div', ['socials'])
+              socials.forEach(social => {
+                const socialLi = renderSocial(social)
+                socialsBlock.append(socialLi)
+              })
+            rightContainer.append(linksRight, socialsBlock)
+        navList.append(linksLeft, logo, rightContainer)
+      desktopNav.append(navList)
+    navbar.append(desktopNav)
   }
 }
 
@@ -223,20 +320,64 @@ const renderDesktopOrMobile = () => {
       content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum nisi voluptatibus natus delectus numquam rem dolore beatae excepturi voluptas eveniet?'
     }
   ]
+  const navLinks = [
+    {
+      text: 'Home',
+      href: '#',
+      onLeft: true,
+    },
+    {
+      text: 'O nas',
+      href: '#about-us',
+      onLeft: true,
+    },
+    {
+      text: 'Usługi',
+      href: '#services',
+      onLeft: true,
+    },
+    {
+      text: 'FAQ',
+      href: '#faq',
+      onLeft: false
+    },
+    {
+      text: 'Kontakt',
+      href: '#contact',
+      onLeft: false
+    }
+  ]
+  const navSocials = [
+    {
+      icon: 'gmail',
+      href: '#'
+    },
+    {
+      icon: 'facebook-square',
+      href: '#'
+    },
+    {
+      icon: 'instagram',
+      href: '#'
+    },
+    {
+      icon: 'linkedin-square',
+      href: '#'
+    }
+  ]
 
 	if (document.body.clientWidth >= 992) {
-		//nav desktop, projects desktop
 		renderProcessDestkop(processesSection, processes)
     renderProjectsDesktop(projectsSection, projects)
+    renderDesktopNavbar(navbar, navLinks, navSocials)
 	} else if (document.body.clientWidth >= 768) {
-		//process mobile, projects mobile
-		renderProcessMobile(processes, processesInfo)
+		renderProcessMobile(processesSection, processes)
     renderProjectsMobile(projectsSection, projects)
+    renderDesktopNavbar(navbar, navLinks, navSocials)
 	} else {
-		//process mobile, projects mobile
-    console.log('123');
-		renderProcessMobile(processes, processesInfo)
+		renderProcessMobile(processesSection, processes)
     renderProjectsMobile(projectsSection, projects)
+    renderMobileNavbar(navbar,navLinks, navSocials)
 	}
 }
 

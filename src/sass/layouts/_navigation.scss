@@ -65,8 +65,7 @@ nav {
 					}
 				}
 			}
-			.nav-list::before {
-				content: '';
+			.nav-list-background {
 				position: absolute;
 				right: -100%;
 				width: 100%;

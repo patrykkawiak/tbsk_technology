@@ -33,6 +33,10 @@ a {
 		}
 		small {
 			order: 2;
+      font-weight: 400;
+      font-size: 2rem;
+      text-align: center;
+      color: $color_3;
 		}
 	}
 }
@@ -59,12 +63,6 @@ ul li:hover {
 	img {
 		max-height: 300px;
 	}
-}
-small {
-	font-weight: 400;
-	font-size: 2rem;
-	text-align: center;
-	color: $color_3;
 }
 
 .pricing-content {
