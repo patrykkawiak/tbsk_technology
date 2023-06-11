@@ -202,6 +202,7 @@ const projectsParallaxHandler = () => {
 }
 
 const firstSection = document.querySelector('.processes')
+const firstSectionOffsetTop = firstSection.offsetTop
 const secondSection = document.querySelector('.characteristics')
 const sectionOffSet = firstSection.offsetTop
 const nav = document.querySelector('.navbar')
@@ -210,9 +211,8 @@ const handleParallaxSection = () => {
 	if (viewportWidth < 992) return
 	let scrollPermision
 	const scrollValue = window.scrollY
-	const rate = parseInt((scrollValue - sectionOffSet) / 10)
+	const rate = scrollValue - sectionOffSet
 	const firstAnchor = sectionOffSet - navHeight <= scrollValue
-
 	if (firstAnchor && !secondSection.classList.contains('static')) {
 		firstSection.classList.add('parallax-sticky')
 		scrollPermision = true
@@ -229,21 +229,31 @@ const handleParallaxSection = () => {
 	const firstSectionRect = firstSection.getBoundingClientRect()
 	const secondSectionTop = secondSectionRect.top
 	const firstSectionTop = firstSectionRect.top
-
-	if (rate > 100 && secondSectionTop === firstSectionTop) {
+  const dummy = document.createElement('div')
+  dummy.style.height = '100vh'
+	if (rate > viewportWidth && secondSectionTop === firstSectionTop) {
+    secondSection.style.transform = `translate(-${viewportWidth}px, 0)`
 		firstSection.classList.remove('parallax-sticky')
 		firstSection.classList.add('parallax-static')
-		secondSection.style.marginTop = `${firstSectionTop + navHeight * 2}px`
 		secondSection.classList.add('static')
 		scrollPermision = false
-	} else {
+    console.log(firstSectionOffsetTop + window.innerHeight);
+    window.scrollTo({
+      top: firstSectionOffsetTop + window.innerHeight - navHeight * 2 + 1,
+      behavior: 'instant'
+    })
+	} 
+  else {
 		if (secondSection.classList.contains('static')) {
 			const secondOffSet = secondSection.offsetTop
 			if (secondOffSet - navHeight >= scrollValue) {
 				firstSection.classList.add('parallax-sticky')
 				firstSection.classList.remove('parallax-static')
 				secondSection.classList.remove('static')
-				secondSection.style.marginTop = '0'
+        window.scrollTo({
+          top: firstSectionOffsetTop + viewportWidth,
+          behavior: 'instant'
+        })
 				scrollPermision = true
 			}
 			scrollPermision = false
@@ -253,14 +263,8 @@ const handleParallaxSection = () => {
 	}
 
 	if (scrollPermision) {
-		secondSection.style.transform = `translateX(-${rate}%)`
-		firstSection.style.transform = `translateX(-${rate}%)`
-	}
-
-	if (rate >= 100) {
-		secondSection.classList.remove('quick-fix')
-	} else if (rate <= 100) {
-		secondSection.classList.add('quick-fix')
+		secondSection.style.transform = `translateX(-${rate}px)`
+		firstSection.style.transform = `translateX(-${rate}px)`
 	}
 }
 

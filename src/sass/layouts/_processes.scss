@@ -4,7 +4,6 @@
 	overflow: hidden;
 	width: 100%;
 	background: $fourth-section-gradient;
-
 	.processes-mobile {
 		.accordions {
 			display: flex;
@@ -48,7 +47,6 @@
 					}
 				}
 				.active {
-					height: max-content;
 					padding: 3rem 2rem;
 				}
 			}
@@ -71,9 +69,14 @@
         flex-direction: column;
         gap: 1rem;
 				justify-content: center;
+        align-items: center;
 				list-style: none;
         width: 45%;
-					.processes-list-item {
+        .processes-list-box {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          .processes-list-item {
 						display: flex;
 						align-items: center;
 						gap: 0.8rem;
@@ -81,6 +84,7 @@
 						border: none;
             transform-origin: left;
             transform: scale(1);
+            transition : transform .3s;
             cursor: pointer;
             &.active {
               transform: scale(1.2);
@@ -115,6 +119,7 @@
               }
 						}
 					}
+        }
 				}
 			}
 			.processes-content {

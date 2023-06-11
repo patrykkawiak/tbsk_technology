@@ -23,7 +23,6 @@ const handleRotate = index => {
 
 const handleAboutUs = () => {
 	let index = 0
-	const opacityAnimationLength = 500
 	setInterval(() => {
 		index = handleRotate(index)
 	}, 2500)
