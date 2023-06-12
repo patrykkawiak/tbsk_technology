@@ -24,7 +24,6 @@
 	}
 	p {
 		font-size: 1.5rem;
-		line-height: 30px;
 		color: $color_3;
 		text-align: left;
 		padding-bottom: 3rem;
@@ -54,18 +53,6 @@
 				}
 			}
 		}
-	}
-}
-.protfolio-click {
-	font-weight: 400;
-	font-size: 1.5rem;
-	color: $color_6;
-	display: inline-block;
-	padding: 1rem 2rem;
-	background-color: $background-color_3;
-	transition: 0.2s;
-	&:hover {
-		background-color: $background-color_5;
 	}
 }
 .img-fluid {

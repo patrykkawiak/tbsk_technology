@@ -1,7 +1,6 @@
 const rotatingBlockItems = document.querySelectorAll('.rotating-block-item')
 const blockItemIndicators = document.querySelectorAll('.rotating-block-indicators .dot')
 const fadingInfoBlocks = document.querySelectorAll('.fading-info-item')
-const dot = document.querySelectorAll('.dot')
 const handleRotate = index => {
 	rotatingBlockItems[index].classList.remove('rotateShow')
 	rotatingBlockItems[index].classList.add('rotateHide')
@@ -23,10 +22,9 @@ const handleRotate = index => {
 
 const handleAboutUs = () => {
 	let index = 0
-	const opacityAnimationLength = 500
 	setInterval(() => {
 		index = handleRotate(index)
-	}, 2500)
+	}, 3300)
 }
 
 handleAboutUs()

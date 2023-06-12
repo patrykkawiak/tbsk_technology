@@ -68,60 +68,28 @@ const headerParallaxHandler = () => {
 		return;
 	}
 
-	const offsetY = window.pageYOffset;
-	const rate = window.pageYOffset * 0.5;
-	const opacityValue = offsetY / 100;
+	const offsetY = window.scrollY
+	const rate = window.scrollY * 0.1
+	const opacityValue = offsetY / 100
 
-	introText[0].style.transform = `translate(${rate * 8}px)`;
-	introText[1].style.transform = `translate(${rate * -3}px)`;
-	introText[2].style.transform = `translate(${rate * 6}px)`;
-	introText[3].style.transform = `translate(${rate * 7}px)`;
-	introText[4].style.transform = `translate(${rate * -9}px)`;
-	introText[5].style.transform = `translate(${rate * 11}px)`;
+	introText[0].style.transform = `translate(${rate * 14}px)`
+	introText[1].style.transform = `translate(${rate * -3}px)`
+	introText[2].style.transform = `translate(${rate * 16}px)`
+	introText[3].style.transform = `translate(${rate * 17}px)`
+	introText[4].style.transform = `translate(${rate * -9}px)`
+	introText[5].style.transform = `translate(${rate * 17.5}px)`
 
-	introBtn.style.opacity = `${0.5 / opacityValue}`;
-	if (offsetY >= 200) {
-		introBtn.style.opacity = 0;
-		introBtn.style.display = 'none';
-	} else {
-		introBtn.style.display = 'block';
-	}
-
-	if (offsetY >= 800) {
-		introText.forEach((text) => (text.style.display = 'none'));
-	} else {
-		introText.forEach((text) => (text.style.display = 'block'));
-	}
-};
+	introBtn.style.opacity = `${0.5 / opacityValue}`
+  if(offsetY > window.innerHeight){
+    introBtn.style.display = 'none'
+  } else {
+    introBtn.style.display = 'block'
+  }
+}
 
 // Processes - accordions
 
-const accordions = document.querySelectorAll('.accordion-heading');
 
-const openAccordion = (e) => {
-	if (e.target.nextElementSibling.classList.contains('active')) {
-		e.target.nextElementSibling.classList.remove('active');
-	} else {
-		closeAllAccordions();
-		e.target.nextElementSibling.classList.toggle('active');
-	}
-};
-
-const closeAllAccordions = () => {
-	const accordionContent = document.querySelectorAll('.accordion-content');
-	accordionContent.forEach((el) => {
-		el.classList.remove('active');
-	});
-};
-
-const accordionOutsideHandler = (e) => {
-	if (
-		e.target.classList.contains('accordion-heading') ||
-		e.target.classList.contains('accordion-content')
-	)
-		return;
-	closeAllAccordions();
-};
 // Processes - list
 
 const processTitle = document.querySelector('.processes-content-title');
@@ -207,27 +175,20 @@ const projectsParallaxHandler = () => {
 		parallaxItems[0].style.transform = 'translate(0, 0)';
 		parallaxItems[1].style.transform = 'translate(0, 0)';
 	}
+}
 
-	if (
-		!parallaxSection.classList.contains('.fixed-pr') &&
-		scrollTop >= secondAnchorPoint
-	) {
-		parallaxItems[1].style.transform = `translateY(1000vh)`;
-	}
-};
-
-const firstSection = document.querySelector('.processes');
-const secondSection = document.querySelector('.characteristics');
-const sectionOffSet = firstSection.offsetTop;
-const nav = document.querySelector('.navbar');
-const navHeight = nav.offsetHeight;
+const firstSection = document.querySelector('.processes')
+const firstSectionOffsetTop = firstSection.offsetTop
+const secondSection = document.querySelector('.characteristics')
+const sectionOffSet = firstSection.offsetTop
+const nav = document.querySelector('.navbar')
+const navHeight = nav.offsetHeight
 const handleParallaxSection = () => {
-	if (viewportWidth < 992) return;
-	let scrollPermision;
-	const scrollValue = window.scrollY;
-	const rate = parseInt((scrollValue - sectionOffSet) / 10);
-	const firstAnchor = sectionOffSet - navHeight <= scrollValue;
-
+	if (viewportWidth < 992) return
+	let scrollPermision
+	const scrollValue = window.scrollY
+	const rate = scrollValue - sectionOffSet
+	const firstAnchor = sectionOffSet - navHeight <= scrollValue
 	if (firstAnchor && !secondSection.classList.contains('static')) {
 		firstSection.classList.add('parallax-sticky');
 		scrollPermision = true;
@@ -243,30 +204,36 @@ const handleParallaxSection = () => {
 		firstSection.style.transform = `translateX(0)`;
 	}
 
-	const secondSectionRect = secondSection.getBoundingClientRect();
-	const firstSectionRect = firstSection.getBoundingClientRect();
-	const secondSectionTop = secondSectionRect.top;
-	const firstSectionTop = firstSectionRect.top;
-	const pricing = document.querySelector('.pricing');
-	if (rate > 100 && secondSectionTop === firstSectionTop) {
-		firstSection.classList.remove('parallax-sticky');
-		firstSection.classList.add('parallax-static');
-		secondSection.classList.add('static');
-		scrollPermision = false;
-		
-		secondSection.style.marginTop = `300px`
-		console.log(pricing.offsetTop - secondSection.offsetTop);
-		console.log(secondSection.offsetTop);
-		console.log(pricing.offsetTop);
-	} else {
+	const secondSectionRect = secondSection.getBoundingClientRect()
+	const firstSectionRect = firstSection.getBoundingClientRect()
+	const secondSectionTop = secondSectionRect.top
+	const firstSectionTop = firstSectionRect.top
+  const dummy = document.createElement('div')
+  dummy.style.height = '100vh'
+	if (rate > viewportWidth && secondSectionTop === firstSectionTop) {
+    secondSection.style.transform = `translate(-${viewportWidth}px, 0)`
+		firstSection.classList.remove('parallax-sticky')
+		firstSection.classList.add('parallax-static')
+		secondSection.classList.add('static')
+		scrollPermision = false
+    console.log(firstSectionOffsetTop + window.innerHeight);
+    window.scrollTo({
+      top: firstSectionOffsetTop + window.innerHeight - navHeight * 2 + 1,
+      behavior: 'instant'
+    })
+	} 
+  else {
 		if (secondSection.classList.contains('static')) {
 			const secondOffSet = secondSection.offsetTop;
 			if (secondOffSet - navHeight >= scrollValue) {
-				firstSection.classList.add('parallax-sticky');
-				firstSection.classList.remove('parallax-static');
-				secondSection.classList.remove('static');
-				secondSection.style.marginTop = `0`;
-				scrollPermision = true;
+				firstSection.classList.add('parallax-sticky')
+				firstSection.classList.remove('parallax-static')
+				secondSection.classList.remove('static')
+        window.scrollTo({
+          top: firstSectionOffsetTop + viewportWidth,
+          behavior: 'instant'
+        })
+				scrollPermision = true
 			}
 			scrollPermision = false;
 		} else {
@@ -275,16 +242,10 @@ const handleParallaxSection = () => {
 	}
 
 	if (scrollPermision) {
-		secondSection.style.transform = `translateX(-${rate}%)`;
-		firstSection.style.transform = `translateX(-${rate}%)`;
+		secondSection.style.transform = `translateX(-${rate}px)`
+		firstSection.style.transform = `translateX(-${rate}px)`
 	}
-
-	// if (rate >= 100) {
-	// 	secondSection.classList.remove('quick-fix');
-	// } else if (rate <= 100) {
-	// 	secondSection.classList.add('quick-fix');
-	// }
-};
+}
 
 // parallax Items
 
@@ -324,22 +285,19 @@ secondSection.addEventListener('mouseout', () => {
 // functions actions
 
 window.onload = () => {
-	headerParallaxHandler();
-	if (viewportWidth <= 768) {
-		navHandler();
-	}
-};
+	headerParallaxHandler()
+  if(viewportWidth <= 768){
+    navHandler()
+  }
+  projectsParallaxHandler()
+	handleParallaxSection()
+}
 
 processBtns.forEach((btn) => btn.addEventListener('click', chengeProcess));
 
-accordions.forEach((accordion) =>
-	accordion.addEventListener('click', openAccordion)
-);
-
-window.addEventListener('click', (e) => {
-	accordionOutsideHandler(e);
-	cardOutsideHandler(e);
-});
+window.addEventListener('click', e => {
+	cardOutsideHandler(e)
+})
 
 window.addEventListener('scroll', () => {
 	headerParallaxHandler();
@@ -354,4 +312,4 @@ window.addEventListener('resize', () => {
 	}
 	if (viewportWidth >= 992) return;
 	cardsActivatorHandler();
-});
+})

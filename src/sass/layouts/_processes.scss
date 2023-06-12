@@ -4,7 +4,6 @@
 	overflow: hidden;
 	width: 100%;
 	background: $fourth-section-gradient;
-
 	.processes-mobile {
 		.accordions {
 			display: flex;
@@ -33,23 +32,18 @@
 				.accordion-content {
 					display: flex;
 					flex-direction: column;
-					gap: 2rem;
-					height: 0;
 					overflow: hidden;
-					padding: 0rem 2rem;
 					transition: 0.5s;
 					.accordion-label {
 						color: white;
 						font-size: 1.8rem;
+            padding: 2rem;
 					}
 					.accordion-text {
 						color: rgb(184, 184, 184);
 						font-size: 1.5rem;
+            padding: 0 2rem 2rem;
 					}
-				}
-				.active {
-					height: max-content;
-					padding: 3rem 2rem;
 				}
 			}
 			.accordion:last-child {
@@ -71,9 +65,14 @@
         flex-direction: column;
         gap: 1rem;
 				justify-content: center;
+        align-items: center;
 				list-style: none;
         width: 45%;
-					.processes-list-item {
+        .processes-list-box {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          .processes-list-item {
 						display: flex;
 						align-items: center;
 						gap: 0.8rem;
@@ -81,6 +80,7 @@
 						border: none;
             transform-origin: left;
             transform: scale(1);
+            transition : transform .3s;
             cursor: pointer;
             &.active {
               transform: scale(1.2);
@@ -115,6 +115,7 @@
               }
 						}
 					}
+        }
 				}
 			}
 			.processes-content {
@@ -145,10 +146,6 @@
 		height: calc(100vh - 5rem);
 		.section__heading {
 			padding: 0;
-		}
-		.section-line {
-			display: block;
-			width: 100%;
 		}
 		.processes-mobile {
 			display: none;

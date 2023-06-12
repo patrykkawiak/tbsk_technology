@@ -1,0 +1,17 @@
+::-webkit-scrollbar {
+  width: 1.2rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: white;
+}
+
+.form-box {
+  ::-webkit-scrollbar-thumb {
+    border-left: 1px solid black
+  }
+}
