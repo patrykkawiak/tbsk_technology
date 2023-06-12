@@ -1,14 +1,5 @@
 @use '../utilities/colors' as *;
 
-button {
-	transition: all 0.2s ease;
-}
-a {
-	transition: all 0.2s ease;
-	&:hover {
-		text-decoration: none;
-	}
-}
 .contact {
 	display: flex;
 	flex-direction: column;
@@ -16,6 +7,15 @@ a {
 	align-items: center;
 	background-color: #0e0c10;
 	padding-top: 0;
+  a {
+    transition: all 0.2s ease;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  button {
+    transition: all 0.2s ease;
+  }
 }
 
 .knownusmore {
@@ -25,19 +25,6 @@ a {
 	margin-bottom: 3rem;
 }
 
-.buttoners {
-	font-style: normal;
-	font-size: 1.8rem;
-	text-align: center;
-	color: $color_6;
-	text-align: center;
-	padding: 1rem 2rem;
-	border: none;
-	cursor: pointer;
-}
-.buttoners:hover {
-	background-color: #ffffffe5;
-}
 .form-box {
 	position: fixed;
 	width: 100vw;

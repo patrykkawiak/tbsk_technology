@@ -32,22 +32,18 @@
 				.accordion-content {
 					display: flex;
 					flex-direction: column;
-					gap: 2rem;
-					height: 0;
 					overflow: hidden;
-					padding: 0rem 2rem;
 					transition: 0.5s;
 					.accordion-label {
 						color: white;
 						font-size: 1.8rem;
+            padding: 2rem;
 					}
 					.accordion-text {
 						color: rgb(184, 184, 184);
 						font-size: 1.5rem;
+            padding: 0 2rem 2rem;
 					}
-				}
-				.active {
-					padding: 3rem 2rem;
 				}
 			}
 			.accordion:last-child {
@@ -150,10 +146,6 @@
 		height: calc(100vh - 5rem);
 		.section__heading {
 			padding: 0;
-		}
-		.section-line {
-			display: block;
-			width: 100%;
 		}
 		.processes-mobile {
 			display: none;

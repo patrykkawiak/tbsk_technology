@@ -1,16 +1,5 @@
 @use '../utilities/colors' as *;
 
-ul {
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
-}
-a {
-	transition: all 0.2s ease;
-	&:hover {
-		text-decoration: none;
-	}
-}
 .background-image-box {
 	position: absolute;
 	background-image: url('/dist/img/spiralka.svg');
@@ -26,6 +15,36 @@ a {
 	position: relative;
 	background: $fifth-section-gradient;
 	overflow: hidden;
+  padding-bottom: 4rem;
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  a {
+    transition: all 0.2s ease;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  ul li {
+    transition: 0.2s;
+  }
+  img.img-fluid {
+    transition: 0.2s;
+    z-index: 1;
+    position: relative;
+  }
+  ul li:hover::before {
+    transform: scale(1.1);
+  }
+  .img-fluid:hover {
+    transform: scale(0.8);
+  }
+  ul li:hover {
+    color: #ffee10;
+    text-shadow: 0 0 5px #d3d3a3;
+  }
 	.section__heading {
 		flex-direction: column;
 		strong {
@@ -39,24 +58,6 @@ a {
       color: $color_3;
 		}
 	}
-}
-ul li {
-	transition: 0.2s;
-}
-img.img-fluid {
-	transition: 0.2s;
-	z-index: 1;
-	position: relative;
-}
-ul li:hover::before {
-	transform: scale(1.1);
-}
-.img-fluid:hover {
-	transform: scale(0.8);
-}
-ul li:hover {
-	color: #ffee10;
-	text-shadow: 0 0 5px #d3d3a3;
 }
 .pricing-img {
 	text-align: center;

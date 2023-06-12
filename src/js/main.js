@@ -68,56 +68,28 @@ const headerParallaxHandler = () => {
 		return
 	}
 
-	const offsetY = window.pageYOffset
-	const rate = window.pageYOffset * 0.5
+	const offsetY = window.scrollY
+	const rate = window.scrollY * 0.1
 	const opacityValue = offsetY / 100
 
-	introText[0].style.transform = `translate(${rate * 8}px)`
+	introText[0].style.transform = `translate(${rate * 14}px)`
 	introText[1].style.transform = `translate(${rate * -3}px)`
-	introText[2].style.transform = `translate(${rate * 6}px)`
-	introText[3].style.transform = `translate(${rate * 7}px)`
+	introText[2].style.transform = `translate(${rate * 16}px)`
+	introText[3].style.transform = `translate(${rate * 17}px)`
 	introText[4].style.transform = `translate(${rate * -9}px)`
-	introText[5].style.transform = `translate(${rate * 11}px)`
+	introText[5].style.transform = `translate(${rate * 17.5}px)`
 
 	introBtn.style.opacity = `${0.5 / opacityValue}`
-	if (offsetY >= 200) {
-		introBtn.style.opacity = 0
-		introBtn.style.display = 'none'
-	} else {
-		introBtn.style.display = 'block'
-	}
-
-	if (offsetY >= 800) {
-		introText.forEach(text => (text.style.display = 'none'))
-	} else {
-		introText.forEach(text => (text.style.display = 'block'))
-	}
+  if(offsetY > window.innerHeight){
+    introBtn.style.display = 'none'
+  } else {
+    introBtn.style.display = 'block'
+  }
 }
 
 // Processes - accordions
 
-const accordions = document.querySelectorAll('.accordion-heading')
 
-const openAccordion = e => {
-	if (e.target.nextElementSibling.classList.contains('active')) {
-		e.target.nextElementSibling.classList.remove('active')
-	} else {
-		closeAllAccordions()
-		e.target.nextElementSibling.classList.toggle('active')
-	}
-}
-
-const closeAllAccordions = () => {
-	const accordionContent = document.querySelectorAll('.accordion-content')
-	accordionContent.forEach(el => {
-		el.classList.remove('active')
-	})
-}
-
-const accordionOutsideHandler = e => {
-	if (e.target.classList.contains('accordion-heading') || e.target.classList.contains('accordion-content')) return
-	closeAllAccordions()
-}
 // Processes - list
 
 const processTitle = document.querySelector('.processes-content-title')
@@ -310,14 +282,13 @@ window.onload = () => {
   if(viewportWidth <= 768){
     navHandler()
   }
+  projectsParallaxHandler()
+	handleParallaxSection()
 }
 
 processBtns.forEach(btn => btn.addEventListener('click', chengeProcess))
 
-accordions.forEach(accordion => accordion.addEventListener('click', openAccordion))
-
 window.addEventListener('click', e => {
-	accordionOutsideHandler(e)
 	cardOutsideHandler(e)
 })
 
