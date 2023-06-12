@@ -9,4 +9,4 @@ window.addEventListener('resize', () => {
 	background.style.height = diagonal + 'px'
 	background.style.width = diagonal + 'px'
 })
-console.log(diagonal)
+
