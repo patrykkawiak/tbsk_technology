@@ -7,9 +7,9 @@ const prepAccordions = () => {
 	});
 };
 
-const handleAccordionContent = (index) => {
+const handleAccordionContent = (target, index) => {
 	const accordionContent = accordionContents[index];
-	if (accordionContent.style.maxHeight != '0px') {
+	if (accordionContent.style.maxHeight != '0px' && target.classList.contains('accordion-heading')) {
 		accordionContent.style.maxHeight = '0px';
 	} else {
 		closeAllAccordions();
@@ -37,8 +37,8 @@ const closeAllAccordions = () => {
 };
 
 accordions.forEach((accordion, index) => {
-	accordion.addEventListener('click', () => {
-		handleAccordionContent(index);
+	accordion.addEventListener('click', (e) => {
+		handleAccordionContent(e.target, index);
 	});
 });
 
