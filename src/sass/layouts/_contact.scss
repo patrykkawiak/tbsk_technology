@@ -1,14 +1,5 @@
 @use '../utilities/colors' as *;
 
-button {
-	transition: all 0.2s ease;
-}
-a {
-	transition: all 0.2s ease;
-	&:hover {
-		text-decoration: none;
-	}
-}
 .contact {
 	display: flex;
 	flex-direction: column;
@@ -16,29 +7,30 @@ a {
 	align-items: center;
 	background-color: #0e0c10;
 	padding-top: 0;
+  a {
+    transition: all 0.2s ease;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  button {
+    transition: all 0.2s ease;
+  }
+}
+
+.buttoners {
+  &::after {
+    content: 'Skontaktuj się z nami'
+  }
 }
 
 .knownusmore {
-	font-weight: 300;
 	font-size: 1.5rem;
 	text-align: center;
 	color: $color_5;
 	margin-bottom: 3rem;
 }
 
-.buttoners {
-	font-style: normal;
-	font-size: 1.8rem;
-	text-align: center;
-	color: $color_6;
-	text-align: center;
-	padding: 1rem 2rem;
-	border: none;
-	cursor: pointer;
-}
-.buttoners:hover {
-	background-color: #ffffffe5;
-}
 .form-box {
 	position: fixed;
 	width: 100vw;
@@ -80,6 +72,7 @@ a {
 		}
 		textarea {
 			font-size: 1.5rem;
+      font-family: inherit;
 			color: $color_2;
 			width: 100%;
 			display: block;

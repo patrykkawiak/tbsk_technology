@@ -1,3 +1,5 @@
+@use '../utilities/colors' as *;
+
 .burger-icon {
 	display: flex;
 	flex-direction: column;
@@ -31,8 +33,16 @@ nav {
 	height: 5rem;
 	background-color: #fff;
 	z-index: 1000;
+  ul {
+    list-style: none;
+  }
 	.navbar {
 		padding: 0rem 2rem;
+    &.active .nav-list {
+      opacity: 1 !important;
+      pointer-events: all !important;
+      transform: translateX(0) !important;
+    }
 		.mobile-nav {
 			display: flex;
 			align-items: center;
@@ -42,13 +52,16 @@ nav {
         object-fit: cover;
 			}
 			.nav-list {
-				display: none;
 				width: 70%;
 				height: calc(100vh - 5rem);
 				position: absolute;
 				left: 0;
 				top: 5rem;
 				background-color: #fff;
+        opacity: 0;
+        transform: translateX(-50%);
+        pointer-events: none;
+        transition: transform .3s, opacity .2s;
 				.nav-list-item {
 					padding: 2rem;
 					font-size: 1.5rem;
@@ -65,8 +78,7 @@ nav {
 					}
 				}
 			}
-			.nav-list::before {
-				content: '';
+			.nav-list-background {
 				position: absolute;
 				right: -100%;
 				width: 100%;
@@ -88,26 +100,39 @@ nav {
 				height: 100%;
 				display: flex;
 				align-items: center;
+        li {
+          height: 100%;
+        }
 				.flex-left,
 				.flex-right {
 					display: flex;
 					align-items: center;
+          height: 100%;
 					.nav-list-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
 						font-size: 1.4rem;
 						padding: 1rem;
+            height: 100%;
+            &.active {
+              background-color: $main-green;
+              color:white;
+            }
+            &:hover {
+              color: $main-green;
+            }
 					}
 				}
-        .flex-left {
-          .nav-list-item:first-child {
-            padding-left: 0;
-          }
+        .flex-left:first-child {
+          margin-left: -1rem;
         }
 				.flex-right {
 					margin-left: auto;
 					gap: 2rem;
 					.right-links {
+            height: 100%;
 						display: flex;
-						gap: 1rem;
 					}
 					.socials {
 						margin-top: 0.3rem;
@@ -115,6 +140,9 @@ nav {
 						align-items: center;
 						.nav-socials-item {
 							font-size: 2.5rem;
+              &:hover {
+                color: $main-green;
+              }
 						}
 					}
 				}
@@ -157,10 +185,21 @@ nav {
 		.navbar {
 			.desktop-nav {
 				.nav-list {
+          .flex-left {
+            .nav-list-item {
+              padding: 1rem 1.5rem;
+            }
+          }
+          .flex-left:first-child {
+            margin-left: -1.5rem;
+          }
 					.flex-right {
 						.socials {
 							gap: 0.5rem;
 						}
+            .nav-list-item {
+              padding: 1rem 1.5rem;
+            }
 					}
 				}
 			}

@@ -1,14 +1,7 @@
 @use '../utilities/colors' as *;
-.section {
-	&__title {
-		font-size: 1em;
-	}
-	&__text {
-		font-size: 0.6em;
-		&--big {
-			font-size: 0.8em;
-		}
-	}
+section {
+  position: relative;
+  z-index: 1;
 }
 
 .hidden {
@@ -27,7 +20,7 @@
 }
 .section__heading {
 	display: flex;
-	flex-direction: column;
+	flex-direction: column-reverse;
 	text-align: center;
 	isolation: isolate;
 	h2 {
@@ -63,13 +56,13 @@
 	}
 	.section__title {
 		color: white;
-		font-size: 3.3rem;
 	}
 }
 
 .section-line {
 	position: absolute;
 	display: none;
+  width: 100%;
 	.line {
 		height: 2px;
 		width: 100%;
@@ -102,4 +95,10 @@
 			top: 50%;
 		}
 	}
+}
+
+@media (min-height: 500px) and (min-width: 992px) {
+  .section-line {
+    display: block;
+  }
 }

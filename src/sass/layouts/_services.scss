@@ -2,6 +2,7 @@
 
 .services {
 	background: $second-section-gradient;
+  padding-bottom: 4rem;
 	&__cards {
 		.card {
 			display: flex;
@@ -31,6 +32,7 @@
 				font-size: 1rem;
 				color: white;
 				z-index: 100;
+        transition: transform .3s;
 				&-icon {
 					font-size: 2.5rem;
 				}
@@ -46,7 +48,7 @@
 			left: 0;
 			width: 100%;
 			height: 5px;
-			background-color: #fff;
+			background-color: $lighter-green;
 			z-index: 1000;
 			display: none;
 			opacity: 0;
@@ -56,11 +58,17 @@
 			display: block;
 			opacity: 1;
 		}
+    .card:hover::before {
+      opacity: .85;
+    }
 		.card:hover .card__text {
 			display: block;
 			opacity: 1;
 			animation: cardSlidein 0.3s forwards;
 		}
+    .card:hover .card__intro {
+      transform: translateY(-5px)
+    }
 		.card.active::after {
 			display: block;
 			opacity: 1;
@@ -78,8 +86,10 @@
 		content: '';
 		width: 100%;
 		height: 100%;
-		background-color: rgba(0, 0, 0, 0.6);
+		background-color: rgba(0, 0, 0);
+    opacity: 0.6;
 		z-index: 10;
+    transition: opacity .3s;
 	}
 
 	$services-cards: projektowanie budowa uiux optymalizacja;
