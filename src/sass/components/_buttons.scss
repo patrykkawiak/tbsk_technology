@@ -1,18 +1,45 @@
+@use '../utilities/colors' as *;
+
 .button {
+  position: relative;
   width: max-content;
   padding: 1rem 2rem;
   font-size: 1.5rem;
   font-family: inherit;
   border-radius: 0;
   cursor: pointer;
+  &::after {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity .3s;
+  }
+  &:hover::after {
+    opacity: 1;
+  }
   &.primary {
-    background-color: black;
+    background-color: $main-green;
+    border: 1px solid black;
     color: white;
-    border: 1px solid white;
+    &::after {
+      color: $main-green;
+      background-color: white;
+    }
   }
   &.secondary {
     background-color: white;
     color: black;
-    border: 1px solid black;
+    border: 1px solid white;
+    &::after {
+      color: white;
+      background-color: black;
+    }
   }
 }

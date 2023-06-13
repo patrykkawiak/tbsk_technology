@@ -1,5 +1,6 @@
 const introText = document.querySelectorAll('.intro-text')
 const introBtn = document.querySelector('.intro-btn')
+const racoon = document.querySelector('.racoon')
 let viewportWidth = window.innerWidth
 
 const cards = document.querySelectorAll('.services__cards .card')
@@ -35,7 +36,7 @@ const cardOutsideHandler = e => {
 }
 
 const navHandler = () => {
-  const navbar = document.querySelector('.mobile-nav')
+  const navbar = document.querySelector('.navbar')
   const oldBurgerIcon = document.querySelector('.burger-icon')
   const mnavItems = document.querySelectorAll('.mobile-nav a')
   const oldNavListBackground = document.querySelector('.nav-list-background')
@@ -70,7 +71,7 @@ const headerParallaxHandler = () => {
 
 	const offsetY = window.scrollY
 	const rate = window.scrollY * 0.1
-	const opacityValue = offsetY / 100
+	const opacityValue = 1 / ((offsetY / 100) + 1)
 
 	introText[0].style.transform = `translate(${rate * 14}px)`
 	introText[1].style.transform = `translate(${rate * -3}px)`
@@ -79,12 +80,8 @@ const headerParallaxHandler = () => {
 	introText[4].style.transform = `translate(${rate * -9}px)`
 	introText[5].style.transform = `translate(${rate * 17.5}px)`
 
-	introBtn.style.opacity = `${0.5 / opacityValue}`
-  if(offsetY > window.innerHeight){
-    introBtn.style.display = 'none'
-  } else {
-    introBtn.style.display = 'block'
-  }
+	introBtn.style.opacity = `${opacityValue}`
+  racoon.style.opacity = `${opacityValue}`
 }
 
 // Processes - accordions

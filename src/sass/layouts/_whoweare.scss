@@ -30,6 +30,11 @@
 		border-bottom: 2px solid #ffffff;
 	}
 }
+.protfolio-click {
+  &::after {
+    content: 'Portfolio'
+  }
+}
 .whoweare-img {
 	width: 224px;
 	height: 224px;

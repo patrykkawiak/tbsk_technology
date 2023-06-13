@@ -9,7 +9,7 @@
     margin: 0 auto;
 		display: flex;
 		flex-direction: column;
-		gap: 5rem;
+		gap: 2rem;
     max-width: 1000px;
 		.accordion {
 			background-color: #f9f9f9;
@@ -19,7 +19,7 @@
 				width: 100%;
 				border: none;
 				font-size: 2rem;
-				padding: 2rem 1.2rem;
+				padding: 2rem;
 				background-color: transparent;
 				color: rgb(0, 0, 0);
 				display: flex;
@@ -34,7 +34,7 @@
 			.accordion-content {
 				display: flex;
 				flex-direction: column;
-				transition: max-height 0.3s;
+				transition: max-height 0.5s;
 				.accordion-label {
           padding: 2rem;
 					font-size: 1.8rem;

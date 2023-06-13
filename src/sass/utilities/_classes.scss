@@ -1,14 +1,7 @@
 @use '../utilities/colors' as *;
-.section {
-	&__title {
-		font-size: 1em;
-	}
-	&__text {
-		font-size: 0.6em;
-		&--big {
-			font-size: 0.8em;
-		}
-	}
+section {
+  position: relative;
+  z-index: 1;
 }
 
 .hidden {

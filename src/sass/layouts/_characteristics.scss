@@ -9,7 +9,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 4rem;
 	color: white;
 	z-index: 50;
 	.characteristics-ctn {
@@ -33,10 +32,10 @@
 				gap: 1rem;
 				padding: 0.5rem;
 				.item-heading {
-					font-size: 2.4rem;
+					font-size: 2rem;
 				}
 				.item-desc {
-					font-size: 1.6rem;
+					font-size: 1.5rem;
 					color: rgb(168, 168, 168);
 				}
 			}

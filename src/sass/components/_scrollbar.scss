@@ -1,3 +1,5 @@
+@use '../utilities/colors' as *;
+
 ::-webkit-scrollbar {
   width: 1.2rem;
 }
@@ -8,10 +10,12 @@
 
 ::-webkit-scrollbar-thumb {
   background-color: white;
-}
-
-.form-box {
-  ::-webkit-scrollbar-thumb {
-    border-left: 1px solid black
+  border-left: 1px solid black;
+  &:hover {
+    background-color: $lighter-green;
+  }
+  &:active {
+    background-color: $light-green;
   }
 }
+
