@@ -3,37 +3,37 @@ const introBtn = document.querySelector('.intro-btn')
 const racoon = document.querySelector('.racoon')
 let viewportWidth = window.innerWidth
 
-const cards = document.querySelectorAll('.services__cards .card')
+const cards = document.querySelectorAll('.services__cards .card');
 
 const cardsActivatorHandler = () => {
-	cards.forEach(card => {
+	cards.forEach((card) => {
 		card.addEventListener('click', () => {
-			cards.forEach(el => {
+			cards.forEach((el) => {
 				if (el.classList.contains('active')) {
-					el.classList.remove('active')
+					el.classList.remove('active');
 				}
-			})
-			card.classList.add('active')
-		})
+			});
+			card.classList.add('active');
+		});
 
 		card.addEventListener('touchend', () => {
-			cards.forEach(el => {
+			cards.forEach((el) => {
 				if (el.classList.contains('active')) {
-					el.classList.remove('active')
+					el.classList.remove('active');
 				}
-			})
-			card.classList.add('active')
-		})
-	})
-}
+			});
+			card.classList.add('active');
+		});
+	});
+};
 
-const cardOutsideHandler = e => {
+const cardOutsideHandler = (e) => {
 	if (!e.target.classList.contains('card')) {
-		cards.forEach(card => {
-			card.classList.remove('active')
-		})
+		cards.forEach((card) => {
+			card.classList.remove('active');
+		});
 	}
-}
+};
 
 const navHandler = () => {
   const navbar = document.querySelector('.navbar')
@@ -64,9 +64,9 @@ const navHandler = () => {
 
 const headerParallaxHandler = () => {
 	if (viewportWidth < 768) {
-		const intro = document.querySelector('.intro')
-		intro.classList.remove('fixed')
-		return
+		const intro = document.querySelector('.intro');
+		intro.classList.remove('fixed');
+		return;
 	}
 
 	const offsetY = window.scrollY
@@ -89,84 +89,88 @@ const headerParallaxHandler = () => {
 
 // Processes - list
 
-const processTitle = document.querySelector('.processes-content-title')
+const processTitle = document.querySelector('.processes-content-title');
 
-const processText = document.querySelector('.processes-content-text')
+const processText = document.querySelector('.processes-content-text');
 
-const processBtns = document.querySelectorAll('.processes-list-item')
+const processBtns = document.querySelectorAll('.processes-list-item');
 
-const chengeProcess = e => {
-	const btn = e.target
+const chengeProcess = (e) => {
+	const btn = e.target;
 
 	if (btn.classList.contains('active')) {
-    return
+		return;
 	} else {
-		closeAllProcesses()
-		btn.classList.toggle('active')
+		closeAllProcesses();
+		btn.classList.toggle('active');
 	}
-	setContent()
-}
+	setContent();
+};
 
 const closeAllProcesses = () => {
-	processBtns.forEach(btn => btn.classList.remove('active'))
-}
+	processBtns.forEach((btn) => btn.classList.remove('active'));
+};
 
 const setContent = () => {
 	if (processBtns[0].classList.contains('active')) {
-		processTitle.textContent = 'Jak przebiegają rozmowy?'
-		processText.textContent = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque nam dolore voluptate quisquam est impedit molestiae laboriosam, unde reprehenderit ullam, nesciunt nobis repellat repellendus? Ea minima voluptatum temporibus quam delectus Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur officiis saepe, cumque placeat, possimus consectetur, tenetur voluptas est illo nobis harum praesentium asperiores! Cumque autem odit veniam, tenetur illo tempora?`
+		processTitle.textContent = 'Jak przebiegają rozmowy?';
+		processText.textContent = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque nam dolore voluptate quisquam est impedit molestiae laboriosam, unde reprehenderit ullam, nesciunt nobis repellat repellendus? Ea minima voluptatum temporibus quam delectus Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur officiis saepe, cumque placeat, possimus consectetur, tenetur voluptas est illo nobis harum praesentium asperiores! Cumque autem odit veniam, tenetur illo tempora?`;
 	} else if (processBtns[1].classList.contains('active')) {
-		processTitle.textContent = 'Jak wygląda prezentacja projektu?'
-		processText.textContent = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque nam dolore voluptate quisquam est impedit molestiae laboriosam, ptas est illo nobis harum praesentium asperiores! Cumque autem odit veniam, tenetur illo tempora?`
+		processTitle.textContent = 'Jak wygląda prezentacja projektu?';
+		processText.textContent = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque nam dolore voluptate quisquam est impedit molestiae laboriosam, ptas est illo nobis harum praesentium asperiores! Cumque autem odit veniam, tenetur illo tempora?`;
 	} else if (processBtns[2].classList.contains('active')) {
-		processTitle.textContent = 'Co to jest zatwierdzenie?'
-		processText.textContent = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque nam dolore voluptate quisquam est impedit molestiae laboriosam, unde reprehenderit ullam, nesciunt nobis repellat repellendus? Ea minima voluptatum temporibus quam delectus Lorem ipsum dolor sit amet, conseumque autem odit veniam, tenetur illo tempora?`
+		processTitle.textContent = 'Co to jest zatwierdzenie?';
+		processText.textContent = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque nam dolore voluptate quisquam est impedit molestiae laboriosam, unde reprehenderit ullam, nesciunt nobis repellat repellendus? Ea minima voluptatum temporibus quam delectus Lorem ipsum dolor sit amet, conseumque autem odit veniam, tenetur illo tempora?`;
 	} else if (processBtns[3].classList.contains('active')) {
-		processTitle.textContent = 'Wykonanie projektu!'
-		processText.textContent = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque nam dolore voluptate quisquam est impedit molestiae laboriosam, unde reprehenderit ullam, nesciunt nobis repellat repellendus? Ea minima voluptatum temporibus quam delectus Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur officiis saepe, cumque placeat, possimus consectetur, tenetur voluptas est illo nobis harum praesentium asperiores! Cumque autem odit veniam, tenetur illo tempora?ellendus? Ea minima voluptatum temporibus quam delectus Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur officiis saepe, cumque plac`
+		processTitle.textContent = 'Wykonanie projektu!';
+		processText.textContent = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque nam dolore voluptate quisquam est impedit molestiae laboriosam, unde reprehenderit ullam, nesciunt nobis repellat repellendus? Ea minima voluptatum temporibus quam delectus Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur officiis saepe, cumque placeat, possimus consectetur, tenetur voluptas est illo nobis harum praesentium asperiores! Cumque autem odit veniam, tenetur illo tempora?ellendus? Ea minima voluptatum temporibus quam delectus Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur officiis saepe, cumque plac`;
 	}
-}
+};
 
 /* PROJECTS PARALLAX */
 
-const parallaxSection = document.querySelector('.projects-desktop-cnt')
-const parallaxItems = document.querySelectorAll('.projects-parallax')
-const prevSection = document.querySelector('.services')
-const nextSection = document.querySelector('.processes')
-let viewport = window.innerWidth
-let prevSectionOffset = prevSection.offsetTop
+const parallaxSection = document.querySelector('.projects-desktop-cnt');
+const parallaxItems = document.querySelectorAll('.projects-parallax');
+const prevSection = document.querySelector('.services');
+const nextSection = document.querySelector('.processes');
+let viewport = window.innerWidth;
+let prevSectionOffset = prevSection.offsetTop;
 
 const projectsParallaxHandler = () => {
-	if (viewport < 992) return
-  const sectionHeading = document.querySelector('.projects .section__heading')
-  let firstAnchorPoint = prevSectionOffset + prevSection.offsetHeight + sectionHeading.offsetHeight
-  let secondAnchorPoint = nextSection.offsetTop - nextSection.offsetHeight + sectionHeading.offsetHeight / 2
-  const projectsDesktopCnt = document.querySelector('.projects-desktop-cnt')
-  projectsDesktopCnt.style.height = `Calc(600vh + ${sectionHeading.offsetHeight}px)`
+	if (viewport < 992) return;
+	const sectionHeading = document.querySelector('.projects .section__heading');
+	let firstAnchorPoint =
+		prevSectionOffset + prevSection.offsetHeight + sectionHeading.offsetHeight;
+	let secondAnchorPoint =
+		nextSection.offsetTop -
+		nextSection.offsetHeight +
+		sectionHeading.offsetHeight / 2;
+	const projectsDesktopCnt = document.querySelector('.projects-desktop-cnt');
+	projectsDesktopCnt.style.height = `Calc(600vh + ${sectionHeading.offsetHeight}px)`;
 
-	let scrollTop = window.scrollY
+	let scrollTop = window.scrollY;
 	// let scrollToAnchor = nextSection.offsetHeight + nextSection.offsetTop
 	if (scrollTop >= firstAnchorPoint) {
-		parallaxSection.classList.add('fixed-pr')
+		parallaxSection.classList.add('fixed-pr');
 	}
 	if (scrollTop >= secondAnchorPoint || scrollTop < firstAnchorPoint) {
-		parallaxSection.classList.remove('fixed-pr')
+		parallaxSection.classList.remove('fixed-pr');
 	}
 	if (scrollTop >= secondAnchorPoint) {
-		parallaxItems[0].style.transform = `translateY(0)`
+		parallaxItems[0].style.transform = `translateY(0)`;
 	}
 
 	if (parallaxSection.classList.contains('fixed-pr')) {
-		parallaxItems[0].style.transform = `translate(0px, -${scrollTop - firstAnchorPoint}px)`
-		parallaxItems[1].style.transform = `translate(0px, ${scrollTop - firstAnchorPoint}px)`
+		parallaxItems[0].style.transform = `translate(0px, -${
+			scrollTop - firstAnchorPoint
+		}px)`;
+		parallaxItems[1].style.transform = `translate(0px, ${
+			scrollTop - firstAnchorPoint
+		}px)`;
 	}
-  if (window.scrollY < firstAnchorPoint){
-    parallaxItems[0].style.transform = 'translate(0, 0)'
-    parallaxItems[1].style.transform = 'translate(0, 0)'
-  }
-
-	if (!parallaxSection.classList.contains('.fixed-pr') && scrollTop >= secondAnchorPoint) {
-		parallaxItems[1].style.transform = `translateY(1000vh)`
+	if (window.scrollY < firstAnchorPoint) {
+		parallaxItems[0].style.transform = 'translate(0, 0)';
+		parallaxItems[1].style.transform = 'translate(0, 0)';
 	}
 }
 
@@ -183,15 +187,18 @@ const handleParallaxSection = () => {
 	const rate = scrollValue - sectionOffSet
 	const firstAnchor = sectionOffSet - navHeight <= scrollValue
 	if (firstAnchor && !secondSection.classList.contains('static')) {
-		firstSection.classList.add('parallax-sticky')
-		scrollPermision = true
+		firstSection.classList.add('parallax-sticky');
+		scrollPermision = true;
 	} else {
-		firstSection.classList.remove('parallax-sticky')
+		firstSection.classList.remove('parallax-sticky');
 	}
 
-	if (!firstSection.classList.contains('parallax-sticky') && !firstSection.classList.contains('parallax-static')) {
-		secondSection.style.transform = `translateX(0)`
-		firstSection.style.transform = `translateX(0)`
+	if (
+		!firstSection.classList.contains('parallax-sticky') &&
+		!firstSection.classList.contains('parallax-static')
+	) {
+		secondSection.style.transform = `translateX(0)`;
+		firstSection.style.transform = `translateX(0)`;
 	}
 
 	const secondSectionRect = secondSection.getBoundingClientRect()
@@ -214,7 +221,7 @@ const handleParallaxSection = () => {
 	} 
   else {
 		if (secondSection.classList.contains('static')) {
-			const secondOffSet = secondSection.offsetTop
+			const secondOffSet = secondSection.offsetTop;
 			if (secondOffSet - navHeight >= scrollValue) {
 				firstSection.classList.add('parallax-sticky')
 				firstSection.classList.remove('parallax-static')
@@ -225,9 +232,9 @@ const handleParallaxSection = () => {
         })
 				scrollPermision = true
 			}
-			scrollPermision = false
+			scrollPermision = false;
 		} else {
-			scrollPermision = true
+			scrollPermision = true;
 		}
 	}
 
@@ -239,38 +246,38 @@ const handleParallaxSection = () => {
 
 // parallax Items
 
-const parallaxTexts = document.querySelectorAll('.characteristics-item')
-const handleParallaxItems = e => {
+const parallaxTexts = document.querySelectorAll('.characteristics-item');
+const handleParallaxItems = (e) => {
 	if (e.target.classList.contains('reset-pos')) {
-		e.target.classList.remove('reset-pos')
+		e.target.classList.remove('reset-pos');
 	}
-	e.target.classList.add('add-pos')
+	e.target.classList.add('add-pos');
 
-	let x = e.clientX
-	let y = e.clientY
-	const middleX = e.target.offsetWidth / 2
-	const middleY = e.target.offsetHeight / 2
-	let finalX = (middleX - x) / 40
-	let finalY = (middleY - y) / 40
+	let x = e.clientX;
+	let y = e.clientY;
+	const middleX = e.target.offsetWidth / 2;
+	const middleY = e.target.offsetHeight / 2;
+	let finalX = (middleX - x) / 40;
+	let finalY = (middleY - y) / 40;
 
-	parallaxTexts.forEach(text => {
+	parallaxTexts.forEach((text) => {
 		if (text.classList.contains('reset-pos')) {
-			text.classList.remove('reset-pos')
+			text.classList.remove('reset-pos');
 		}
-		text.classList.add('add-pos')
+		text.classList.add('add-pos');
 
-		text.style.setProperty('--transform-y', `${finalY}px`)
-		text.style.setProperty('--transform-x', `${finalX}px`)
-	})
-}
+		text.style.setProperty('--transform-y', `${finalY}px`);
+		text.style.setProperty('--transform-x', `${finalX}px`);
+	});
+};
 
-secondSection.addEventListener('mousemove', handleParallaxItems)
+secondSection.addEventListener('mousemove', handleParallaxItems);
 secondSection.addEventListener('mouseout', () => {
-	parallaxTexts.forEach(text => {
-		text.classList.add('reset-pos')
-		text.classList.remove('add-pos')
-	})
-})
+	parallaxTexts.forEach((text) => {
+		text.classList.add('reset-pos');
+		text.classList.remove('add-pos');
+	});
+});
 
 // functions actions
 
@@ -283,23 +290,23 @@ window.onload = () => {
 	handleParallaxSection()
 }
 
-processBtns.forEach(btn => btn.addEventListener('click', chengeProcess))
+processBtns.forEach((btn) => btn.addEventListener('click', chengeProcess));
 
 window.addEventListener('click', e => {
 	cardOutsideHandler(e)
 })
 
 window.addEventListener('scroll', () => {
-	headerParallaxHandler()
-	projectsParallaxHandler()
-	handleParallaxSection()
-})
+	headerParallaxHandler();
+	projectsParallaxHandler();
+	handleParallaxSection();
+});
 
 window.addEventListener('resize', () => {
-  let viewportWidth = window.innerWidth
-  if(viewportWidth <= 768){
-    navHandler()
-  }
-	if (viewportWidth >= 992) return
-	cardsActivatorHandler()
+	let viewportWidth = window.innerWidth;
+	if (viewportWidth <= 768) {
+		navHandler();
+	}
+	if (viewportWidth >= 992) return;
+	cardsActivatorHandler();
 })
