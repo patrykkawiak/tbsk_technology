@@ -1,6 +1,8 @@
 @use '../utilities/colors' as *;
 
 .services {
+  position: relative;
+  z-index: 1;
 	background: $second-section-gradient;
   padding-bottom: 4rem;
 	&__cards {

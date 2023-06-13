@@ -80,12 +80,20 @@ const headerParallaxHandler = () => {
 	introText[4].style.transform = `translate(${rate * -9}px)`
 	introText[5].style.transform = `translate(${rate * 17.5}px)`
 
-	introBtn.style.opacity = `${opacityValue}`
-  racoon.style.opacity = `${opacityValue}`
+
+  if(offsetY > window.innerHeight) {
+    introBtn.style.opacity = '0'
+    racoon.style.opacity = '0'
+    introBtn.style.pointerEvents = 'none'
+    racoon.style.pointerEvents = 'none'
+  }
+  else {
+    introBtn.style.opacity = `${opacityValue}`
+    racoon.style.opacity = `${opacityValue}`
+    introBtn.style.pointerEvents = 'all'
+    racoon.style.pointerEvents = 'all'
+  }
 }
-
-// Processes - accordions
-
 
 // Processes - list
 
