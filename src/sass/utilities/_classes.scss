@@ -1,5 +1,8 @@
 @use '../utilities/colors' as *;
 
+ul {
+	list-style: none;
+}
 .hidden {
 	display: none !important;
 }
@@ -58,7 +61,7 @@
 .section-line {
 	position: absolute;
 	display: none;
-  width: 100%;
+	width: 100%;
 	.line {
 		height: 2px;
 		width: 100%;
@@ -94,7 +97,7 @@
 }
 
 @media (min-height: 500px) and (min-width: 992px) {
-  .section-line {
-    display: block;
-  }
+	.section-line {
+		display: block;
+	}
 }
