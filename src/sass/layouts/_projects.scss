@@ -28,11 +28,13 @@
       display: flex;
       gap: 1rem;
       transition: background-color .3s, color .3s; 
-      &.primary:hover {
+      &.primary:hover,
+      &.primary:focus {
         background-color: white;
         color: $main-green;
       }
-      &.secondary:hover {
+      &.secondary:hover,
+      &.secondary:focus {
         background-color: black;
         color: white;
       }
@@ -62,8 +64,9 @@
 				gap: 2rem;
 				.desc-heading {
           display: flex;
-          flex-direction: column-reverse;
+          flex-direction: column;
 					.heading-tag {
+            line-height: 1em;
 						font-size: 1.8rem;
 						font-weight: 600;
 					}
@@ -107,7 +110,7 @@
         }
 				.desc-heading {
           display: flex;
-          flex-direction: column-reverse;
+          flex-direction: column;
 					.heading-tag {
 						font-size: 1.3rem;
 						font-weight: 600;

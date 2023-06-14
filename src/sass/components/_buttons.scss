@@ -21,7 +21,11 @@
     opacity: 0;
     transition: opacity .3s;
   }
-  &:hover::after {
+  &::focus {
+    outline: none;
+  }
+  &:hover::after,
+  &:focus::after {
     opacity: 1;
   }
   &.primary {

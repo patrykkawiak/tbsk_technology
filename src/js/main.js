@@ -1,6 +1,7 @@
 const introText = document.querySelectorAll('.intro-text')
 const introBtn = document.querySelector('.intro-btn')
 const racoon = document.querySelector('.racoon')
+const intro = document.querySelector('.intro')
 let viewportWidth = window.innerWidth
 
 const cards = document.querySelectorAll('.services__cards .card');
@@ -82,16 +83,14 @@ const headerParallaxHandler = () => {
 
 
   if(offsetY > window.innerHeight) {
-    introBtn.style.opacity = '0'
-    racoon.style.opacity = '0'
-    introBtn.style.pointerEvents = 'none'
-    racoon.style.pointerEvents = 'none'
+    intro.style.pointerEvents = 'none'
+    intro.style.opacity = '0'
   }
   else {
     introBtn.style.opacity = `${opacityValue}`
     racoon.style.opacity = `${opacityValue}`
-    introBtn.style.pointerEvents = 'all'
-    racoon.style.pointerEvents = 'all'
+    intro.style.pointerEvents = 'all'
+    intro.style.opacity = '1'
   }
 }
 

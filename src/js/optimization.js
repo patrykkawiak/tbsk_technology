@@ -71,7 +71,7 @@ const renderProject = (project, renderShowcase) => {
     const descHeading = makeCustomElement('div', ['desc-heading'])
       const headingTag = makeCustomElement('small', ['heading-tag'], project.tag)
       const headingTitle = makeCustomElement('h3', ['heading-title'], project.title)
-      descHeading.append(headingTag, headingTitle)
+      descHeading.append(headingTitle, headingTag)
     const descContent = makeCustomElement('div', ['desc-content'])
       const contentMain = makeCustomElement('p', ['content-main'], project.content)
       const contentDate = makeCustomElement('small', ['content-date'], project.date)
@@ -247,7 +247,7 @@ const renderDesktopOrMobile = () => {
   const processes = [
       {
         heading: 'Jak przebiegają rozmowy',
-        text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt vel eligendi consequuntur voluptas nesciunt perferendis qui id obcaecati repellendus quaerat accusantium exercitationem non, alias assumenda, sed illo totam eos dolorum.',
+        text: 'Zaczynamy od określenia świadczonej usługi. Jeżeli jest to budowa lub projektowanie, to pytamy czy istnieje jakieś logo, bądź wizytówka firmy. Następnie zapytamy o treści, które miałyby się znaleźć na stronie. Na podstawie tego tworzymy wyłącznie strukturę i wyceniamy projekt. Następnie zaczynamy projektować.',
         button: 'Konsultacja',
       },
       {
@@ -270,20 +270,20 @@ const renderDesktopOrMobile = () => {
     {
       name: 'power',
       title: 'Power Kwidzyn',
-      tag: 'Built',
-      date: '20.07.2022',
-      visit: '#',
-      code: '#',
-      content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum nisi voluptatibus natus delectus numquam rem dolore beatae excepturi voluptas eveniet?'
+      tag: 'Projekt i budowa',
+      date: '8.05.2023',
+      visit: 'https://power-kwidzyn.pl',
+      code: 'https://github.com/patrykkawiak/OSK-Power-Kwidzyn',
+      content: 'Power Kwidzyn to szkółka prawa jazdy, która przez długi czas miała słabo funkcjonującą, przestarzałą stronę internetową. Pomimo niepewności, właściciel działalności postanowił nam zaufać i końcowo jest zadowolony z o wiele lepszej wizytówki w internecie.'
     },
     {
       name: 'rebax',
       title: 'Rebax',
-      tag: 'Built',
-      date: '20.07.2022',
-      visit: '#',
-      code: '#',
-      content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum nisi voluptatibus natus delectus numquam rem dolore beatae excepturi voluptas eveniet?'
+      tag: 'Projekt i budowa',
+      date: '26.04.2023',
+      visit: 'https://rebax.pl',
+      code: 'https://github.com/patrykkawiak/Rebax',
+      content: 'Firma Rebax przed naszą usługą nie posiadała strony internetowej. Pomimo tego, że została postawiona niedawno, to dumnie prezentuje tę hurtownię budowlaną, wyświetlając się na pierwszych stronach przeglądarek internautów.'
     },
     {
       name: 'autoclinic',

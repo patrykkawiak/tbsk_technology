@@ -10,12 +10,14 @@ header {
 	background-color: #f9f9f9;
 	overflow: hidden;
   padding-bottom: 0;
-  z-index: -1;
+  z-index: 0;
 	.intro {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
+    opacity: 0;
+    pointer-events: none;
     &-left {
       display: flex;
       flex-direction: column;
@@ -25,6 +27,7 @@ header {
 			display: flex;
 			flex-direction: column;
 			.intro-text {
+        line-height: 1em;
 				font-size: 4rem;
 				font-weight: 600;
 			}
