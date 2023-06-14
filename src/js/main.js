@@ -95,13 +95,31 @@ const headerParallaxHandler = () => {
 }
 
 // Processes - list
-
+const processesInfo = [
+  {
+    heading: 'Jak przebiegają rozmowy?',
+    text: 'Zaczynamy od określenia świadczonej usługi. Jeżeli jest to budowa lub projektowanie, to pytamy czy istnieje jakieś logo, bądź wizytówka firmy. Następnie zapytamy o treści, które miałyby się znaleźć na stronie. Na podstawie tego tworzymy wyłącznie strukturę i wyceniamy projekt. Następnie zaczynamy projektować.',
+    button: 'Konsultacja',
+  },
+  {
+    heading: 'Jak wygląda prezentacja projektu?',
+    text: 'Po skończeniu projektu strony, przedstawiamy go Tobie do ocenienia. Wtedy przyjmujemy wszelkie uwagi dot. doboru kolorów, budowy sekcji itd. Tłumaczymy też, czemu pewne elementy muszą zawierać niektóre cechy. Później nanosimy wszelkie zmiany.',
+    button: 'Prezentacja',
+  },
+  {
+    heading: 'Czym jest etap zatwierdzenia?',
+    text: 'To krok, w którym decydujesz się na podjęcie lub odrzucenie naszych usług. Jeżeli zlecisz nam stworzenie strony, to przekażemy Ci ile prawdopodobnie zajmie to nam czasu. Dodatkowo będziemy potrzebowali dokładnych treści, które mają się finalnie znaleźć na Twojej witrynie.',
+    button: 'Zatwierdzenie',
+  },
+  {
+    heading: 'Wykonanie projektu!',
+    text: 'Ten krok zostaw nam! Od razu zabierzemy się do tworzenia Twojej wymarzonej wizytówki internetowej. Podczas tego czasu możesz nam przekazać wszelkie dodatkowe informacje, a my weźmiemy je pod uwagę. Po zakończonej pracy zostało tylko umieścić ją na hostingu.',
+    button: 'Wykonanie',
+  }
+]
 const processTitle = document.querySelector('.processes-content-title');
-
 const processText = document.querySelector('.processes-content-text');
-
 const processBtns = document.querySelectorAll('.processes-list-item');
-
 const chengeProcess = (e) => {
 	const btn = e.target;
 
@@ -119,19 +137,14 @@ const closeAllProcesses = () => {
 };
 
 const setContent = () => {
-	if (processBtns[0].classList.contains('active')) {
-		processTitle.textContent = 'Jak przebiegają rozmowy?';
-		processText.textContent = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque nam dolore voluptate quisquam est impedit molestiae laboriosam, unde reprehenderit ullam, nesciunt nobis repellat repellendus? Ea minima voluptatum temporibus quam delectus Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur officiis saepe, cumque placeat, possimus consectetur, tenetur voluptas est illo nobis harum praesentium asperiores! Cumque autem odit veniam, tenetur illo tempora?`;
-	} else if (processBtns[1].classList.contains('active')) {
-		processTitle.textContent = 'Jak wygląda prezentacja projektu?';
-		processText.textContent = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque nam dolore voluptate quisquam est impedit molestiae laboriosam, ptas est illo nobis harum praesentium asperiores! Cumque autem odit veniam, tenetur illo tempora?`;
-	} else if (processBtns[2].classList.contains('active')) {
-		processTitle.textContent = 'Co to jest zatwierdzenie?';
-		processText.textContent = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque nam dolore voluptate quisquam est impedit molestiae laboriosam, unde reprehenderit ullam, nesciunt nobis repellat repellendus? Ea minima voluptatum temporibus quam delectus Lorem ipsum dolor sit amet, conseumque autem odit veniam, tenetur illo tempora?`;
-	} else if (processBtns[3].classList.contains('active')) {
-		processTitle.textContent = 'Wykonanie projektu!';
-		processText.textContent = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque nam dolore voluptate quisquam est impedit molestiae laboriosam, unde reprehenderit ullam, nesciunt nobis repellat repellendus? Ea minima voluptatum temporibus quam delectus Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur officiis saepe, cumque placeat, possimus consectetur, tenetur voluptas est illo nobis harum praesentium asperiores! Cumque autem odit veniam, tenetur illo tempora?ellendus? Ea minima voluptatum temporibus quam delectus Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur officiis saepe, cumque plac`;
-	}
+  for(let i = 0; i < processesInfo.length; i++){
+    if(processBtns[i].classList.contains('active')){
+      processTitle.textContent = processesInfo[i].heading
+      processText.textContent = processesInfo[i].text
+    }
+  }
+
+
 };
 
 /* PROJECTS PARALLAX */
@@ -177,7 +190,8 @@ const projectsParallaxHandler = () => {
 		parallaxItems[1].style.transform = 'translate(0, 0)';
 	}
   if (!parallaxSection.classList.contains('.fixed-pr') && scrollTop >= secondAnchorPoint) {
-    parallaxItems[1].style.transform = `translateY(1000vh)`
+    //o ilość sekcji * 200vh
+    parallaxItems[1].style.transform = `translateY(200vh)`
 	}
 }
 

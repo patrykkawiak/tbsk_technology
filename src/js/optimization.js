@@ -22,7 +22,7 @@ const renderProcessMobile = (section, accordions) => {
         const accordionBlock = makeCustomElement('div', ['accordion'])
           const heading = makeCustomElement('button', ['accordion-heading'])
             const arrow = makeCustomElement('i', ['bx', 'bx-down-arrow-circle'])
-            heading.append(arrow, accordion.heading)
+            heading.append(arrow, accordion.button)
           const content = makeCustomElement('div', ['accordion-content'])
             const label = makeCustomElement('h3', ['accordion-label'], accordion.heading)
             const text = makeCustomElement('p', ['accordion-text'], accordion.text)
@@ -246,23 +246,23 @@ const renderDesktopOrMobile = () => {
   const projectsSection = document.querySelector('.projects')
   const processes = [
       {
-        heading: 'Jak przebiegają rozmowy',
+        heading: 'Jak przebiegają rozmowy?',
         text: 'Zaczynamy od określenia świadczonej usługi. Jeżeli jest to budowa lub projektowanie, to pytamy czy istnieje jakieś logo, bądź wizytówka firmy. Następnie zapytamy o treści, które miałyby się znaleźć na stronie. Na podstawie tego tworzymy wyłącznie strukturę i wyceniamy projekt. Następnie zaczynamy projektować.',
         button: 'Konsultacja',
       },
       {
-        heading: 'Jak przebiegają rozmowy',
-        text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt vel eligendi consequuntur voluptas nesciunt perferendis qui id obcaecati repellendus quaerat accusantium exercitationem non, alias assumenda, sed illo totam eos dolorum.',
+        heading: 'Jak wygląda prezentacja projektu?',
+        text: 'Po skończeniu projektu strony, przedstawiamy go Tobie do ocenienia. Wtedy przyjmujemy wszelkie uwagi dot. doboru kolorów, budowy sekcji itd. Tłumaczymy też, czemu pewne elementy muszą zawierać niektóre cechy. Później nanosimy wszelkie zmiany.',
         button: 'Prezentacja',
       },
       {
-        heading: 'Jak przebiegają rozmowy',
-        text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt vel eligendi consequuntur voluptas nesciunt perferendis qui id obcaecati repellendus quaerat accusantium exercitationem non, alias assumenda, sed illo totam eos dolorum.',
+        heading: 'Czym jest etap zatwierdzenia?',
+        text: 'To krok, w którym decydujesz się na podjęcie lub odrzucenie naszych usług. Jeżeli zlecisz nam stworzenie strony, to przekażemy Ci ile prawdopodobnie zajmie to nam czasu. Dodatkowo będziemy potrzebowali dokładnych treści, które mają się finalnie znaleźć na Twojej witrynie.',
         button: 'Zatwierdzenie',
       },
       {
-        heading: 'Jak przebiegają rozmowy',
-        text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt vel eligendi consequuntur voluptas nesciunt perferendis qui id obcaecati repellendus quaerat accusantium exercitationem non, alias assumenda, sed illo totam eos dolorum.',
+        heading: 'Wykonanie projektu!',
+        text: 'Ten krok zostaw nam! Od razu zabierzemy się do tworzenia Twojej wymarzonej wizytówki internetowej. Podczas tego czasu możesz nam przekazać wszelkie dodatkowe informacje, a my weźmiemy je pod uwagę. Po zakończonej pracy zostało tylko umieścić ją na hostingu.',
         button: 'Wykonanie',
       }
   ]
@@ -284,42 +284,6 @@ const renderDesktopOrMobile = () => {
       visit: 'https://rebax.pl',
       code: 'https://github.com/patrykkawiak/Rebax',
       content: 'Firma Rebax przed naszą usługą nie posiadała strony internetowej. Pomimo tego, że została postawiona niedawno, to dumnie prezentuje tę hurtownię budowlaną, wyświetlając się na pierwszych stronach przeglądarek internautów.'
-    },
-    {
-      name: 'autoclinic',
-      title: 'Autoclinic',
-      tag: 'Built',
-      date: '20.07.2022',
-      visit: '#',
-      code: '#',
-      content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum nisi voluptatibus natus delectus numquam rem dolore beatae excepturi voluptas eveniet?'
-    },
-    {
-      name: 'journeyquest',
-      title: 'Journeyquest',
-      tag: 'Built',
-      date: '20.07.2022',
-      visit: '#',
-      code: '#',
-      content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum nisi voluptatibus natus delectus numquam rem dolore beatae excepturi voluptas eveniet?'
-    },
-    {
-      name: 'jumpsole',
-      title: 'JumpSole',
-      tag: 'Built',
-      date: '20.07.2022',
-      visit: '#',
-      code: '#',
-      content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum nisi voluptatibus natus delectus numquam rem dolore beatae excepturi voluptas eveniet?'
-    },
-    {
-      name: 'greenscape',
-      title: 'GreenScape',
-      tag: 'Built',
-      date: '20.07.2022',
-      visit: '#',
-      code: '#',
-      content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum nisi voluptatibus natus delectus numquam rem dolore beatae excepturi voluptas eveniet?'
     }
   ]
   const navLinks = [

@@ -27,13 +27,14 @@ ul {
 		flex-direction: column;
 	}
 	.section__text {
+    position: relative;
 		margin: 0 auto;
-		position: relative;
+    padding: 0 1rem;
+		width: max-content;
 		font-size: 1.5rem;
 		font-family: 'Darker Grotesque', sans-serif;
 		color: #ababab;
-		padding: 0 1rem;
-		width: max-content;
+    line-height: 1em;
 		z-index: 1000;
 	}
 	.section__text::before,
@@ -55,6 +56,7 @@ ul {
 	}
 	.section__title {
 		color: white;
+    line-height: 1em;
 	}
 }
 
