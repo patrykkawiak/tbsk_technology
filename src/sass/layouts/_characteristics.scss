@@ -1,16 +1,16 @@
 @use '../utilities/colors' as *;
 
 .characteristics {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-  padding-top: 0;
+	padding-top: 0;
 	background: $fourth-section-gradient;
 	color: white;
 	z-index: 50;
-  overflow: hidden;
+	overflow: hidden;
 	.characteristics-ctn {
 		display: flex;
 		flex-direction: column;
@@ -44,13 +44,13 @@
 }
 
 @media (min-width: 768px) {
-  .characteristics {
-    .characteristics-ctn {
-      .characteristics-items {
-        grid-template-columns: repeat(2, 1fr)
-      }
-    }
-  }
+	.characteristics {
+		.characteristics-ctn {
+			.characteristics-items {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+	}
 }
 
 @media (min-width: 992px) {
@@ -80,30 +80,28 @@
 				.characteristics-item {
 					position: absolute;
 					max-width: 35rem;
-					transform: translateX(var(--transform-x)) translateY(var(--transform-y));
+					padding: 2rem;
+					transform: translateX(var(--transform-x))
+						translateY(var(--transform-y));
 					.item-desc {
 						color: rgb(168, 168, 168);
+						font-size: 1.2rem;
 					}
 				}
 				.characteristics-item:nth-child(1) {
-					top: 50%;
-					left: 0;
-					// transform: translateY(-50%);
+					right: 0;
+					bottom: 0;
 				}
 				.characteristics-item:nth-child(2) {
-					top: 50%;
+					
 					right: 0;
-					// transform: translateY(-50%);
 				}
 				.characteristics-item:nth-child(3) {
 					top: 0;
-					left: 40%;
-					// transform: translateX(-50%);
+					
 				}
 				.characteristics-item:nth-child(4) {
-					left: 40%;
 					bottom: 0;
-					// transform: translateX(-50%);
 				}
 				.reset-pos {
 					animation: resetPos 0.3s forwards;
@@ -111,7 +109,8 @@
 
 				@keyframes resetPos {
 					from {
-						transform: translateX(var(--transform-x)) translateY(var(--transform-y));
+						transform: translateX(var(--transform-x))
+							translateY(var(--transform-y));
 					}
 
 					to {
@@ -128,7 +127,8 @@
 						transform: translateX(0) translateY(0);
 					}
 					to {
-						transform: translateX(var(--transform-x)) translateY(var(--transform-y));
+						transform: translateX(var(--transform-x))
+							translateY(var(--transform-y));
 					}
 				}
 			}
