@@ -118,20 +118,12 @@
 }
 
 .form-submit-btn {
-	text-align: center;
-	button {
-		height: 80px;
-		background-color: $background-color_4;
-		border: none;
-		color: $color_1;
-		width: 100%;
-		font-size: 1.8rem;
-		&:hover {
-			background-color: $background-color_2;
-			cursor: pointer;
-		}
-	}
+  width: 100%;
+  &::after {
+    content: 'WYŚLIJ'
+  }
 }
+
 .tel-phone-numbers {
 	display: flex;
 	align-items: center;

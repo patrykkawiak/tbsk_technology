@@ -1,16 +1,16 @@
 @use '../utilities/colors' as *;
 
 .characteristics {
-	position: fixed;
-	overflow: hidden;
-	width: 100%;
-	background: $fourth-section-gradient;
-	height: calc(100vh - 5rem);
-	display: flex;
+  display: flex;
+  flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	width: 100%;
+  padding-top: 0;
+	background: $fourth-section-gradient;
 	color: white;
 	z-index: 50;
+  overflow: hidden;
 	.characteristics-ctn {
 		display: flex;
 		flex-direction: column;
@@ -21,8 +21,8 @@
 		}
 
 		.characteristics-items {
-			display: flex;
-			flex-direction: column;
+			display: grid;
+			grid-template-columns: repeat(1, 1fr);
 			text-align: center;
 			gap: 3rem;
 
@@ -32,7 +32,7 @@
 				gap: 1rem;
 				padding: 0.5rem;
 				.item-heading {
-					font-size: 2rem;
+					font-size: 1.8rem;
 				}
 				.item-desc {
 					font-size: 1.5rem;
@@ -41,6 +41,16 @@
 			}
 		}
 	}
+}
+
+@media (min-width: 768px) {
+  .characteristics {
+    .characteristics-ctn {
+      .characteristics-items {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+  }
 }
 
 @media (min-width: 992px) {
@@ -71,11 +81,7 @@
 					position: absolute;
 					max-width: 35rem;
 					transform: translateX(var(--transform-x)) translateY(var(--transform-y));
-					.item-heading {
-						font-size: 1.8rem;
-					}
 					.item-desc {
-						font-size: 1.4rem;
 						color: rgb(168, 168, 168);
 					}
 				}
@@ -91,11 +97,11 @@
 				}
 				.characteristics-item:nth-child(3) {
 					top: 0;
-					left: 38%;
+					left: 40%;
 					// transform: translateX(-50%);
 				}
 				.characteristics-item:nth-child(4) {
-					left: 38%;
+					left: 40%;
 					bottom: 0;
 					// transform: translateX(-50%);
 				}
@@ -143,14 +149,6 @@
 		.characteristics-ctn {
 			.characteristics-items {
 				width: 80%;
-				.characteristics-item {
-					.item-heading {
-						font-size: 2.2rem;
-					}
-					.item-desc {
-						font-size: 1.6rem;
-					}
-				}
 			}
 		}
 	}

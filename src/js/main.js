@@ -147,12 +147,8 @@ let prevSectionOffset = prevSection.offsetTop;
 const projectsParallaxHandler = () => {
 	if (viewport < 992) return;
 	const sectionHeading = document.querySelector('.projects .section__heading');
-	let firstAnchorPoint =
-		prevSectionOffset + prevSection.offsetHeight + sectionHeading.offsetHeight;
-	let secondAnchorPoint =
-		nextSection.offsetTop -
-		nextSection.offsetHeight +
-		sectionHeading.offsetHeight / 2;
+	let firstAnchorPoint = prevSectionOffset + prevSection.offsetHeight + sectionHeading.offsetHeight;
+	let secondAnchorPoint = nextSection.offsetTop - nextSection.offsetHeight + sectionHeading.offsetHeight / 2;
 	const projectsDesktopCnt = document.querySelector('.projects-desktop-cnt');
 	projectsDesktopCnt.style.height = `Calc(600vh + ${sectionHeading.offsetHeight}px)`;
 
@@ -165,7 +161,8 @@ const projectsParallaxHandler = () => {
 		parallaxSection.classList.remove('fixed-pr');
 	}
 	if (scrollTop >= secondAnchorPoint) {
-		parallaxItems[0].style.transform = `translateY(0)`;
+		parallaxItems[0].style.transform = `translate(0, 0)`;
+    parallaxItems[1].style.transform = `translate(0, 4200px)`;
 	}
 
 	if (parallaxSection.classList.contains('fixed-pr')) {
@@ -176,9 +173,12 @@ const projectsParallaxHandler = () => {
 			scrollTop - firstAnchorPoint
 		}px)`;
 	}
-	if (window.scrollY < firstAnchorPoint) {
+	if (scrollTop < firstAnchorPoint) {
 		parallaxItems[0].style.transform = 'translate(0, 0)';
 		parallaxItems[1].style.transform = 'translate(0, 0)';
+	}
+  if (!parallaxSection.classList.contains('.fixed-pr') && scrollTop >= secondAnchorPoint) {
+    parallaxItems[1].style.transform = `translateY(1000vh)`
 	}
 }
 
@@ -213,15 +213,12 @@ const handleParallaxSection = () => {
 	const firstSectionRect = firstSection.getBoundingClientRect()
 	const secondSectionTop = secondSectionRect.top
 	const firstSectionTop = firstSectionRect.top
-  const dummy = document.createElement('div')
-  dummy.style.height = '100vh'
 	if (rate > viewportWidth && secondSectionTop === firstSectionTop) {
     secondSection.style.transform = `translate(-${viewportWidth}px, 0)`
 		firstSection.classList.remove('parallax-sticky')
 		firstSection.classList.add('parallax-static')
 		secondSection.classList.add('static')
 		scrollPermision = false
-    console.log(firstSectionOffsetTop + window.innerHeight);
     window.scrollTo({
       top: firstSectionOffsetTop + window.innerHeight - navHeight * 2 + 1,
       behavior: 'instant'

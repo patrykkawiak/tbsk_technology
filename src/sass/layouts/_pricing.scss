@@ -41,10 +41,6 @@
   .img-fluid:hover {
     transform: scale(0.8);
   }
-  ul li:hover {
-    color: #ffee10;
-    text-shadow: 0 0 5px #d3d3a3;
-  }
 	.section__heading {
 		flex-direction: column;
 		strong {
@@ -53,7 +49,7 @@
 		small {
 			order: 2;
       font-weight: 400;
-      font-size: 2rem;
+      font-size: 1.5rem;
       text-align: center;
       color: $color_3;
 		}
