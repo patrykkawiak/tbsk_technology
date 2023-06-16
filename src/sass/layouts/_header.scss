@@ -16,8 +16,6 @@ header {
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
-    opacity: 0;
-    pointer-events: none;
     &-left {
       display: flex;
       flex-direction: column;
@@ -52,13 +50,22 @@ header {
     width: max-content;
     max-width: 400px;
     max-height: 600px;
-    border: 10px solid black;
+    border: 5px dashed black;
     &-img {
       max-height: 100%;
       max-width: 100%;
       object-fit: cover;
-      outline: 5px dashed white;
+      outline: 2px solid white;
       outline-offset: -5px;
+    }
+  }
+}
+@media (max-height: 400px) {
+  header {
+    .intro {
+      .intro-btn {
+        display: none;
+      }
     }
   }
 }
@@ -74,6 +81,12 @@ header {
         font-size: 2.5rem;
       }
     }
+  }
+}
+@media (min-width: 768px) {
+  .intro {
+    opacity: 0;
+    pointer-events: none;
   }
 }
 @media (min-width: 768px) and (max-height: 649px) {

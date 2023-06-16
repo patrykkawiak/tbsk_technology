@@ -65,6 +65,19 @@ const renderProcessDestkop = (section, processes) => {
   }
 }
 
+const handleProjectLazyLoad = (imgBox) => {
+  const img = imgBox.querySelector('img')
+  const imgLoaded = () => {
+    imgBox.classList.add('loaded')
+  }
+  if (img.complete) {
+    imgLoaded()
+  }
+  else {
+    img.addEventListener('load', imgLoaded)
+  }
+}
+
 const renderProject = (project, renderShowcase) => {
   const projectBlock = makeCustomElement('div', ['project', project.name])
   const projectDesc = makeCustomElement('div', ['project-desc'])
@@ -89,10 +102,15 @@ const renderProject = (project, renderShowcase) => {
     projectDesc.append(descHeading, descContent, descBtns)
   if(renderShowcase){
     const projectShowcase = makeCustomElement('div', ['project-showcase'])
-    const showcaseImg = makeCustomElement('img', ['showcase-img'])
-      showcaseImg.setAttribute('alt', `Zdjęcie sekcji tytułowej na stronie ${project.name}`)
-      showcaseImg.setAttribute('src', `./dist/img/${project.name}.png`)
-    projectShowcase.append(showcaseImg)
+    const showcaseBox = makeCustomElement('div', ['showcase-box'])
+    showcaseBox.style.backgroundImage = `url(./dist/img/${project.name}-placeholder.png)`
+      const showcaseImg = makeCustomElement('img', ['showcase-img'])
+        showcaseImg.setAttribute('alt', `Zdjęcie sekcji tytułowej na stronie ${project.name}`)
+        showcaseImg.setAttribute('src', `./dist/img/${project.name}.webp`)
+        showcaseImg.setAttribute('loading', 'lazy')
+      showcaseBox.append(showcaseImg)
+      handleProjectLazyLoad(showcaseBox)
+    projectShowcase.append(showcaseBox)
     projectBlock.append(projectDesc, projectShowcase)
   }
   else {
@@ -133,10 +151,14 @@ const renderProjectsDesktop = (section, projects) => {
       const projectsShowcase = makeCustomElement('div', ['projects-showcase', 'projects-parallax'])
         projects.forEach(project => {
           const desktopShowcase = makeCustomElement('div', ['desktop-showcase'])
-            const desktopShowcaseImg = makeCustomElement('img', ['desktop-showcase-img'])
-            desktopShowcaseImg.setAttribute('src', `./dist/img/${project.name}.png`)
-            desktopShowcaseImg.setAttribute('alt', `Zdjęcie sekcji tytułowej na stronie ${project.name}`)
-            desktopShowcase.append(desktopShowcaseImg)
+            const desktopShowcaseBox = makeCustomElement('div', ['desktop-showcase-box'])
+            desktopShowcaseBox.style.backgroundImage = `url('./dist/img/${project.name}-placeholder.png')`
+              const desktopShowcaseImg = makeCustomElement('img', ['desktop-showcase-img'])
+              desktopShowcaseImg.setAttribute('src', `./dist/img/${project.name}.webp`)
+              desktopShowcaseImg.setAttribute('alt', `Zdjęcie sekcji tytułowej na stronie ${project.name}`)
+              desktopShowcaseBox.append(desktopShowcaseImg)
+              handleProjectLazyLoad(desktopShowcaseBox)
+            desktopShowcase.append(desktopShowcaseBox)
           projectsShowcase.append(desktopShowcase)
         })
       projectsDesktop.append(projectsDesc, projectsShowcase)

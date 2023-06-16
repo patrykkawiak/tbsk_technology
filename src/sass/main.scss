@@ -14,6 +14,7 @@
 @use 'layouts/contact' as *;
 @use 'layouts/pricing' as *;
 @use 'layouts/whoweare' as *;
+@use 'layouts/footer' as *;
 
 @media (min-width: 576px) {
 	html {

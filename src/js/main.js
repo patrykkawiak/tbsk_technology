@@ -141,10 +141,9 @@ const setContent = () => {
     if(processBtns[i].classList.contains('active')){
       processTitle.textContent = processesInfo[i].heading
       processText.textContent = processesInfo[i].text
+      return
     }
   }
-
-
 };
 
 /* PROJECTS PARALLAX */
@@ -321,7 +320,7 @@ window.addEventListener('scroll', () => {
 });
 
 window.addEventListener('resize', () => {
-	let viewportWidth = window.innerWidth;
+  viewportWidth = window.innerWidth;
 	if (viewportWidth <= 768) {
 		navHandler();
 	}

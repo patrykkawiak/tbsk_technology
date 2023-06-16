@@ -81,9 +81,21 @@
 				height: 40%;
 				justify-content: center;
         margin-top: 2rem;
+        .showcase-box {
+          display: flex;
+          background-size: cover;
+          justify-content: center;
+          width: 80%;
+          aspect-ratio: 16 / 9;
+          &.loaded .showcase-img {
+            opacity: 1;
+          }
+        }
 				.showcase-img {
-					width: 80%;
+          width: 100%;
+          opacity: 0;
 					aspect-ratio: 16 / 9;
+          transition: opacity .3s;
 				}
 			}
 		}
@@ -129,12 +141,25 @@
 				position: relative;
 				display: flex;
 				justify-content: center;
+        align-items: center;
 				height: 100vh;
 				width: 100%;
 				transform: translateY(-500%);
+        .desktop-showcase-box {
+          display: flex;
+          background-size: cover;
+          justify-content: center;
+          width: 90%;
+          aspect-ratio: 16 / 9;
+          &.loaded .desktop-showcase-img {
+            opacity: 1;
+          }
+        }
 				.desktop-showcase-img {
-					width: 90%;
-					object-fit: contain;
+          opacity: 0;
+					width: 100%;
+          aspect-ratio: 16 / 9;
+          transition: .3s opacity;
 				}
 			}
 			.desktop-showcase::before {
@@ -161,7 +186,7 @@
 		.projects-mobile-cnt {
 			.project {
 				.project-showcase {
-					.showcase-img {
+					.showcase-box {
 						width: 75%;
 					}
 				}
@@ -174,7 +199,7 @@
 		.projects-mobile-cnt {
 			.project {
 				.project-showcase {
-					.showcase-img {
+					.showcase-box {
 						width: 65%;
 					}
 				}

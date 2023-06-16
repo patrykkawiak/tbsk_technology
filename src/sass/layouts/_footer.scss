@@ -1,0 +1,22 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 2rem;
+  background-color: #000;
+  color: #fff;
+  font-size: 1.4rem;
+  &-text {
+    font-weight: bold;
+  }
+  &-links {
+    display: flex;
+  }
+  &-link {
+    a {
+      text-align: center;
+      padding: 1rem;
+    }
+  }
+}
