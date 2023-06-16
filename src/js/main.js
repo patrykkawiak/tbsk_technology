@@ -2,6 +2,7 @@ const introText = document.querySelectorAll('.intro-text')
 const introBtn = document.querySelector('.intro-btn')
 const racoon = document.querySelector('.racoon')
 const intro = document.querySelector('.intro')
+const nav = document.querySelector('.navbar')
 let viewportWidth = window.innerWidth
 
 const cards = document.querySelectorAll('.services__cards .card');
@@ -42,7 +43,7 @@ const navHandler = () => {
   const mnavItems = document.querySelectorAll('.mobile-nav a')
   const oldNavListBackground = document.querySelector('.nav-list-background')
   const reveal = () => {
-    console.log('reveal');
+
     burgerIcon.classList.toggle('active')
     navbar.classList.toggle('active')
   }
@@ -158,8 +159,8 @@ let prevSectionOffset = prevSection.offsetTop;
 const projectsParallaxHandler = () => {
 	if (viewport < 992) return;
 	const sectionHeading = document.querySelector('.projects .section__heading');
-	let firstAnchorPoint = prevSectionOffset + prevSection.offsetHeight + sectionHeading.offsetHeight;
-	let secondAnchorPoint = nextSection.offsetTop - nextSection.offsetHeight + sectionHeading.offsetHeight / 2;
+	let firstAnchorPoint = prevSectionOffset + prevSection.offsetHeight + sectionHeading.offsetHeight + nav.offsetHeight;
+	let secondAnchorPoint = nextSection.offsetTop - nextSection.offsetHeight + sectionHeading.offsetHeight;
 	const projectsDesktopCnt = document.querySelector('.projects-desktop-cnt');
 	projectsDesktopCnt.style.height = `Calc(600vh + ${sectionHeading.offsetHeight}px)`;
 
@@ -195,69 +196,33 @@ const projectsParallaxHandler = () => {
 }
 
 const firstSection = document.querySelector('.processes')
-const firstSectionOffsetTop = firstSection.offsetTop
 const secondSection = document.querySelector('.characteristics')
-const sectionOffSet = firstSection.offsetTop
-const nav = document.querySelector('.navbar')
-const navHeight = nav.offsetHeight
+const parallaxHero = document.querySelector('.parallax-hero')
+
 const handleParallaxSection = () => {
 	if (viewportWidth < 992) return
 	let scrollPermision
+  const sectionOffSet = firstSection.offsetTop
+  const navHeight = nav.offsetHeight
+  parallaxHero.style.height = `${viewportWidth + navHeight - window.innerHeight}px`
 	const scrollValue = window.scrollY
 	const rate = scrollValue - sectionOffSet
-	const firstAnchor = sectionOffSet - navHeight <= scrollValue
-	if (firstAnchor && !secondSection.classList.contains('static')) {
-		firstSection.classList.add('parallax-sticky');
-		scrollPermision = true;
-	} else {
-		firstSection.classList.remove('parallax-sticky');
-	}
-
-	if (
-		!firstSection.classList.contains('parallax-sticky') &&
-		!firstSection.classList.contains('parallax-static')
-	) {
-		secondSection.style.transform = `translateX(0)`;
-		firstSection.style.transform = `translateX(0)`;
-	}
-
-	const secondSectionRect = secondSection.getBoundingClientRect()
-	const firstSectionRect = firstSection.getBoundingClientRect()
-	const secondSectionTop = secondSectionRect.top
-	const firstSectionTop = firstSectionRect.top
-	if (rate > viewportWidth && secondSectionTop === firstSectionTop) {
-    secondSection.style.transform = `translate(-${viewportWidth}px, 0)`
-		firstSection.classList.remove('parallax-sticky')
-		firstSection.classList.add('parallax-static')
-		secondSection.classList.add('static')
-		scrollPermision = false
-    window.scrollTo({
-      top: firstSectionOffsetTop + window.innerHeight - navHeight * 2 + 1,
-      behavior: 'instant'
-    })
-	} 
+  if(rate > viewportWidth){
+    scrollPermision = false
+    firstSection.style.transform = `translate(-${viewportWidth}px, ${viewportWidth}px)`
+		secondSection.style.transform = `translate(0, ${viewportWidth - window.innerHeight + navHeight}px)`
+  }
+  else if(rate <= 0) {
+    scrollPermision = false
+    firstSection.style.transform = `translate(0, 0)`
+		secondSection.style.transform = `translate(100%, -100%)`
+  }
   else {
-		if (secondSection.classList.contains('static')) {
-			const secondOffSet = secondSection.offsetTop;
-			if (secondOffSet - navHeight >= scrollValue) {
-				firstSection.classList.add('parallax-sticky')
-				firstSection.classList.remove('parallax-static')
-				secondSection.classList.remove('static')
-        window.scrollTo({
-          top: firstSectionOffsetTop + viewportWidth,
-          behavior: 'instant'
-        })
-				scrollPermision = true
-			}
-			scrollPermision = false;
-		} else {
-			scrollPermision = true;
-		}
-	}
-
+    scrollPermision = true
+  }
 	if (scrollPermision) {
-		secondSection.style.transform = `translateX(-${rate}px)`
-		firstSection.style.transform = `translateX(-${rate}px)`
+    firstSection.style.transform = `translate(-${rate}px, ${rate}px)`
+		secondSection.style.transform = `translate(Calc(100% - ${rate}px), Calc(-100% + ${rate}px))`
 	}
 }
 

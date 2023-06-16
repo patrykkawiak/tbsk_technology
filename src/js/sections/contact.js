@@ -4,7 +4,13 @@ emailjs.init('Hhpvi3dgfNV-eaXKW')
 const btn = document.querySelector('.buttoners')
 const cross = document.querySelector('.cross')
 const formBox = document.querySelector('.form-box')
-const opennedForm = document.querySelector('.open-form-inner')
+const notifications = document.querySelector('.notifications')
+const notificationMessages = {
+  cooldown: 'Błąd podczas wysyłania maila.<br>Osiągnięto limit maili wynoszący: <span class="highlight">3</span>.<br>Spróbuj 24h po wysłaniu ostatniego maila.',
+  error: 'Błąd podczas wysyłania maila.<br>Spróbuj ponownie później.',
+  success: ' E-mail pomyślnie wysłano.<br>Liczba maili możliwych do wysłania<br>w ciągu następnych 24h: <span class="highlight"></span>.'
+}
+const opennedForm = formBox.querySelector('.open-form-inner')
 const form = document.querySelector('.contact form')
 const formTelephoneControls = document.querySelectorAll('.form-controls')
 
@@ -60,6 +66,32 @@ const closeFormIfOutside = (e) => {
   }
 }
 
+const createNotification = (isSuccess, message) => {
+  const notification = document.createElement('div')
+  notification.setAttribute('data-success', isSuccess)
+    const p = document.createElement('p')
+    p.innerHTML = message
+    notification.append(p)
+    if(message == notificationMessages.success){
+      const cookies = document.cookie.split(';')
+      const limitCookie = cookies.find(cookie => cookie.trim().startsWith('limit'))
+      const limitValue = limitCookie.split('=')[1]
+      const highlightSpan = p.querySelector('.highlight')
+      highlightSpan.append(limitValue)
+    }
+  notification.classList.add('notification')
+  notifications.append(notification)
+  setTimeout(() => {
+    notification.classList.add('shown')
+    setTimeout(() => {
+      notification.classList.remove('shown')
+      setTimeout(() => {
+        notification.remove()
+      }, 500)
+    }, 5000)
+  }, 100)
+}
+
 btn.addEventListener('click', function () {
   disableScroll()
 	formBox.classList.remove('hidden')
@@ -107,12 +139,12 @@ form.addEventListener('submit', (e) => {
       limitValue = +limitCookie.split('=')[1]
     }
     if(limitValue >= 3){
-      //modal ze sie nie udalo, musisz odczekac 2 godziny
       const twoHours = 120 * 60 * 1000
       const date = new Date()
       date.setTime(date.getTime() + twoHours)
       document.cookie = `emailCooldown = emailCooldown; expires =  ${date}`
       document.cookie = `limit=3; expires = ${date}`
+      createNotification('false', notificationMessages.cooldown)
     }
     else {
       const contactServiceId = 'service_pk7b8o3'
@@ -121,6 +153,7 @@ form.addEventListener('submit', (e) => {
       emailjs.sendForm(contactServiceId, contactFormId, form)
       .then(() => {
         formBox.classList.add('hidden')
+        enableScroll()
         const inputs = form.querySelectorAll('input')
         const textarea = form.querySelector('textarea')
         inputs.forEach(input => {
@@ -128,9 +161,10 @@ form.addEventListener('submit', (e) => {
         })
         textarea.value = ''
         setSendLimit(++limitValue)
+        createNotification('true', notificationMessages.success)
       })
       .catch(() => {
-        //modal ze sie nie udalo, nieoczekiwany blad, sprobuj ponownie
+        createNotification('false', notificationMessages.error)
       })
     }
   }
