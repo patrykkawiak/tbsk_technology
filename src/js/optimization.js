@@ -345,10 +345,6 @@ const renderDesktopOrMobile = () => {
       href: '#'
     },
     {
-      icon: 'instagram',
-      href: '#'
-    },
-    {
       icon: 'linkedin-square',
       href: '#'
     }
