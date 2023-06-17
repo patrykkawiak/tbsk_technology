@@ -13,7 +13,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Anton&family=Darker+Grotesque:wght@300;400&family=Open+Sans:wght@300;700&display=swap"
     rel="stylesheet">
-
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -55,7 +55,7 @@
       <h2 class="section__heading section__padding">
         <span class="section__title">Jesteśmy grupą</span>
       </h2>
-      <div class="rotating-block">
+      <div class="rotating-block" data-aos="zoom-out" data-aos-delay="100" data-aos-offset="200" data-aos-once="true" data-aos-duration="800">
         <h3 class="rotating-block-item section__text--big">świeżo upieczonych programistów.</h3>
         <h3 class="rotating-block-item section__text--big standby">zmotywowanych młodych ludzi.</h3>
         <h3 class="rotating-block-item section__text--big standby">osób otwartych na innych.</h3>
@@ -68,7 +68,7 @@
         <div class="dot"></div>
         <div class="dot"></div>
       </div>
-      <div class="fading-info">
+      <div class="fading-info" data-aos="zoom-out" data-aos-delay="300" data-aos-offset="200" data-aos-once="true" data-aos-duration="800">
         <p class="fading-info-item section__text">
           Po aktualnych kursach jesteśmy świadomi dzisiejszych standardów webowych i praktykujemy najlepsze rozwiązania.
         </p>
@@ -237,7 +237,7 @@
       </h2>
 
       <div class="accordions">
-        <div class="accordion">
+        <div class="accordion" data-aos="fade-right" data-aos-delay="600" data-aos-offset="700" data-aos-once="true" data-aos-duration="800">
           <button class="accordion-heading">
             <i class="bx bx-down-arrow-circle"></i> Czym jest hosting?
           </button>
@@ -248,7 +248,7 @@
             </p>
           </div>
         </div>
-        <div class="accordion">
+        <div class="accordion" data-aos="fade-left" data-aos-delay="1000" data-aos-offset="700" data-aos-once="true" data-aos-duration="800">
           <button class="accordion-heading">
             <i class="bx bx-down-arrow-circle"></i> Czy hosting jest uwzględniony w cenie usługi?
           </button>
@@ -259,7 +259,7 @@
             </p>
           </div>
         </div>
-        <div class="accordion">
+        <div class="accordion" data-aos="fade-right" data-aos-delay="1400" data-aos-offset="700" data-aos-once="true" data-aos-duration="800">
           <button class="accordion-heading">
             <i class="bx bx-down-arrow-circle"></i> Czy zmiany na stronie są odpłatnie?
           </button>
@@ -321,11 +321,11 @@
         <span class="section__text">poznaj nas bliżej</span>
       </h2>
       <div class="whoweare-item-wrapper">
-        <div class="whoweare-item" data-aos="fade-right">
+        <div class="whoweare-item" data-aos="fade-right" data-aos-delay="800" data-aos-offset="800" data-aos-once="true" data-aos-duration="800">
           <div class="whoweare-img">
             <img src="/dist/img/tomy (1).png" class="img-fluid" alt="">
           </div>
-          <h3 class="whoweare-item-name">Patryk Kawiak</h3>
+          <h3 class="whoweare-item-name" >Patryk Kawiak</h3>
           <p>Patryk to doświadczony web developer, którego pasją jest tworzenie pięknych i funkcjonalnych
             stron internetowych. Posiada szeroką wiedzę i umiejętności zdobyte podczas ukończenia
             różnorodnych kursów z zakresu tworzenia stron.</p>
@@ -338,7 +338,7 @@
             </ul>
           </div>
         </div>
-        <div class="whoweare-item">
+        <div class="whoweare-item" data-aos="fade-left" data-aos-delay="800" data-aos-offset="800" data-aos-once="true" data-aos-duration="800">
           <div class="whoweare-img">
             <img src="/dist/img/tomy (2).png" class="img-fluid" alt="">
           </div>
@@ -355,7 +355,7 @@
             </ul>
           </div>
         </div>
-        <div class="whoweare-item">
+        <div class="whoweare-item" data-aos="fade-right" data-aos-delay="800" data-aos-offset="800" data-aos-once="true" data-aos-duration="800">
           <div class="whoweare-img">
             <img src="/dist/img/tomy (3).png" class="img-fluid" alt="">
           </div>
@@ -372,7 +372,7 @@
             </ul>
           </div>
         </div>
-        <div class="whoweare-item">
+        <div class="whoweare-item" data-aos="fade-left" data-aos-delay="800" data-aos-offset="800" data-aos-once="true" data-aos-duration="800">
           <div class="whoweare-img">
             <img src="/dist/img/tomy (4).png" class="img-fluid" alt="">
           </div>
@@ -415,6 +415,10 @@
   <script src="./dist/js/sections/accordions.min.js" defer></script>
   <script src="./dist/js/main.min.js" defer></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 
 </html>
