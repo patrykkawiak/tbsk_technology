@@ -1,7 +1,7 @@
 @use '../utilities/colors' as *;
 
 .whoweare {
-	background-color: #0e0c10;
+	background-image: $eighth-section-gradient;
 	padding-top: 0;
 }
 .whoweare-item-wrapper {
@@ -56,6 +56,9 @@
 		li {
 			a {
 				display: inline-block;
+        font-size: 3rem;
+        color: #fff;
+        transition: transform .3s;
 				&:hover {
 					transform: scale(1.2);
 				}

@@ -5,7 +5,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: #0e0c10;
+	background-image: $seventh-section-gradient;
 	padding-top: 0;
   a {
     transition: all 0.2s ease;
@@ -43,6 +43,46 @@
 	background-color: rgba(#000, 0.8);
 	transform: translate(-50%);
 	z-index: 1000;
+}
+
+.notifications {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: fixed;
+  min-height: 0;
+  right: 2rem;
+  top: 10%;
+  transition: min-height .3s;
+  z-index: 1100;
+}
+
+.notification {
+  background-color: white;
+  padding: 2rem;
+  font-size: 1.5rem;
+  border: 1px solid black;
+  color: black;
+  transform: translateX(150%);
+  opacity: 0;
+  transition: transform .5s, opacity .5s;
+  &[data-success="true"]{
+    background-color: $green-light-background;
+    outline: 3px solid $lighter-green;
+    outline-offset: -6px;
+  }
+  &[data-success="false"]{
+    background-color: $red-light-background;
+    outline: 3px solid $main-red;
+    outline-offset: -6px;
+  }
+  .highlight {
+    font-weight: bold;
+  }
+  &.shown {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .open-form-inner {
@@ -127,7 +167,6 @@
 .tel-phone-numbers {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
 	margin-bottom: 2rem;
 }
 .form-controls {

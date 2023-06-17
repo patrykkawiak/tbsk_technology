@@ -312,98 +312,92 @@ const renderDesktopNavbar = (navbar, links, socials) => {
 };
 
 const renderDesktopOrMobile = () => {
-	const navbar = document.querySelector('.navbar');
-	const processesSection = document.querySelector('.processes');
-	const projectsSection = document.querySelector('.projects');
-	const processes = [
-		{
-			heading: 'Jak przebiegają rozmowy?',
-			text: 'Zaczynamy od określenia świadczonej usługi. Jeżeli jest to budowa lub projektowanie, to pytamy czy istnieje jakieś logo, bądź wizytówka firmy. Następnie zapytamy o treści, które miałyby się znaleźć na stronie. Na podstawie tego tworzymy wyłącznie strukturę i wyceniamy projekt. Następnie zaczynamy projektować.',
-			button: 'Konsultacja',
-		},
-		{
-			heading: 'Jak wygląda prezentacja projektu?',
-			text: 'Po skończeniu projektu strony, przedstawiamy go Tobie do ocenienia. Wtedy przyjmujemy wszelkie uwagi dot. doboru kolorów, budowy sekcji itd. Tłumaczymy też, czemu pewne elementy muszą zawierać niektóre cechy. Później nanosimy wszelkie zmiany.',
-			button: 'Prezentacja',
-		},
-		{
-			heading: 'Czym jest etap zatwierdzenia?',
-			text: 'To krok, w którym decydujesz się na podjęcie lub odrzucenie naszych usług. Jeżeli zlecisz nam stworzenie strony, to przekażemy Ci ile prawdopodobnie zajmie to nam czasu. Dodatkowo będziemy potrzebowali dokładnych treści, które mają się finalnie znaleźć na Twojej witrynie.',
-			button: 'Zatwierdzenie',
-		},
-		{
-			heading: 'Wykonanie projektu!',
-			text: 'Ten krok zostaw nam! Od razu zabierzemy się do tworzenia Twojej wymarzonej wizytówki internetowej. Podczas tego czasu możesz nam przekazać wszelkie dodatkowe informacje, a my weźmiemy je pod uwagę. Po zakończonej pracy zostało tylko umieścić ją na hostingu.',
-			button: 'Wykonanie',
-		},
-	];
-	const projects = [
-		{
-			name: 'power',
-			title: 'Power Kwidzyn',
-			tag: 'Projekt i budowa',
-			date: '8.05.2023',
-			visit: 'https://power-kwidzyn.pl',
-			code: 'https://github.com/patrykkawiak/OSK-Power-Kwidzyn',
-			content:
-				'Power Kwidzyn to szkółka prawa jazdy, która przez długi czas miała słabo funkcjonującą, przestarzałą stronę internetową. Pomimo niepewności, właściciel działalności postanowił nam zaufać i końcowo jest zadowolony z o wiele lepszej wizytówki w internecie.',
-		},
-		{
-			name: 'rebax',
-			title: 'Rebax',
-			tag: 'Projekt i budowa',
-			date: '26.04.2023',
-			visit: 'https://rebax.pl',
-			code: 'https://github.com/patrykkawiak/Rebax',
-			content:
-				'Firma Rebax przed naszą usługą nie posiadała strony internetowej. Pomimo tego, że została postawiona niedawno, to dumnie prezentuje tę hurtownię budowlaną, wyświetlając się na pierwszych stronach przeglądarek internautów.',
-		},
-	];
-	const navLinks = [
-		{
-			text: 'Home',
-			href: '#',
-			onLeft: true,
-		},
-		{
-			text: 'O nas',
-			href: '#about-us',
-			onLeft: true,
-		},
-		{
-			text: 'Usługi',
-			href: '#services',
-			onLeft: true,
-		},
-		{
-			text: 'FAQ',
-			href: '#faq',
-			onLeft: false,
-		},
-		{
-			text: 'Kontakt',
-			href: '#contact',
-			onLeft: false,
-		},
-	];
-	const navSocials = [
-		{
-			icon: 'gmail',
-			href: '#',
-		},
-		{
-			icon: 'facebook-square',
-			href: '#',
-		},
-		{
-			icon: 'instagram',
-			href: '#',
-		},
-		{
-			icon: 'linkedin-square',
-			href: '#',
-		},
-	];
+  const navbar = document.querySelector('.navbar')
+  const processesSection = document.querySelector('.processes')
+  const projectsSection = document.querySelector('.projects')
+  const processes = [
+      {
+        heading: 'Jak przebiegają rozmowy?',
+        text: 'Zaczynamy od określenia świadczonej usługi. Jeżeli jest to budowa lub projektowanie, to pytamy czy istnieje jakieś logo, bądź wizytówka firmy. Następnie zapytamy o treści, które miałyby się znaleźć na stronie. Na podstawie tego tworzymy wyłącznie strukturę i wyceniamy projekt. Następnie zaczynamy projektować.',
+        button: 'Konsultacja',
+      },
+      {
+        heading: 'Jak wygląda prezentacja projektu?',
+        text: 'Po skończeniu projektu strony, przedstawiamy go Tobie do ocenienia. Wtedy przyjmujemy wszelkie uwagi dot. doboru kolorów, budowy sekcji itd. Tłumaczymy też, czemu pewne elementy muszą zawierać niektóre cechy. Później nanosimy wszelkie zmiany.',
+        button: 'Prezentacja',
+      },
+      {
+        heading: 'Czym jest etap zatwierdzenia?',
+        text: 'To krok, w którym decydujesz się na podjęcie lub odrzucenie naszych usług. Jeżeli zlecisz nam stworzenie strony, to przekażemy Ci ile prawdopodobnie zajmie to nam czasu. Dodatkowo będziemy potrzebowali dokładnych treści, które mają się finalnie znaleźć na Twojej witrynie.',
+        button: 'Zatwierdzenie',
+      },
+      {
+        heading: 'Wykonanie projektu!',
+        text: 'Ten krok zostaw nam! Od razu zabierzemy się do tworzenia Twojej wymarzonej wizytówki internetowej. Podczas tego czasu możesz nam przekazać wszelkie dodatkowe informacje, a my weźmiemy je pod uwagę. Po zakończonej pracy zostało tylko umieścić ją na hostingu.',
+        button: 'Wykonanie',
+      }
+  ]
+  const projects = [
+    {
+      name: 'power',
+      title: 'Power Kwidzyn',
+      tag: 'Projekt i budowa',
+      date: '8.05.2023',
+      visit: 'https://power-kwidzyn.pl',
+      code: 'https://github.com/patrykkawiak/OSK-Power-Kwidzyn',
+      content: 'Power Kwidzyn to szkółka prawa jazdy, która przez długi czas miała słabo funkcjonującą, przestarzałą stronę internetową. Pomimo niepewności, właściciel działalności postanowił nam zaufać i końcowo jest zadowolony z o wiele lepszej wizytówki w internecie.'
+    },
+    {
+      name: 'rebax',
+      title: 'Rebax',
+      tag: 'Projekt i budowa',
+      date: '26.04.2023',
+      visit: 'https://rebax.pl',
+      code: 'https://github.com/patrykkawiak/Rebax',
+      content: 'Firma Rebax przed naszą usługą nie posiadała strony internetowej. Pomimo tego, że została postawiona niedawno, to dumnie prezentuje tę hurtownię budowlaną, wyświetlając się na pierwszych stronach przeglądarek internautów.'
+    }
+  ]
+  const navLinks = [
+    {
+      text: 'Home',
+      href: '#',
+      onLeft: true,
+    },
+    {
+      text: 'O nas',
+      href: '#about-us',
+      onLeft: true,
+    },
+    {
+      text: 'Usługi',
+      href: '#services',
+      onLeft: true,
+    },
+    {
+      text: 'FAQ',
+      href: '#faq',
+      onLeft: false
+    },
+    {
+      text: 'Kontakt',
+      href: '#contact',
+      onLeft: false
+    }
+  ]
+  const navSocials = [
+    {
+      icon: 'gmail',
+      href: '#'
+    },
+    {
+      icon: 'facebook-square',
+      href: '#'
+    },
+    {
+      icon: 'linkedin-square',
+      href: '#'
+    }
+  ]
 
 	if (document.body.clientWidth >= 992) {
 		renderProcessDestkop(processesSection, processes);

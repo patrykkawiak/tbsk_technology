@@ -14,8 +14,13 @@ html {
 }
 
 body {
+  position: relative;
 	font-family: 'Violet Sans';
-	// overflow: hidden;
+  max-width: 100vw;
+}
+
+main {
+  overflow-x: hidden;
 }
 
 a {

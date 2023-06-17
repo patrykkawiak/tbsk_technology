@@ -208,7 +208,7 @@
       </div>
     </section>
 
-    <!-- <section style="height: 100vh;"></section> -->
+    <div class="parallax-hero"></div>
     <section class="pricing" id="pricing">
       <div class="background-image-box"></div>
       <h2 class="section__heading section__padding">
@@ -230,7 +230,7 @@
       </div>
 
     </section>
-    <section class="faq section__padding" id="faq">
+    <section class="faq" id="faq">
       <h2 class="section__heading section__padding">
         <strong class="section__title">Najczęsciej zadawane pytania</strong>
         <small class="section__text">kto pyta nie błądzi</small>
@@ -289,35 +289,32 @@
               <h3>Napisz do nas maila</h3>
               <span class="cross"><img src="/dist/img/x-mark.png" alt=""></span>
             </div>
-            <label for="">Imię i nazwisko</label>
-            <input type="text">
-            <label for="">Email</label>
-            <input type="email" required>
+            <label for="user_name">Imię i nazwisko</label>
+            <input name="user_name" type="text">
+            <label for="user_email">Email</label>
+            <input name="user_email" type="email" required>
 
-            <label for="">Numer telefonu</label>
+            <label for="telephone">Numer telefonu</label>
             <div class="tel-phone-numbers">
-              <input type="tel" maxlength="1" pattern="[0-9]" class="form-controls" required>
-              <input type="tel" maxlength="1" pattern="[0-9]" class="form-controls" required>
-              <input type="tel" maxlength="1" pattern="[0-9]" class="form-controls" required>
-
-              <small></small>
-              <input type="tel" maxlength="1" pattern="[0-9]" class="form-controls" required>
-              <input type="tel" maxlength="1" pattern="[0-9]" class="form-controls" required>
-              <input type="tel" maxlength="1" pattern="[0-9]" class="form-controls" required>
-
-              <small></small>
-              <input type="tel" maxlength="1" pattern="[0-9]" class="form-controls" required>
-              <input type="tel" maxlength="1" pattern="[0-9]" class="form-controls" required>
-              <input type="tel" maxlength="1" pattern="[0-9]" class="form-controls" required>
+              <input type="tel" name="tel1" maxlength="1" pattern="[0-9]" class="form-controls" required autocomplete="off">
+              <input type="tel" name="tel2" maxlength="1" pattern="[0-9]" class="form-controls" required autocomplete="off">
+              <input type="tel" name="tel3" maxlength="1" pattern="[0-9]" class="form-controls" required autocomplete="off">
+              <input type="tel" name="tel4" maxlength="1" pattern="[0-9]" class="form-controls" required autocomplete="off">
+              <input type="tel" name="tel5" maxlength="1" pattern="[0-9]" class="form-controls" required autocomplete="off">
+              <input type="tel" name="tel6" maxlength="1" pattern="[0-9]" class="form-controls" required autocomplete="off">
+              <input type="tel" name="tel7" maxlength="1" pattern="[0-9]" class="form-controls" required autocomplete="off">
+              <input type="tel" name="tel8" maxlength="1" pattern="[0-9]" class="form-controls" required autocomplete="off">
+              <input type="tel" name="tel9" maxlength="1" pattern="[0-9]" class="form-controls" required autocomplete="off">
             </div>
-            <label for="">Informacje</label>
-            <textarea name="" id="" cols="30" rows="1" required></textarea>
+            <label for="message">Informacje</label>
+            <textarea name="message" cols="30" rows="1" required></textarea>
 
             <button class="button primary form-submit-btn" type="submit">WYŚLIJ</button>
           </form>
         </div>
       </div>
     </section>
+    <div class="notifications"></div>
     <section class="whoweare section__padding" id="whoweare">
       <h2 class="section__heading section__padding">
         <strong class="section__title">Nasz zespół</strong>
@@ -336,9 +333,8 @@
           <div class="whoweare-item--links">
             <a href="https://github.com/patrykkawiak" class="button secondary protfolio-click" target="_blank">Portfolio</a>
             <ul>
-              <li><a href="#"><img src="/dist/img/icon1.png" alt="gmail"></a></li>
-              <li><a href="#"><img src="/dist/img/icon2.png" alt="facebook"></a></li>
-              <li><a href="#"><img src="/dist/img/icon3.png" alt="instagram"></a></li>
+              <li><a href="#"><i class="bx bxl-gmail"></i></a></li>
+              <li><a href="#"><i class="bx bxs-phone"></i></a></li>
             </ul>
           </div>
         </div>
@@ -354,9 +350,8 @@
           <div class="whoweare-item--links">
             <a href="https://github.com/KacperSmietanski" class="button secondary protfolio-click" target="_blank">Portfolio</a>
             <ul>
-              <li><a href="#"><img src="/dist/img/icon1.png" alt="gmail"></a></li>
-              <li><a href="#"><img src="/dist/img/icon2.png" alt="facebook"></a></li>
-              <li><a href="#"><img src="/dist/img/icon3.png" alt="instagram"></a></li>
+              <li><a href="#"><i class="bx bxl-gmail"></i></a></li>
+              <li><a href="#"><i class="bx bxs-phone"></i></a></li>
             </ul>
           </div>
         </div>
@@ -372,9 +367,8 @@
             <a href="https://github.com/edekstrazak"
               class="button secondary protfolio-click" target="_blank">Portfolio</a>
             <ul>
-              <li><a href="#"><img src="/dist/img/icon1.png" alt="gmail"></a></li>
-              <li><a href="#"><img src="/dist/img/icon2.png" alt="facebook"></a></li>
-              <li><a href="#"><img src="/dist/img/icon3.png" alt="instagram"></a></li>
+              <li><a href="#"><i class="bx bxl-gmail"></i></a></li>
+              <li><a href="#"><i class="bx bxs-phone"></i></a></li>
             </ul>
           </div>
         </div>
@@ -389,9 +383,8 @@
           <div class="whoweare-item--links">
             <a href="https://github.com/ciornecki" class="button secondary protfolio-click" target="_blank">Portfolio</a>
             <ul>
-              <li><a href="#"><img src="/dist/img/icon1.png" alt="gmail"></a></li>
-              <li><a href="#"><img src="/dist/img/icon2.png" alt="facebook"></a></li>
-              <li><a href="#"><img src="/dist/img/icon3.png" alt="instagram"></a></li>
+              <li><a href="#"><i class="bx bxl-gmail"></i></a></li>
+              <li><a href="#"><i class="bx bxs-phone"></i></a></li>
             </ul>
           </div>
         </div>
@@ -415,15 +408,13 @@
       </li>
     </ul>
   </footer>
-  <script type="module" src="./dist/js/optimization.min.js"></script>
+  <script src="./dist/js/optimization.min.js"></script>
   <script src="./dist/js/sections/about-us.min.js" defer></script>
   <script src="./dist/js/sections/contact.min.js" defer></script>
   <script src="./dist/js/sections/pricing.min.js" defer></script>
   <script src="./dist/js/sections/accordions.min.js" defer></script>
   <script src="./dist/js/main.min.js" defer></script>
-  <script>
-    AOS.init();
-  </script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </body>
 
 </html>
