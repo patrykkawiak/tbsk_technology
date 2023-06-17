@@ -51,7 +51,7 @@ const renderProcessDestkop = (section, processes) => {
 		const processesList = makeCustomElement('div', ['processes-list']);
 		const processesListBox = makeCustomElement('div', ['processes-list-box']);
 		processes.forEach((process) => {
-			const processesListItem = makeCustomElement('li', [
+			const processesListItem = makeCustomElement('button', [
 				'processes-list-item',
 			]);
 			const dot = makeCustomElement('div', ['dot']);
@@ -60,6 +60,7 @@ const renderProcessDestkop = (section, processes) => {
 				['processes-list-item-text'],
 				process.button
 			);
+			
 			processesListItem.append(dot, text);
 			processesListBox.append(processesListItem);
 		});
@@ -117,10 +118,12 @@ const renderProject = (project, renderShowcase) => {
 	const descBtns = makeCustomElement('div', ['desc-btns']);
 	const visitBtn = makeCustomElement('a', ['button', 'primary']);
 	visitBtn.setAttribute('href', project.visit);
+	visitBtn.setAttribute('rel', 'noopener')
 	const visitIcon = makeCustomElement('i', ['bx', 'bx-globe']);
-	visitBtn.append('Visit', visitIcon);
+	visitBtn.append('Odwiedź', visitIcon);
 	const codeBtn = makeCustomElement('a', ['button', 'secondary']);
 	codeBtn.setAttribute('href', project.code);
+	codeBtn.setAttribute('rel', 'noopener')
 	const codeIcon = makeCustomElement('i', ['bx', 'bx-code-alt']);
 	codeBtn.append('Code', codeIcon);
 	descBtns.append(visitBtn, codeBtn);
@@ -217,6 +220,7 @@ const renderLink = (link) => {
 const renderSocial = (social) => {
 	const listItem = makeCustomElement('li', ['nav-socials-item']);
 	const socialAnchor = makeCustomElement('a');
+	socialAnchor.setAttribute('rel', 'noopener');
 	socialAnchor.setAttribute('href', social.href);
 	const socialIcon = makeCustomElement('i', ['bx', `bxl-${social.icon}`]);
 	socialAnchor.append(socialIcon);
@@ -260,6 +264,7 @@ const renderMobileNavbar = (navbar, links, socials) => {
 		socials.forEach((social) => {
 			const socialLi = renderSocial(social);
 			navListSocials.append(socialLi);
+		
 		});
 		navList.append(navListSocials);
 		mobileNav.append(logo, burger, navList);

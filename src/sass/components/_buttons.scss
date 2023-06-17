@@ -21,7 +21,7 @@
     opacity: 0;
     transition: opacity .3s;
   }
-  &::focus {
+  &:focus {
     outline: none;
   }
   &:hover::after,
