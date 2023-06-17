@@ -48,3 +48,32 @@ window.addEventListener('resize', () => {
 });
 window.addEventListener('click', outsideClick);
 prepAccordions();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=== !== == != =>> => -> 
+
+const Component = (index, props) => {
+	let timeSpy = false;
+}
