@@ -67,6 +67,11 @@ const headerParallaxHandler = () => {
 	if (viewportWidth < 768) {
 		const intro = document.querySelector('.intro');
 		intro.classList.remove('fixed');
+    introBtn.style.opacity = '1'
+    racoon.style.opacity = '1'
+    introText.forEach(text => {
+      text.style.transform = 'translate(0, 0)'
+    })
 		return;
 	}
 
@@ -154,7 +159,10 @@ let viewport = window.innerWidth;
 let prevSectionOffset = prevSection.offsetTop;
 
 const projectsParallaxHandler = () => {
-	if (viewport < 992) return;
+	if (viewport < 992){
+    nextSection.style.transform = 'translate(0, 0)'
+    return 
+  }
 	const sectionHeading = document.querySelector('.projects .section__heading');
 	let firstAnchorPoint =
 		prevSectionOffset +
@@ -207,7 +215,11 @@ const secondSection = document.querySelector('.characteristics');
 const parallaxHero = document.querySelector('.parallax-hero');
 
 const handleParallaxSection = () => {
-	if (viewportWidth < 992) return;
+	if (viewportWidth < 992){
+    secondSection.style.transform = 'translate(0, 0)'
+    parallaxHero.style.height = '0'
+    return
+  }
 	let scrollPermision;
 	const sectionOffSet = firstSection.offsetTop;
 	const navHeight = nav.offsetHeight;
@@ -296,9 +308,11 @@ window.addEventListener('scroll', () => {
 
 window.addEventListener('resize', () => {
 	viewportWidth = window.innerWidth;
+  headerParallaxHandler()
 	if (viewportWidth <= 768) {
 		navHandler();
 	}
 	if (viewportWidth >= 992) return;
+  projectsParallaxHandler()
 	cardsActivatorHandler();
 });
