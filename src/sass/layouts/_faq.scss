@@ -4,13 +4,13 @@
 	width: 100%;
 	background: $sixth-section-gradient;
 	background-position: center center;
-  padding-bottom: 4rem;
+	padding-bottom: 4rem;
 	.accordions {
-    margin: 0 auto;
+		margin: 0 auto;
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
-    max-width: 1000px;
+		max-width: 1000px;
 		.accordion {
 			background-color: #f9f9f9;
 			overflow: hidden;
@@ -27,22 +27,28 @@
 				align-items: center;
 				font-weight: 400;
 				cursor: pointer;
+				transition: 0.3s background-color;
 				i {
 					pointer-events: none;
 				}
 			}
+			.accordion-heading:focus {
+				outline: none;
+				background-color: #12d68457;
+			}
+
 			.accordion-content {
 				display: flex;
 				flex-direction: column;
 				transition: max-height 0.5s;
 				.accordion-label {
-          padding: 2rem;
+					padding: 2rem;
 					font-size: 1.8rem;
-          color: #111;
+					color: #111;
 				}
 				.accordion-text {
 					color: rgb(82, 82, 82);
-          padding: 0 2rem 2rem;
+					padding: 0 2rem 2rem;
 					font-size: 1.5rem;
 				}
 			}
