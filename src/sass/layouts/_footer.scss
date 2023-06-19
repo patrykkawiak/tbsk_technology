@@ -14,10 +14,9 @@
     display: flex;
   }
   &-link {
-    a {
-      line-height: 1em;
-      text-align: center;
-      padding: 1rem;
-    }
+    display: block;
+    line-height: 1em;
+    text-align: center;
+    margin: 1rem;
   }
 }

@@ -352,7 +352,7 @@ const renderDesktopOrMobile = () => {
   const processes = [
       {
         heading: 'Jak przebiegają rozmowy?',
-        text: 'Zaczynamy od określenia świadczonej usługi. Jeżeli jest to budowa lub projektowanie, to pytamy czy istnieje jakieś logo, bądź wizytówka przedsiębiorstwa. Następnie zapytamy o treści, które miałyby się znaleźć na stronie. Na podstawie tego tworzymy wyłącznie strukturę i wyceniamy projekt. Następnie zaczynamy projektować.',
+        text: 'Zaczynamy od określenia świadczonej usługi. Jeżeli jest to budowa lub projektowanie, to pytamy czy istnieje jakieś logo, bądź wizytówka przedsiębiorstwa. Następnie zapytamy o treści, które miałyby się znaleźć na stronie. Na podstawie tego tworzymy wyłącznie strukturę i wyceniamy projekt. Potem zaczynamy projektować.',
         button: 'Konsultacja',
       },
       {
@@ -362,12 +362,12 @@ const renderDesktopOrMobile = () => {
       },
       {
         heading: 'Czym jest etap zatwierdzenia?',
-        text: 'To krok, w którym decydujesz się na podjęcie lub odrzucenie naszych usług. Jeżeli zlecisz nam stworzenie strony, to przekażemy Ci ile prawdopodobnie zajmie to nam czasu. Dodatkowo będziemy potrzebowali dokładnych treści, które mają się finalnie znaleźć na Twojej witrynie.',
+        text: 'To krok, w którym decydujesz się na podjęcie lub odrzucenie naszych usług. Jeżeli zlecisz nam stworzenie strony, to przekażemy Ci ile prawdopodobnie zajmie to nam czasu. Dodatkowo będziemy potrzebowali dokładnych treści, które mają się finalnie znaleźć na Twojej wizytówce.',
         button: 'Zatwierdzenie',
       },
       {
         heading: 'Wykonanie projektu!',
-        text: 'Ten krok zostaw nam! Od razu zabierzemy się do tworzenia Twojej wymarzonej wizytówki internetowej. Podczas tego czasu możesz nam przekazać wszelkie dodatkowe informacje, a my weźmiemy je pod uwagę. Po zakończonej pracy zostało tylko umieścić ją na hostingu.',
+        text: 'Ten krok zostaw nam! Od razu zabierzemy się do tworzenia Twojej nowoczesnej, wymarzonej wizytówki internetowej. Podczas tego czasu możesz nam przekazać wszelkie dodatkowe informacje, a my weźmiemy je pod uwagę. Po zakończonej pracy zostało tylko umieścić ją na hostingu.',
         button: 'Wykonanie',
       }
   ]
