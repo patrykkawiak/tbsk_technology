@@ -48,6 +48,7 @@ accordions.forEach((accordion, index) => {
 window.addEventListener('resize', () => {
 	accordions = document.querySelectorAll('.accordion');
 	accordionContents = document.querySelectorAll('.accordion-content');
+  prepAccordions()
 });
 window.addEventListener('click', outsideClick);
 prepAccordions();
