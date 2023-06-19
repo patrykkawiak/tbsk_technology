@@ -11,10 +11,12 @@ const handleAccordionContent = (target, index) => {
 	const accordionContent = accordionContents[index];
 	if (accordionContent.style.maxHeight != '0px' && target.classList.contains('accordion-heading')) {
 		accordionContent.style.maxHeight = '0px';
+    accordionContent.setAttribute('aria-expanded', 'false')
 	} else {
 		closeAllAccordions();
 		const accordionHeight = accordionContents[index].scrollHeight;
 		accordionContent.style.maxHeight = `${accordionHeight}px`;
+    accordionContent.setAttribute('aria-expanded', 'true')
 	}
 };
 
@@ -33,6 +35,7 @@ const outsideClick = (e) => {
 const closeAllAccordions = () => {
 	accordionContents.forEach((el) => {
 		el.style.maxHeight = '0';
+    el.setAttribute('aria-expanded', 'false')
 	});
 };
 
@@ -48,32 +51,3 @@ window.addEventListener('resize', () => {
 });
 window.addEventListener('click', outsideClick);
 prepAccordions();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=== !== == != =>> => -> 
-
-const Component = (index, props) => {
-	let timeSpy = false;
-}
