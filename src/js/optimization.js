@@ -322,7 +322,28 @@ const renderDesktopNavbar = (navbar, links, socials) => {
 		desktopNav.append(navList);
 		navbar.append(desktopNav);
 	}
-};
+}
+
+const handleAOS = () => {
+  const whoweareCards = document.querySelectorAll('.whoweare-item')
+  const faqAccordions = document.querySelectorAll('.faq .accordion')
+  if(window.innerWidth >= 992) {
+    whoweareCards.forEach(card => {
+      card.setAttribute('data-aos-offset', '900')
+    })
+    faqAccordions.forEach(accordion => {
+      accordion.setAttribute('data-aos-offset', '400')
+    })
+  }
+  else if(window.innerWidth >= 768) {
+    whoweareCards.forEach(card => {
+      card.setAttribute('data-aos-offset', '300')
+    })
+    faqAccordions.forEach(accordion => {
+      accordion.setAttribute('data-aos-offset', '200')
+    })
+  }
+}
 
 const renderDesktopOrMobile = () => {
   const navbar = document.querySelector('.navbar')
@@ -412,6 +433,7 @@ const renderDesktopOrMobile = () => {
     }
   ]
 
+  handleAOS()
 	if (document.body.clientWidth >= 992) {
 		renderProcessDestkop(processesSection, processes);
 		renderProjectsDesktop(projectsSection, projects);

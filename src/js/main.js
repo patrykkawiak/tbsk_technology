@@ -160,19 +160,16 @@ const setContent = () => {
 };
 
 /* PROJECTS PARALLAX */
-
-const parallaxSection = document.querySelector('.projects-desktop-cnt');
-const parallaxItems = document.querySelectorAll('.projects-parallax');
 const prevSection = document.querySelector('.services');
 const nextSection = document.querySelector('.processes');
-let viewport = window.innerWidth;
-let prevSectionOffset = prevSection.offsetTop;
-
 const projectsParallaxHandler = () => {
-	if (viewport < 992){
+	if (viewportWidth < 992){
     nextSection.style.transform = 'translate(0, 0)'
     return 
   }
+  const parallaxSection = document.querySelector('.projects-desktop-cnt');
+  const parallaxItems = document.querySelectorAll('.projects-parallax');
+  let prevSectionOffset = prevSection.offsetTop;
 	const sectionHeading = document.querySelector('.projects .section__heading');
 	let firstAnchorPoint =
 		prevSectionOffset +
@@ -187,7 +184,6 @@ const projectsParallaxHandler = () => {
 	projectsDesktopCnt.style.height = `Calc(600vh + ${sectionHeading.offsetHeight}px)`;
 
 	let scrollTop = window.scrollY;
-	// let scrollToAnchor = nextSection.offsetHeight + nextSection.offsetTop
 	if (scrollTop >= firstAnchorPoint) {
 		parallaxSection.classList.add('fixed-pr');
 	}
@@ -238,7 +234,6 @@ const handleParallaxSection = () => {
 	}px`;
 	const scrollValue = window.scrollY;
 	const rate = scrollValue - sectionOffSet;
-	console.log(rate);
 	if (rate > viewportWidth) {
 		scrollPermision = false;
 		firstSection.style.transform = `translate(-${viewportWidth}px, ${viewportWidth}px)`;
