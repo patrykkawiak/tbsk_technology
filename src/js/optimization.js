@@ -379,7 +379,7 @@ const renderDesktopOrMobile = () => {
       date: '8.05.2023',
       visit: 'https://power-kwidzyn.pl',
       code: 'https://github.com/patrykkawiak/OSK-Power-Kwidzyn',
-      content: 'Power Kwidzyn to szkółka prawa jazdy, która przez długi czas miała słabo funkcjonującą, przestarzałą stronę internetową. Pomimo niepewności, właściciel działalności postanowił nam zaufać i końcowo jest zadowolony z o wiele lepszej wizytówki w internecie.'
+      content: 'Power Kwidzyn to szkółka prawa jazdy, która przez długi czas miała słabo funkcjonującą, przestarzałą stronę internetową. Pomimo niepewności, właściciel działalności postanowił nam zaufać i końcowo jest zadowolony z o wiele lepszej wizytówki swojego biznesu w internecie.'
     },
     {
       name: 'rebax',
@@ -388,7 +388,7 @@ const renderDesktopOrMobile = () => {
       date: '26.04.2023',
       visit: 'https://rebax.pl',
       code: 'https://github.com/patrykkawiak/Rebax',
-      content: 'Firma Rebax przed naszą usługą nie posiadała strony internetowej. Pomimo tego, że została postawiona niedawno, to dumnie prezentuje tę hurtownię budowlaną, wyświetlając się na pierwszych stronach przeglądarek internautów.'
+      content: 'Firma Rebax przed naszą usługą nie posiadała strony internetowej. Pomimo tego, że została wprowadzona do sieci niedawno, to dumnie prezentuje tę hurtownię budowlaną, wyświetlając się na pierwszych stronach przeglądarek internautów.'
     }
   ]
   const navLinks = [

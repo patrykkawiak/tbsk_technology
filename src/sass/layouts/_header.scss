@@ -87,6 +87,7 @@ header {
 }
 @media (min-width: 768px) {
   .intro {
+    position: fixed;
     opacity: 0;
     pointer-events: none;
   }
