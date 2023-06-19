@@ -206,7 +206,7 @@ const handleParallaxSection = () => {
   const navHeight = nav.offsetHeight
   parallaxHero.style.height = `${viewportWidth + navHeight - window.innerHeight}px`
 	const scrollValue = window.scrollY
-	const rate = scrollValue - sectionOffSet
+	let rate = scrollValue - sectionOffSet
   if(rate > viewportWidth){
     scrollPermision = false
     firstSection.style.transform = `translate(-${viewportWidth}px, ${viewportWidth}px)`

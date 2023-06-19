@@ -66,6 +66,15 @@ const closeFormIfOutside = (e) => {
   }
 }
 
+const resetForm = () => {
+  const inputs = form.querySelectorAll('input')
+  const textarea = form.querySelector('textarea')
+  inputs.forEach(input => {
+    input.value = ''
+  })
+  textarea.value = ''
+}
+
 const createNotification = (isSuccess, message) => {
   const notification = document.createElement('div')
   notification.setAttribute('data-success', isSuccess)
@@ -75,7 +84,7 @@ const createNotification = (isSuccess, message) => {
     if(message == notificationMessages.success){
       const cookies = document.cookie.split(';')
       const limitCookie = cookies.find(cookie => cookie.trim().startsWith('limit'))
-      const limitValue = limitCookie.split('=')[1]
+      const limitValue = 3 - +limitCookie.split('=')[1]
       const highlightSpan = p.querySelector('.highlight')
       highlightSpan.append(limitValue)
     }
@@ -144,6 +153,9 @@ form.addEventListener('submit', (e) => {
       date.setTime(date.getTime() + twoHours)
       document.cookie = `emailCooldown = emailCooldown; expires =  ${date}`
       document.cookie = `limit=3; expires = ${date}`
+      resetForm()
+      formBox.classList.add('hidden')
+      enableScroll()
       createNotification('false', notificationMessages.cooldown)
     }
     else {
@@ -154,12 +166,7 @@ form.addEventListener('submit', (e) => {
       .then(() => {
         formBox.classList.add('hidden')
         enableScroll()
-        const inputs = form.querySelectorAll('input')
-        const textarea = form.querySelector('textarea')
-        inputs.forEach(input => {
-          input.value = ''
-        })
-        textarea.value = ''
+        resetForm()
         setSendLimit(++limitValue)
         createNotification('true', notificationMessages.success)
       })
@@ -167,6 +174,11 @@ form.addEventListener('submit', (e) => {
         createNotification('false', notificationMessages.error)
       })
     }
+  }
+  else {
+    formBox.classList.add('hidden')
+    enableScroll()
+    createNotification('false', notificationMessages.cooldown)
   }
 })
 
