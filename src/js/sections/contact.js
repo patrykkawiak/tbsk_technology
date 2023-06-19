@@ -61,7 +61,7 @@ const enableScroll = () => {
 
 const closeFormIfOutside = (e) => {
   if(!opennedForm.contains(e.target) && e.target != btn){
-    formBox.classList.add('hidden')
+    formBox.setAttribute('aria-hidden', 'true')
     enableScroll()
   }
 }
@@ -103,11 +103,11 @@ const createNotification = (isSuccess, message) => {
 
 btn.addEventListener('click', function () {
   disableScroll()
-	formBox.classList.remove('hidden')
+	formBox.setAttribute('aria-hidden', 'false')
 })
 cross.addEventListener('click', function () {
   enableScroll()
-	formBox.classList.add('hidden')
+	formBox.setAttribute('aria-hidden', 'true')
 })
 formTelephoneControls.forEach(control => {
   control.addEventListener('keydown', (e) => {
@@ -154,7 +154,7 @@ form.addEventListener('submit', (e) => {
       document.cookie = `emailCooldown = emailCooldown; expires =  ${date}`
       document.cookie = `limit=3; expires = ${date}`
       resetForm()
-      formBox.classList.add('hidden')
+      formBox.setAttribute('aria-hidden', 'true')
       enableScroll()
       createNotification('false', notificationMessages.cooldown)
     }
@@ -164,7 +164,7 @@ form.addEventListener('submit', (e) => {
       // eslint-disable-next-line no-undef
       emailjs.sendForm(contactServiceId, contactFormId, form)
       .then(() => {
-        formBox.classList.add('hidden')
+        formBox.setAttribute('aria-hidden', 'true')
         enableScroll()
         resetForm()
         setSendLimit(++limitValue)

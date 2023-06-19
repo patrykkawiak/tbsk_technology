@@ -41,14 +41,24 @@ const navHandler = () => {
 	const navbar = document.querySelector('.navbar');
 	const oldBurgerIcon = document.querySelector('.burger-icon');
 	const mnavItems = document.querySelectorAll('.mobile-nav a');
+  const navList = document.querySelector('.mobile-nav .nav-list')
 	const oldNavListBackground = document.querySelector('.nav-list-background');
 	const reveal = () => {
 		burgerIcon.classList.toggle('active');
 		navbar.classList.toggle('active');
+    let isExpanded = navList.getAttribute('aria-expanded')
+    if(isExpanded == 'false'){
+      isExpanded = false
+    } 
+    else {
+      isExpanded = true
+    }
+    navList.setAttribute('aria-expanded', !isExpanded)
 	};
 	const close = () => {
 		burgerIcon.classList.remove('active');
 		navbar.classList.remove('active');
+    navList.setAttribute('aria-expanded', 'false')
 	};
 	const burgerIcon = oldBurgerIcon.cloneNode(true);
 	burgerIcon.addEventListener('click', reveal);
@@ -207,31 +217,6 @@ const secondSection = document.querySelector('.characteristics');
 const parallaxHero = document.querySelector('.parallax-hero');
 
 const handleParallaxSection = () => {
-<<<<<<< HEAD
-	if (viewportWidth < 992) return
-	let scrollPermision
-  const sectionOffSet = firstSection.offsetTop
-  const navHeight = nav.offsetHeight
-  parallaxHero.style.height = `${viewportWidth + navHeight - window.innerHeight}px`
-	const scrollValue = window.scrollY
-	let rate = scrollValue - sectionOffSet
-  if(rate > viewportWidth){
-    scrollPermision = false
-    firstSection.style.transform = `translate(-${viewportWidth}px, ${viewportWidth}px)`
-		secondSection.style.transform = `translate(0, ${viewportWidth - window.innerHeight + navHeight}px)`
-  }
-  else if(rate <= 0) {
-    scrollPermision = false
-    firstSection.style.transform = `translate(0, 0)`
-		secondSection.style.transform = `translate(100%, -100%)`
-  }
-  else {
-    scrollPermision = true
-  }
-	if (scrollPermision) {
-    firstSection.style.transform = `translate(-${rate}px, ${rate}px)`
-		secondSection.style.transform = `translate(Calc(100% - ${rate}px), Calc(-100% + ${rate}px))`
-=======
 	if (viewportWidth < 992) return;
 	let scrollPermision;
 	const sectionOffSet = firstSection.offsetTop;
@@ -254,7 +239,6 @@ const handleParallaxSection = () => {
 		secondSection.style.transform = `translate(100%, -100%)`;
 	} else {
 		scrollPermision = true;
->>>>>>> main
 	}
 	if (scrollPermision) {
 		firstSection.style.transform = `translate(-${rate}px, ${rate}px)`;

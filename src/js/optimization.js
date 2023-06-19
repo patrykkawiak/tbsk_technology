@@ -18,12 +18,15 @@ const renderProcessMobile = (section, accordions) => {
 	if (!isMade) {
 		const processesMobile = makeCustomElement('div', ['processes-mobile']);
 		const accordionsBlock = makeCustomElement('div', ['accordions']);
-		accordions.forEach((accordion) => {
+		accordions.forEach((accordion, index) => {
 			const accordionBlock = makeCustomElement('div', ['accordion']);
 			const heading = makeCustomElement('button', ['accordion-heading']);
+      heading.setAttribute('aria-controls', `processes-accordion-${index+1}`)
 			const arrow = makeCustomElement('i', ['bx', 'bx-down-arrow-circle']);
 			heading.append(arrow, accordion.button);
 			const content = makeCustomElement('div', ['accordion-content']);
+        content.setAttribute('aria-expanded', 'false')
+        content.setAttribute('id', `processes-accordion-${index+1}`)
 			const label = makeCustomElement(
 				'h3',
 				['accordion-label'],
@@ -250,6 +253,8 @@ const renderMobileNavbar = (navbar, links, socials) => {
 			const burgerBar = makeCustomElement('div', ['bar']);
 			burger.append(burgerBar);
 		}
+    burger.setAttribute('aria-label', 'Włącznik lub wyłącznik nawigacji mobilnej')
+    burger.setAttribute('id', 'burger-button')
 		const navList = makeCustomElement('ul', ['nav-list']);
 		const navListBackground = makeCustomElement('div', ['nav-list-background']);
 		navList.append(navListBackground);
@@ -266,6 +271,8 @@ const renderMobileNavbar = (navbar, links, socials) => {
 			navListSocials.append(socialLi);
 		
 		});
+    navList.setAttribute('aria-controls', 'burger-button')
+    navList.setAttribute('aria-expanded', 'false')
 		navList.append(navListSocials);
 		mobileNav.append(logo, burger, navList);
 		navbar.append(mobileNav);
@@ -288,7 +295,8 @@ const renderDesktopNavbar = (navbar, links, socials) => {
 				linksLeft.append(linkLi);
 			}
 		});
-		const logo = makeCustomElement('div', ['logo']);
+		const logo = makeCustomElement('a', ['logo']);
+      logo.setAttribute('href', '#')
 		const logoImg = makeCustomElement('img', ['logo-img']);
 		logoImg.setAttribute('src', './dist/img/logo.png');
 		logoImg.setAttribute(
