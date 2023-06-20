@@ -3,7 +3,8 @@ let accordionContents = document.querySelectorAll('.accordion-content');
 
 const prepAccordions = () => {
 	accordionContents.forEach((content) => {
-		content.style.maxHeight = '0';
+    console.log(content);
+		content.style.maxHeight = '0px';
 	});
 };
 
@@ -47,7 +48,15 @@ accordions.forEach((accordion, index) => {
 
 window.addEventListener('resize', () => {
 	accordions = document.querySelectorAll('.accordion');
-	accordionContents = document.querySelectorAll('.accordion-content');
+  //akordeony nie maja clicka na zmianie z mobile na desktop i odwrotnie
+  accordions.forEach((oldAccordion, index) => {
+    const accordion = oldAccordion.cloneNode(true)
+    accordion.addEventListener('click', (e) => {
+      handleAccordionContent(e.target, index)
+    })
+    oldAccordion.replaceWith(accordion)
+  })
+  accordionContents = document.querySelectorAll('.accordion-content');
   prepAccordions()
 });
 window.addEventListener('click', outsideClick);

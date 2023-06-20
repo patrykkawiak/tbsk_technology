@@ -121,11 +121,13 @@ const renderProject = (project, renderShowcase) => {
 	const descBtns = makeCustomElement('div', ['desc-btns']);
 	const visitBtn = makeCustomElement('a', ['button', 'primary']);
 	visitBtn.setAttribute('href', project.visit);
+  visitBtn.setAttribute('target', '_blank')
 	visitBtn.setAttribute('rel', 'noopener')
 	const visitIcon = makeCustomElement('i', ['bx', 'bx-globe']);
 	visitBtn.append('Odwiedź', visitIcon);
 	const codeBtn = makeCustomElement('a', ['button', 'secondary']);
 	codeBtn.setAttribute('href', project.code);
+  codeBtn.setAttribute('target', '_blank')
 	codeBtn.setAttribute('rel', 'noopener')
 	const codeIcon = makeCustomElement('i', ['bx', 'bx-code-alt']);
 	codeBtn.append('Code', codeIcon);

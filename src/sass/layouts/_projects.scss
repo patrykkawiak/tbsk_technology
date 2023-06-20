@@ -46,9 +46,7 @@
 		flex-direction: column;
 		gap: 7rem;
 		.project {
-      &:first-child {
-        margin-top: 2rem;
-      }
+      padding-block: 2rem;
 			.project-desc {
 				height: max-content;
 				padding: 2rem;
