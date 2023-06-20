@@ -224,15 +224,13 @@ const renderLink = (link) => {
 };
 
 const renderSocial = (social) => {
-	const listItem = makeCustomElement('li', ['nav-socials-item']);
 	const socialAnchor = makeCustomElement('a');
 	socialAnchor.setAttribute('rel', 'noopener');
 	socialAnchor.setAttribute('href', social.href);
   socialAnchor.setAttribute('aria-label', social.label)
 	const socialIcon = makeCustomElement('i', ['bx', `bxl-${social.icon}`]);
 	socialAnchor.append(socialIcon);
-	listItem.append(socialAnchor);
-	return listItem;
+	return socialAnchor;
 };
 
 const renderMobileNavbar = (navbar, links, socials) => {
