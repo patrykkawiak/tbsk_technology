@@ -98,6 +98,10 @@ ul {
 	}
 }
 
+.parallax-hero {
+  background: $fourth-section-gradient;
+}
+
 @media (min-height: 500px) and (min-width: 992px) {
 	.section-line {
 		display: block;

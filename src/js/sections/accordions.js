@@ -3,7 +3,6 @@ let accordionContents = document.querySelectorAll('.accordion-content');
 
 const prepAccordions = () => {
 	accordionContents.forEach((content) => {
-    console.log(content);
 		content.style.maxHeight = '0px';
 	});
 };
@@ -60,4 +59,4 @@ window.addEventListener('resize', () => {
   prepAccordions()
 });
 window.addEventListener('click', outsideClick);
-prepAccordions();
+prepAccordions()

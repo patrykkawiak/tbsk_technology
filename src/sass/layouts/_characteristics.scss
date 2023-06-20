@@ -1,7 +1,6 @@
 @use '../utilities/colors' as *;
 
 .characteristics {
-  position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -12,6 +11,7 @@
 	color: white;
 	z-index: 50;
 	overflow: hidden;
+  
 	.characteristics-ctn {
 		display: flex;
 		flex-direction: column;
@@ -56,12 +56,12 @@
 
 @media (min-width: 992px) {
 	.characteristics {
+    position: fixed;
+    top: 5rem;
 		height: calc(100vh - 5rem);
 		width: 100%;
 		padding: 0;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+    transform: translateX(100%);
 		.characteristics-ctn {
 			pointer-events: none;
 			img {

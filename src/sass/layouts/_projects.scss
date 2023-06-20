@@ -128,8 +128,6 @@
 		.projects-showcase {
 			flex-direction: column-reverse;
 			width: 50%;
-      //ilosc projektow * 100vh
-			height: 200vh;
 			.desktop-showcase {
 				position: relative;
 				display: flex;
@@ -137,8 +135,6 @@
         align-items: center;
 				height: 100vh;
 				width: 100%;
-        //ilosc projektow - 1 * 100vh
-				transform: translateY(-100%);
         .desktop-showcase-box {
           display: flex;
           background-size: cover;
@@ -204,7 +200,6 @@
 
 @media (min-width: 992px) {
 	.projects {
-		height: 200vh;
     .section__heading {
       padding-bottom: 0;
     }
