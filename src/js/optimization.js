@@ -224,7 +224,7 @@ const renderLink = (link) => {
 };
 
 const renderSocial = (social) => {
-	const socialAnchor = makeCustomElement('a');
+	const socialAnchor = makeCustomElement('a', ['nav-socials-item']);
 	socialAnchor.setAttribute('rel', 'noopener');
 	socialAnchor.setAttribute('href', social.href);
   socialAnchor.setAttribute('aria-label', social.label)
@@ -289,8 +289,8 @@ const renderDesktopNavbar = (navbar, links, socials) => {
 	}
 	if (!isMade) {
 		const desktopNav = makeCustomElement('div', ['desktop-nav']);
-		const navList = makeCustomElement('ul', ['nav-list']);
-		const linksLeft = makeCustomElement('div', ['flex-left']);
+		const navList = makeCustomElement('div', ['nav-list']);
+		const linksLeft = makeCustomElement('ul', ['flex-left']);
 		links.forEach((link) => {
 			if (link.onLeft) {
 				const linkLi = renderLink(link);
@@ -307,16 +307,18 @@ const renderDesktopNavbar = (navbar, links, socials) => {
 		);
 		logo.append(logoImg);
 		const rightContainer = makeCustomElement('div', ['flex-right']);
-		const linksRight = makeCustomElement('div', ['right-links']);
+		const linksRight = makeCustomElement('ul', ['right-links']);
 		links.forEach((link) => {
 			if (!link.onLeft) {
 				const linkLi = renderLink(link);
 				linksRight.append(linkLi);
 			}
 		});
-		const socialsBlock = makeCustomElement('div', ['socials']);
+		const socialsBlock = makeCustomElement('ul', ['socials']);
 		socials.forEach((social) => {
-			const socialLi = renderSocial(social);
+      const socialLi = makeCustomElement('li', ['nav-list-social'])
+        const socialAnchor = renderSocial(social);
+        socialLi.append(socialAnchor)
 			socialsBlock.append(socialLi);
 		});
 		rightContainer.append(linksRight, socialsBlock);
