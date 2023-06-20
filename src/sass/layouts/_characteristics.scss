@@ -1,6 +1,7 @@
 @use '../utilities/colors' as *;
 
 .characteristics {
+  position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -133,12 +134,6 @@
 		.section__heading {
 			display: none;
 		}
-	}
-	.static {
-		position: relative;
-		top: 0;
-		left: 0;
-		transform: translate(0) !important;
 	}
 }
 @media (min-width: 1400px) {
