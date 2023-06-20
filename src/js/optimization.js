@@ -228,6 +228,7 @@ const renderSocial = (social) => {
 	const socialAnchor = makeCustomElement('a');
 	socialAnchor.setAttribute('rel', 'noopener');
 	socialAnchor.setAttribute('href', social.href);
+  socialAnchor.setAttribute('aria-label', social.label)
 	const socialIcon = makeCustomElement('i', ['bx', `bxl-${social.icon}`]);
 	socialAnchor.append(socialIcon);
 	listItem.append(socialAnchor);
@@ -260,24 +261,24 @@ const renderMobileNavbar = (navbar, links, socials) => {
     burger.setAttribute('aria-expanded', 'false')
     burger.setAttribute('aria-controls', 'nav-list')
 		const navList = makeCustomElement('ul', ['nav-list']);
-		const navListBackground = makeCustomElement('div', ['nav-list-background']);
-		navList.append(navListBackground);
 		links.forEach((link) => {
 			const linkLi = renderLink(link);
 			navList.append(linkLi);
 		});
-		const navListSocials = makeCustomElement('div', [
-			'socials',
-			'nav-list-item',
-		]);
-		socials.forEach((social) => {
-			const socialLi = renderSocial(social);
-			navListSocials.append(socialLi);
-		
-		});
+    const navListSocialsLi = makeCustomElement('li', [])
+      const navListSocials = makeCustomElement('div', [
+        'socials',
+        'nav-list-item',
+      ]);
+      socials.forEach((social) => {
+        const socialLi = renderSocial(social);
+        navListSocials.append(socialLi);
+      });
+      navListSocialsLi.append(navListSocials)
+    const navListBackground = makeCustomElement('div', ['nav-list-background']);
     navList.setAttribute('id', 'nav-list')
-		navList.append(navListSocials);
-		mobileNav.append(logo, burger, navList);
+		navList.append(navListSocialsLi);
+		mobileNav.append(logo, burger, navList, navListBackground);
 		navbar.append(mobileNav);
 	}
 };
@@ -424,15 +425,18 @@ const renderDesktopOrMobile = () => {
   const navSocials = [
     {
       icon: 'gmail',
-      href: '#'
+      href: '#',
+      label: 'Link do maila grupowego'
     },
     {
       icon: 'facebook-square',
-      href: '#'
+      href: '#',
+      label: 'Link do facebooka'
     },
     {
       icon: 'linkedin-square',
-      href: '#'
+      href: '#',
+      label: 'Link do linkedin'
     }
   ]
 
