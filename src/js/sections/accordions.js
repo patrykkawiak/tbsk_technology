@@ -1,5 +1,6 @@
 let accordions = document.querySelectorAll('.accordion');
 let accordionContents = document.querySelectorAll('.accordion-content');
+let accordionHeadings = document.querySelectorAll('.accordion-heading')
 
 const prepAccordions = () => {
 	accordionContents.forEach((content) => {
@@ -7,16 +8,16 @@ const prepAccordions = () => {
 	});
 };
 
-const handleAccordionContent = (target, index) => {
+const handleAccordionContent = (heading, index) => {
 	const accordionContent = accordionContents[index];
-	if (accordionContent.style.maxHeight != '0px' && target.classList.contains('accordion-heading')) {
+	if (accordionContent.style.maxHeight != '0px' && heading.classList.contains('accordion-heading')) {
 		accordionContent.style.maxHeight = '0px';
-    accordionContent.setAttribute('aria-expanded', 'false')
+    heading.setAttribute('aria-expanded', 'false')
 	} else {
 		closeAllAccordions();
 		const accordionHeight = accordionContents[index].scrollHeight;
 		accordionContent.style.maxHeight = `${accordionHeight}px`;
-    accordionContent.setAttribute('aria-expanded', 'true')
+    heading.setAttribute('aria-expanded', 'true')
 	}
 };
 
@@ -35,8 +36,10 @@ const outsideClick = (e) => {
 const closeAllAccordions = () => {
 	accordionContents.forEach((el) => {
 		el.style.maxHeight = '0';
-    el.setAttribute('aria-expanded', 'false')
 	});
+  accordionHeadings.forEach(el => {
+    el.setAttribute('aria-expanded', 'false')
+  })
 };
 
 accordions.forEach((accordion, index) => {
@@ -56,6 +59,7 @@ window.addEventListener('resize', () => {
     oldAccordion.replaceWith(accordion)
   })
   accordionContents = document.querySelectorAll('.accordion-content');
+  accordionHeadings = document.querySelectorAll('.accordion-heading');
   prepAccordions()
 });
 window.addEventListener('click', outsideClick);

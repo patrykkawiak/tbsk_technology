@@ -41,24 +41,23 @@ const navHandler = () => {
 	const navbar = document.querySelector('.navbar');
 	const oldBurgerIcon = document.querySelector('.burger-icon');
 	const mnavItems = document.querySelectorAll('.mobile-nav a');
-  const navList = document.querySelector('.mobile-nav .nav-list')
 	const oldNavListBackground = document.querySelector('.nav-list-background');
 	const reveal = () => {
 		burgerIcon.classList.toggle('active');
 		navbar.classList.toggle('active');
-    let isExpanded = navList.getAttribute('aria-expanded')
+    let isExpanded = burgerIcon.getAttribute('aria-expanded')
     if(isExpanded == 'false'){
       isExpanded = false
-    } 
+    }
     else {
       isExpanded = true
     }
-    navList.setAttribute('aria-expanded', !isExpanded)
+    burgerIcon.setAttribute('aria-expanded', !isExpanded)
 	};
 	const close = () => {
 		burgerIcon.classList.remove('active');
+    burgerIcon.setAttribute('aria-expanded', 'false')
 		navbar.classList.remove('active');
-    navList.setAttribute('aria-expanded', 'false')
 	};
 	const burgerIcon = oldBurgerIcon.cloneNode(true);
 	burgerIcon.addEventListener('click', reveal);
@@ -187,7 +186,7 @@ const projectsParallaxHandler = () => {
   else if (scrollValue > firstAnchorPoint) {
     projectsShowcase.style.transform = `translate(0, Calc(-100% + ${window.innerHeight + (scrollValue - firstAnchorPoint) * 2}px))`
   }
-};
+}
 
 const firstSection = document.querySelector('.processes');
 const secondSection = document.querySelector('.characteristics');

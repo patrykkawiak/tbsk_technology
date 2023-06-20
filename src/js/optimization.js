@@ -22,10 +22,11 @@ const renderProcessMobile = (section, accordions) => {
 			const accordionBlock = makeCustomElement('div', ['accordion']);
 			const heading = makeCustomElement('button', ['accordion-heading']);
       heading.setAttribute('aria-controls', `processes-accordion-${index+1}`)
+      heading.setAttribute('aria-expanded', 'false')
+      heading.setAttribute('aria-label', 'Zwija lub rozwija treść bloku akordeonu')
 			const arrow = makeCustomElement('i', ['bx', 'bx-down-arrow-circle']);
 			heading.append(arrow, accordion.button);
 			const content = makeCustomElement('div', ['accordion-content']);
-        content.setAttribute('aria-expanded', 'false')
         content.setAttribute('id', `processes-accordion-${index+1}`)
 			const label = makeCustomElement(
 				'h3',
@@ -250,13 +251,14 @@ const renderMobileNavbar = (navbar, links, socials) => {
 			'Logo przedstawiające szopa stworzonego z prostych kształtów geometrycznych.'
 		);
 		logo.append(logoImg);
-		const burger = makeCustomElement('div', ['burger-icon']);
+		const burger = makeCustomElement('button', ['burger-icon']);
 		for (let i = 0; i < 3; i++) {
 			const burgerBar = makeCustomElement('div', ['bar']);
 			burger.append(burgerBar);
 		}
     burger.setAttribute('aria-label', 'Włącznik lub wyłącznik nawigacji mobilnej')
-    burger.setAttribute('id', 'burger-button')
+    burger.setAttribute('aria-expanded', 'false')
+    burger.setAttribute('aria-controls', 'nav-list')
 		const navList = makeCustomElement('ul', ['nav-list']);
 		const navListBackground = makeCustomElement('div', ['nav-list-background']);
 		navList.append(navListBackground);
@@ -273,8 +275,7 @@ const renderMobileNavbar = (navbar, links, socials) => {
 			navListSocials.append(socialLi);
 		
 		});
-    navList.setAttribute('aria-controls', 'burger-button')
-    navList.setAttribute('aria-expanded', 'false')
+    navList.setAttribute('id', 'nav-list')
 		navList.append(navListSocials);
 		mobileNav.append(logo, burger, navList);
 		navbar.append(mobileNav);

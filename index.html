@@ -203,10 +203,10 @@
 
       <div class="accordions">
         <div class="accordion"  data-aos="fade-right" data-aos-delay="100" data-aos-once="true" data-aos-duration="800">
-          <button class="accordion-heading" aria-controls="faq-accordion-1">
+          <button class="accordion-heading" aria-label="Zwija lub rozwija treść bloku akordeonu" aria-expanded="false" aria-controls="faq-accordion-1">
             <i class="bx bx-down-arrow-circle"></i> Czym jest hosting?
           </button>
-          <div class="accordion-content" id="faq-accordion-1" aria-expanded="false">
+          <div class="accordion-content" id="faq-accordion-1">
             <p class="accordion-label">Hosting to serwer, miejsce w internecie na twoją stronę</p>
             <p class="accordion-text">
               Pozwala on na zarezerwowanie miejsca na swoją stronę na serwerze kogoś innego i wprowadzenie naszej pracy do sieci. Można to porównać do opłaty za działkę, którą ktoś wynajmuje dla Ciebie.
@@ -214,10 +214,10 @@
           </div>
         </div>
         <div class="accordion"  data-aos="fade-left" data-aos-delay="200" data-aos-once="true" data-aos-duration="800">
-          <button class="accordion-heading" aria-controls="faq-accordion-2">
+          <button class="accordion-heading" aria-label="Zwija lub rozwija treść bloku akordeonu" aria-expanded="false" aria-controls="faq-accordion-2">
             <i class="bx bx-down-arrow-circle"></i> Czy hosting jest uwzględniony w cenie usługi?
           </button>
-          <div class="accordion-content" id="faq-accordion-2" aria-expanded="false">
+          <div class="accordion-content" id="faq-accordion-2">
             <p class="accordion-label">Cena hostingu nie jest uwzględniana w naszą wycenę</p>
             <p class="accordion-text">
               Wykupienie hostingu to będzie Twoje zadanie, w którym możemy pomóc. Po wrzuceniu strony na hosting, będziemy mogli później uwzględniać wszelkie zmiany już zdalnie, z własnego komputera i nie będziemy potrzebowali do tego Twoich danych do logowania.
@@ -225,10 +225,10 @@
           </div>
         </div>
         <div class="accordion"  data-aos="fade-right" data-aos-delay="300" data-aos-once="true" data-aos-duration="800">
-          <button class="accordion-heading" aria-controls="faq-accordion-3">
+          <button class="accordion-heading" aria-label="Zwija lub rozwija treść bloku akordeonu" aria-expanded="false" aria-controls="faq-accordion-3">
             <i class="bx bx-down-arrow-circle"></i> Czy zmiany na stronie są odpłatnie?
           </button>
-          <div class="accordion-content" id="faq-accordion-3" aria-expanded="false">
+          <div class="accordion-content" id="faq-accordion-3">
             <p class="accordion-label">Oferujemy bezpłatne nieduże zmiany rok po skończeniu umowy o wykonanie usługi.</p>
             <p class="accordion-text">
               Inaczej by to wyglądało, gdyby zmiany były duże m. in. nowa unikalna sekcja lub całkowita zmiana obecnych. Wtedy zajmuje to zdecydowanie więcej czasu. Jednakże, wszystkie zmiany jak podmienienie tekstu, zdjęć, małe zmiany struktury - one będą przez rok za darmo.
@@ -246,8 +246,8 @@
         najlepiej
         potrafimy.
       </p>
-      <button class="button primary buttoners">Skontaktuj się z nami</button>
-      <div class="form-box" aria-hidden="true">
+      <button class="button primary buttoners" aria-controls="form-box" aria-label="Otwiera popup formularza kontaktowego">Skontaktuj się z nami</button>
+      <div id="form-box" class="form-box" aria-hidden="true">
         <div class="open-form-inner">
           <form action="#">
             <div class="form-header">
@@ -258,7 +258,6 @@
             <input name="user_name" type="text" required>
             <label for="user_email">Email</label>
             <input name="user_email" type="email" required>
-
             <label for="telephone">Numer telefonu</label>
             <div class="tel-phone-numbers">
               <input type="tel" name="tel1" maxlength="1" pattern="[0-9]" class="form-controls" required autocomplete="off">
@@ -293,10 +292,10 @@
           <p>Patryk jest doświadczonym i wciąż rozwijającym się web developerem. Do każdego projektu podchodzi bardzo profesjonalnie a jego nowatorskie prodejście sprawia, że każdy jego pomysł jest unikalny i wprowadza wiele nowości.</p>
 
           <div class="whoweare-item--links">
-            <a href="https://patrykkawiak-portfolio.pl" rel="noopener" class="button secondary protfolio-click" target="_blank">Portfolio</a>
+            <a href="https://patrykkawiak-portfolio.pl" aria-label="Portfolio Patryka Kawiaka" rel="noopener" class="button secondary protfolio-click" target="_blank">Portfolio</a>
             <ul>
-              <li><a href="#"><i class="bx bxl-gmail"></i></a></li>
-              <li><a href="#"><i class="bx bxs-phone"></i></a></li>
+              <li><a href="#" aria-label="Mail Patryka Kawiaka"><i class="bx bxl-gmail"></i></a></li>
+              <li><a href="#" aria-label="Numer telefonu Patryka Kawiaka"><i class="bx bxs-phone"></i></a></li>
             </ul>
           </div>
         </div>
@@ -310,10 +309,10 @@
             różnorodnych kursów z zakresu tworzenia stron.</p>
 
           <div class="whoweare-item--links">
-            <a href="https://github.com/KacperSmietanski" rel="noopener" class="button secondary protfolio-click" target="_blank">Portfolio</a>
+            <a href="https://github.com/KacperSmietanski" aria-label="Portfolio Kacpra Śmietańskiego" rel="noopener" class="button secondary protfolio-click" target="_blank">Portfolio</a>
             <ul>
-              <li><a href="#"><i class="bx bxl-gmail"></i></a></li>
-              <li><a href="#"><i class="bx bxs-phone"></i></a></li>
+              <li><a href="#" aria-label="Mail Kacpra Śmietańskiego"><i class="bx bxl-gmail"></i></a></li>
+              <li><a href="#" aria-label="Numer telefonu Kacpra Śmietańskiego"><i class="bx bxs-phone"></i></a></li>
             </ul>
           </div>
         </div>
@@ -326,11 +325,11 @@
             Kocha stawiać sobie wyzwania na drodze programowania, aby potem wpadać na unikalne rozwiązania. 
           </p>
           <div class="whoweare-item--links">
-            <a href="https://github.com/edekstrazak" rel="noopener"
+            <a href="https://github.com/edekstrazak" aria-label="Portfolio Mateusza Tryca" rel="noopener"
               class="button secondary protfolio-click" target="_blank">Portfolio</a>
             <ul>
-              <li><a href="#"><i class="bx bxl-gmail"></i></a></li>
-              <li><a href="#"><i class="bx bxs-phone"></i></a></li>
+              <li><a href="#" aria-label="Mail Mateusza Tryca"><i class="bx bxl-gmail"></i></a></li>
+              <li><a href="#" aria-label="Numer telefonu Mateusza Tryca"><i class="bx bxs-phone"></i></a></li>
             </ul>
           </div>
         </div>
@@ -343,10 +342,10 @@
             stron internetowych.</p>
 
           <div class="whoweare-item--links">
-            <a href="https://github.com/ciornecki" rel="noopener" class="button secondary protfolio-click" target="_blank">Portfolio</a>
+            <a href="https://github.com/ciornecki" aria-label="Portfolio Dawida Budziłka" rel="noopener" class="button secondary protfolio-click" target="_blank">Portfolio</a>
             <ul>
-              <li><a href="#"><i class="bx bxl-gmail"></i></a></li>
-              <li><a href="#"><i class="bx bxs-phone"></i></a></li>
+              <li><a href="#"><i aria-label="Mail Dawida Budziłka" class="bx bxl-gmail"></i></a></li>
+              <li><a href="#"><i aria-label="Numer telefonu Dawida Budziłka" class="bx bxs-phone"></i></a></li>
             </ul>
           </div>
         </div>
