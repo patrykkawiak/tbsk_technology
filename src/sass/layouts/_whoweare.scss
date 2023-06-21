@@ -1,17 +1,19 @@
 @use '../utilities/colors' as *;
 
 .whoweare {
-	background-color: $background-color_2;
-  padding-top: 0;
+	background-image: $eighth-section-gradient;
+	padding-top: 0;
 }
 .whoweare-item-wrapper {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	gap: 90px 96px;
+	grid-template-columns: repeat(1, 1fr);
+	gap: 95px 96px;
 	max-width: 990px;
 	margin: auto;
 }
 .whoweare-item {
+  display: flex;
+  flex-direction: column;
 	text-align: center;
 	background-color: transparent;
 	.whoweare-item-name {
@@ -20,21 +22,28 @@
 		font-size: 2rem;
 		color: $color_4;
 		padding: 3rem 0;
+		transition: 0.4s;
 	}
 	p {
+    flex-grow: 1;
 		font-size: 1.5rem;
-		line-height: 30px;
 		color: $color_3;
 		text-align: left;
 		padding-bottom: 3rem;
 		border-bottom: 2px solid #ffffff;
 	}
 }
+.protfolio-click {
+  &::after {
+    content: 'Portfolio'
+  }
+}
 .whoweare-img {
 	width: 224px;
 	height: 224px;
 	border-radius: 50%;
 	margin: auto;
+  overflow: hidden;
 }
 .whoweare-item--links {
 	display: flex;
@@ -44,10 +53,13 @@
 	ul {
 		display: flex;
 		align-items: center;
-    gap: 1rem;
+		gap: 1rem;
 		li {
 			a {
 				display: inline-block;
+        font-size: 3rem;
+        color: #fff;
+        transition: transform .3s;
 				&:hover {
 					transform: scale(1.2);
 				}
@@ -55,31 +67,14 @@
 		}
 	}
 }
-.protfolio-click {
-	font-weight: 400;
-	font-size: 1.5rem;
-	color: $color_6;
-	display: inline-block;
-	padding: 1rem 2rem;
-	background-color: $background-color_3;
-	transition: 0.2s;
-	&:hover {
-		background-color: $background-color_5;
-	}
-}
 .img-fluid {
 	max-width: 100%;
 	height: auto;
 }
+.whoweare-item-name:hover {
+	text-shadow: 0 0 4px #868664e3;
+}
 @media screen and (max-width: 768px) {
-	html {
-		font-size: 68.75%;
-	}
-	.whoweare-item-wrapper {
-		display: grid;
-		grid-template-columns: repeat(1, 1fr);
-		gap: 50px 100px;
-	}
 	.whoweare-item {
 		text-align: center;
 		background: transparent;
@@ -93,28 +88,12 @@
 		height: 160px;
 	}
 }
-@media screen and (min-width: 768px) and (max-width: 991px) {
-	html {
-		font-size: 75%;
-	}
-	.whoweare-item-wrapper {
-		display: grid;
-		grid-template-columns: repeat(1, 1fr);
-		gap: 50px 30px;
-	}
-}
-@media screen and (min-width: 992px) and (max-width: 1200px) {
-	html {
-		font-size: 81.25%;
-	}
-}
-@media screen and (min-width: 1201px) and (max-width: 1400px) {
-	html {
-		font-size: 87.5%;
-	}
-}
-@media screen and (min-width: 1401px) and (max-width: 1450px) {
-	html {
-		font-size: 93.75%;
-	}
+
+@media (min-width: 768px) {
+  .whoweare-item-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8rem;
+    max-width: 900px;
+  }
 }

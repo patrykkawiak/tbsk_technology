@@ -1,3 +1,5 @@
+@use '../utilities/colors' as *;
+
 .burger-icon {
 	display: flex;
 	flex-direction: column;
@@ -7,6 +9,8 @@
 	width: 3rem;
 	height: 4rem;
 	padding: 0.5rem 0;
+  border: 0;
+  background: none;
 	.bar {
     width: 100%;
 		height: 2px;
@@ -31,8 +35,21 @@ nav {
 	height: 5rem;
 	background-color: #fff;
 	z-index: 1000;
+  ul {
+    list-style: none;
+  }
 	.navbar {
+    position: relative;
 		padding: 0rem 2rem;
+    &.active .nav-list {
+      opacity: 1 !important;
+      pointer-events: all !important;
+      transform: translateX(0) !important;
+    }
+    &.active .nav-list-background {
+      opacity: 1 !important;
+      pointer-events: all !important;
+    }
 		.mobile-nav {
 			display: flex;
 			align-items: center;
@@ -42,13 +59,17 @@ nav {
         object-fit: cover;
 			}
 			.nav-list {
-				display: none;
 				width: 70%;
 				height: calc(100vh - 5rem);
 				position: absolute;
 				left: 0;
 				top: 5rem;
 				background-color: #fff;
+        opacity: 0;
+        transform: translateX(-50%);
+        pointer-events: none;
+        transition: transform .3s, opacity .2s;
+        z-index: 10;
 				.nav-list-item {
 					padding: 2rem;
 					font-size: 1.5rem;
@@ -65,13 +86,17 @@ nav {
 					}
 				}
 			}
-			.nav-list::before {
-				content: '';
+			.nav-list-background {
 				position: absolute;
-				right: -100%;
+        top: 5rem;
+				left: 0;
 				width: 100%;
-				height: 100%;
+				height: Calc(100vh - 5rem);
 				background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        pointer-events: none;
+        z-index: 5;
+        transition: opacity .3s;
 			}
 		}
 		.mobile-nav.active .nav-list {
@@ -88,26 +113,39 @@ nav {
 				height: 100%;
 				display: flex;
 				align-items: center;
+        li {
+          height: 100%;
+        }
 				.flex-left,
 				.flex-right {
 					display: flex;
 					align-items: center;
+          height: 100%;
 					.nav-list-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
 						font-size: 1.4rem;
 						padding: 1rem;
+            height: 100%;
+            &.active {
+              background-color: $main-green;
+              color:white;
+            }
+            &:hover {
+              color: $main-green;
+            }
 					}
 				}
-        .flex-left {
-          .nav-list-item:first-child {
-            padding-left: 0;
-          }
+        .flex-left:first-child {
+          margin-left: -1rem;
         }
 				.flex-right {
 					margin-left: auto;
 					gap: 2rem;
 					.right-links {
+            height: 100%;
 						display: flex;
-						gap: 1rem;
 					}
 					.socials {
 						margin-top: 0.3rem;
@@ -115,6 +153,9 @@ nav {
 						align-items: center;
 						.nav-socials-item {
 							font-size: 2.5rem;
+              &:hover {
+                color: $main-green;
+              }
 						}
 					}
 				}
@@ -157,10 +198,21 @@ nav {
 		.navbar {
 			.desktop-nav {
 				.nav-list {
+          .flex-left {
+            .nav-list-item {
+              padding: 1rem 1.5rem;
+            }
+          }
+          .flex-left:first-child {
+            margin-left: -1.5rem;
+          }
 					.flex-right {
 						.socials {
 							gap: 0.5rem;
 						}
+            .nav-list-item {
+              padding: 1rem 1.5rem;
+            }
 					}
 				}
 			}

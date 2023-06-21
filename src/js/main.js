@@ -1,10 +1,8 @@
-const burgerIcon = document.querySelector('.burger-icon');
-const navbar = document.querySelector('.mobile-nav');
-
 const introText = document.querySelectorAll('.intro-text');
 const introBtn = document.querySelector('.intro-btn');
-const mnavItem = document.querySelectorAll('.mobile-nav a');
-
+const racoon = document.querySelector('.racoon');
+const intro = document.querySelector('.intro');
+const nav = document.querySelector('.navbar');
 let viewportWidth = window.innerWidth;
 
 const cards = document.querySelectorAll('.services__cards .card');
@@ -39,95 +37,106 @@ const cardOutsideHandler = (e) => {
 	}
 };
 
-const navRevealHandler = () => {
-	burgerIcon.addEventListener('click', () => {
+const navHandler = () => {
+	const navbar = document.querySelector('.navbar');
+	const oldBurgerIcon = document.querySelector('.burger-icon');
+	const mnavItems = document.querySelectorAll('.mobile-nav a');
+	const oldNavListBackground = document.querySelector('.nav-list-background');
+	const reveal = () => {
 		burgerIcon.classList.toggle('active');
 		navbar.classList.toggle('active');
+    let isExpanded = burgerIcon.getAttribute('aria-expanded')
+    if(isExpanded == 'false'){
+      isExpanded = false
+    }
+    else {
+      isExpanded = true
+    }
+    burgerIcon.setAttribute('aria-expanded', !isExpanded)
+	};
+	const close = () => {
+		burgerIcon.classList.remove('active');
+    burgerIcon.setAttribute('aria-expanded', 'false')
+		navbar.classList.remove('active');
+	};
+	const burgerIcon = oldBurgerIcon.cloneNode(true);
+	burgerIcon.addEventListener('click', reveal);
+	oldBurgerIcon.replaceWith(burgerIcon);
+	mnavItems.forEach((oldItem) => {
+		const item = oldItem.cloneNode(true);
+		item.addEventListener('click', close);
+		oldItem.replaceWith(item);
 	});
-};
-
-const navCloseHandler = () => {
-	mnavItem.forEach((item) => {
-		item.addEventListener('click', () => {
-			burgerIcon.classList.remove('active');
-			navbar.classList.remove('active');
-		});
-	});
+	const navListBackground = oldNavListBackground.cloneNode();
+	navListBackground.addEventListener('click', close);
+	oldNavListBackground.replaceWith(navListBackground);
 };
 
 const headerParallaxHandler = () => {
 	if (viewportWidth < 768) {
 		const intro = document.querySelector('.intro');
 		intro.classList.remove('fixed');
+    introBtn.style.opacity = '1'
+    racoon.style.opacity = '1'
+    introText.forEach(text => {
+      text.style.transform = 'translate(0, 0)'
+    })
 		return;
 	}
 
-	const offsetY = window.pageYOffset;
-	const rate = window.pageYOffset * 0.5;
-	const opacityValue = offsetY / 100;
+	const offsetY = window.scrollY;
+	const rate = window.scrollY * 0.1;
+	const opacityValue = 1 / (offsetY / 100 + 1);
 
-	introText[0].style.transform = `translate(${rate * 8}px)`;
+	introText[0].style.transform = `translate(${rate * 14}px)`;
 	introText[1].style.transform = `translate(${rate * -3}px)`;
-	introText[2].style.transform = `translate(${rate * 6}px)`;
-	introText[3].style.transform = `translate(${rate * 7}px)`;
+	introText[2].style.transform = `translate(${rate * 16}px)`;
+	introText[3].style.transform = `translate(${rate * 17}px)`;
 	introText[4].style.transform = `translate(${rate * -9}px)`;
-	introText[5].style.transform = `translate(${rate * 11}px)`;
+	introText[5].style.transform = `translate(${rate * 17.5}px)`;
 
-	introBtn.style.opacity = `${0.5 / opacityValue}`;
-	if (offsetY >= 200) {
-		introBtn.style.opacity = 0;
-		introBtn.style.display = 'none';
+	if (offsetY > window.innerHeight) {
+		intro.style.pointerEvents = 'none';
+		intro.style.opacity = '0';
 	} else {
-		introBtn.style.display = 'block';
-	}
-
-	if (offsetY >= 800) {
-		introText.forEach((text) => (text.style.display = 'none'));
-	} else {
-		introText.forEach((text) => (text.style.display = 'block'));
+		introBtn.style.opacity = `${opacityValue}`;
+		racoon.style.opacity = `${opacityValue}`;
+		intro.style.pointerEvents = 'all';
+		intro.style.opacity = '1';
 	}
 };
 
-// Processes - accordions
-
-const accordions = document.querySelectorAll('.accordion-heading');
-
-const openAccordion = (e) => {
-	if (e.target.nextElementSibling.classList.contains('active')) {
-		e.target.nextElementSibling.classList.remove('active');
-	} else {
-		closeAllAccordions();
-		e.target.nextElementSibling.classList.toggle('active');
-	}
-};
-
-const closeAllAccordions = () => {
-	const accordionContent = document.querySelectorAll('.accordion-content');
-	accordionContent.forEach((el) => {
-		el.classList.remove('active');
-	});
-};
-
-const accordionOutsideHandler = (e) => {
-	if (
-		e.target.classList.contains('accordion-heading') ||
-		e.target.classList.contains('accordion-content')
-	)
-		return;
-	closeAllAccordions();
-};
 // Processes - list
-
+const processesInfo = [
+	{
+		heading: 'Jak przebiegają rozmowy?',
+		text: 'Zaczynamy od określenia świadczonej usługi. Jeżeli jest to budowa lub projektowanie, to pytamy czy istnieje jakieś logo, bądź wizytówka firmy. Następnie zapytamy o treści, które miałyby się znaleźć na stronie. Na podstawie tego tworzymy wyłącznie strukturę i wyceniamy projekt. Następnie zaczynamy projektować.',
+		button: 'Konsultacja',
+	},
+	{
+		heading: 'Jak wygląda prezentacja projektu?',
+		text: 'Po skończeniu projektu strony, przedstawiamy go Tobie do ocenienia. Wtedy przyjmujemy wszelkie uwagi dot. doboru kolorów, budowy sekcji itd. Tłumaczymy też, czemu pewne elementy muszą zawierać niektóre cechy. Później nanosimy wszelkie zmiany.',
+		button: 'Prezentacja',
+	},
+	{
+		heading: 'Czym jest etap zatwierdzenia?',
+		text: 'To krok, w którym decydujesz się na podjęcie lub odrzucenie naszych usług. Jeżeli zlecisz nam stworzenie strony, to przekażemy Ci ile prawdopodobnie zajmie to nam czasu. Dodatkowo będziemy potrzebowali dokładnych treści, które mają się finalnie znaleźć na Twojej witrynie.',
+		button: 'Zatwierdzenie',
+	},
+	{
+		heading: 'Wykonanie projektu!',
+		text: 'Ten krok zostaw nam! Od razu zabierzemy się do tworzenia Twojej wymarzonej wizytówki internetowej. Podczas tego czasu możesz nam przekazać wszelkie dodatkowe informacje, a my weźmiemy je pod uwagę. Po zakończonej pracy zostało tylko umieścić ją na hostingu.',
+		button: 'Wykonanie',
+	},
+];
 const processTitle = document.querySelector('.processes-content-title');
-
 const processText = document.querySelector('.processes-content-text');
-
-const processBtns = document.querySelectorAll('.processes-list-box');
-
+const processBtns = document.querySelectorAll('.processes-list-item');
 const chengeProcess = (e) => {
 	const btn = e.target;
 
 	if (btn.classList.contains('active')) {
+		return;
 	} else {
 		closeAllProcesses();
 		btn.classList.toggle('active');
@@ -140,145 +149,70 @@ const closeAllProcesses = () => {
 };
 
 const setContent = () => {
-	if (processBtns[0].classList.contains('active')) {
-		processTitle.textContent = 'Jak przebiegają rozmowy?';
-		processText.textContent = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque nam dolore voluptate quisquam est impedit molestiae laboriosam, unde reprehenderit ullam, nesciunt nobis repellat repellendus? Ea minima voluptatum temporibus quam delectus Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur officiis saepe, cumque placeat, possimus consectetur, tenetur voluptas est illo nobis harum praesentium asperiores! Cumque autem odit veniam, tenetur illo tempora?`;
-	} else if (processBtns[1].classList.contains('active')) {
-		processTitle.textContent = 'Jak wygląda prezentacja projektu?';
-		processText.textContent = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque nam dolore voluptate quisquam est impedit molestiae laboriosam, ptas est illo nobis harum praesentium asperiores! Cumque autem odit veniam, tenetur illo tempora?`;
-	} else if (processBtns[2].classList.contains('active')) {
-		processTitle.textContent = 'Co to jest zatwierdzenie?';
-		processText.textContent = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque nam dolore voluptate quisquam est impedit molestiae laboriosam, unde reprehenderit ullam, nesciunt nobis repellat repellendus? Ea minima voluptatum temporibus quam delectus Lorem ipsum dolor sit amet, conseumque autem odit veniam, tenetur illo tempora?`;
-	} else if (processBtns[3].classList.contains('active')) {
-		processTitle.textContent = 'Wykonanie projektu!';
-		processText.textContent = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque nam dolore voluptate quisquam est impedit molestiae laboriosam, unde reprehenderit ullam, nesciunt nobis repellat repellendus? Ea minima voluptatum temporibus quam delectus Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur officiis saepe, cumque placeat, possimus consectetur, tenetur voluptas est illo nobis harum praesentium asperiores! Cumque autem odit veniam, tenetur illo tempora?ellendus? Ea minima voluptatum temporibus quam delectus Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur officiis saepe, cumque plac`;
+	for (let i = 0; i < processesInfo.length; i++) {
+		if (processBtns[i].classList.contains('active')) {
+			processTitle.textContent = processesInfo[i].heading;
+			processText.textContent = processesInfo[i].text;
+			return;
+		}
 	}
 };
 
 /* PROJECTS PARALLAX */
-
-const parallaxSection = document.querySelector('.projects-desktop-cnt');
-const parallaxItems = document.querySelectorAll('.projects-parallax');
-const section = document.querySelector('.projects');
-
 const prevSection = document.querySelector('.services');
-const nextSection = document.querySelector('.processes');
-
-let viewport = window.innerWidth;
-
-let prevSectionOffset = prevSection.offsetTop;
-let firstAnchorPoint = prevSectionOffset + prevSection.offsetHeight;
-let secondAnchorPoint = nextSection.offsetTop - nextSection.offsetHeight;
-
+const nextSection = document.querySelector('.parallax-hero');
 const projectsParallaxHandler = () => {
-	if (viewport < 992) return;
-
-	let scrollTop = window.pageYOffset;
-	let scrollToAnchor = nextSection.offsetHeight + nextSection.offsetTop;
-
-	/* 	console.log(`Scroll top: ${scrollTop}`)
-	console.log(`firstAnchor: ${firstAnchorPoint}`)
-	console.log(`secondAnchor: ${secondAnchorPoint}`)
-	console.log(`scrollToAnchor: ${scrollToAnchor}`) */
-
-	if (scrollTop >= firstAnchorPoint) {
-		parallaxSection.classList.add('fixed-pr');
-
-		/* 		parallaxItems[0].style.transform = `translate(0px, -${scrollTop - firstAnchorPoint}px)`
-		parallaxItems[1].style.transform = `translate(0px, ${scrollTop - firstAnchorPoint}px)` */
-	}
-	if (scrollTop >= secondAnchorPoint || scrollTop < firstAnchorPoint) {
-		parallaxSection.classList.remove('fixed-pr');
-	}
-	if (scrollTop >= secondAnchorPoint) {
-		parallaxItems[0].classList.add('bottom');
-	} else {
-		parallaxItems[0].classList.remove('bottom');
-	}
-
-	if (parallaxSection.classList.contains('fixed-pr')) {
-		parallaxItems[0].style.transform = `translate(0px, -${
-			scrollTop - firstAnchorPoint
-		}px)`;
-		parallaxItems[1].style.transform = `translate(0px, ${
-			scrollTop - firstAnchorPoint
-		}px)`;
-	}
-
-	if (
-		!parallaxSection.classList.contains('.fixed-pr') &&
-		scrollTop >= secondAnchorPoint
-	) {
-		parallaxItems[1].classList.add('imgs-bottom');
-	} else {
-		parallaxItems[1].classList.remove('imgs-bottom');
-	}
-};
+	if (viewportWidth < 992){
+    nextSection.style.transform = 'translate(0, 0)'
+    return 
+  }
+  const projectsShowcase = document.querySelector('.projects-desktop-cnt .projects-showcase');
+  const projects = document.querySelectorAll('.projects-desktop-cnt .project')
+  let prevSectionOffset = prevSection.offsetTop;
+	const sectionHeading = document.querySelector('.projects .section__heading');
+  const scrollValue = window.scrollY
+	let firstAnchorPoint =
+		prevSectionOffset +
+		prevSection.offsetHeight +
+		sectionHeading.offsetHeight +
+    Math.floor(nav.offsetHeight / 2)
+	let secondAnchorPoint = nextSection.offsetTop - window.innerHeight + Math.floor(nav.offsetHeight / 2)
+  if (scrollValue < firstAnchorPoint) {
+    projectsShowcase.style.transform = `translate(0, Calc(-100% + ${window.innerHeight}px))`
+  }
+  else if (scrollValue > secondAnchorPoint){
+    projectsShowcase.style.transform = `translate(0, ${(projects.length - 1) * window.innerHeight}px)`
+  }
+  else if (scrollValue > firstAnchorPoint) {
+    projectsShowcase.style.transform = `translate(0, Calc(-100% + ${window.innerHeight + (scrollValue - firstAnchorPoint) * 2}px))`
+  }
+}
 
 const firstSection = document.querySelector('.processes');
 const secondSection = document.querySelector('.characteristics');
-const sectionOffSet = firstSection.offsetTop;
-const nav = document.querySelector('.navbar');
-const navHeight = nav.offsetHeight;
+const parallaxHero = document.querySelector('.parallax-hero');
+
 const handleParallaxSection = () => {
-	if (viewportWidth < 992) return;
-	let scrollPermision;
-	const scrollValue = window.scrollY;
-	const rate = parseInt((scrollValue - sectionOffSet) / 10);
-	const firstAnchor = sectionOffSet - navHeight <= scrollValue;
-
-	if (firstAnchor && !secondSection.classList.contains('static')) {
-		firstSection.classList.add('parallax-sticky');
-		scrollPermision = true;
-	} else {
-		firstSection.classList.remove('parallax-sticky');
-	}
-
-	if (
-		!firstSection.classList.contains('parallax-sticky') &&
-		!firstSection.classList.contains('parallax-static')
-	) {
-		secondSection.style.transform = `translateX(0)`;
-		firstSection.style.transform = `translateX(0)`;
-	}
-
-	const secondSectionRect = secondSection.getBoundingClientRect();
-	const firstSectionRect = firstSection.getBoundingClientRect();
-	const secondSectionTop = secondSectionRect.top;
-	const firstSectionTop = firstSectionRect.top;
-	
-	if (rate > 100 && secondSectionTop === firstSectionTop) {
-		firstSection.classList.remove('parallax-sticky');
-		firstSection.classList.add('parallax-static');
-		secondSection.style.marginTop = `${firstSectionTop + (navHeight * 2)}px`;
-		secondSection.classList.add('static');
-		scrollPermision = false;
-	} else {
-		if (secondSection.classList.contains('static')) {
-			const secondOffSet = secondSection.offsetTop;
-			if (secondOffSet - navHeight >= scrollValue) {
-				firstSection.classList.add('parallax-sticky');
-				firstSection.classList.remove('parallax-static');
-				secondSection.classList.remove('static');
-				secondSection.style.marginTop = '0';
-				scrollPermision = true;
-			}
-			scrollPermision = false;
-		} else {
-			scrollPermision = true;
-		}
-	}
-
-	if (scrollPermision) {
-		secondSection.style.transform = `translateX(-${rate}%)`;
-		firstSection.style.transform = `translateX(-${rate}%)`;
-	}
-
-	if (rate >= 100) {
-		secondSection.classList.remove('quick-fix');
-	} else if (rate <= 100) {
-		secondSection.classList.add('quick-fix');
-	}
+	if (viewportWidth < 992){
+    secondSection.style.transform = 'translate(0, 0)'
+    parallaxHero.style.height = '0'
+    return
+  }  
+  const firstAnchor = parallaxHero.offsetTop - window.scrollY
+  const secondAnchor = firstAnchor + viewportWidth
+  parallaxHero.style.height = `Calc(${window.innerHeight + viewportWidth}px - 5rem)`
+  if(secondAnchor <= 0) {
+    firstSection.style.transform = `translate(-${viewportWidth}px, 0)`
+    secondSection.style.transform = `translate(0, ${secondAnchor}px)`
+  }
+  else if(firstAnchor <= 0) {
+    firstSection.style.transform = `translate(${firstAnchor}px, 0)`
+    secondSection.style.transform =  `translate(Calc(100% + ${firstAnchor}px), 0)`
+  }
+  else {
+    firstSection.style.transform = `translate(0, ${firstAnchor}px)`
+    secondSection.style.transform = `translate(100%, ${firstAnchor}px)`
+  }
 };
 
 // parallax Items
@@ -318,41 +252,35 @@ secondSection.addEventListener('mouseout', () => {
 
 // functions actions
 
-const handleRemoveDOMElements = () => {
-	const mobileProcesses = document.querySelector('.processes-mobile');
-	// mobileProcesses.remove();
-	// dodac dynamiczna werjse na PC...
-};
-
 window.onload = () => {
 	headerParallaxHandler();
-	setContent();
-	if (viewportWidth >= 992) handleRemoveDOMElements();
-};
-
-processBtns.forEach((btn) => btn.addEventListener('click', chengeProcess));
-
-accordions.forEach((accordion) =>
-	accordion.addEventListener('click', openAccordion)
-);
-
-window.onclick = (e) => {
-	accordionOutsideHandler(e);
-	cardOutsideHandler(e);
-};
-
-window.onscroll = () => {
-	headerParallaxHandler();
+	if (viewportWidth <= 768) {
+		navHandler();
+	}
 	projectsParallaxHandler();
 	handleParallaxSection();
 };
 
-navCloseHandler();
-navRevealHandler();
+processBtns.forEach((btn) => btn.addEventListener('click', chengeProcess));
 
-window.onresize = () => {
-	let viewportWidth = window.innerWidth;
+window.addEventListener('click', (e) => {
+	cardOutsideHandler(e);
+});
 
+window.addEventListener('scroll', () => {
+	headerParallaxHandler();
+	projectsParallaxHandler();
+	handleParallaxSection();
+});
+
+window.addEventListener('resize', () => {
+	viewportWidth = window.innerWidth;
+  headerParallaxHandler()
+	if (viewportWidth <= 768) {
+		navHandler();
+	}
 	if (viewportWidth >= 992) return;
+  handleParallaxSection();
+  projectsParallaxHandler()
 	cardsActivatorHandler();
-};
+});

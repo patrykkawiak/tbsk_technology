@@ -4,21 +4,19 @@
 	overflow: hidden;
 	width: 100%;
 	background: $fourth-section-gradient;
-
 	.processes-mobile {
 		.accordions {
 			display: flex;
 			flex-direction: column;
 			.accordion {
 				width: 100%;
-
+				border-top: 2px solid gray;
 				.accordion-heading {
 					text-align: left;
 					width: 100%;
 					border: none;
-					border-top: 2px solid gray;
 					font-size: 2rem;
-					padding: 2rem 1.2rem;
+					padding: 2rem;
 					background-color: transparent;
 					color: white;
 					display: flex;
@@ -33,29 +31,23 @@
 				.accordion-content {
 					display: flex;
 					flex-direction: column;
-					gap: 2rem;
-					height: 0;
 					overflow: hidden;
-					padding: 0rem 2rem;
-					transition: 0.5s;
+					transition: max-height 0.5s;
 					.accordion-label {
 						color: white;
 						font-size: 1.8rem;
+						padding: 2rem;
 					}
 					.accordion-text {
 						color: rgb(184, 184, 184);
 						font-size: 1.5rem;
+						padding: 0 2rem 2rem;
 					}
-				}
-				.active {
-					height: max-content;
-					padding: 3rem 2rem;
 				}
 			}
 			.accordion:last-child {
-				.accordion-heading {
-					border-bottom: 2px solid gray;
-				}
+				border-bottom: 2px solid gray;
+				border-top: 2px solid gray;
 			}
 		}
 	}
@@ -64,66 +56,79 @@
 		.processes-ctn {
 			display: flex;
 			padding: 0 2rem;
-			align-items: flex-start;
+			align-items: center;
+			justify-content: center;
 			.processes-list {
-				width: 45%;
 				display: flex;
+				flex-direction: column;
+				gap: 1rem;
 				justify-content: center;
-
+				align-items: center;
 				list-style: none;
-				.processes-list-container {
+				width: 45%;
+				.processes-list-box {
 					display: flex;
 					flex-direction: column;
-					gap: 2rem;
-					width: 20rem;
-					.processes-list-box {
+					gap: 1rem;
+					.processes-list-item {
 						display: flex;
 						align-items: center;
 						gap: 0.8rem;
-						cursor: pointer;
 						background: transparent;
 						border: none;
-						.processes-list-item {
+						transform-origin: left;
+						transform: scale(1);
+						transition: transform 0.3s;
+						cursor: pointer;
+						&.active {
+							transform: scale(1.2);
+							.dot::after {
+								opacity: 1;
+							}
+						}
+						.processes-list-item-text {
 							font-size: 2rem;
 							color: white;
-							padding: 0 0.5rem;
+							padding: 0.5rem;
 							pointer-events: none;
-							transition: font-size 0.3s;
+							transition: transform 0.3s;
 						}
 						.dot {
+							position: relative;
 							height: 0.7rem;
 							width: 0.7rem;
 							background-color: #fff;
 							border-radius: 50%;
 							pointer-events: none;
 							transition: all 0.3s;
-						}
-					}
-					.active {
-						.processes-list-item {
-							font-size: 2.5rem;
-						}
-						.dot {
-							height: 1rem;
-							width: 1rem;
-							background-color: lime;
+							&::after {
+								content: '';
+								position: absolute;
+								top: 0;
+								left: 0;
+								width: 100%;
+								height: 100%;
+								border-radius: 50%;
+								background-color: $lighter-green;
+								opacity: 0;
+							}
 						}
 					}
 				}
 			}
-			.processes-content {
-				width: 45%;
-				color: white;
-				display: flex;
-				flex-direction: column;
-				gap: 2rem;
-				.processes-content-title {
-					font-size: 2.5rem;
-				}
-				.processes-content-text {
-					font-size: 1.3rem;
-					color: grey;
-				}
+		}
+		.processes-content {
+			width: 45%;
+			color: white;
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+			.processes-content-title {
+				font-size: 1.8rem;
+			}
+			.processes-content-text {
+				font-size: 1.3rem;
+				color: #c0c0c0;
 			}
 		}
 	}
@@ -131,19 +136,17 @@
 
 @media (min-width: 992px) {
 	.processes {
-		z-index: 49;
-		position: relative;
+    position: fixed;
+    top: 5rem;
 		display: flex;
 		justify-content: center;
 		gap: 10vh;
 		flex-direction: column;
 		height: calc(100vh - 5rem);
+    z-index: 49;
+    transform: translateX(100%);
 		.section__heading {
 			padding: 0;
-		}
-		.section-line {
-			display: block;
-			width: 100%;
 		}
 		.processes-mobile {
 			display: none;
@@ -151,13 +154,6 @@
 		.processes-desktop {
 			display: block;
 		}
-	}
-	.parallax-sticky {
-		position: sticky;
-		top: 5rem;
-	}
-	.parallax-static {
-		transform: translate(0) !important;
 	}
 }
 @media (min-width: 1200px) {

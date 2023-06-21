@@ -1,7 +1,10 @@
 @use '../utilities/colors' as *;
 
 .services {
+	position: relative;
+	z-index: 1;
 	background: $second-section-gradient;
+	padding-bottom: 4rem;
 	&__cards {
 		.card {
 			display: flex;
@@ -10,6 +13,7 @@
 			align-items: center;
 			position: relative;
 			height: 20rem;
+			min-height: 250px;
 			background-size: cover;
 			background-position: center;
 			isolation: isolate;
@@ -31,6 +35,7 @@
 				font-size: 1rem;
 				color: white;
 				z-index: 100;
+				transition: transform 0.3s;
 				&-icon {
 					font-size: 2.5rem;
 				}
@@ -46,20 +51,30 @@
 			left: 0;
 			width: 100%;
 			height: 5px;
-			background-color: #fff;
+			background-color: $lighter-green;
 			z-index: 1000;
 			display: none;
 			opacity: 0;
 			transition: 0.3s;
 		}
-		.card:hover::after {
+		.card:hover::after,
+		.card:focus::after {
 			display: block;
 			opacity: 1;
 		}
-		.card:hover .card__text {
+		.card:hover::before,
+		.card:focus::before {
+			opacity: 0.85;
+		}
+		.card:hover .card__text,
+		.card:focus .card__text {
 			display: block;
 			opacity: 1;
 			animation: cardSlidein 0.3s forwards;
+		}
+		.card:hover .card__intro,
+		.card:focus .card__intro {
+			transform: translateY(-5px);
 		}
 		.card.active::after {
 			display: block;
@@ -70,6 +85,9 @@
 			opacity: 1;
 			animation: cardSlidein 0.3s forwards;
 		}
+		.card:focus {
+			outline: none;
+		}
 	}
 	.card::before {
 		position: absolute;
@@ -78,8 +96,10 @@
 		content: '';
 		width: 100%;
 		height: 100%;
-		background-color: rgba(0, 0, 0, 0.6);
+		background-color: rgba(0, 0, 0);
+		opacity: 0.6;
 		z-index: 10;
+		transition: opacity 0.3s;
 	}
 
 	$services-cards: projektowanie budowa uiux optymalizacja;
@@ -87,7 +107,7 @@
 	$i: 1;
 	@each $item in $services-cards {
 		.#{$item} {
-			background-image: url('../../dist/img/cards-img\ \(#{$i}\).jpg');
+			background-image: url('../../dist/img/cards-img#{$i}.webp');
 		}
 		$i: $i + 1;
 	}
@@ -127,15 +147,6 @@
 		}
 	}
 }
-/* @media (min-width: 1400px) {
-	.services {
-		&__cards {
-			.card {
-				min-height: 60rem;
-			}
-		}
-	}
-} */
 
 @keyframes cardSlidein {
 	from {

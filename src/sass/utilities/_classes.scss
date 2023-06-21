@@ -1,16 +1,8 @@
 @use '../utilities/colors' as *;
-.section {
-	&__title {
-		font-size: 1em;
-	}
-	&__text {
-		font-size: 0.6em;
-		&--big {
-			font-size: 0.8em;
-		}
-	}
-}
 
+ul {
+	list-style: none;
+}
 .hidden {
 	display: none !important;
 }
@@ -27,7 +19,7 @@
 }
 .section__heading {
 	display: flex;
-	flex-direction: column;
+	flex-direction: column-reverse;
 	text-align: center;
 	isolation: isolate;
 	h2 {
@@ -35,13 +27,14 @@
 		flex-direction: column;
 	}
 	.section__text {
+    position: relative;
 		margin: 0 auto;
-		position: relative;
+    padding: 0 1rem;
+		width: max-content;
 		font-size: 1.5rem;
 		font-family: 'Darker Grotesque', sans-serif;
 		color: #ababab;
-		padding: 0 1rem;
-		width: max-content;
+    line-height: 1em;
 		z-index: 1000;
 	}
 	.section__text::before,
@@ -63,13 +56,14 @@
 	}
 	.section__title {
 		color: white;
-		font-size: 3.3rem;
+    line-height: 1em;
 	}
 }
 
 .section-line {
 	position: absolute;
 	display: none;
+	width: 100%;
 	.line {
 		height: 2px;
 		width: 100%;
@@ -101,5 +95,15 @@
 			left: 20%;
 			top: 50%;
 		}
+	}
+}
+
+.parallax-hero {
+  background: $fourth-section-gradient;
+}
+
+@media (min-height: 500px) and (min-width: 992px) {
+	.section-line {
+		display: block;
 	}
 }
