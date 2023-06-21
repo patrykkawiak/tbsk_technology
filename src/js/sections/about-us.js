@@ -24,7 +24,7 @@ const handleAboutUs = () => {
 	let index = 0
 	setInterval(() => {
 		index = handleRotate(index)
-	}, 3300)
+	}, 4000)
 }
 
 handleAboutUs()
