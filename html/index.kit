@@ -1,39 +1,24 @@
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TBSK Technology</title>
+  <title>TBSK Technology - profesjonalne i nowoczesne strony internetowe</title>
+  <meta name="description" content="Tworzymy kompleksowo strony dla różnych działalności i przedsiębiorstw w internecie. Dołącz do grona zadowolonych klientów.">
   <!-- BOX-ICONS FONT USAGE -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Anton&family=Darker+Grotesque:wght@300;400&family=Open+Sans:wght@300;700&display=swap"
-    rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TBSK Technology</title>
-    <!-- BOX-ICONS FONT USAGE -->
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-
-    <link rel="stylesheet" href="./dist/css/main.min.css" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  </head>
-
+  <link rel="stylesheet" href="./dist/css/main.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
 <body>
   <nav>
     <div class="navbar">
     </div>
   </nav>
   <header>
-    <div class="intro fixed">
+    <div class="intro">
       <div class="intro-left">
         <h1 class="intro-text-cnt">
           <span class="intro-text">Wprowadź</span>
@@ -46,7 +31,7 @@
         <a href="#about-us" class="button primary intro-btn">Poznaj nas bliżej</a>
       </div>
       <div class="racoon">
-        <img class="racoon-img" src="./dist/img/racoon.webp" alt="Zdjęcie szopa z podniesionymi rękoma, logo firmy" loading="lazy">
+        <img class="racoon-img" src="./dist/img/racoon.webp" alt="Zdjęcie szopa z podniesionymi rękoma, logo firmy">
       </div>
     </div>
   </header>
@@ -55,11 +40,11 @@
       <h2 class="section__heading section__padding">
         <span class="section__title">Jesteśmy grupą</span>
       </h2>
-      <div class="rotating-block" data-aos="zoom-out" data-aos-delay="100" data-aos-offset="200" data-aos-once="true" data-aos-duration="800">
-        <h3 class="rotating-block-item section__text--big">świeżo upieczonych programistów.</h3>
-        <h3 class="rotating-block-item section__text--big standby">zmotywowanych młodych ludzi.</h3>
-        <h3 class="rotating-block-item section__text--big standby">osób otwartych na innych.</h3>
-        <h3 class="rotating-block-item section__text--big standby">przyjaciół ze wspólnym hobby.</h3>
+      <div class="rotating-block" data-aos="zoom-out" data-aos-delay="100" data-aos-once="true" data-aos-duration="500">
+        <h3 aria-describedby="aboutus-info-1" class="rotating-block-item section__text--big">świeżo upieczonych programistów.</h3>
+        <h3 aria-describedby="aboutus-info-2" class="rotating-block-item section__text--big standby">zmotywowanych młodych ludzi.</h3>
+        <h3 aria-describedby="aboutus-info-3" class="rotating-block-item section__text--big standby">osób otwartych na innych.</h3>
+        <h3 aria-describedby="aboutus-info-4" class="rotating-block-item section__text--big standby">przyjaciół ze wspólnym hobby.</h3>
         <div class="rotating-block-dashed-bg absolute-center"></div>
       </div>
       <div class="rotating-block-indicators">
@@ -68,17 +53,17 @@
         <div class="dot"></div>
         <div class="dot"></div>
       </div>
-      <div class="fading-info" data-aos="zoom-out" data-aos-delay="300" data-aos-offset="200" data-aos-once="true" data-aos-duration="800">
-        <p class="fading-info-item section__text">
-          Po aktualnych kursach jesteśmy świadomi dzisiejszych standardów webowych i praktykujemy najlepsze rozwiązania.
+      <div class="fading-info" data-aos="zoom-out" data-aos-delay="200" data-aos-once="true" data-aos-duration="500">
+        <p class="fading-info-item section__text" id="aboutus-info-1">
+          Po aktualnych kursach jesteśmy świadomi dzisiejszych standardów webowych i praktykujemy najbardziej profesjonalne rozwiązania.
         </p>
-        <p class="fading-info-item section__text not-visible">
+        <p class="fading-info-item section__text not-visible" id="aboutus-info-2">
           Po dłuższym czasie poświęconym nauce, jesteśmy gotowi do wkroczenia na rynek pracy pełni pomysłów i ambicji.
         </p>
-        <p class="fading-info-item section__text not-visible">
+        <p class="fading-info-item section__text not-visible" id="aboutus-info-3">
           Nie mamy problemów z komunikacją z klientem, zawsze gotowi na wszelkie uwagi i propozycje.
         </p>
-        <p class="fading-info-item section__text not-visible">
+        <p class="fading-info-item section__text not-visible" id="aboutus-info-4">
           W zdrowej i przyjemnej atmosferze pracy ciężej o pomówienia i pomyłki, a to odbija się pozytywnie na
           projektach :)
         </p>
@@ -88,10 +73,10 @@
     <section class="services" id="services">
       <h2 class="section__heading section__padding">
         <strong class="section__title">Nasze Usługi</strong>
-        <span class="section__text">strony internetowe i nie tylko</span>
+        <span class="section__text">kompleksowość naszych działań</span>
       </h2>
       <div class="services__cards">
-        <div class="card projektowanie" data-aos="zoom-in" data-aos-offset="100" data-aos-once="true" data-aos-delay="200" tabindex="0">
+        <div class="card projektowanie" data-aos="zoom-in" data-aos-once="true" data-aos-delay="200" tabindex="0">
           <p class="card__text">Oferujemy bezpłatny projekt Twojej strony internetowej.
             Po prezentacji będziemy gotowi na wszelkie uwagi, które uwzględnimy w ewentualnych poprawkach.</p>
           <div class="card__intro">
@@ -99,15 +84,15 @@
             <h3 class="card__intro-title">Projektowanie</h3>
           </div>
         </div>
-        <div class="card budowa" data-aos="zoom-in" data-aos-offset="100" data-aos-once="true" data-aos-delay="500" tabindex="0">
+        <div class="card budowa" data-aos="zoom-in" data-aos-once="true" data-aos-delay="300" tabindex="0">
           <p class="card__text">Stworzymy (bądz przebudujemy) Twoją stronę internetową. 
-            Zadbamy, aby była pełna jedynie najlepszych rozwiązań i godnie reprezentwała twoją działalność w internecie</p>
+            Zadbamy, aby była pełna jedynie najlepszych rozwiązań i godnie reprezentwała twój biznes w internecie</p>
           <div class="card__intro">
             <i class='bx bxs-layer card__intro-icon'></i>
             <h3 class="card__intro-title">Budowa</h3>
           </div>
         </div>
-        <div class="card uiux" data-aos="zoom-in" data-aos-offset="100" data-aos-once="true" data-aos-delay="800" tabindex="0">
+        <div class="card uiux" data-aos="zoom-in" data-aos-once="true" data-aos-delay="400" tabindex="0">
           <p class="card__text">Zaprojektujemy dla Ciebie idealną strukture i interfejs Twojej strony
             bazując na najświeższych praktykach, aby zachęcić użytkowników do powrotu w przyszłości. </p>
           <div class="card__intro">
@@ -115,9 +100,9 @@
             <h3 class="card__intro-title">UI/UX</h3>
           </div>
         </div>
-        <div class="card optymalizacja" data-aos="zoom-in" data-aos-offset="100" data-aos-once="true" data-aos-delay="1100" tabindex="0">
+        <div class="card optymalizacja" data-aos="zoom-in" data-aos-once="true" data-aos-delay="500" tabindex="0">
           <p class="card__text">Zajmiemy się optymalizacją wydajności i usprawnimy SEO twojej strony, aby działała ona
-            jak najlepiej i pozycjonowała się wysoko w przeglądarce.</p>
+            jak najlepiej i pozycjonowała się wysoko w sieci.</p>
           <div class="card__intro">
             <i class='bx bxs-zap card__intro-icon'></i>
             <h3 class="card__intro-title">Optymalizacja</h3>
@@ -153,7 +138,7 @@
     <section class="characteristics section__padding">
       <div class="section-line line-top">
         <div class="line">
-          <hspan class="text">Nasze cechy</hspan>
+          <span class="text">Nasze cechy</span>
         </div>
       </div>
       <h2 class="section__heading section__padding">
@@ -161,7 +146,7 @@
         <span class="section__text">co nas wyróżnia</span>
       </h2>
       <div class="characteristics-ctn">
-        <img src="./dist/img/characteristics.png" alt="obrazek">
+        <img src="./dist/img/characteristics.png" alt="Obrazek przedstawiający człowieka pracującego na laptopie na obozie w lesie." loading="lazy">
         <div class="characteristics-items">
           <div class="characteristics-item">
               <h3 class="item-heading">Oryginalność</h3>
@@ -198,7 +183,7 @@
       </h2>
       <div class="pricing-content">
         <div class="pricing-img">
-          <img src="/dist/img/question.png" alt="guy thinking" class="img-fluid">
+          <img src="./dist/img/question.png" alt="Człowiek siedzący na znaku zapytania, głowiący się nad czymś." class="img-fluid">
         </div>
         <ul>
           <li class="price-text pricing-text-one">Designu</li>
@@ -217,33 +202,33 @@
       </h2>
 
       <div class="accordions">
-        <div class="accordion" data-aos="fade-right" data-aos-delay="200" data-aos-offset="700" data-aos-once="true" data-aos-duration="800">
-          <button class="accordion-heading">
+        <div class="accordion"  data-aos="fade-right" data-aos-delay="100" data-aos-once="true" data-aos-duration="800">
+          <button class="accordion-heading" aria-label="Zwija lub rozwija treść bloku akordeonu" aria-expanded="false" aria-controls="faq-accordion-1">
             <i class="bx bx-down-arrow-circle"></i> Czym jest hosting?
           </button>
-          <div class="accordion-content">
+          <div class="accordion-content" id="faq-accordion-1">
             <p class="accordion-label">Hosting to serwer, miejsce w internecie na twoją stronę</p>
             <p class="accordion-text">
-              Pozwala on na zarezerwowanie miejsca na swoją stronę na serwerze kogoś innego. Można to porównać do opłaty za działkę, którą ktoś wynajmuje dla Ciebie.
+              Pozwala on na zarezerwowanie miejsca na swoją stronę na serwerze kogoś innego i wprowadzenie naszej pracy do sieci. Można to porównać do opłaty za działkę, którą ktoś wynajmuje dla Ciebie.
             </p>
           </div>
         </div>
-        <div class="accordion" data-aos="fade-left" data-aos-delay="400" data-aos-offset="700" data-aos-once="true" data-aos-duration="800">
-          <button class="accordion-heading">
+        <div class="accordion"  data-aos="fade-left" data-aos-delay="200" data-aos-once="true" data-aos-duration="800">
+          <button class="accordion-heading" aria-label="Zwija lub rozwija treść bloku akordeonu" aria-expanded="false" aria-controls="faq-accordion-2">
             <i class="bx bx-down-arrow-circle"></i> Czy hosting jest uwzględniony w cenie usługi?
           </button>
-          <div class="accordion-content">
+          <div class="accordion-content" id="faq-accordion-2">
             <p class="accordion-label">Cena hostingu nie jest uwzględniana w naszą wycenę</p>
             <p class="accordion-text">
               Wykupienie hostingu to będzie Twoje zadanie, w którym możemy pomóc. Po wrzuceniu strony na hosting, będziemy mogli później uwzględniać wszelkie zmiany już zdalnie, z własnego komputera i nie będziemy potrzebowali do tego Twoich danych do logowania.
             </p>
           </div>
         </div>
-        <div class="accordion" data-aos="fade-right" data-aos-delay="600" data-aos-offset="700" data-aos-once="true" data-aos-duration="800">
-          <button class="accordion-heading">
+        <div class="accordion"  data-aos="fade-right" data-aos-delay="300" data-aos-once="true" data-aos-duration="800">
+          <button class="accordion-heading" aria-label="Zwija lub rozwija treść bloku akordeonu" aria-expanded="false" aria-controls="faq-accordion-3">
             <i class="bx bx-down-arrow-circle"></i> Czy zmiany na stronie są odpłatnie?
           </button>
-          <div class="accordion-content">
+          <div class="accordion-content" id="faq-accordion-3">
             <p class="accordion-label">Oferujemy bezpłatne nieduże zmiany rok po skończeniu umowy o wykonanie usługi.</p>
             <p class="accordion-text">
               Inaczej by to wyglądało, gdyby zmiany były duże m. in. nowa unikalna sekcja lub całkowita zmiana obecnych. Wtedy zajmuje to zdecydowanie więcej czasu. Jednakże, wszystkie zmiany jak podmienienie tekstu, zdjęć, małe zmiany struktury - one będą przez rok za darmo.
@@ -261,19 +246,18 @@
         najlepiej
         potrafimy.
       </p>
-      <button class="button primary buttoners">Skontaktuj się z nami</button>
-      <div class="form-box hidden">
+      <button class="button primary buttoners" aria-controls="form-box" aria-label="Otwiera popup formularza kontaktowego">Skontaktuj się z nami</button>
+      <div id="form-box" class="form-box" aria-hidden="true">
         <div class="open-form-inner">
           <form action="#">
             <div class="form-header">
               <h3>Napisz do nas maila</h3>
-              <span class="cross"><img src="/dist/img/x-mark.png" alt=""></span>
+              <span class="cross"><i class="bx bx-x-circle"></i></span>
             </div>
             <label for="user_name">Imię i nazwisko</label>
-            <input name="user_name" type="text">
+            <input name="user_name" type="text" required>
             <label for="user_email">Email</label>
             <input name="user_email" type="email" required>
-
             <label for="telephone">Numer telefonu</label>
             <div class="tel-phone-numbers">
               <input type="tel" name="tel1" maxlength="1" pattern="[0-9]" class="form-controls" required autocomplete="off">
@@ -286,9 +270,8 @@
               <input type="tel" name="tel8" maxlength="1" pattern="[0-9]" class="form-controls" required autocomplete="off">
               <input type="tel" name="tel9" maxlength="1" pattern="[0-9]" class="form-controls" required autocomplete="off">
             </div>
-            <label for="message">Informacje</label>
+            <label for="message">Wiadomość</label>
             <textarea name="message" cols="30" rows="1" required></textarea>
-
             <button class="button primary form-submit-btn" type="submit">WYŚLIJ</button>
           </form>
         </div>
@@ -301,68 +284,68 @@
         <span class="section__text">poznaj nas bliżej</span>
       </h2>
       <div class="whoweare-item-wrapper">
-        <div class="whoweare-item" data-aos="fade-right" data-aos-delay="800" data-aos-offset="800" data-aos-once="true" data-aos-duration="800">
+        <div class="whoweare-item" data-aos="fade-right" data-aos-delay="200" data-aos-once="true" data-aos-duration="800">
           <div class="whoweare-img">
-            <img src="/dist/img/tomy (1).png" class="img-fluid" alt="">
+            <img src="./dist/img/avatar.jpg" class="img-fluid" alt="Zdjęcie Patryka Kawiaka">
           </div>
-          <h3 class="whoweare-item-name" >Patryk Kawiak</h3>
+          <span class="whoweare-item-name" >Patryk Kawiak</span>
           <p>Patryk jest doświadczonym i wciąż rozwijającym się web developerem. Do każdego projektu podchodzi bardzo profesjonalnie a jego nowatorskie prodejście sprawia, że każdy jego pomysł jest unikalny i wprowadza wiele nowości.</p>
 
           <div class="whoweare-item--links">
-            <a href="https://patrykkawiak-portfolio.pl" class="button secondary protfolio-click" target="_blank">Portfolio</a>
+            <a href="https://patrykkawiak-portfolio.pl" aria-label="Portfolio Patryka Kawiaka" rel="noopener" class="button secondary protfolio-click" target="_blank">Portfolio</a>
             <ul>
-              <li><a href="mailto:patryk.kawiak@icloud.com"><i class="bx bxl-gmail"></i></a></li>
-              <li><a href="tel:+48669416762"><i class="bx bxs-phone"></i></a></li>
+              <li><a href="#" aria-label="Mail Patryka Kawiaka"><i class="bx bxl-gmail"></i></a></li>
+              <li><a href="#" aria-label="Numer telefonu Patryka Kawiaka"><i class="bx bxs-phone"></i></a></li>
             </ul>
           </div>
         </div>
-        <div class="whoweare-item" data-aos="fade-left" data-aos-delay="800" data-aos-offset="800" data-aos-once="true" data-aos-duration="800">
+        <div class="whoweare-item" data-aos="fade-left" data-aos-delay="200" data-aos-once="true" data-aos-duration="800">
           <div class="whoweare-img">
-            <img src="/dist/img/tomy (2).png" class="img-fluid" alt="">
+            <img src="./dist/img/avatar.jpg" class="img-fluid"  alt="Zdjęcie Kacpra Śmietańskiego">
           </div>
-          <h3 class="whoweare-item-name">Kacper Śmietański</h3>
+          <span class="whoweare-item-name">Kacper Śmietański</span>
           <p>Kacper to doświadczony web developer, którego pasją jest tworzenie pięknych i funkcjonalnych
             stron internetowych. Posiada szeroką wiedzę i umiejętności zdobyte podczas ukończenia
             różnorodnych kursów z zakresu tworzenia stron.</p>
 
           <div class="whoweare-item--links">
-            <a href="https://github.com/KacperSmietanski" class="button secondary protfolio-click" target="_blank">Portfolio</a>
+            <a href="https://github.com/KacperSmietanski" aria-label="Portfolio Kacpra Śmietańskiego" rel="noopener" class="button secondary protfolio-click" target="_blank">Portfolio</a>
             <ul>
-              <li><a href="#"><i class="bx bxl-gmail"></i></a></li>
-              <li><a href="#"><i class="bx bxs-phone"></i></a></li>
+              <li><a href="#" aria-label="Mail Kacpra Śmietańskiego"><i class="bx bxl-gmail"></i></a></li>
+              <li><a href="#" aria-label="Numer telefonu Kacpra Śmietańskiego"><i class="bx bxs-phone"></i></a></li>
             </ul>
           </div>
         </div>
-        <div class="whoweare-item" data-aos="fade-right" data-aos-delay="800" data-aos-offset="800" data-aos-once="true" data-aos-duration="800">
+        <div class="whoweare-item" data-aos="fade-right" data-aos-delay="200" data-aos-once="true" data-aos-duration="800">
           <div class="whoweare-img">
-            <img src="/dist/img/tomy (3).png" class="img-fluid" alt="">
+            <img src="./dist/img/avatar.jpg" class="img-fluid"  alt="Zdjęcie Mateusza Tryca">
           </div>
-          <h3 class="whoweare-item-name">Mateusz Tryc</h3>
+          <span class="whoweare-item-name">Mateusz Tryc</span>
           <p>Gitarzysta hobbista, fanatyk gier łamigłówkowych. Uwielbia optymalizować strony i kod najbardziej jak to tylko potrafi.
             Kocha stawiać sobie wyzwania na drodze programowania, aby potem wpadać na unikalne rozwiązania. 
           </p>
           <div class="whoweare-item--links">
-            <a href="https://github.com/edekstrazak"
+            <a href="https://github.com/edekstrazak" aria-label="Portfolio Mateusza Tryca" rel="noopener"
               class="button secondary protfolio-click" target="_blank">Portfolio</a>
             <ul>
-              <li><a href="#"><i class="bx bxl-gmail"></i></a></li>
-              <li><a href="#"><i class="bx bxs-phone"></i></a></li>
+              <li><a href="#" aria-label="Mail Mateusza Tryca"><i class="bx bxl-gmail"></i></a></li>
+              <li><a href="#" aria-label="Numer telefonu Mateusza Tryca"><i class="bx bxs-phone"></i></a></li>
             </ul>
           </div>
         </div>
-        <div class="whoweare-item" data-aos="fade-left" data-aos-delay="800" data-aos-offset="800" data-aos-once="true" data-aos-duration="800">
+        <div class="whoweare-item" data-aos="fade-left" data-aos-delay="200" data-aos-once="true" data-aos-duration="800">
           <div class="whoweare-img">
-            <img src="/dist/img/tomy (4).png" class="img-fluid" alt="">
+            <img src="./dist/img/avatar.jpg" class="img-fluid"  alt="Zdjęcie Dawida Budziłka">
           </div>
-          <h3 class="whoweare-item-name">Dawid Budziłek</h3>
+          <span class="whoweare-item-name">Dawid Budziłek</span>
           <p>Dawid to doświadczony web developer, którego pasją jest tworzenie pięknych i funkcjonalnych
             stron internetowych.</p>
 
           <div class="whoweare-item--links">
-            <a href="https://github.com/ciornecki" class="button secondary protfolio-click" target="_blank">Portfolio</a>
+            <a href="https://github.com/ciornecki" aria-label="Portfolio Dawida Budziłka" rel="noopener" class="button secondary protfolio-click" target="_blank">Portfolio</a>
             <ul>
-              <li><a href="#"><i class="bx bxl-gmail"></i></a></li>
-              <li><a href="#"><i class="bx bxs-phone"></i></a></li>
+              <li><a aria-label="Mail Dawida Budziłka" href="#"><i  class="bx bxl-gmail"></i></a></li>
+              <li><a aria-label="Numer telefonu Dawida Budziłka" href="#"><i class="bx bxs-phone"></i></a></li>
             </ul>
           </div>
         </div>
@@ -373,16 +356,16 @@
     <span class="footer-text">©TBSK Technology</span>
     <ul class="footer-links">
       <li class="footer-link">
-        <a href="https://patrykkawiak-portfolio.pl" target="_blank" rel="noopener">Patryk Kawiak</a>
+        Patryk Kawiak
       </li>
       <li class="footer-link">
-        <a href="https://github.com/KacperSmietanski" target="_blank" rel="noopener">Kacper Śmietański</a>
+        Kacper Śmietański
       </li>
       <li class="footer-link">
-        <a href="https://github.com/edekstrazak" target="_blank" rel="noopener">Mateusz Tryc</a>
+        Mateusz Tryc
       </li>
       <li class="footer-link">
-        <a href="https://github.com/ciornecki" target="_blank" rel="noopener">Dawid Budziłek</a>
+        Dawid Budziłek
       </li>
     </ul>
   </footer>

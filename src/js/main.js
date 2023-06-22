@@ -45,9 +45,18 @@ const navHandler = () => {
 	const reveal = () => {
 		burgerIcon.classList.toggle('active');
 		navbar.classList.toggle('active');
+    let isExpanded = burgerIcon.getAttribute('aria-expanded')
+    if(isExpanded == 'false'){
+      isExpanded = false
+    }
+    else {
+      isExpanded = true
+    }
+    burgerIcon.setAttribute('aria-expanded', !isExpanded)
 	};
 	const close = () => {
 		burgerIcon.classList.remove('active');
+    burgerIcon.setAttribute('aria-expanded', 'false')
 		navbar.classList.remove('active');
 	};
 	const burgerIcon = oldBurgerIcon.cloneNode(true);
@@ -67,6 +76,11 @@ const headerParallaxHandler = () => {
 	if (viewportWidth < 768) {
 		const intro = document.querySelector('.intro');
 		intro.classList.remove('fixed');
+    introBtn.style.opacity = '1'
+    racoon.style.opacity = '1'
+    introText.forEach(text => {
+      text.style.transform = 'translate(0, 0)'
+    })
 		return;
 	}
 
@@ -145,95 +159,60 @@ const setContent = () => {
 };
 
 /* PROJECTS PARALLAX */
-
-const parallaxSection = document.querySelector('.projects-desktop-cnt');
-const parallaxItems = document.querySelectorAll('.projects-parallax');
 const prevSection = document.querySelector('.services');
-const nextSection = document.querySelector('.processes');
-let viewport = window.innerWidth;
-let prevSectionOffset = prevSection.offsetTop;
-
+const nextSection = document.querySelector('.parallax-hero');
 const projectsParallaxHandler = () => {
-	if (viewport < 992) return;
+	if (viewportWidth < 992){
+    nextSection.style.transform = 'translate(0, 0)'
+    return 
+  }
+  const projectsShowcase = document.querySelector('.projects-desktop-cnt .projects-showcase');
+  const projects = document.querySelectorAll('.projects-desktop-cnt .project')
+  let prevSectionOffset = prevSection.offsetTop;
 	const sectionHeading = document.querySelector('.projects .section__heading');
+  const scrollValue = window.scrollY
 	let firstAnchorPoint =
 		prevSectionOffset +
 		prevSection.offsetHeight +
 		sectionHeading.offsetHeight +
-		nav.offsetHeight;
-	let secondAnchorPoint =
-		nextSection.offsetTop -
-		nextSection.offsetHeight +
-		sectionHeading.offsetHeight;
-	const projectsDesktopCnt = document.querySelector('.projects-desktop-cnt');
-	projectsDesktopCnt.style.height = `Calc(600vh + ${sectionHeading.offsetHeight}px)`;
-
-	let scrollTop = window.scrollY;
-	// let scrollToAnchor = nextSection.offsetHeight + nextSection.offsetTop
-	if (scrollTop >= firstAnchorPoint) {
-		parallaxSection.classList.add('fixed-pr');
-	}
-	if (scrollTop >= secondAnchorPoint || scrollTop < firstAnchorPoint) {
-		parallaxSection.classList.remove('fixed-pr');
-	}
-	if (scrollTop >= secondAnchorPoint) {
-		parallaxItems[0].style.transform = `translate(0, 0)`;
-		parallaxItems[1].style.transform = `translate(0, 4200px)`;
-	}
-
-	if (parallaxSection.classList.contains('fixed-pr')) {
-		parallaxItems[0].style.transform = `translate(0px, -${
-			scrollTop - firstAnchorPoint
-		}px)`;
-		parallaxItems[1].style.transform = `translate(0px, ${
-			scrollTop - firstAnchorPoint
-		}px)`;
-	}
-	if (scrollTop < firstAnchorPoint) {
-		parallaxItems[0].style.transform = 'translate(0, 0)';
-		parallaxItems[1].style.transform = 'translate(0, 0)';
-	}
-	if (
-		!parallaxSection.classList.contains('.fixed-pr') &&
-		scrollTop >= secondAnchorPoint
-	) {
-		//o ilość sekcji * 200vh
-		parallaxItems[1].style.transform = `translateY(200vh)`;
-	}
-};
+    Math.floor(nav.offsetHeight / 2)
+	let secondAnchorPoint = nextSection.offsetTop - window.innerHeight + Math.floor(nav.offsetHeight / 2)
+  if (scrollValue < firstAnchorPoint) {
+    projectsShowcase.style.transform = `translate(0, Calc(-100% + ${window.innerHeight}px))`
+  }
+  else if (scrollValue > secondAnchorPoint){
+    projectsShowcase.style.transform = `translate(0, ${(projects.length - 1) * window.innerHeight}px)`
+  }
+  else if (scrollValue > firstAnchorPoint) {
+    projectsShowcase.style.transform = `translate(0, Calc(-100% + ${window.innerHeight + (scrollValue - firstAnchorPoint) * 2}px))`
+  }
+}
 
 const firstSection = document.querySelector('.processes');
 const secondSection = document.querySelector('.characteristics');
 const parallaxHero = document.querySelector('.parallax-hero');
 
 const handleParallaxSection = () => {
-	if (viewportWidth < 992) return;
-	let scrollPermision;
-	const sectionOffSet = firstSection.offsetTop;
-	const navHeight = nav.offsetHeight;
-	parallaxHero.style.height = `${
-		viewportWidth + navHeight - window.innerHeight
-	}px`;
-	const scrollValue = window.scrollY;
-	const rate = scrollValue - sectionOffSet;
-	console.log(rate);
-	if (rate > viewportWidth) {
-		scrollPermision = false;
-		firstSection.style.transform = `translate(-${viewportWidth}px, ${viewportWidth}px)`;
-		secondSection.style.transform = `translate(0, ${
-			viewportWidth - window.innerHeight + navHeight
-		}px)`;
-	} else if (rate <= 0) {
-		scrollPermision = false;
-		firstSection.style.transform = `translate(0, 0)`;
-		secondSection.style.transform = `translate(100%, -100%)`;
-	} else {
-		scrollPermision = true;
-	}
-	if (scrollPermision) {
-		firstSection.style.transform = `translate(-${rate}px, ${rate}px)`;
-		secondSection.style.transform = `translate(Calc(100% - ${rate}px), Calc(-100% + ${rate}px))`;
-	}
+	if (viewportWidth < 992){
+    secondSection.style.transform = 'translate(0, 0)'
+    parallaxHero.style.height = '0'
+    return
+  }  
+  const firstAnchor = parallaxHero.offsetTop - window.scrollY
+  const secondAnchor = firstAnchor + viewportWidth
+  parallaxHero.style.height = `Calc(${window.innerHeight + viewportWidth}px - 5rem)`
+  if(secondAnchor <= 0) {
+    firstSection.style.transform = `translate(-${viewportWidth}px, 0)`
+    secondSection.style.transform = `translate(0, ${secondAnchor}px)`
+  }
+  else if(firstAnchor <= 0) {
+    firstSection.style.transform = `translate(${firstAnchor}px, 0)`
+    secondSection.style.transform =  `translate(Calc(100% + ${firstAnchor}px), 0)`
+  }
+  else {
+    firstSection.style.transform = `translate(0, ${firstAnchor}px)`
+    secondSection.style.transform = `translate(100%, ${firstAnchor}px)`
+  }
 };
 
 // parallax Items
@@ -296,9 +275,12 @@ window.addEventListener('scroll', () => {
 
 window.addEventListener('resize', () => {
 	viewportWidth = window.innerWidth;
+  headerParallaxHandler()
 	if (viewportWidth <= 768) {
 		navHandler();
 	}
 	if (viewportWidth >= 992) return;
+  handleParallaxSection();
+  projectsParallaxHandler()
 	cardsActivatorHandler();
 });

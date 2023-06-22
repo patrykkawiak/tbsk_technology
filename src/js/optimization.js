@@ -18,12 +18,16 @@ const renderProcessMobile = (section, accordions) => {
 	if (!isMade) {
 		const processesMobile = makeCustomElement('div', ['processes-mobile']);
 		const accordionsBlock = makeCustomElement('div', ['accordions']);
-		accordions.forEach((accordion) => {
+		accordions.forEach((accordion, index) => {
 			const accordionBlock = makeCustomElement('div', ['accordion']);
 			const heading = makeCustomElement('button', ['accordion-heading']);
+      heading.setAttribute('aria-controls', `processes-accordion-${index+1}`)
+      heading.setAttribute('aria-expanded', 'false')
+      heading.setAttribute('aria-label', 'Zwija lub rozwija treść bloku akordeonu')
 			const arrow = makeCustomElement('i', ['bx', 'bx-down-arrow-circle']);
 			heading.append(arrow, accordion.button);
 			const content = makeCustomElement('div', ['accordion-content']);
+        content.setAttribute('id', `processes-accordion-${index+1}`)
 			const label = makeCustomElement(
 				'h3',
 				['accordion-label'],
@@ -118,11 +122,13 @@ const renderProject = (project, renderShowcase) => {
 	const descBtns = makeCustomElement('div', ['desc-btns']);
 	const visitBtn = makeCustomElement('a', ['button', 'primary']);
 	visitBtn.setAttribute('href', project.visit);
+  visitBtn.setAttribute('target', '_blank')
 	visitBtn.setAttribute('rel', 'noopener')
 	const visitIcon = makeCustomElement('i', ['bx', 'bx-globe']);
 	visitBtn.append('Odwiedź', visitIcon);
 	const codeBtn = makeCustomElement('a', ['button', 'secondary']);
 	codeBtn.setAttribute('href', project.code);
+  codeBtn.setAttribute('target', '_blank')
 	codeBtn.setAttribute('rel', 'noopener')
 	const codeIcon = makeCustomElement('i', ['bx', 'bx-code-alt']);
 	codeBtn.append('Code', codeIcon);
@@ -218,14 +224,13 @@ const renderLink = (link) => {
 };
 
 const renderSocial = (social) => {
-	const listItem = makeCustomElement('li', ['nav-socials-item']);
-	const socialAnchor = makeCustomElement('a');
+	const socialAnchor = makeCustomElement('a', ['nav-socials-item']);
 	socialAnchor.setAttribute('rel', 'noopener');
 	socialAnchor.setAttribute('href', social.href);
+  socialAnchor.setAttribute('aria-label', social.label)
 	const socialIcon = makeCustomElement('i', ['bx', `bxl-${social.icon}`]);
 	socialAnchor.append(socialIcon);
-	listItem.append(socialAnchor);
-	return listItem;
+	return socialAnchor;
 };
 
 const renderMobileNavbar = (navbar, links, socials) => {
@@ -245,29 +250,33 @@ const renderMobileNavbar = (navbar, links, socials) => {
 			'Logo przedstawiające szopa stworzonego z prostych kształtów geometrycznych.'
 		);
 		logo.append(logoImg);
-		const burger = makeCustomElement('div', ['burger-icon']);
+		const burger = makeCustomElement('button', ['burger-icon']);
 		for (let i = 0; i < 3; i++) {
 			const burgerBar = makeCustomElement('div', ['bar']);
 			burger.append(burgerBar);
 		}
+    burger.setAttribute('aria-label', 'Włącznik lub wyłącznik nawigacji mobilnej')
+    burger.setAttribute('aria-expanded', 'false')
+    burger.setAttribute('aria-controls', 'nav-list')
 		const navList = makeCustomElement('ul', ['nav-list']);
-		const navListBackground = makeCustomElement('div', ['nav-list-background']);
-		navList.append(navListBackground);
 		links.forEach((link) => {
 			const linkLi = renderLink(link);
 			navList.append(linkLi);
 		});
-		const navListSocials = makeCustomElement('div', [
-			'socials',
-			'nav-list-item',
-		]);
-		socials.forEach((social) => {
-			const socialLi = renderSocial(social);
-			navListSocials.append(socialLi);
-		
-		});
-		navList.append(navListSocials);
-		mobileNav.append(logo, burger, navList);
+    const navListSocialsLi = makeCustomElement('li', [])
+      const navListSocials = makeCustomElement('div', [
+        'socials',
+        'nav-list-item',
+      ]);
+      socials.forEach((social) => {
+        const socialLi = renderSocial(social);
+        navListSocials.append(socialLi);
+      });
+      navListSocialsLi.append(navListSocials)
+    const navListBackground = makeCustomElement('div', ['nav-list-background']);
+    navList.setAttribute('id', 'nav-list')
+		navList.append(navListSocialsLi);
+		mobileNav.append(logo, burger, navList, navListBackground);
 		navbar.append(mobileNav);
 	}
 };
@@ -280,15 +289,16 @@ const renderDesktopNavbar = (navbar, links, socials) => {
 	}
 	if (!isMade) {
 		const desktopNav = makeCustomElement('div', ['desktop-nav']);
-		const navList = makeCustomElement('ul', ['nav-list']);
-		const linksLeft = makeCustomElement('div', ['flex-left']);
+		const navList = makeCustomElement('div', ['nav-list']);
+		const linksLeft = makeCustomElement('ul', ['flex-left']);
 		links.forEach((link) => {
 			if (link.onLeft) {
 				const linkLi = renderLink(link);
 				linksLeft.append(linkLi);
 			}
 		});
-		const logo = makeCustomElement('div', ['logo']);
+		const logo = makeCustomElement('a', ['logo']);
+      logo.setAttribute('href', '#')
 		const logoImg = makeCustomElement('img', ['logo-img']);
 		logoImg.setAttribute('src', './dist/img/logo.png');
 		logoImg.setAttribute(
@@ -297,16 +307,18 @@ const renderDesktopNavbar = (navbar, links, socials) => {
 		);
 		logo.append(logoImg);
 		const rightContainer = makeCustomElement('div', ['flex-right']);
-		const linksRight = makeCustomElement('div', ['right-links']);
+		const linksRight = makeCustomElement('ul', ['right-links']);
 		links.forEach((link) => {
 			if (!link.onLeft) {
 				const linkLi = renderLink(link);
 				linksRight.append(linkLi);
 			}
 		});
-		const socialsBlock = makeCustomElement('div', ['socials']);
+		const socialsBlock = makeCustomElement('ul', ['socials']);
 		socials.forEach((social) => {
-			const socialLi = renderSocial(social);
+      const socialLi = makeCustomElement('li', ['nav-list-social'])
+        const socialAnchor = renderSocial(social);
+        socialLi.append(socialAnchor)
 			socialsBlock.append(socialLi);
 		});
 		rightContainer.append(linksRight, socialsBlock);
@@ -314,7 +326,28 @@ const renderDesktopNavbar = (navbar, links, socials) => {
 		desktopNav.append(navList);
 		navbar.append(desktopNav);
 	}
-};
+}
+
+const handleAOS = () => {
+  const whoweareCards = document.querySelectorAll('.whoweare-item')
+  const faqAccordions = document.querySelectorAll('.faq .accordion')
+  if(window.innerWidth >= 992) {
+    whoweareCards.forEach(card => {
+      card.setAttribute('data-aos-offset', '900')
+    })
+    faqAccordions.forEach(accordion => {
+      accordion.setAttribute('data-aos-offset', '400')
+    })
+  }
+  else if(window.innerWidth >= 768) {
+    whoweareCards.forEach(card => {
+      card.setAttribute('data-aos-offset', '300')
+    })
+    faqAccordions.forEach(accordion => {
+      accordion.setAttribute('data-aos-offset', '200')
+    })
+  }
+}
 
 const renderDesktopOrMobile = () => {
   const navbar = document.querySelector('.navbar')
@@ -323,7 +356,7 @@ const renderDesktopOrMobile = () => {
   const processes = [
       {
         heading: 'Jak przebiegają rozmowy?',
-        text: 'Zaczynamy od określenia świadczonej usługi. Jeżeli jest to budowa lub projektowanie, to pytamy czy istnieje jakieś logo, bądź wizytówka firmy. Następnie zapytamy o treści, które miałyby się znaleźć na stronie. Na podstawie tego tworzymy wyłącznie strukturę i wyceniamy projekt. Następnie zaczynamy projektować.',
+        text: 'Zaczynamy od określenia świadczonej usługi. Jeżeli jest to budowa lub projektowanie, to pytamy czy istnieje jakieś logo, bądź wizytówka przedsiębiorstwa. Następnie zapytamy o treści, które miałyby się znaleźć na stronie. Na podstawie tego tworzymy wyłącznie strukturę i wyceniamy projekt. Potem zaczynamy projektować.',
         button: 'Konsultacja',
       },
       {
@@ -333,12 +366,12 @@ const renderDesktopOrMobile = () => {
       },
       {
         heading: 'Czym jest etap zatwierdzenia?',
-        text: 'To krok, w którym decydujesz się na podjęcie lub odrzucenie naszych usług. Jeżeli zlecisz nam stworzenie strony, to przekażemy Ci ile prawdopodobnie zajmie to nam czasu. Dodatkowo będziemy potrzebowali dokładnych treści, które mają się finalnie znaleźć na Twojej witrynie.',
+        text: 'To krok, w którym decydujesz się na podjęcie lub odrzucenie naszych usług. Jeżeli zlecisz nam stworzenie strony, to przekażemy Ci ile prawdopodobnie zajmie to nam czasu. Dodatkowo będziemy potrzebowali dokładnych treści, które mają się finalnie znaleźć na Twojej wizytówce.',
         button: 'Zatwierdzenie',
       },
       {
         heading: 'Wykonanie projektu!',
-        text: 'Ten krok zostaw nam! Od razu zabierzemy się do tworzenia Twojej wymarzonej wizytówki internetowej. Podczas tego czasu możesz nam przekazać wszelkie dodatkowe informacje, a my weźmiemy je pod uwagę. Po zakończonej pracy zostało tylko umieścić ją na hostingu.',
+        text: 'Ten krok zostaw nam! Od razu zabierzemy się do tworzenia Twojej nowoczesnej, wymarzonej wizytówki internetowej. Podczas tego czasu możesz nam przekazać wszelkie dodatkowe informacje, a my weźmiemy je pod uwagę. Po zakończonej pracy zostało tylko umieścić ją na hostingu.',
         button: 'Wykonanie',
       }
   ]
@@ -350,7 +383,7 @@ const renderDesktopOrMobile = () => {
       date: '8.05.2023',
       visit: 'https://power-kwidzyn.pl',
       code: 'https://github.com/patrykkawiak/OSK-Power-Kwidzyn',
-      content: 'Power Kwidzyn to szkółka prawa jazdy, która przez długi czas miała słabo funkcjonującą, przestarzałą stronę internetową. Pomimo niepewności, właściciel działalności postanowił nam zaufać i końcowo jest zadowolony z o wiele lepszej wizytówki w internecie.'
+      content: 'Power Kwidzyn to szkółka prawa jazdy, która przez długi czas miała słabo funkcjonującą, przestarzałą stronę internetową. Pomimo niepewności, właściciel działalności postanowił nam zaufać i końcowo jest zadowolony z o wiele lepszej wizytówki swojego biznesu w internecie.'
     },
     {
       name: 'rebax',
@@ -359,7 +392,7 @@ const renderDesktopOrMobile = () => {
       date: '26.04.2023',
       visit: 'https://rebax.pl',
       code: 'https://github.com/patrykkawiak/Rebax',
-      content: 'Firma Rebax przed naszą usługą nie posiadała strony internetowej. Pomimo tego, że została postawiona niedawno, to dumnie prezentuje tę hurtownię budowlaną, wyświetlając się na pierwszych stronach przeglądarek internautów.'
+      content: 'Firma Rebax przed naszą usługą nie posiadała strony internetowej. Pomimo tego, że została wprowadzona do sieci niedawno, to dumnie prezentuje tę hurtownię budowlaną, wyświetlając się na pierwszych stronach przeglądarek internautów.'
     }
   ]
   const navLinks = [
@@ -392,18 +425,22 @@ const renderDesktopOrMobile = () => {
   const navSocials = [
     {
       icon: 'gmail',
-      href: '#'
+      href: '#',
+      label: 'Link do maila grupowego'
     },
     {
       icon: 'facebook-square',
-      href: '#'
+      href: '#',
+      label: 'Link do facebooka'
     },
     {
       icon: 'linkedin-square',
-      href: '#'
+      href: '#',
+      label: 'Link do linkedin'
     }
   ]
 
+  handleAOS()
 	if (document.body.clientWidth >= 992) {
 		renderProcessDestkop(processesSection, processes);
 		renderProjectsDesktop(projectsSection, projects);

@@ -1,3 +1,4 @@
+@use '../utilities/colors' as *;
 *,
 *::after,
 *::before {
@@ -15,6 +16,7 @@ html {
 
 body {
   position: relative;
+  background: $fourth-section-gradient;
 	font-family: 'Violet Sans';
   max-width: 100vw;
 }
@@ -39,4 +41,13 @@ h4,
 h5,
 h6 {
 	font-weight: normal;
+}
+
+section {
+  img {
+    font: inherit;
+    color: #e0e0e0;
+    font-size: 2rem;
+    line-height: 1.5em;
+  }
 }

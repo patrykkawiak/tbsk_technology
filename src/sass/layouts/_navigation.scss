@@ -9,6 +9,8 @@
 	width: 3rem;
 	height: 4rem;
 	padding: 0.5rem 0;
+  border: 0;
+  background: none;
 	.bar {
     width: 100%;
 		height: 2px;
@@ -37,11 +39,16 @@ nav {
     list-style: none;
   }
 	.navbar {
+    position: relative;
 		padding: 0rem 2rem;
     &.active .nav-list {
       opacity: 1 !important;
       pointer-events: all !important;
       transform: translateX(0) !important;
+    }
+    &.active .nav-list-background {
+      opacity: 1 !important;
+      pointer-events: all !important;
     }
 		.mobile-nav {
 			display: flex;
@@ -62,6 +69,7 @@ nav {
         transform: translateX(-50%);
         pointer-events: none;
         transition: transform .3s, opacity .2s;
+        z-index: 10;
 				.nav-list-item {
 					padding: 2rem;
 					font-size: 1.5rem;
@@ -80,10 +88,15 @@ nav {
 			}
 			.nav-list-background {
 				position: absolute;
-				right: -100%;
+        top: 5rem;
+				left: 0;
 				width: 100%;
-				height: 100%;
+				height: Calc(100vh - 5rem);
 				background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        pointer-events: none;
+        z-index: 5;
+        transition: opacity .3s;
 			}
 		}
 		.mobile-nav.active .nav-list {

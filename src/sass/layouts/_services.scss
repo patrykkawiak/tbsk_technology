@@ -107,7 +107,7 @@
 	$i: 1;
 	@each $item in $services-cards {
 		.#{$item} {
-			background-image: url('../../dist/img/cards-img\ \(#{$i}\).jpg');
+			background-image: url('../../dist/img/cards-img#{$i}.webp');
 		}
 		$i: $i + 1;
 	}

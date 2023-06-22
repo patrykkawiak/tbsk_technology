@@ -2,14 +2,13 @@
 
 .background-image-box {
 	position: absolute;
-	background-image: url('/dist/img/spiralka.svg');
-	// background-position: center;
-	// background-repeat: repeat;
+	background-image: url('../img/pricing-spiral.svg');
 	background-size: 35%;
 	top: 50%;
 	left: 50%;
 	transform: translateY(-50%) translateX(-50%);
-	animation: spin 50s infinite;
+  opacity: .2;
+	animation: spin 50s infinite linear;
 }
 .pricing {
 	position: relative;

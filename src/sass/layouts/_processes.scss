@@ -136,13 +136,15 @@
 
 @media (min-width: 992px) {
 	.processes {
-		z-index: 49;
-		position: relative;
+    position: fixed;
+    top: 5rem;
 		display: flex;
 		justify-content: center;
 		gap: 10vh;
 		flex-direction: column;
 		height: calc(100vh - 5rem);
+    z-index: 49;
+    transform: translateX(100%);
 		.section__heading {
 			padding: 0;
 		}
