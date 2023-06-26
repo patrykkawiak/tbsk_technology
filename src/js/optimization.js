@@ -425,7 +425,7 @@ const renderDesktopOrMobile = () => {
   const navSocials = [
     {
       icon: 'gmail',
-      href: '#',
+      href: 'mailto:tbsktechnology@gmail.com',
       label: 'Link do maila grupowego'
     },
     {
