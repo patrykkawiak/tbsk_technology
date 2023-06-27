@@ -30,7 +30,7 @@
 		color: $color_3;
 		text-align: left;
 		padding-bottom: 3rem;
-		border-bottom: 2px solid #ffffff;
+		border-bottom: 2px solid #fffffe;
 	}
 }
 .protfolio-click {
@@ -58,7 +58,7 @@
 			a {
 				display: inline-block;
         font-size: 3rem;
-        color: #ffffff;
+        color: #fffffe;
         transition: transform .3s;
 				&:hover {
 					transform: scale(1.2);
