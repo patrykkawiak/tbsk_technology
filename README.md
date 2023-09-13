@@ -31,7 +31,7 @@ Website for a company that makes websites
 Clone the project
 
 ```bash
-  git clone https://github.com/patrykkawiak/RecruitmentApp.git
+  git clone https://github.com/patrykkawiak/tbsk_technology.git
 ```
 
 Go to the project directory
